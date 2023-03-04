@@ -1,6 +1,11 @@
 {
     "Google": {
         "username": "example123@gmail.com",
-        "password": "examplepassword"
+        "password": "example123"
+    }, 
+
+    "Facebook": {
+        "username": "example123@gmail.com",
+        "password": "example123"
     }
 }

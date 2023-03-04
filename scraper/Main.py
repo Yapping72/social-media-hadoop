@@ -17,7 +17,9 @@ def main():
 
     #firefox_scraper = FireFoxWebScraper()
     #glassdoor = GlassDoorScraper(firefox_scraper)  
-    glassdoor.login()
+    #glassdoor.loginUsingGoogle()
+    glassdoor.loginUsingFacebook()
+
 
 if __name__ == "__main__":
     main()

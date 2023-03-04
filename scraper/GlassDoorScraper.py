@@ -16,16 +16,39 @@ class GlassDoorScraper:
         self.webpage = GLASSDOOR_WEBSITE
         self.driver = scraper
         self.driver.navigate_to(self.webpage)
-        self.getGmailAccount()
 
-    def getGmailAccount(self, account_type = "Google"):
+    def setAccountInformation(self, account_type):
         # Load JSON data from file
         with open('accounts.json', 'r') as f:
             data = json.load(f)
             self.username = data[account_type]['username']
             self.password = data[account_type]['password']
+    
+    def loginUsingFacebook(self):
+        self.setAccountInformation(account_type="Facebook")
+        # Log in to Glassdoor via facebook 
+        print("Clicking Sign in with Facebook button")
+        facebook_login_button = WebDriverWait(self.driver, 10).until(EC.element_to_be_clickable((By.XPATH, "//button[@data-test='facebookBtn']")))
+        facebook_login_button.click()
 
-    def login(self):
+        # Switch to the pop-up window
+        window_handles = self.driver.getWindowHandles()
+        print(window_handles)
+        self.driver.switch_to_window(window_handles[1])
+
+        # Type in email and password
+        email_field = WebDriverWait(self.driver, 10).until(EC.presence_of_element_located((By.XPATH, "//input[@id='email']")))
+        email_field.send_keys(self.username)
+        
+        password_field = WebDriverWait(self.driver, 10).until(EC.visibility_of_element_located((By.XPATH, '//input[@id="pass"]')))
+        password_field.send_keys(self.password)
+        
+        login_button = WebDriverWait(self.driver, 10).until(EC.element_to_be_clickable((By.XPATH,'//*[@id="loginbutton"]')))
+        login_button.click()
+
+    def loginUsingGoogle(self):
+        """Note google authentication often will block login attempts"""
+        self.setAccountInformation("Google")
         # Log in to Glassdoor
         print("Clicking Sign in with Google button")
         google_login_button = WebDriverWait(self.driver, 10).until(EC.element_to_be_clickable((By.XPATH, '//button[contains(@class, "google") and contains(@data-test, "googleBtn")]')))
@@ -38,8 +61,15 @@ class GlassDoorScraper:
         # Input email and click next
         email_field = WebDriverWait(self.driver, 10).until(EC.presence_of_element_located((By.XPATH, "//input[@type='email']")))
         email_field.send_keys(self.username)
+
         next_button = WebDriverWait(self.driver, 10).until(EC.element_to_be_clickable((By.XPATH, '//button[@type="button"]/span[text()="Next"]')))
         next_button.click()
+        
+        """
+        # Click try again prompt 
+        try_again_button = WebDriverWait(self.driver, 10).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="next"]/div/button/span')))
+        try_again_button.click()
+        """ 
 
         # Input password
         password_input = WebDriverWait(self.driver, 10).until(EC.visibility_of_element_located((By.XPATH, '//input[@type="password"]')))
