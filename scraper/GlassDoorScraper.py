@@ -1,4 +1,4 @@
-from GenericScraper import ChromeWebScraper
+from GenericDriver import ChromeWebDriver
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.by import By
@@ -7,32 +7,35 @@ from selenium.webdriver.common.action_chains import ActionChains
 from selenium.common.exceptions import TimeoutException
 from selenium.webdriver.support.ui import Select
 import re
-import pyperclip as pc
 import time
 import json
 import requests
 from bs4 import BeautifulSoup
 import math
-import concurrent.futures
+import asyncio
+from concurrent.futures import ThreadPoolExecutor
 import os
+import multiprocessing
 
 GLASSDOOR_WEBSITE = "https://www.glassdoor.sg/index.htm"
 
 class GlassDoorScraper:
-    def __init__(self, scraper, company_code, company_name):
+    def __init__(self, driver, company_name, company_code):
         self.webpage = GLASSDOOR_WEBSITE
-        self.driver = scraper
+        self.driver = driver
         self.driver.navigate_to(self.webpage)
         self.company_code = company_code
         self.company_name = company_name
         self.number_of_review_pages = 0
         self.reviews_count = 0
         self.list_of_review_pages = []
-
-    def login_using_facebook(self):
-        self._set_credentials(account_type="Facebook_2")
+        self.reviews_collected = []
+        self.batch_counter = 0
+       
+    def login_using_facebook(self, account_type):
+        self._set_credentials(account_type)
+        self.identifier = account_type
         # Log in to Glassdoor via facebook 
-        print("Clicking Sign in with Facebook button")
         facebook_login_button = WebDriverWait(self.driver, 10).until(EC.element_to_be_clickable((By.XPATH, "//button[@data-test='facebookBtn']")))
         facebook_login_button.click()
 
@@ -66,6 +69,7 @@ class GlassDoorScraper:
             url = f"https://www.glassdoor.sg/Reviews/{self.company_name}-Reviews-E{self.company_code}_P{page_num}.htm?filter.iso3Language=eng"
             self.list_of_review_pages.append(url)
 
+        return self.list_of_review_pages
 
     def _set_credentials(self, account_type):
         # Load JSON data from file
@@ -73,7 +77,8 @@ class GlassDoorScraper:
             data = json.load(f)
             self.username = data[account_type]['username']
             self.password = data[account_type]['password']
-    
+            print(f"Using {self.username} and {self.password}")
+             
     def _is_login_successful(self): 
         try:
             # Wait for the email address of the user to appear
@@ -101,9 +106,13 @@ class GlassDoorScraper:
         """ Retrieves the 10 reviews listed on a page"""
         # Navigate to a company's Glassdoor page
         self.driver.navigate_to(url)
-
-        # Wait for the reviews to load
-        reviews_section = WebDriverWait(self.driver, 10).until(EC.presence_of_element_located((By.XPATH, "//div[@id='ReviewsRef']")))
+        try:
+            # Wait for the reviews to load
+            reviews_section = WebDriverWait(self.driver, 30).until(EC.presence_of_element_located((By.XPATH, "//div[@id='ReviewsRef']")))
+        except TimeoutException:
+             self._get_reviews_on_page(self)
+             print(f"{url}: Failed to load: '//div[@id='ReviewsRef'")
+             sys.exit(1)
 
         # Get the HTML source of the reviews section
         reviews_html = reviews_section.get_attribute("innerHTML")
@@ -157,30 +166,48 @@ class GlassDoorScraper:
             reviews.append(review)
         return reviews
     
-    def scrape_reviews(self):
+    def scrape_reviews(self, batch_of_pages_to_scrape, batch_id):
         start_time = time.time()
         all_reviews = []
+        failed_urls = [] 
+        failed_counter = 0
+        batch_size = len(batch_of_pages_to_scrape)
+        counter = 0
 
-        for url in self.list_of_review_pages[:10]:
-            review_elements = self._get_reviews_on_page(url)
-            reviews = self._extract_reviews(review_elements)
-            all_reviews.append(reviews)
-
-        # Dump the reviews to a JSON file
-        path = os.path.join("../data", f"{self.company_name}.json")
-        self.dump_reviews_json(all_reviews, path)
+        for count, url in enumerate(batch_of_pages_to_scrape):
+            try:
+                review_elements = self._get_reviews_on_page(url)
+                reviews = self._extract_reviews(review_elements)
+                all_reviews.append(reviews)
+                counter += 1
+            except Exception as e:
+                print(f"Error scraping reviews from {url}: {str(e)}")
+                failed_urls.append(url)
+                failed_counter += 1
+                if (failed_counter < 5):
+                    continue
+            
+        self.dump_reviews_json(all_reviews, batch_id)
+        self.dump_scrape_error_log(failed_urls)
 
         end_time = time.time()
         elapsed_time = end_time - start_time
-        print(len(all_reviews))
-        print(f"Elapsed time: {elapsed_time} seconds")
-            
-    def dump_reviews_json(self, reviews, file_path):
-        """Dump the reviews to a JSON file"""
-        with open(file_path, 'w') as file:
-            json.dump(reviews, file)
- 
-
+        print(f"{batch_id}: {counter}/{batch_size} successfully retrieved. Total elapsed time: {elapsed_time}seconds")
     
+    def dump_reviews_json(self, all_reviews):
+        """Dump the reviews to a JSON file"""
+        file_path = os.path.join(f"../data/{self.company_name}", f"{self.identifier}-{self.company_name}-{self.batch_counter}.json")
+        with open(file_path, 'a') as file:
+            json.dump(all_reviews, file)
+        self.batch_counter += 1
+ 
+    def dump_scrape_error_log(self, failed_urls):
+        # Log failed URLs to a file
+        path = os.path.join("../error_logs", f"{self.company_name}_failed_urls.txt")
+        with open(path, 'a') as f:
+            for url in failed_urls:
+                f.write(url + '\n')
+
+
 
         

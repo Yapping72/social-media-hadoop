@@ -6,15 +6,15 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.common.exceptions import NoSuchElementException
-import pyperclip as pc #send_keys sends strings line by line, faster to copy from clipboard
 import os 
 import requests
+
 
 CHROME_DRIVER_PATH = os.path.join(".","chromedriver_v110.0.5481.77", "chromedriver.exe")
 FIREFOX_DRIVER_PATH = os.path.join(".","geckodriver_v0.32.0", "geckodriver.exe")
 FIREFOX_BROSWER = r"C:\Program Files\Mozilla Firefox\firefox.exe"
 
-class WebScraper(ABC):
+class WebDriver(ABC):
     @abstractmethod
     def __init__(self, webpage:str):
         self.webpage = webpage
@@ -49,7 +49,7 @@ class WebScraper(ABC):
     def close(self):
         self.driver.close()
 
-class ChromeWebScraper(WebScraper):
+class ChromeWebDriver(WebDriver):
     def __init__(self):
         self.webpage = "chrome://newtab"
         super().__init__(self.webpage)
@@ -62,9 +62,12 @@ class ChromeWebScraper(WebScraper):
         self.options =  webdriver.ChromeOptions()
         self.options.add_argument('--disable-blink-features=AutomationControlled')
         self.options.add_argument('--disable-features=SafeBrowsingEnhancedProtection')
+        # self.options.add_argument('--blink-settings=imagesEnabled=false')
+        # self.options.add_argument('--blink-settings=videoEnabled=false')
         self.options.add_experimental_option('excludeSwitches', ['enable-logging']) # to remove usb_device_handle_win logging message
+        
     
-class FireFoxWebScraper(WebScraper):
+class FireFoxWebDriver(WebDriver):
     def __init__(self):
         self.webpage = "about:home"
         super().__init__(self.webpage)
@@ -82,4 +85,4 @@ class FireFoxWebScraper(WebScraper):
         self.options.set_preference("privacy.trackingprotection.enabled", False)
         self.options.set_preference("network.cookie.cookieBehavior", 1)
         self.options.set_preference("intl.accept_languages", "en-US,en")
-        self.options.binary_location = FIREFOX_BROSWER 
+        self.options.binary_location = FIREFOX_BROSWER  
