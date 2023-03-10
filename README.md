@@ -17,4 +17,6 @@ e.g., "Google": {
 <ol>
 <li> pip install selenium
 <li> pip install pyperclip
+<li> pip install httpx parsel
+<li> pip install beautifulsoup4
 </ol>

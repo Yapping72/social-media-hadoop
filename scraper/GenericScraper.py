@@ -8,6 +8,7 @@ from selenium.webdriver.support import expected_conditions as EC
 from selenium.common.exceptions import NoSuchElementException
 import pyperclip as pc #send_keys sends strings line by line, faster to copy from clipboard
 import os 
+import requests
 
 CHROME_DRIVER_PATH = os.path.join(".","chromedriver_v110.0.5481.77", "chromedriver.exe")
 FIREFOX_DRIVER_PATH = os.path.join(".","geckodriver_v0.32.0", "geckodriver.exe")
@@ -32,19 +33,37 @@ class WebScraper(ABC):
 
     def switch_to_window(self, window):
         return self.driver.switch_to.window(window)
+    
+    def find_element_by_id(self, id):
+        return self.driver.find_element_by_id(id)
+
+    def find_element_by_xpath(self, xpath):
+        return self.driver.find_element(By.XPATH, xpath)
+
+    def get_current_url(self):
+        return self.driver.current_url
+    
+    def get_html_source(self):
+        return self.driver.page_source
+        
+    def close(self):
+        self.driver.close()
 
 class ChromeWebScraper(WebScraper):
     def __init__(self):
         self.webpage = "chrome://newtab"
         super().__init__(self.webpage)
         # Web driver for google chrome located in CHROME_DRIVER_PATH
-        self.options =  webdriver.ChromeOptions()
-        self.options.add_argument('--disable-blink-features=AutomationControlled')
-        self.options.add_argument('--disable-features=SafeBrowsingEnhancedProtection')
+        self.set_options()
         self.driver = webdriver.Chrome(CHROME_DRIVER_PATH, options= self.options)
         self.driver.get(self.webpage)
     
-
+    def set_options(self):
+        self.options =  webdriver.ChromeOptions()
+        self.options.add_argument('--disable-blink-features=AutomationControlled')
+        self.options.add_argument('--disable-features=SafeBrowsingEnhancedProtection')
+        self.options.add_experimental_option('excludeSwitches', ['enable-logging']) # to remove usb_device_handle_win logging message
+    
 class FireFoxWebScraper(WebScraper):
     def __init__(self):
         self.webpage = "about:home"
