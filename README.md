@@ -3,8 +3,8 @@ A project for big data processing and analysis, focusing on social media data.
 
 # Usage
 <ol>
-<li> Replace the gmail or Facebook account information in scraper/accounts.json file. 
-e.g., "Google": {
+<li> Replace the Facebook account information in scraper/accounts.json file. 
+e.g., "Facebook_1": {
         "username": "example123@gmail.com",
         "password": "examplepassword"
     } </li>
@@ -17,6 +17,5 @@ e.g., "Google": {
 <ol>
 <li> pip install selenium
 <li> pip install pyperclip
-<li> pip install httpx parsel
 <li> pip install beautifulsoup4
 </ol>

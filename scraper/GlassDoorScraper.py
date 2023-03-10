@@ -160,15 +160,9 @@ class GlassDoorScraper:
     def scrape_reviews(self):
         start_time = time.time()
         all_reviews = []
-        
-        # Create a thread pool or process pool
-        with concurrent.futures.ThreadPoolExecutor() as executor:
-            # Map the function to the list of URLs, and store the resulting Future objects
-            future_list = [executor.submit(self._get_reviews_on_page, url) for url in self.list_of_review_pages[:10]]
 
-        # Asynchronously retrieve the results
-        for future in concurrent.futures.as_completed(future_list):
-            review_elements = future.result()
+        for url in self.list_of_review_pages[:10]:
+            review_elements = self._get_reviews_on_page(url)
             reviews = self._extract_reviews(review_elements)
             all_reviews.append(reviews)
 
@@ -181,7 +175,6 @@ class GlassDoorScraper:
         print(len(all_reviews))
         print(f"Elapsed time: {elapsed_time} seconds")
             
-
     def dump_reviews_json(self, reviews, file_path):
         """Dump the reviews to a JSON file"""
         with open(file_path, 'w') as file:
