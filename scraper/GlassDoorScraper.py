@@ -196,7 +196,11 @@ class GlassDoorScraper:
     
     def dump_reviews_json(self, all_reviews):
         """Dump the reviews to a JSON file"""
-        file_path = os.path.join(f"../data/{self.company_name}", f"{self.identifier}-{self.company_name}-{self.batch_counter}.json")
+        folder_path = os.path.join("..", "data", self.company_name)
+        if not os.path.exists(folder_path):
+            os.makedirs(folder_path)
+
+        file_path = os.path.join(folder_path, f"{self.identifier}-{self.company_name}-{self.batch_counter}.json")
         with open(file_path, 'a') as file:
             json.dump(all_reviews, file)
         self.batch_counter += 1

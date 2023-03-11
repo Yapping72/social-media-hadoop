@@ -18,7 +18,7 @@ import numpy as np
 def create_workers(num_workers, company_code, company_name):
     workers = []
     for i in range(num_workers):
-        account_type = f"Facebook_{i}"
+        account_type = f"Facebook_{2}"
         worker = GlassDoorScraper(driver=ChromeWebDriver(), company_code=company_code, company_name=company_name)
         try: 
             worker.login_using_facebook(account_type=account_type)
@@ -26,6 +26,9 @@ def create_workers(num_workers, company_code, company_name):
             print(f"worker#{i} failed to login")
             continue
         workers.append(worker)
+    if len(workers) == 0:
+        print(f"No workers logged in, please check accounts.json folder")
+        sys.exit(1)
     return workers
 
 def divide_urls(list_of_urls, num_workers):
@@ -60,7 +63,7 @@ def start_worker(worker, batch_size):
             review_elements = worker._get_reviews_on_page(url)
             reviews = worker._extract_reviews(review_elements)
             worker.reviews_collected.append(reviews)
-            if len(worker.reviews_collected) == batch_size:
+            if (len(worker.reviews_collected) == batch_size) or (len(worker.list_of_review_pages) == 0):
                 worker.dump_reviews_json(worker.reviews_collected)
                 worker.reviews_collected.clear()
                 end_time = time.time()
@@ -74,15 +77,43 @@ def start_worker(worker, batch_size):
 
 async def main():
     num_workers = 1
-    company_name = "Accenture"
-    company_code = 4138
+    #company_name = "Accenture"
+    #company_code = 4138
+    
+    #company_name = "Meta"
+    #company_code = 40772
+
+    #company_name = "Shopee"
+    #company_code = 1263091
+
+    #company_name = "Micron"
+    #company_code = 1648
+
+    #company_name = "Google"
+    #company_code = 9079
+
+    #company_code = 1138
+    #company_name = "Apple"
+    
+    company_code = 6036
+    company_name = "Amazon"
+    
+    #company_code = 1737
+    #company_name = "Oracle"
+
+    #company_code = 11891
+    #company_name = "Netflix"
+
+    #company_code = 1651
+    #company_name = "Microsoft"
+
     batch_size = 100
 
     workers = create_workers(num_workers, company_name = company_name, company_code = company_code)
+    
     urls = workers[0].generate_urls()
     print(f"Starting to scrape {company_name} in batches of {batch_size}.")
     start_worker(workers[0], batch_size)
-    
     """
     workers = create_workers(num_workers, company_name = company_name, company_code = company_code)
     urls = workers[0].generate_urls()
