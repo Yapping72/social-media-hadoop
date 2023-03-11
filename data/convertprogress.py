@@ -78,8 +78,7 @@ with open('data/progress.md', 'r') as f:
                 companies[-1]['reviews_on_glassdoor'] = int(reviews_info[0].strip())
             
             # calculate actual_reviews_collected and coverage and update in the last dictionary in the companies list
-            companies[-1]['actual_reviews_collected'] = int(companies[-1]['reviews_on_glassdoor'] * companies[-1]['reviews_url'] / 100)
-            companies[-1]['coverage'] = companies[-1]['actual_reviews_collected'] / companies[-1]['reviews_on_glassdoor'] if companies[-1]['reviews_on_glassdoor'] != 0 else 0.0
+            companies[-1]['actual_reviews_collected'] = ""
 
     if companies:
         company_data = companies[-1]
