@@ -110,3 +110,8 @@ List of companies scrapped.
 - Company name: SAP
 - Company code: 10471
 - 19157 reviews in 1917 urls
+
+### VMware
+- Company name: VMware
+- Company code: 12830
+- 9218 reviews in 923 urls

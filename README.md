@@ -1,19 +1,28 @@
 # social-media-hadoop
 A project for big data processing and analysis, focusing on social media data. 
 
-# Usage 
+# Dependencies
+<ol>
+<li> pip install selenium
+<li> pip install beautifulsoup4
+<li> pip install numpy
+</ol>
+
+# General Guide
 <ol>
 <li> Ensure facebook accounts in accounts.json file is not banned and has completed glassdoor account setup. </li>
     <ul><li> Current implementation uses facebook login as it is not blocked for scraping </li> 
         <li> New facebook accounts have a 60-min delay before they can be used to create a glassdoor account. </li>
         <li> <strong> After glassdoor account registered to facebook account, follow their prompts to setup account </strong>, skipping the setup process will prevent scraping. </li>
     </ul>
+<br>
 <li> Replace the <strong> company code, company name and account_number </strong> in main.py. </li>
     <ul>
     <li> Company codes can be obtained from the reviews page.
         <ul> https://www.glassdoor.sg/Overview/Working-at-Accenture-EI_IE4138.11,20.htm 
         <li> company code = 4138, company name = Accenture </li> </ul>
     </ul>
+<br>
 <li> Run main.py it should open glassdoor website and attempt to login using account information provided in 'scraper/accounts.json' file. </li>
     <ul>
         <li>Chrome broswer should automatically open</li>
@@ -28,9 +37,5 @@ A project for big data processing and analysis, focusing on social media data.
 # Multiple Chrome Broswers
 To scrape multiple companies in parallel, run multiple instance of main.py. Each instance should use a different facebook account. Scraping with multiple chrome browsers increases likelihood of captcha and Invalid session. Can safely run 3-4 chrome browswers without captcha occurinng frequently (depends on facebook account used).
 
-# Dependencies
-<ol>
-<li> pip install selenium
-<li> pip install beautifulsoup4
-<li> pip install numpy
-</ol>
+# Scrapes that prematurely terminate before completion
+To resume a scrape from the last successful batch, invoke resume_work(worker) before start_worker(worker)

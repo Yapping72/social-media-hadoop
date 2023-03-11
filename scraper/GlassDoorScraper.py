@@ -102,7 +102,7 @@ class GlassDoorScraper:
         self.number_of_review_pages = math.ceil(reviews_count / 10) + 1
         log = f"{reviews_count} reviews in {self.number_of_review_pages} urls"
         print(log)
-        self.update_progress(log)
+        self.update_progress(log) # Update progress.md file
 
     def _get_reviews_on_page(self, url):
         """ Retrieves the 10 reviews listed on a page"""
@@ -215,6 +215,7 @@ class GlassDoorScraper:
                 f.write(url + '\n')
 
     def update_progress(self, log):
+        """Progress.md will track what companies are being / have been scraped."""
         file_path = os.path.join("..","data","progress.md")
         markdown_content = f'''\n\n### {self.company_name}\n- Company name: {self.company_name}\n- Company code: {self.company_code}\n- {log}'''
 

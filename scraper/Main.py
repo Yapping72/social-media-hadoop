@@ -80,11 +80,11 @@ def main():
 
     # e.g., for Visa - https://www.glassdoor.sg/Overview/Working-at-Visa-Inc-EI_IE3035.11,19.htm
     # e.g., Company_name = Visa, Company_code = 3035
-    company_code = 10471
-    company_name = "SAP"
+    company_code = 12830
+    company_name = "VMware"
 
     # Will be resolved to Facebook_{account_number} in accounts.json. 
-    account_number = 1
+    account_number = 2
 
     # Will scrape 100 urls (10 reviews per url) before dumping results to json
     batch_size = 100 
@@ -92,10 +92,9 @@ def main():
     worker = create_worker(company_code, company_name, account_number)
     worker.generate_urls()
 
-    # Uncomment resume_work is used for companies that had premature teremination of scrapes.
-    # resume_work(worker) 
-
     print(f"Starting to scrape {company_name} in batches of {batch_size} urls.")
+    # resume_work(worker) is used for scrapes that prematurely terminated
+    # resume_work(worker) # uncomment this line to resume a scrape that failed halfway
     start_worker(worker, batch_size)
 
 if __name__ == "__main__":
