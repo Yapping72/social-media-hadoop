@@ -5,9 +5,10 @@ A project for big data processing and analysis, focusing on social media data.
 <ol>
 <li> Ensure facebook accounts in accounts.json file is not banned and has completed glassdoor account setup. </li>
     <ul><li> Current implementation uses facebook login as it is not blocked for scraping </li> 
-        <li> New facebook accounts have a 60-min delay before they can be used to create a glassdoor account. __After glassdoor account registered to facebook account, follow their prompts to setup account__, skipping the setup process (allow glassdoor connect to fb and add job review) will prevent scraping. </li>
+        <li> New facebook accounts have a 60-min delay before they can be used to create a glassdoor account. </li>
+        <li> <strong> After glassdoor account registered to facebook account, follow their prompts to setup account </strong>, skipping the setup process will prevent scraping. </li>
     </ul>
-<li> Replace the __company code, company name and account_number__ in main.py. </li>
+<li> Replace the <strong> company code, company name and account_number </strong> in main.py. </li>
     <ul>
     <li> Company codes can be obtained from the reviews page.
         <ul> https://www.glassdoor.sg/Overview/Working-at-Accenture-EI_IE4138.11,20.htm 
@@ -16,7 +17,7 @@ A project for big data processing and analysis, focusing on social media data.
 <li> Run main.py it should open glassdoor website and attempt to login using account information provided in 'scraper/accounts.json' file. </li>
     <ul>
         <li>Chrome broswer should automatically open</li>
-        <li>Automatic login via facebook <strong>Please solve captcha if it appears, frequency of apperance increasing <strong></li>
+        <li>Automatic login via facebook <strong>Please solve captcha if it appears, frequency of apperance increasing </strong> </li>
         <li>On login success terminal should display login successful, and will automatically retrieve the list of urls to scrape and will begin scraping.
         <li>You will see the chrome browser traversing through each page and storing reviews.
         <li>Once 100 pages (~300-800 seconds) have been crawled, json contain reviews saved to the 'data/company_name' folder. (Each json file will contain 1000 reviews).
