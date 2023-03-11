@@ -23,10 +23,6 @@ List of companies scrapped.
 - Company Name: Micron
 - Company Code: 1648
 
-### Microsoft
-- Company Name: Microsoft
-- Company Code: 1651
-
 ### Netflix
 - Company Name: Netflix
 - Company Code: 11891
@@ -75,12 +71,7 @@ List of companies scrapped.
 - Company code: 1737
 - 43118 reviews in 4313 urls
 
-### Oracle
-- Company name: Oracle
-- Company code: 1737
-- 43118 reviews in 4313 urls
-
-### Oracle
-- Company name: Oracle
-- Company code: 1737
-- 43118 reviews in 4313 urls
+### Microsoft
+- Company name: Microsoft
+- Company code: 1651
+- 36942 reviews in 3696 urls

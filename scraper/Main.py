@@ -65,8 +65,11 @@ def resume_work(worker):
         at the i'th URL. 
     """
     folder_path = os.path.join("..", "data", f"{worker.company_name}")
-    num_json_files = len([f for f in os.listdir(folder_path) if f.endswith('.json')])
-
+    if os.path.exists(folder_path): # Get number of previously scrapped reviews
+        num_json_files = len([f for f in os.listdir(folder_path) if f.endswith('.json')])
+    else: # included such that resume_work wont cause script to break if left uncommented.
+        num_json_files = 0
+        
     new_index = num_json_files * 100
     worker.list_of_review_pages = worker.list_of_review_pages[new_index:]
     worker.batch_counter = num_json_files
@@ -88,9 +91,10 @@ def main():
 
     worker = create_worker(company_code, company_name, account_number)
     worker.generate_urls()
-    # resume_work(worker) <-- Uncomment this if one of your scrapes for a particular company terminated prematurely.
-    
-    
+
+    # Uncomment resume_work is used for companies that had premature teremination of scrapes.
+    # resume_work(worker) 
+
     print(f"Starting to scrape {company_name} in batches of {batch_size} urls.")
     start_worker(worker, batch_size)
 
