@@ -4,6 +4,7 @@ from GlassDoorScraper import GlassDoorScraper
 
 from selenium.webdriver.common.keys import Keys
 from selenium.common.exceptions import NoSuchElementException
+from selenium.common.exceptions import InvalidSessionIdException
 import sys 
 import time 
 from selenium.webdriver.common.by import By
@@ -11,6 +12,7 @@ from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from bs4 import BeautifulSoup
 import numpy as np 
+import os 
 
 def create_workers(num_workers, company_code, company_name):
     """Creates multiple clients, intended for async operations."""
@@ -53,24 +55,42 @@ def start_worker(worker, batch_size):
                 worker.reviews_collected.clear()
                 end_time = time.time()
                 elapsed_time = end_time - start_time # stop timer
-                print(f"{batch_size} urls scrapped. Time Elapsed: {elapsed_time}")
+                print(f"Batch of {batch_size} urls scrapped. Time Elapsed: {elapsed_time}")
                 start_time = end_time # reset timer
-
         except Exception as e:
             print(f"Error scraping reviews from {url}: {str(e)}")
 
+def resume_work(worker):
+    """For jobs that were prematurely terminated, can invoke this to resume scraping 
+        at the i'th URL. 
+    """
+    folder_path = os.path.join("..", "data", f"{worker.company_name}")
+    num_json_files = len([f for f in os.listdir(folder_path) if f.endswith('.json')])
+
+    new_index = num_json_files * 100
+    worker.list_of_review_pages = worker.list_of_review_pages[new_index:]
+    worker.batch_counter = num_json_files
+    print(f"Resuming {worker.company_name} Batch: #{worker.batch_counter}\nScrape from url: {worker.list_of_review_pages[0]}")
+
 def main():
     # Modify company_code, company_name and account_number (see accounts.json)
-    company_code = 138872 
-    company_name = "NCS"
-    # will be resolved to Facebook_0 in accounts.json. 
-    account_number = 0 
 
-    # Will scrap 100 urls (10 reviews per url) before dumping results to json
+    # e.g., for Visa - https://www.glassdoor.sg/Overview/Working-at-Visa-Inc-EI_IE3035.11,19.htm
+    # Company_name = Visa, Company_code = 3035
+    company_code = 1651
+    company_name = "Microsoft"
+
+    # Will be resolved to Facebook_2 in accounts.json. 
+    account_number = 8
+
+    # Will scrape 100 urls (10 reviews per url) before dumping results to json
     batch_size = 100 
 
     worker = create_worker(company_code, company_name, account_number)
     worker.generate_urls()
+    # resume_work(worker) <-- Uncomment this if one of your scrapes for a particular company terminated prematurely.
+    
+    
     print(f"Starting to scrape {company_name} in batches of {batch_size} urls.")
     start_worker(worker, batch_size)
 

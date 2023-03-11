@@ -209,7 +209,7 @@ class GlassDoorScraper:
  
     def dump_scrape_error_log(self, failed_urls):
         # Log failed URLs to a file
-        path = os.path.join("../error_logs", f"{self.company_name}_failed_urls.txt")
+        path = os.path.join("..","error_logs", f"{self.company_name}_failed_urls.txt")
         with open(path, 'a') as f:
             for url in failed_urls:
                 f.write(url + '\n')
