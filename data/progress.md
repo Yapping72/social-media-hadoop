@@ -75,3 +75,13 @@ List of companies scrapped.
 - Company name: Microsoft
 - Company code: 1651
 - 36942 reviews in 3696 urls
+
+### Ufinity-Singapore
+- Company name: Ufinity-Singapore
+- Company code: 385955
+- 74 reviews in 9 urls
+
+### Tesla
+- Company name: Tesla
+- Company code: 43129
+- 6635 reviews in 665 urls

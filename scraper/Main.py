@@ -69,7 +69,7 @@ def resume_work(worker):
         num_json_files = len([f for f in os.listdir(folder_path) if f.endswith('.json')])
     else: # included such that resume_work wont cause script to break if left uncommented.
         num_json_files = 0
-        
+
     new_index = num_json_files * 100
     worker.list_of_review_pages = worker.list_of_review_pages[new_index:]
     worker.batch_counter = num_json_files
@@ -80,8 +80,8 @@ def main():
 
     # e.g., for Visa - https://www.glassdoor.sg/Overview/Working-at-Visa-Inc-EI_IE3035.11,19.htm
     # Company_name = Visa, Company_code = 3035
-    company_code = 1651
-    company_name = "Microsoft"
+    company_code = 43129
+    company_name = "Tesla"
 
     # Will be resolved to Facebook_2 in accounts.json. 
     account_number = 8
