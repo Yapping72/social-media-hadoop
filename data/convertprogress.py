@@ -51,11 +51,11 @@ with open('data/progress.md', 'r') as f:
             companies[-1]['company_name'] = line.split(': ')[1].strip()
         
         # check if the line starts with '- Company Code:'
-        elif line.startswith('- Company Code:'):
+        elif line.startswith('- Company code:' ) or line.startswith( '- Company Code:'):
             
             # update company code in the last dictionary in the companies list
             companies[-1]['company_code'] = int(line.split(': ')[1].strip())
-        
+    
         # check if the line contains 'reviews in'
         elif 'reviews in' in line:
             
