@@ -79,12 +79,12 @@ def main():
     # Modify company_code, company_name and account_number (see accounts.json)
 
     # e.g., for Visa - https://www.glassdoor.sg/Overview/Working-at-Visa-Inc-EI_IE3035.11,19.htm
-    # Company_name = Visa, Company_code = 3035
-    company_code = 43129
-    company_name = "Tesla"
+    # e.g., Company_name = Visa, Company_code = 3035
+    company_code = 10471
+    company_name = "SAP"
 
-    # Will be resolved to Facebook_2 in accounts.json. 
-    account_number = 8
+    # Will be resolved to Facebook_{account_number} in accounts.json. 
+    account_number = 1
 
     # Will scrape 100 urls (10 reviews per url) before dumping results to json
     batch_size = 100 

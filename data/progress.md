@@ -85,3 +85,28 @@ List of companies scrapped.
 - Company name: Tesla
 - Company code: 43129
 - 6635 reviews in 665 urls
+
+### Cisco-Systems
+- Company name: Cisco-Systems
+- Company code: 1425
+- 16965 reviews in 1698 urls
+
+### GovTech
+- Company name: GovTech
+- Company code: 1371268
+- 487 reviews in 50 urls
+
+### Adobe
+- Company name: Adobe
+- Company code: 1090
+- 7177 reviews in 719 urls
+
+### Singtel
+- Company name: Singtel
+- Company code: 3971
+- 1987 reviews in 200 urls
+
+### SAP
+- Company name: SAP
+- Company code: 10471
+- 19157 reviews in 1917 urls
