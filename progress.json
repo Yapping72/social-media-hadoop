@@ -1,0 +1,194 @@
+{
+    "Accenture": {
+        "company_name": "Accenture",
+        "company_code": 4138,
+        "reviews_url": "",
+        "reviews_on_glassdoor": "",
+        "actual_reviews_collected": "",
+        "coverage": ""
+    },
+    "Apple": {
+        "company_name": "Apple",
+        "company_code": 1138,
+        "reviews_url": "",
+        "reviews_on_glassdoor": "",
+        "actual_reviews_collected": "",
+        "coverage": ""
+    },
+    "Google": {
+        "company_name": "Google",
+        "company_code": 9079,
+        "reviews_url": 2835,
+        "reviews_on_glassdoor": 28339,
+        "actual_reviews_collected": 803410,
+        "coverage": 28.349977063410847
+    },
+    "Meta": {
+        "company_name": "Meta",
+        "company_code": 40772,
+        "reviews_url": "",
+        "reviews_on_glassdoor": "",
+        "actual_reviews_collected": "",
+        "coverage": ""
+    },
+    "Micron": {
+        "company_name": "Micron",
+        "company_code": 1648,
+        "reviews_url": "",
+        "reviews_on_glassdoor": "",
+        "actual_reviews_collected": "",
+        "coverage": ""
+    },
+    "Netflix": {
+        "company_name": "Netflix",
+        "company_code": 11891,
+        "reviews_url": "",
+        "reviews_on_glassdoor": "",
+        "actual_reviews_collected": "",
+        "coverage": ""
+    },
+    "Shopee": {
+        "company_name": "Shopee",
+        "company_code": 1263091,
+        "reviews_url": "",
+        "reviews_on_glassdoor": "",
+        "actual_reviews_collected": "",
+        "coverage": ""
+    },
+    "Singapore Institute of Technology": {
+        "company_name": "Singapore Institute of Technology",
+        "reviews_url": 10,
+        "reviews_on_glassdoor": 82,
+        "actual_reviews_collected": 8,
+        "coverage": 0.0975609756097561,
+        "company_code": ""
+    },
+    "NCS": {
+        "company_name": "NCS",
+        "reviews_url": 230,
+        "reviews_on_glassdoor": 2283,
+        "actual_reviews_collected": 5250,
+        "coverage": 2.299605781865966,
+        "company_code": ""
+    },
+    "Visa": {
+        "company_name": "Visa",
+        "reviews_url": 480,
+        "reviews_on_glassdoor": 4790,
+        "actual_reviews_collected": 22992,
+        "coverage": 4.8,
+        "company_code": ""
+    },
+    "IBM": {
+        "company_name": "IBM",
+        "reviews_url": 5256,
+        "reviews_on_glassdoor": 52546,
+        "actual_reviews_collected": 2761817,
+        "coverage": 52.55998553648232,
+        "company_code": ""
+    },
+    "OpenAI": {
+        "company_name": "OpenAI",
+        "reviews_url": 3,
+        "reviews_on_glassdoor": 16,
+        "actual_reviews_collected": 0,
+        "coverage": 0.0,
+        "company_code": ""
+    },
+    "Zoom": {
+        "company_name": "Zoom",
+        "reviews_url": 120,
+        "reviews_on_glassdoor": 1183,
+        "actual_reviews_collected": 1419,
+        "coverage": 1.1994928148774302,
+        "company_code": ""
+    },
+    "Amazon": {
+        "company_name": "Amazon",
+        "reviews_url": 8826,
+        "reviews_on_glassdoor": 88242,
+        "actual_reviews_collected": 7788238,
+        "coverage": 88.2599895741257,
+        "company_code": ""
+    },
+    "Oracle": {
+        "company_name": "Oracle",
+        "reviews_url": 4313,
+        "reviews_on_glassdoor": 43118,
+        "actual_reviews_collected": 1859679,
+        "coverage": 43.12999211466209,
+        "company_code": ""
+    },
+    "Microsoft": {
+        "company_name": "Microsoft",
+        "reviews_url": 3696,
+        "reviews_on_glassdoor": 36942,
+        "actual_reviews_collected": 1365376,
+        "coverage": 36.95999133777273,
+        "company_code": ""
+    },
+    "Ufinity-Singapore": {
+        "company_name": "Ufinity-Singapore",
+        "reviews_url": 9,
+        "reviews_on_glassdoor": 74,
+        "actual_reviews_collected": 6,
+        "coverage": 0.08108108108108109,
+        "company_code": ""
+    },
+    "Tesla": {
+        "company_name": "Tesla",
+        "reviews_url": 665,
+        "reviews_on_glassdoor": 6635,
+        "actual_reviews_collected": 44122,
+        "coverage": 6.6498869630746045,
+        "company_code": ""
+    },
+    "Cisco-Systems": {
+        "company_name": "Cisco-Systems",
+        "reviews_url": 1698,
+        "reviews_on_glassdoor": 16965,
+        "actual_reviews_collected": 288065,
+        "coverage": 16.979958738579427,
+        "company_code": ""
+    },
+    "GovTech": {
+        "company_name": "GovTech",
+        "reviews_url": 50,
+        "reviews_on_glassdoor": 487,
+        "actual_reviews_collected": 243,
+        "coverage": 0.4989733059548255,
+        "company_code": ""
+    },
+    "Adobe": {
+        "company_name": "Adobe",
+        "reviews_url": 719,
+        "reviews_on_glassdoor": 7177,
+        "actual_reviews_collected": 51602,
+        "coverage": 7.189912219590358,
+        "company_code": ""
+    },
+    "Singtel": {
+        "company_name": "Singtel",
+        "reviews_url": 200,
+        "reviews_on_glassdoor": 1987,
+        "actual_reviews_collected": 3974,
+        "coverage": 2.0,
+        "company_code": ""
+    },
+    "SAP": {
+        "company_name": "SAP",
+        "reviews_url": 1917,
+        "reviews_on_glassdoor": 19157,
+        "actual_reviews_collected": 367239,
+        "coverage": 19.169963981834318,
+        "company_code": ""
+    },
+    "VMware": {
+        "company_name": "VMware",
+        "reviews_url": 923,
+        "reviews_on_glassdoor": 9218,
+        "actual_reviews_collected": 85082,
+        "coverage": 9.229984812323714,
+        "company_code": ""
+    }
+}
