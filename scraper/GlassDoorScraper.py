@@ -93,14 +93,16 @@ class GlassDoorScraper:
             return False
 
     def _count_pages_to_scrape(self, url):
-        """Identify number of pages that need to be scrapped"""
+        """Identify number of pages that need to be scrapped and logs information in progress.md"""
         html_source = self.driver.get_html_source()
         soup = BeautifulSoup(html_source, "html.parser")
         reviews_count_str = soup.find('div', {'data-test': 'pagination-footer-text'}).text
         reviews_count = int(reviews_count_str.replace(',', '').split()[-2])
         self.reviews_count = reviews_count
         self.number_of_review_pages = math.ceil(reviews_count / 10) + 1
-        print(f"Total reviews: {reviews_count} stored in {self.number_of_review_pages} pages")
+        log = f"{reviews_count} reviews in {self.number_of_review_pages} urls"
+        print(log)
+        self.update_progress(log)
 
     def _get_reviews_on_page(self, url):
         """ Retrieves the 10 reviews listed on a page"""
@@ -212,6 +214,9 @@ class GlassDoorScraper:
             for url in failed_urls:
                 f.write(url + '\n')
 
+    def update_progress(self, log):
+        file_path = os.path.join("..","data","progress.md")
+        markdown_content = f'''\n\n### {self.company_name}\n- Company name: {self.company_name}\n- Company code: {self.company_code}\n- {log}'''
 
-
-        
+        with open(file_path, 'a') as f:
+            f.write(markdown_content)

@@ -62,8 +62,8 @@ class ChromeWebDriver(WebDriver):
         self.options =  webdriver.ChromeOptions()
         self.options.add_argument('--disable-blink-features=AutomationControlled')
         self.options.add_argument('--disable-features=SafeBrowsingEnhancedProtection')
-        # self.options.add_argument('--blink-settings=imagesEnabled=false')
-        # self.options.add_argument('--blink-settings=videoEnabled=false')
+        self.options.add_argument('--blink-settings=imagesEnabled=false')
+        self.options.add_argument('--blink-settings=videoEnabled=false')
         self.options.add_experimental_option('excludeSwitches', ['enable-logging']) # to remove usb_device_handle_win logging message
         
     

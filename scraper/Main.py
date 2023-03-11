@@ -4,21 +4,19 @@ from GlassDoorScraper import GlassDoorScraper
 
 from selenium.webdriver.common.keys import Keys
 from selenium.common.exceptions import NoSuchElementException
-import pyperclip as pc #send_keys sends strings line by line, faster to copy from clipboard
 import sys 
 import time 
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
-import requests
 from bs4 import BeautifulSoup
-import asyncio
 import numpy as np 
 
 def create_workers(num_workers, company_code, company_name):
+    """Creates multiple clients, intended for async operations."""
     workers = []
     for i in range(num_workers):
-        account_type = f"Facebook_{2}"
+        account_type = f"Facebook_{i}"
         worker = GlassDoorScraper(driver=ChromeWebDriver(), company_code=company_code, company_name=company_name)
         try: 
             worker.login_using_facebook(account_type=account_type)
@@ -31,29 +29,16 @@ def create_workers(num_workers, company_code, company_name):
         sys.exit(1)
     return workers
 
-def divide_urls(list_of_urls, num_workers):
-    """Divides list of urls into equal-sized chunks for workers"""
-    url_chunks = np.array_split(list_of_urls, num_workers)
-    return [chunk.tolist() for chunk in url_chunks]
-
-def assign_urls(chunks, workers):   
-    for i, worker in enumerate(workers):
-        worker.list_of_urls = chunks[i]
-
-"""
-async def start_worker(worker, batch_size):
-    while(worker.list_of_urls):
-        url = worker.list_of_urls.pop(0)
-        try:
-            review_elements = worker._get_reviews_on_page(url)
-            reviews = worker._extract_reviews(review_elements)
-            worker.reviews_collected.append(reviews)
-            if len(worker.reviews_collected) == batch_size:
-                worker.dump_reviews_json(worker.reviews_collected)
-                worker.reviews_collected.clear()
-        except Exception as e:
-            print(f"Error scraping reviews from {url}: {str(e)}")
-"""
+def create_worker(company_code, company_name, account_number):
+    """Creates 1 worker, that will be used to scrape glassdoor"""
+    account_type = f"Facebook_{account_number}"
+    try:
+        worker = GlassDoorScraper(driver=ChromeWebDriver(), company_code=company_code, company_name=company_name)
+        worker.login_using_facebook(account_type=account_type)
+    except InvalidSessionIdException:
+        print(f"Failed to login using {account_type} - Blocked by captcha.")
+        sys.exit(1)
+    return worker
 
 def start_worker(worker, batch_size):
     start_time = time.time()
@@ -68,64 +53,26 @@ def start_worker(worker, batch_size):
                 worker.reviews_collected.clear()
                 end_time = time.time()
                 elapsed_time = end_time - start_time # stop timer
-                print(f"{batch_size} review pages scrapped. Time Elapsed: {elapsed_time}")
+                print(f"{batch_size} urls scrapped. Time Elapsed: {elapsed_time}")
                 start_time = end_time # reset timer
 
         except Exception as e:
             print(f"Error scraping reviews from {url}: {str(e)}")
 
+def main():
+    # Modify company_code, company_name and account_number (see accounts.json)
+    company_code = 138872 
+    company_name = "NCS"
+    # will be resolved to Facebook_0 in accounts.json. 
+    account_number = 0 
 
-async def main():
-    num_workers = 1
-    #company_name = "Accenture"
-    #company_code = 4138
-    
-    #company_name = "Meta"
-    #company_code = 40772
+    # Will scrap 100 urls (10 reviews per url) before dumping results to json
+    batch_size = 100 
 
-    #company_name = "Shopee"
-    #company_code = 1263091
+    worker = create_worker(company_code, company_name, account_number)
+    worker.generate_urls()
+    print(f"Starting to scrape {company_name} in batches of {batch_size} urls.")
+    start_worker(worker, batch_size)
 
-    #company_name = "Micron"
-    #company_code = 1648
-
-    #company_name = "Google"
-    #company_code = 9079
-
-    #company_code = 1138
-    #company_name = "Apple"
-    
-    company_code = 6036
-    company_name = "Amazon"
-    
-    #company_code = 1737
-    #company_name = "Oracle"
-
-    #company_code = 11891
-    #company_name = "Netflix"
-
-    #company_code = 1651
-    #company_name = "Microsoft"
-
-    batch_size = 100
-
-    workers = create_workers(num_workers, company_name = company_name, company_code = company_code)
-    
-    urls = workers[0].generate_urls()
-    print(f"Starting to scrape {company_name} in batches of {batch_size}.")
-    start_worker(workers[0], batch_size)
-    """
-    workers = create_workers(num_workers, company_name = company_name, company_code = company_code)
-    urls = workers[0].generate_urls()
-
-    chunks = divide_urls(urls, len(workers))
-    assign_urls(chunks, workers)
-    
-    tasks = []
-    for worker in workers:
-        task = asyncio.create_task(start_worker(worker, batch_size))
-        tasks.append(task)
-        await asyncio.gather(*tasks)
-    """
 if __name__ == "__main__":
-  asyncio.run(main())
+  main()
