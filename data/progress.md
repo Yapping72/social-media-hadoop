@@ -279,9 +279,3 @@ List of companies scrapped.
 - Company name: Avanade
 - Company code: 11701
 - 2572 reviews in 259 urls
-
-
-### StarHub
-- Company name: StarHub
-- Company code: 8662
-- 700 reviews in 71 urls

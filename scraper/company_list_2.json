@@ -1,43 +1,27 @@
 {
-    "company_1": {
-      "company_name": "Agency-for-Science-Technology-and-Research",
-      "company_code": 254781
-    },
-    "company_2": {
-      "company_name": "seagate-technology",
-      "company_code": 1864
-    },
-    "company_3": {
-      "company_name": "garena",
-      "company_code": 532331
-    },
-    "company_4": {
-      "company_name": "bytedance",
-      "company_code": 1624196
-    },
-    "company_5": {
-      "company_name": "grab",
-      "company_code": 958580
-    },
-    "company_6": {
-      "company_name": "thales",
-      "company_code": 10358
-    },
-    "company_7": {
-      "company_name": "continental",
-      "company_code": 3768
-    },
-    "company_8": {
-      "company_name": "nvidia",
-      "company_code": 7633
-    },
-    "company_9": {
-      "company_name": "TSMC",
-      "company_code": 4130
-    },
-    "company_10": {
-      "company_name": "hp",
-      "company_code": 1093161
-    }
+  "company_1": {
+    "company_name": "ShopBack",
+    "company_code": 1169892
+  },
+  "company_2": {
+    "company_name": "Infineon-Technologies",
+    "company_code": 8915
+  },
+  "company_3": {
+    "company_name": "Quess",
+    "company_code": 977654
+  },
+  "company_4": {
+    "company_name": "Adecco",
+    "company_code": 1089
+  }, 
+  "company_5": {
+    "company_name": "Wise",
+    "company_code": 637715
+  },
+  "company_6": {
+    "company_name": "Huawei",
+    "company_code": 9304
   }
+}
   
