@@ -132,8 +132,8 @@ def main():
     resume_scrape(company_code, company_name, account_number, batch_size) # Resumes a prematurely terminated scrape
     
     """Uncomment if you intend to Scrape multiple companies (listed in company_list_1.json)"""
-    # FILE_PATH = "company_list_2.json"
-    # start_multiple_scrapes(account_number, batch_size, FILE_PATH)
+    FILE_PATH = "company_list_1.json"
+    start_multiple_scrapes(account_number, batch_size, FILE_PATH)
 
 if __name__ == "__main__":
   main()

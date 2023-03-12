@@ -356,8 +356,37 @@ List of companies scrapped.
 - Company code: 9304
 - 8749 reviews in 876 urls
 
+### CoinHako
+- Company name: CoinHako
+- Company code: 1936815
+- 16 reviews in 3 urls
 
-### Huawei
-- Company name: Huawei
-- Company code: 9304
-- 8748 reviews in 876 urls
+### Cake DeFi
+- Company name: Cake DeFi
+- Company code: 3557919
+- 39 reviews in 5 urls
+
+### CoinHako
+- Company name: CoinHako
+- Company code: 1936815
+- 16 reviews in 3 urls
+
+### Cake DeFi
+- Company name: Cake DeFi
+- Company code: 3557919
+- 39 reviews in 5 urls
+
+### Aspire
+- Company name: Aspire
+- Company code: 2909271
+- 135 reviews in 15 urls
+
+### Revolut
+- Company name: Revolut
+- Company code: 1176471
+- 1273 reviews in 129 urls
+
+### foodpanda
+- Company name: foodpanda
+- Company code: 709546
+- 1326 reviews in 134 urls
