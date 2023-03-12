@@ -355,3 +355,9 @@ List of companies scrapped.
 - Company name: Huawei
 - Company code: 9304
 - 8749 reviews in 876 urls
+
+
+### Huawei
+- Company name: Huawei
+- Company code: 9304
+- 8748 reviews in 876 urls
