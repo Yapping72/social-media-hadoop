@@ -205,3 +205,38 @@ List of companies scrapped.
 - Company name: Lazada
 - Company code: 578726
 - 1681 reviews in 170 urls
+
+### circles-life
+- Company name: circles-life
+- Company code: 1739088
+- 344 reviews in 36 urls
+
+### binance
+- Company name: binance
+- Company code: 1816824
+- 275 reviews in 29 urls
+
+### expressvpn
+- Company name: expressvpn
+- Company code: 3355140
+- 36 reviews in 5 urls
+
+### Gitlab
+- Company name: Gitlab
+- Company code: 1296544
+- 405 reviews in 42 urls
+
+### indeed
+- Company name: indeed
+- Company code: 100561
+- 2746 reviews in 276 urls
+
+### Samsung-Electronics
+- Company name: Samsung-Electronics
+- Company code: 3363
+- 9518 reviews in 953 urls
+
+### Agency-for-Science-Technology-and-Research
+- Company name: Agency-for-Science-Technology-and-Research
+- Company code: 254781
+- 1411 reviews in 143 urls
