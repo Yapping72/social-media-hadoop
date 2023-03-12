@@ -13,6 +13,7 @@ from selenium.webdriver.support import expected_conditions as EC
 from bs4 import BeautifulSoup
 import numpy as np 
 import os 
+import json 
 
 def create_workers(num_workers, company_code, company_name):
     """Creates multiple clients, intended for async operations."""
@@ -58,7 +59,8 @@ def start_worker(worker, batch_size):
                 print(f"Batch of {batch_size} urls scrapped. Time Elapsed: {elapsed_time}")
                 start_time = end_time # reset timer
         except Exception as e:
-            print(f"Error scraping reviews from {url}: {str(e)}")
+            print(f"Failed to scrape: {url} view error_logs for list of failed urls.")
+            worker.dump_scrape_error_log(url)
 
 def resume_work(worker):
     """For jobs that were prematurely terminated, can invoke this to resume scraping 
@@ -73,29 +75,64 @@ def resume_work(worker):
     new_index = num_json_files * 100
     worker.list_of_review_pages = worker.list_of_review_pages[new_index:]
     worker.batch_counter = num_json_files
-    print(f"Resuming {worker.company_name} Batch: #{worker.batch_counter}\nScrape from url: {worker.list_of_review_pages[0]}")
+    print(f"Resuming {worker.company_name} Batch: #{worker.batch_counter}\nResume from url: {worker.list_of_review_pages[0]}")
 
-def main():
-    # Modify company_code, company_name and account_number (see accounts.json)
+def start_multiple_scrapes(account_number, batch_size, file_path):
+    """Scrapes multiple companies for reviews."""
+    # Read json containing company codes and list
+    with open(file_path) as f:
+        json_data = json.load(f)
 
-    # e.g., for Visa - https://www.glassdoor.sg/Overview/Working-at-Visa-Inc-EI_IE3035.11,19.htm
-    # e.g., Company_name = Visa, Company_code = 3035
-    company_code = 12830
-    company_name = "VMware"
+    # Extract code and name
+    for company in json_data:
+        company_info = json_data[company]
+        company_code = company_info['company_code']
+        company_name = company_info['company_name']
+        start_one_scrape(company_code, company_name, account_number, batch_size)
 
-    # Will be resolved to Facebook_{account_number} in accounts.json. 
-    account_number = 2
+def start_one_scrape(company_code, company_name, account_number, batch_size):
+    """ Scrape one company for reviews """
+    worker = create_worker(company_code, company_name, account_number)
+    worker.generate_urls()
 
-    # Will scrape 100 urls (10 reviews per url) before dumping results to json
-    batch_size = 100 
+    print(f"Starting to scrape {company_name} in batches of {batch_size} urls.")
+    start_worker(worker, batch_size)
+    print(f"{worker.username}: Completed scrape on {worker.company_name}")
+
+def resume_scrape(company_code, company_name, account_number, batch_size):
+    """Resumes a scrape from the last completed batch"""
 
     worker = create_worker(company_code, company_name, account_number)
     worker.generate_urls()
 
     print(f"Starting to scrape {company_name} in batches of {batch_size} urls.")
     # resume_work(worker) is used for scrapes that prematurely terminated
-    # resume_work(worker) # uncomment this line to resume a scrape that failed halfway
+    resume_work(worker) 
     start_worker(worker, batch_size)
+    print(f"{worker.username}: Completed scrape on {worker.company_name}")
+
+
+def main():
+    # Modify company_code, company_name and account_number (see accounts.json)
+    
+    # e.g., for Visa - https://www.glassdoor.sg/Overview/Working-at-Visa-Inc-EI_IE3035.11,19.htm
+    # e.g., Company_name = Visa, Company_code = 3035
+    company_code = 988629
+    company_name = "Carousell"
+
+    # Will be resolved to Facebook_{account_number} in accounts.json. 
+    account_number = 6
+
+    # will scrape 100 urls (10 reviews per url) before dumping results to json
+    batch_size = 100 
+    start_one_scrape(company_code, company_name, account_number, batch_size) # Starts scraping company for reviews
+    
+    """Uncomment if you intend to resume a scrape for a company"""
+    # resume_scrape(company_code, company_name, account_number, batch_size) # Resumes a prematurely terminated scrape
+    
+    """ Uncomment if you intend to Scrape multiple companies in one session """
+    # FILE_PATH = "company_list_1.json"
+    # start_multiple_scrapes(account_number, batch_size, FILE_PATH)
 
 if __name__ == "__main__":
   main()

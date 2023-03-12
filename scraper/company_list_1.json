@@ -1,0 +1,19 @@
+{
+    "company_1": {
+        "company_code" :914956,
+         "company_name": "Coupang"
+    },
+    "company_2": {
+        "company_code" :461386,
+         "company_name": "Agoda"
+    },
+    "company_3": {
+        "company_code" :1907040,
+         "company_name": "Klook"
+    },
+    "company_4": {
+        "company_code" :578726,
+         "company_name": "Lazada"
+    }
+}
+

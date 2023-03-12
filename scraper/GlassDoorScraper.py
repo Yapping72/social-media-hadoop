@@ -167,35 +167,7 @@ class GlassDoorScraper:
             review = {'review_title': review_title, 'rating': rating, 'reviewer_affiliation': reviewer_affiliation ,'job_date': job_date, 'job_title': job_title, 'duration': duration, 'pros': pros, 'cons': cons}
             reviews.append(review)
         return reviews
-    
-    def scrape_reviews(self, batch_of_pages_to_scrape, batch_id):
-        start_time = time.time()
-        all_reviews = []
-        failed_urls = [] 
-        failed_counter = 0
-        batch_size = len(batch_of_pages_to_scrape)
-        counter = 0
 
-        for count, url in enumerate(batch_of_pages_to_scrape):
-            try:
-                review_elements = self._get_reviews_on_page(url)
-                reviews = self._extract_reviews(review_elements)
-                all_reviews.append(reviews)
-                counter += 1
-            except Exception as e:
-                print(f"Error scraping reviews from {url}: {str(e)}")
-                failed_urls.append(url)
-                failed_counter += 1
-                if (failed_counter < 5):
-                    continue
-            
-        self.dump_reviews_json(all_reviews, batch_id)
-        self.dump_scrape_error_log(failed_urls)
-
-        end_time = time.time()
-        elapsed_time = end_time - start_time
-        print(f"{batch_id}: {counter}/{batch_size} successfully retrieved. Total elapsed time: {elapsed_time}seconds")
-    
     def dump_reviews_json(self, all_reviews):
         """Dump the reviews to a JSON file"""
         folder_path = os.path.join("..", "data", self.company_name)
@@ -207,12 +179,11 @@ class GlassDoorScraper:
             json.dump(all_reviews, file)
         self.batch_counter += 1
  
-    def dump_scrape_error_log(self, failed_urls):
+    def dump_scrape_error_log(self, failed_url):
         # Log failed URLs to a file
         path = os.path.join("..","error_logs", f"{self.company_name}_failed_urls.txt")
         with open(path, 'a') as f:
-            for url in failed_urls:
-                f.write(url + '\n')
+            f.write(failed_url + '\n')
 
     def update_progress(self, log):
         """Progress.md will track what companies are being / have been scraped."""
