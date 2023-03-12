@@ -320,3 +320,38 @@ List of companies scrapped.
 - Company name: hp
 - Company code: 1093161
 - 4096 reviews in 411 urls
+
+### ShopBack
+- Company name: ShopBack
+- Company code: 1169892
+- 184 reviews in 20 urls
+
+### Infineon-Technologies
+- Company name: Infineon-Technologies
+- Company code: 8915
+- 1928 reviews in 194 urls
+
+### NTT-DATA
+- Company name: NTT-DATA
+- Company code: 7649
+- 9602 reviews in 962 urls
+
+### Quess
+- Company name: Quess
+- Company code: 977654
+- 1173 reviews in 119 urls
+
+### Adecco
+- Company name: Adecco
+- Company code: 1089
+- 3653 reviews in 367 urls
+
+### Wise
+- Company name: Wise
+- Company code: 637715
+- 1152 reviews in 117 urls
+
+### Huawei
+- Company name: Huawei
+- Company code: 9304
+- 8749 reviews in 876 urls
