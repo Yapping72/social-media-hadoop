@@ -121,16 +121,18 @@ def main():
     company_name = "Carousell"
 
     # Will be resolved to Facebook_{account_number} in accounts.json. 
-    account_number = 6
+    account_number = 3
 
     # will scrape 100 urls (10 reviews per url) before dumping results to json
     batch_size = 100 
+
+    """Uncomment if you intend to scrape only 1 company"""
     start_one_scrape(company_code, company_name, account_number, batch_size) # Starts scraping company for reviews
     
     """Uncomment if you intend to resume a scrape for a company"""
     # resume_scrape(company_code, company_name, account_number, batch_size) # Resumes a prematurely terminated scrape
     
-    """ Uncomment if you intend to Scrape multiple companies in one session """
+    """Uncomment if you intend to Scrape multiple companies (listed in company_list_1.json)"""
     # FILE_PATH = "company_list_1.json"
     # start_multiple_scrapes(account_number, batch_size, FILE_PATH)
 

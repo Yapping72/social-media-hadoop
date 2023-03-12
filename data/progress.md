@@ -190,3 +190,18 @@ List of companies scrapped.
 - Company name: Agoda
 - Company code: 461386
 - 1674 reviews in 169 urls
+
+### Coinbase
+- Company name: Coinbase
+- Company code: 779622
+- 603 reviews in 62 urls
+
+### Klook
+- Company name: Klook
+- Company code: 1907040
+- 346 reviews in 36 urls
+
+### Lazada
+- Company name: Lazada
+- Company code: 578726
+- 1681 reviews in 170 urls
