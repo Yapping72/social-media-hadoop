@@ -281,6 +281,82 @@ List of companies scrapped.
 - 2572 reviews in 259 urls
 
 
+### garena
+- Company name: garena
+- Company code: 532331
+- 478 reviews in 49 urls
+
+### bytedance
+- Company name: bytedance
+- Company code: 1624196
+- 1732 reviews in 175 urls
+
+### grab
+- Company name: grab
+- Company code: 958580
+- 2338 reviews in 235 urls
+
+### thales
+- Company name: thales
+- Company code: 10358
+- 2937 reviews in 295 urls
+
+### continental
+- Company name: continental
+- Company code: 3768
+- 2861 reviews in 288 urls
+
+### nvidia
+- Company name: nvidia
+- Company code: 7633
+- 3855 reviews in 387 urls
+
+### TSMC
+- Company name: TSMC
+- Company code: 4130
+- 1166 reviews in 118 urls
+
+### hp
+- Company name: hp
+- Company code: 1093161
+- 4096 reviews in 411 urls
+
+### ShopBack
+- Company name: ShopBack
+- Company code: 1169892
+- 184 reviews in 20 urls
+
+### Infineon-Technologies
+- Company name: Infineon-Technologies
+- Company code: 8915
+- 1928 reviews in 194 urls
+
+### NTT-DATA
+- Company name: NTT-DATA
+- Company code: 7649
+- 9602 reviews in 962 urls
+
+### Quess
+- Company name: Quess
+- Company code: 977654
+- 1173 reviews in 119 urls
+
+### Adecco
+- Company name: Adecco
+- Company code: 1089
+- 3653 reviews in 367 urls
+
+### Wise
+- Company name: Wise
+- Company code: 637715
+- 1152 reviews in 117 urls
+
+### Huawei
+- Company name: Huawei
+- Company code: 9304
+- 8749 reviews in 876 urls
+
+
 ### CoinHako
 - Company name: CoinHako
 - Company code: 1936815

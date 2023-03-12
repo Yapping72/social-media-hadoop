@@ -120,7 +120,7 @@ def main():
     company_name = "StarHub"
 
     # Will be resolved to Facebook_{account_number} in accounts.json. 
-    account_number = 1
+    account_number = 2
 
     # will scrape 100 urls (10 reviews per url) before dumping results to json
     batch_size = 100 
