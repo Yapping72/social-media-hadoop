@@ -180,8 +180,12 @@ class GlassDoorScraper:
         self.batch_counter += 1
  
     def dump_scrape_error_log(self, failed_url):
-        # Log failed URLs to a file
-        path = os.path.join("..","error_logs", f"{self.company_name}_failed_urls.txt")
+        # Log failed URLs to a file - will create a error-logs folder if it doesnt exists
+        folder_path = os.path.join("..", "error_logs")
+        if not os.path.exists(folder_path):
+            os.makedirs(folder_path)
+
+        path = os.path.join(folder_path, f"{self.company_name}_failed_urls.txt")
         with open(path, 'a') as f:
             f.write(failed_url + '\n')
 

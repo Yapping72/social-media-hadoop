@@ -240,3 +240,13 @@ List of companies scrapped.
 - Company name: Agency-for-Science-Technology-and-Research
 - Company code: 254781
 - 1411 reviews in 143 urls
+
+### motional
+- Company name: motional
+- Company code: 3439934
+- 209 reviews in 22 urls
+
+### seagate-technology
+- Company name: seagate-technology
+- Company code: 1864
+- 2325 reviews in 234 urls

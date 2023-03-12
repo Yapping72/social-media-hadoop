@@ -116,8 +116,8 @@ def main():
     
     # e.g., for Visa - https://www.glassdoor.sg/Overview/Working-at-Visa-Inc-EI_IE3035.11,19.htm
     # e.g., Company_name = Visa, Company_code = 3035
-    company_code = 3363
-    company_name = "Samsung-Electronics"
+    company_code = 7649
+    company_name = "NTT-DATA"
 
     # Will be resolved to Facebook_{account_number} in accounts.json. 
     account_number = 2
