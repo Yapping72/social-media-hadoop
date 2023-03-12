@@ -111,7 +111,6 @@ def resume_scrape(company_code, company_name, account_number, batch_size):
     start_worker(worker, batch_size)
     print(f"{worker.username}: Completed scrape on {worker.company_name}")
 
-
 def main():
     # Modify company_code, company_name and account_number (see accounts.json)
     
