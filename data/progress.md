@@ -250,3 +250,43 @@ List of companies scrapped.
 - Company name: seagate-technology
 - Company code: 1864
 - 2325 reviews in 234 urls
+
+### garena
+- Company name: garena
+- Company code: 532331
+- 478 reviews in 49 urls
+
+### bytedance
+- Company name: bytedance
+- Company code: 1624196
+- 1732 reviews in 175 urls
+
+### grab
+- Company name: grab
+- Company code: 958580
+- 2338 reviews in 235 urls
+
+### thales
+- Company name: thales
+- Company code: 10358
+- 2937 reviews in 295 urls
+
+### continental
+- Company name: continental
+- Company code: 3768
+- 2861 reviews in 288 urls
+
+### nvidia
+- Company name: nvidia
+- Company code: 7633
+- 3855 reviews in 387 urls
+
+### TSMC
+- Company name: TSMC
+- Company code: 4130
+- 1166 reviews in 118 urls
+
+### hp
+- Company name: hp
+- Company code: 1093161
+- 4096 reviews in 411 urls
