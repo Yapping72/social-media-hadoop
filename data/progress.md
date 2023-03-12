@@ -250,6 +250,36 @@ List of companies scrapped.
 - Company name: seagate-technology
 - Company code: 1864
 - 2325 reviews in 234 urls
+### Qualcommm
+- Company name: Qualcommm
+- Company code: 640
+- 8120 reviews in 813 urls
+
+### Autodesk
+- Company name: Autodesk
+- Company code: 1155
+- 3241 reviews in 326 urls
+
+### Qualcommm
+- Company name: Qualcommm
+- Company code: 640
+- 8120 reviews in 813 urls
+
+### Autodesk
+- Company name: Autodesk
+- Company code: 1155
+- 3241 reviews in 326 urls
+
+### TikTok
+- Company name: TikTok
+- Company code: 2230881
+- 1894 reviews in 191 urls
+
+### Avanade
+- Company name: Avanade
+- Company code: 11701
+- 2572 reviews in 259 urls
+
 
 ### garena
 - Company name: garena
