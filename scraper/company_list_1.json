@@ -1,59 +1,23 @@
 {
     "company_1": {
-      "company_name": "circles-life",
-      "company_code": 1739088
+      "company_name": "CoinHako",
+      "company_code": 1936815
     },
     "company_2": {
-      "company_name": "binance",
-      "company_code": 1816824
+      "company_name": "Cake DeFi",
+      "company_code": 3557919
     },
     "company_3": {
-      "company_name": "expressvpn",
-      "company_code": 3355140
+      "company_name": "Aspire",
+      "company_code": 2909271
     },
     "company_4": {
-      "company_name": "Gitlab",
-      "company_code": 1296544
+      "company_name": "Revolut",
+      "company_code": 1176471
     },
     "company_5": {
-      "company_name": "indeed",
-      "company_code": 100561
-    },
-    "company_6": {
-      "company_name": "motional",
-      "company_code": 3439934
-    },
-    "company_7": {
-      "company_name": "The-trade-desk",
-      "company_code": 779832
-    },
-    "company_8": {
-      "company_name": "workato",
-      "company_code": 1333040
-    },
-    "company_9": {
-      "company_name": "zendesk",
-      "company_code": 360923
-    },
-    "company_10": {
-      "company_name": "shein",
-      "company_code": 1840940
-    },
-    "company_11": {
-      "company_name": "tokopedia",
-      "company_code": 1050335
-    },
-    "company_12": {
-      "company_name": "Coinbase",
-      "company_code": 779622
-    },
-    "company_13": {
-      "company_name": "Klook",
-      "company_code": 1907040
-    },
-    "company_14": {
-      "company_name": "Lazada",
-      "company_code": 578726
+      "company_name": "foodpanda",
+      "company_code": 709546
     }
   }
   
