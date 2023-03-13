@@ -390,3 +390,73 @@ List of companies scrapped.
 - Company name: foodpanda
 - Company code: 709546
 - 1326 reviews in 134 urls
+### Broadcom
+- Company name: Broadcom
+- Company code: 6926
+- 3396 reviews in 341 urls
+
+### Fujitsu
+- Company name: Fujitsu
+- Company code: 3524
+- 4965 reviews in 498 urls
+
+### Texas-Instruments
+- Company name: Texas-Instruments
+- Company code: 651
+- 3984 reviews in 400 urls
+
+### MediaTek
+- Company name: MediaTek
+- Company code: 40142
+- 1115 reviews in 113 urls
+
+### Airbnb
+- Company name: Airbnb
+- Company code: 391850
+- 1121 reviews in 114 urls
+
+### Uber
+- Company name: Uber
+- Company code: 575263
+- 10976 reviews in 1099 urls
+
+
+### Uber
+- Company name: Uber
+- Company code: 575263
+- 10979 reviews in 1099 urls
+
+### Uber
+- Company name: Uber
+- Company code: 575263
+- 10978 reviews in 1099 urls
+
+### CoinHako
+- Company name: CoinHako
+- Company code: 1936815
+- 16 reviews in 3 urls
+
+### Cake DeFi
+- Company name: Cake DeFi
+- Company code: 3557919
+- 39 reviews in 5 urls
+
+### HubSpot
+- Company name: HubSpot
+- Company code: 227605
+- 2474 reviews in 249 urls
+
+### RedHat
+- Company name: RedHat
+- Company code: 8868
+- 3198 reviews in 321 urls
+
+### NetApp
+- Company name: NetApp
+- Company code: 5406
+- 4229 reviews in 424 urls
+
+### Twilio
+- Company name: Twilio
+- Company code: 410790
+- 1142 reviews in 116 urls
