@@ -406,3 +406,53 @@ List of companies scrapped.
 - Company name: DBS-Bank
 - Company code: 611812
 - 4695 reviews in 471 urls
+
+### Wells-Fargo
+- Company name: Wells-Fargo
+- Company code: 8876
+- 41269 reviews in 4128 urls
+
+### Citi
+- Company name: Citi
+- Company code: 8843
+- 26462 reviews in 2648 urls
+
+### Citi
+- Company name: Citi
+- Company code: 8843
+- 26462 reviews in 2648 urls
+
+### Wells-Fargo
+- Company name: Wells-Fargo
+- Company code: 8876
+- 41269 reviews in 4128 urls
+
+### Deutsche-Bank
+- Company name: Deutsche-Bank
+- Company code: 3150
+- 8966 reviews in 898 urls
+
+### Maybank
+- Company name: Maybank
+- Company code: 7664
+- 1263 reviews in 128 urls
+
+### United-Overseas-Bank
+- Company name: United-Overseas-Bank
+- Company code: 11462
+- 2104 reviews in 212 urls
+
+### HSBC
+- Company name: HSBC
+- Company code: 3482
+- 20300 reviews in 2031 urls
+
+### Barclays
+- Company name: Barclays
+- Company code: 3456
+- 15177 reviews in 1519 urls
+
+### Goldmans-Sachs
+- Company name: Goldmans-Sachs
+- Company code: 2800
+- 12988 reviews in 1300 urls
