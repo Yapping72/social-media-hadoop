@@ -460,3 +460,19 @@ List of companies scrapped.
 - Company name: Twilio
 - Company code: 410790
 - 1142 reviews in 116 urls
+
+
+### J-P-Morgan
+- Company name: J-P-Morgan
+- Company code: 145
+- 19762 reviews in 1978 urls
+
+### Bank-of-America
+- Company name: Bank-of-America
+- Company code: 8874
+- 34124 reviews in 3414 urls
+
+### DBS-Bank
+- Company name: DBS-Bank
+- Company code: 611812
+- 4695 reviews in 471 urls
