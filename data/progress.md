@@ -476,3 +476,29 @@ List of companies scrapped.
 - Company name: DBS-Bank
 - Company code: 611812
 - 4695 reviews in 471 urls
+
+### Nokia
+- Company name: Nokia
+- Company code: 3494
+- 14556 reviews in 1457 urls
+
+### Acer-Group
+- Company name: Acer-Group
+- Company code: 3802
+- 389 reviews in 40 urls
+
+### ASUS
+- Company name: ASUS
+- Company code: 40093
+- 1045 reviews in 106 urls
+
+### Intel-Corporation
+- Company name: Intel-Corporation
+- Company code: 1519
+- 22219 reviews in 2223 urls
+
+### Lenovo
+- Company name: Lenovo
+- Company code: 8034
+- 2537 reviews in 255 urls
+
