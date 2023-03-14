@@ -612,3 +612,123 @@ List of companies scrapped.
 - Company name: Suncor
 - Company code: 6818
 - 1284 reviews in 130 urls
+### Wells-Fargo
+- Company name: Wells-Fargo
+- Company code: 8876
+- 41269 reviews in 4128 urls
+
+### Citi
+- Company name: Citi
+- Company code: 8843
+- 26462 reviews in 2648 urls
+
+### Citi
+- Company name: Citi
+- Company code: 8843
+- 26462 reviews in 2648 urls
+
+### Wells-Fargo
+- Company name: Wells-Fargo
+- Company code: 8876
+- 41269 reviews in 4128 urls
+
+### Deutsche-Bank
+- Company name: Deutsche-Bank
+- Company code: 3150
+- 8966 reviews in 898 urls
+
+### Maybank
+- Company name: Maybank
+- Company code: 7664
+- 1263 reviews in 128 urls
+
+### United-Overseas-Bank
+- Company name: United-Overseas-Bank
+- Company code: 11462
+- 2104 reviews in 212 urls
+
+### HSBC
+- Company name: HSBC
+- Company code: 3482
+- 20300 reviews in 2031 urls
+
+### Barclays
+- Company name: Barclays
+- Company code: 3456
+- 15177 reviews in 1519 urls
+
+### Goldmans-Sachs
+- Company name: Goldmans-Sachs
+- Company code: 2800
+- 12988 reviews in 1300 urls
+### Nokia
+- Company name: Nokia
+- Company code: 3494
+- 14556 reviews in 1457 urls
+
+### Acer-Group
+- Company name: Acer-Group
+- Company code: 3802
+- 389 reviews in 40 urls
+
+### ASUS
+- Company name: ASUS
+- Company code: 40093
+- 1045 reviews in 106 urls
+
+### Intel-Corporation
+- Company name: Intel-Corporation
+- Company code: 1519
+- 22219 reviews in 2223 urls
+
+### Lenovo
+- Company name: Lenovo
+- Company code: 8034
+- 2537 reviews in 255 urls
+
+
+
+### Morgan Stanley
+- Company name: Morgan Stanley
+- Company code: 2282
+- 13569 reviews in 1358 urls
+
+### American Express
+- Company name: American Express
+- Company code: 35
+- 12944 reviews in 1296 urls
+
+### Blackrock
+- Company name: Blackrock
+- Company code: 9331
+- 4355 reviews in 437 urls
+
+### State-Street
+- Company name: State-Street
+- Company code: 1911
+- 7689 reviews in 770 urls
+
+### BB-and-T
+- Company name: BB-and-T
+- Company code: 1893
+- 2331 reviews in 235 urls
+
+### Capital-One
+- Company name: Capital-One
+- Company code: 3736
+- 13007 reviews in 1302 urls
+
+### Standard-Chartered
+- Company name: Standard-Chartered
+- Company code: 226853
+- 7239 reviews in 725 urls
+
+### OCBC
+- Company name: OCBC
+- Company code: 9773
+- 2271 reviews in 229 urls
+
+### Mastercard
+- Company name: Mastercard
+- Company code: 3677
+- 4405 reviews in 442 urls

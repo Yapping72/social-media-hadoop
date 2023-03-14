@@ -116,11 +116,11 @@ def main():
     
     # e.g., for Visa - https://www.glassdoor.sg/Overview/Working-at-Visa-Inc-EI_IE3035.11,19.htm
     # e.g., Company_name = Visa, Company_code = 3035
-    company_code = 611812
-    company_name = "DBS-Bank"
+    company_code = 3677
+    company_name = "Mastercard"
 
     # Will be resolved to Facebook_{account_number} in accounts.json. 
-    account_number = 6
+    account_number = 2
 
     # will scrape 100 urls (10 reviews per url) before dumping results to json
     batch_size = 100 
@@ -132,7 +132,7 @@ def main():
     #resume_scrape(company_code, company_name, account_number, batch_size) # Resumes a prematurely terminated scrape
     
     """Uncomment if you intend to Scrape multiple companies (listed in company_list_1.json)"""
-    #FILE_PATH = "company_list_1.json"
+    #FILE_PATH = "Financials.json"
     #start_multiple_scrapes(account_number, batch_size, FILE_PATH)
 
 if __name__ == "__main__":
