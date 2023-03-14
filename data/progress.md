@@ -551,3 +551,49 @@ List of companies scrapped.
 - Company code: 8034
 - 2537 reviews in 255 urls
 
+
+
+### Morgan Stanley
+- Company name: Morgan Stanley
+- Company code: 2282
+- 13569 reviews in 1358 urls
+
+### American Express
+- Company name: American Express
+- Company code: 35
+- 12944 reviews in 1296 urls
+
+### Blackrock
+- Company name: Blackrock
+- Company code: 9331
+- 4355 reviews in 437 urls
+
+### State-Street
+- Company name: State-Street
+- Company code: 1911
+- 7689 reviews in 770 urls
+
+### BB-and-T
+- Company name: BB-and-T
+- Company code: 1893
+- 2331 reviews in 235 urls
+
+### Capital-One
+- Company name: Capital-One
+- Company code: 3736
+- 13007 reviews in 1302 urls
+
+### Standard-Chartered
+- Company name: Standard-Chartered
+- Company code: 226853
+- 7239 reviews in 725 urls
+
+### OCBC
+- Company name: OCBC
+- Company code: 9773
+- 2271 reviews in 229 urls
+
+### Mastercard
+- Company name: Mastercard
+- Company code: 3677
+- 4405 reviews in 442 urls
