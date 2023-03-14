@@ -477,6 +477,141 @@ List of companies scrapped.
 - Company code: 611812
 - 4695 reviews in 471 urls
 
+
+### ExxonMobil
+- Company name: ExxonMobil
+- Company code: 237
+- 6418 reviews in 643 urls
+
+### Chevron
+- Company name: Chevron
+- Company code: 13524
+- 4325 reviews in 434 urls
+
+### Shell
+- Company name: Shell
+- Company code: 5833
+- 9569 reviews in 958 urls
+
+### bp
+- Company name: bp
+- Company code: 9011
+- 4902 reviews in 492 urls
+
+### TotalEnergies
+- Company name: TotalEnergies
+- Company code: 1038
+- 1563 reviews in 158 urls
+
+### ConocoPhillips
+- Company name: ConocoPhillips
+- Company code: 14933
+- 1280 reviews in 129 urls
+
+### Eni-Spa
+- Company name: Eni-Spa
+- Company code: 3164
+- 555 reviews in 57 urls
+
+### EOG
+- Company name: EOG
+- Company code: 1467
+- 230 reviews in 24 urls
+
+### Phillips-66
+- Company name: Phillips-66
+- Company code: 498821
+- 918 reviews in 93 urls
+
+### Valero-Energy
+- Company name: Valero-Energy
+- Company code: 704
+- 667 reviews in 68 urls
+
+### Marathon-Petroleum
+- Company name: Marathon-Petroleum
+- Company code: 7657
+- 1180 reviews in 119 urls
+
+### Kinder-Morgan
+- Company name: Kinder-Morgan
+- Company code: 4156
+- 799 reviews in 81 urls
+
+### SLB
+- Company name: SLB
+- Company code: 588
+- 8904 reviews in 892 urls
+
+### SLB
+- Company name: SLB
+- Company code: 588
+- 8905 reviews in 892 urls
+
+### Halliburton
+- Company name: Halliburton
+- Company code: 307
+- 5002 reviews in 502 urls
+
+### NOV
+- Company name: NOV
+- Company code: 3306
+- 2594 reviews in 261 urls
+
+### Transocean
+- Company name: Transocean
+- Company code: 33
+- 339 reviews in 35 urls
+
+### Baker-Hughes
+- Company name: Baker-Hughes
+- Company code: 1902699
+- 3208 reviews in 322 urls
+
+### Baker-Hughes
+- Company name: Baker-Hughes
+- Company code: 1902699
+- 3208 reviews in 322 urls
+
+### Apache
+- Company name: Apache
+- Company code: 54
+- 332 reviews in 35 urls
+
+### Devon-Energy
+- Company name: Devon-Energy
+- Company code: 839
+- 474 reviews in 49 urls
+
+### Anadarko-Petroleum
+- Company name: Anadarko-Petroleum
+- Company code: 48
+- 360 reviews in 37 urls
+
+### Chesapeake-Energy
+- Company name: Chesapeake-Energy
+- Company code: 906
+- 525 reviews in 54 urls
+
+### Ovintiv
+- Company name: Ovintiv
+- Company code: 3282291
+- 352 reviews in 37 urls
+
+### Cenovus
+- Company name: Cenovus
+- Company code: 354451
+- 581 reviews in 60 urls
+
+### Husky-Energy
+- Company name: Husky-Energy
+- Company code: 7825
+- 634 reviews in 65 urls
+
+### Suncor
+- Company name: Suncor
+- Company code: 6818
+- 1284 reviews in 130 urls
 ### Wells-Fargo
 - Company name: Wells-Fargo
 - Company code: 8876
@@ -551,6 +686,52 @@ List of companies scrapped.
 - Company code: 8034
 - 2537 reviews in 255 urls
 
+
+
+### Morgan Stanley
+- Company name: Morgan Stanley
+- Company code: 2282
+- 13569 reviews in 1358 urls
+
+### American Express
+- Company name: American Express
+- Company code: 35
+- 12944 reviews in 1296 urls
+
+### Blackrock
+- Company name: Blackrock
+- Company code: 9331
+- 4355 reviews in 437 urls
+
+### State-Street
+- Company name: State-Street
+- Company code: 1911
+- 7689 reviews in 770 urls
+
+### BB-and-T
+- Company name: BB-and-T
+- Company code: 1893
+- 2331 reviews in 235 urls
+
+### Capital-One
+- Company name: Capital-One
+- Company code: 3736
+- 13007 reviews in 1302 urls
+
+### Standard-Chartered
+- Company name: Standard-Chartered
+- Company code: 226853
+- 7239 reviews in 725 urls
+
+### OCBC
+- Company name: OCBC
+- Company code: 9773
+- 2271 reviews in 229 urls
+
+### Mastercard
+- Company name: Mastercard
+- Company code: 3677
+- 4405 reviews in 442 urls
 
 
 ### BHP

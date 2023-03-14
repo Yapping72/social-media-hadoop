@@ -1,38 +1,14 @@
 {
-  "Goldman Sachs": {
-    "company_code": "2800",
-    "company_name": "Goldmans-Sachs"
-  },
-  "Morgan Stanley": {
-    "company_code": "2282",
-    "company_name": "Morgan Stanley"
-  },
-  "American Express": {
-    "company_code": "35",
-    "company_name": "American Express"
-  },
-  "BlackRock": {
-    "company_code": "9331",
-    "company_name": "Blackrock"
-  },
-  "State Street": {
-    "company_code": "1911",
-    "company_name": "State-Street"
-  },
-  "BB&T": {
-    "company_code": "1893",
-    "company_name": "BB-and-T"
-  },
-  "Capital One Financial": {
-    "company_code": "3736",
-    "company_name": "Capital-One"
-  },
-  "Standard Chartered": {
-    "company_code": "226853",
-    "company_name": "Standard-Chartered"
-  },
   "OCBC": {
     "company_code": "9773",
     "company_name": "OCBC"
+  },
+  "ICBC": {
+    "company_code": "40639",
+    "company_name": "ICBC"
+  },
+  "Credit-Suisse": {
+    "company_code": "3141",
+    "company_name": "Credit-Suisse"
   }
 }
