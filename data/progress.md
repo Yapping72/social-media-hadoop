@@ -551,3 +551,159 @@ List of companies scrapped.
 - Company code: 8034
 - 2537 reviews in 255 urls
 
+
+
+### BHP
+- Company name: BHP
+- Company code: 3459
+- 1882 reviews in 190 urls
+
+### Rio-Tinto
+- Company name: Rio-Tinto
+- Company code: 6685
+- 1616 reviews in 163 urls
+
+### Vale
+- Company name: Vale
+- Company code: 683893
+- 542 reviews in 56 urls
+
+### Freeport-McMoRan
+- Company name: Freeport-McMoRan
+- Company code: 266
+- 839 reviews in 85 urls
+
+### Newmont
+- Company name: Newmont
+- Company code: 479
+- 384 reviews in 40 urls
+
+### Freeport-McMoRan
+- Company name: Freeport-McMoRan
+- Company code: 266
+- 839 reviews in 85 urls
+
+### Newmont
+- Company name: Newmont
+- Company code: 479
+- 384 reviews in 40 urls
+
+### Barrick-Gold
+- Company name: Barrick-Gold
+- Company code: 5793
+- 315 reviews in 33 urls
+
+### Albemarle
+- Company name: Albemarle
+- Company code: 2561
+- 248 reviews in 26 urls
+
+### Mosaic
+- Company name: Mosaic
+- Company code: 23281
+- 605 reviews in 62 urls
+
+### DowDupont
+- Company name: DowDupont
+- Company code: 2123565
+- 23 reviews in 4 urls
+
+### BASF
+- Company name: BASF
+- Company code: 4231
+- 2769 reviews in 278 urls
+
+### Air-Liquide
+- Company name: Air-Liquide
+- Company code: 10332
+- 1400 reviews in 141 urls
+
+### Linde
+- Company name: Linde
+- Company code: 10436
+- 1330 reviews in 134 urls
+
+### Air-Products
+- Company name: Air-Products
+- Company code: 17
+- 972 reviews in 99 urls
+
+### PPG
+- Company name: PPG
+- Company code: 508
+- 1333 reviews in 135 urls
+
+### Eastman
+- Company name: Eastman
+- Company code: 2452
+- 2000 reviews in 201 urls
+
+### Sherwin-Williams
+- Company name: Sherwin-Williams
+- Company code: 599
+- 7069 reviews in 708 urls
+
+### Vulcan-Materials
+- Company name: Vulcan-Materials
+- Company code: 709
+- 355 reviews in 37 urls
+
+### Martin-Marietta
+- Company name: Martin-Marietta
+- Company code: 3568
+- 401 reviews in 42 urls
+
+### International-Paper
+- Company name: International-Paper
+- Company code: 356
+- 1727 reviews in 174 urls
+
+### PCA
+- Company name: PCA
+- Company code: 9610
+- 488 reviews in 50 urls
+
+### WestRock
+- Company name: WestRock
+- Company code: 1033056
+- 1802 reviews in 182 urls
+
+### Vulcan-Materials
+- Company name: Vulcan-Materials
+- Company code: 709
+- 356 reviews in 37 urls
+
+### Martin-Marietta
+- Company name: Martin-Marietta
+- Company code: 3568
+- 403 reviews in 42 urls
+
+### International-Paper
+- Company name: International-Paper
+- Company code: 356
+- 1727 reviews in 174 urls
+
+### PCA
+- Company name: PCA
+- Company code: 9610
+- 488 reviews in 50 urls
+
+### WestRock
+- Company name: WestRock
+- Company code: 1033056
+- 1802 reviews in 182 urls
+
+### Crown-Holdings
+- Company name: Crown-Holdings
+- Company code: 186
+- 248 reviews in 26 urls
+
+### O-I-Glass
+- Company name: O-I-Glass
+- Company code: 2129
+- 439 reviews in 45 urls
+
+### Ball-Corporation
+- Company name: Ball-Corporation
+- Company code: 74
+- 461 reviews in 48 urls

@@ -120,7 +120,7 @@ def main():
     company_name = "Wells-Fargo"
 
     # Will be resolved to Facebook_{account_number} in accounts.json. 
-    account_number = 7
+    account_number = 4
 
     # will scrape 100 urls (10 reviews per url) before dumping results to json
     batch_size = 100 
@@ -132,7 +132,7 @@ def main():
     #resume_scrape(company_code, company_name, account_number, batch_size) # Resumes a prematurely terminated scrape
     
     """Uncomment if you intend to Scrape multiple companies (listed in company_list_1.json)"""
-    FILE_PATH = "Financials.json"
+    FILE_PATH = "Materials.json"
     start_multiple_scrapes(account_number, batch_size, FILE_PATH)
 
 if __name__ == "__main__":
