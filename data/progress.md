@@ -686,8 +686,6 @@ List of companies scrapped.
 - Company code: 8034
 - 2537 reviews in 255 urls
 
-
-
 ### Morgan Stanley
 - Company name: Morgan Stanley
 - Company code: 2282
@@ -888,3 +886,104 @@ List of companies scrapped.
 - Company name: Ball-Corporation
 - Company code: 74
 - 461 reviews in 48 urls
+
+### GE
+- Company name: GE
+- Company code: 277
+- 13143 reviews in 1316 urls
+
+### GE
+- Company name: GE
+- Company code: 277
+- 13144 reviews in 1316 urls
+
+### Honeywell
+- Company name: Honeywell
+- Company code: 28
+- 16690 reviews in 1670 urls
+
+### United-Technologies
+- Company name: United-Technologies
+- Company code: 697
+- 738 reviews in 75 urls
+
+### Caterpillar
+- Company name: Caterpillar
+- Company code: 137
+- 5559 reviews in 557 urls
+
+### 3M
+- Company name: 3M
+- Company code: 446
+- 4435 reviews in 445 urls
+
+### Boeing
+- Company name: Boeing
+- Company code: 102
+- 13004 reviews in 1302 urls
+
+### Lockheed-Martin
+- Company name: Lockheed-Martin
+- Company code: 404
+- 10622 reviews in 1064 urls
+
+### General-Dynamics
+- Company name: General-Dynamics
+- Company code: 276
+- 690 reviews in 70 urls
+
+### Raytheon-Technologies
+- Company name: Raytheon-Technologies
+- Company code: 561
+- 6738 reviews in 675 urls
+
+### Northrop-Grumman
+- Company name: Northrop-Grumman
+- Company code: 488
+- 8848 reviews in 886 urls
+
+### Union-Pacific
+- Company name: Union-Pacific
+- Company code: 691
+- 2558 reviews in 257 urls
+
+### CSX
+- Company name: CSX
+- Company code: 124
+- 1229 reviews in 124 urls
+
+### Norfolk-Southern
+- Company name: Norfolk-Southern
+- Company code: 483
+- 1545 reviews in 156 urls
+
+### Delta-Air-Lines
+- Company name: Delta-Air-Lines
+- Company code: 197
+- 5921 reviews in 594 urls
+
+### United-Airlines
+- Company name: United-Airlines
+- Company code: 683
+- 5365 reviews in 538 urls
+
+### FedEx
+- Company name: FedEx
+- Company code: 246
+- 8634 reviews in 865 urls
+
+### Honeywell
+- Company name: Honeywell
+- Company code: 28
+- 16705 reviews in 1672 urls
+
+### Boeing
+- Company name: Boeing
+- Company code: 102
+- 13016 reviews in 1303 urls
+
+### Raytheon-Technologies
+- Company name: Raytheon-Technologies
+- Company code: 561
+- 6742 reviews in 676 urls
+
