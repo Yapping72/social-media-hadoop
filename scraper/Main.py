@@ -126,14 +126,14 @@ def main():
     batch_size = 100 
 
     """Uncomment if you intend to scrape only 1 company"""
-    start_one_scrape(company_code, company_name, account_number, batch_size) # Starts scraping company for reviews
+    #start_one_scrape(company_code, company_name, account_number, batch_size) # Starts scraping company for reviews
     
     """Uncomment if you intend to resume a scrape for a company"""
     #resume_scrape(company_code, company_name, account_number, batch_size) # Resumes a prematurely terminated scrape
     
     """Uncomment if you intend to Scrape multiple companies (listed in company_list_1.json)"""
-    #FILE_PATH = "company_list_1.json"
-    #start_multiple_scrapes(account_number, batch_size, FILE_PATH)
+    FILE_PATH = "Health_care.json"
+    start_multiple_scrapes(account_number, batch_size, FILE_PATH)
 
 if __name__ == "__main__":
   main()
