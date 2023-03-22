@@ -1,91 +1,14 @@
 {
-    "JPMorgan Chase": {
-      "company_code": "",
-      "company_name": ""
-    },
-    "Bank of America": {
-      "company_code": "",
-      "company_name": ""
-    },
-    "Wells Fargo": {
-      "company_code": "",
-      "company_name": ""
-    },
-    "Citigroup": {
-      "company_code": "",
-      "company_name": ""
-    },
-    "Goldman Sachs": {
-      "company_code": "",
-      "company_name": ""
-    },
-    "Morgan Stanley": {
-      "company_code": "",
-      "company_name": ""
-    },
-    "American Express": {
-      "company_code": "",
-      "company_name": ""
-    },
-    "Visa": {
-      "company_code": "",
-      "company_name": ""
-    },
-    "Mastercard": {
-      "company_code": "",
-      "company_name": ""
-    },
-    "BlackRock": {
-      "company_code": "",
-      "company_name": ""
-    },
-    "State Street": {
-      "company_code": "",
-      "company_name": ""
-    },
-    "BB&T": {
-      "company_code": "",
-      "company_name": ""
-    },
-    "Capital One Financial": {
-      "company_code": "",
-      "company_name": ""
-    },
-    "Charles Schwab": {
-      "company_code": "",
-      "company_name": ""
-    },
-    "Chubb": {
-      "company_code": "",
-      "company_name": ""
-    },
-    "CME Group": {
-      "company_code": "",
-      "company_name": ""
-    },
-    "Discover Financial Services": {
-      "company_code": "",
-      "company_name": ""
-    },
-    "Franklin Resources": {
-      "company_code": "",
-      "company_name": ""
-    },
-    "Lincoln National": {
-      "company_code": "",
-      "company_name": ""
-    },
-    "Principal Financial Group": {
-      "company_code": "",
-      "company_name": ""
-    },
-    "The Hartford": {
-      "company_code": "",
-      "company_name": ""
-    },
-    "The Travelers Companies": {
-      "company_code": "",
-      "company_name": ""
-    }
+  "OCBC": {
+    "company_code": "9773",
+    "company_name": "OCBC"
+  },
+  "ICBC": {
+    "company_code": "40639",
+    "company_name": "ICBC"
+  },
+  "Credit-Suisse": {
+    "company_code": "3141",
+    "company_name": "Credit-Suisse"
+  }
 }
-  

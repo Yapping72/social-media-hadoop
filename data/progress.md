@@ -478,117 +478,512 @@ List of companies scrapped.
 - 4695 reviews in 471 urls
 
 
-### Johnson-and-Johnson
-- Company name: Johnson-and-Johnson
-- Company code: 364
-- 9423 reviews in 944 urls
+### ExxonMobil
+- Company name: ExxonMobil
+- Company code: 237
+- 6418 reviews in 643 urls
 
-### Pfizer
-- Company name: Pfizer
-- Company code: 525
-- 6004 reviews in 602 urls
+### Chevron
+- Company name: Chevron
+- Company code: 13524
+- 4325 reviews in 434 urls
 
-### Novartis
-- Company name: Novartis
-- Company code: 6667
-- 6556 reviews in 657 urls
+### Shell
+- Company name: Shell
+- Company code: 5833
+- 9569 reviews in 958 urls
 
-### Merck
-- Company name: Merck
-- Company code: 438
-- 4720 reviews in 473 urls
+### bp
+- Company name: bp
+- Company code: 9011
+- 4902 reviews in 492 urls
 
-### Roche
-- Company name: Roche
-- Company code: 3480
-- 4410 reviews in 442 urls
+### TotalEnergies
+- Company name: TotalEnergies
+- Company code: 1038
+- 1563 reviews in 158 urls
 
-### Bristol-Myers-Squibb
-- Company name: Bristol-Myers-Squibb
-- Company code: 107
-- 3139 reviews in 315 urls
+### ConocoPhillips
+- Company name: ConocoPhillips
+- Company code: 14933
+- 1280 reviews in 129 urls
 
-### Abbott
-- Company name: Abbott
-- Company code: 12
-- 6476 reviews in 649 urls
+### Eni-Spa
+- Company name: Eni-Spa
+- Company code: 3164
+- 555 reviews in 57 urls
 
-### Medtronic
-- Company name: Medtronic
-- Company code: 436
-- 6805 reviews in 682 urls
+### EOG
+- Company name: EOG
+- Company code: 1467
+- 230 reviews in 24 urls
 
-### Amgen
-- Company name: Amgen
-- Company code: 1130
-- 3151 reviews in 317 urls
+### Phillips-66
+- Company name: Phillips-66
+- Company code: 498821
+- 918 reviews in 93 urls
 
-### Thermo-Fisher-Scientific
-- Company name: Thermo-Fisher-Scientific
-- Company code: 658
-- 4195 reviews in 421 urls
+### Valero-Energy
+- Company name: Valero-Energy
+- Company code: 704
+- 667 reviews in 68 urls
 
-### UnitedHealth-Group
-- Company name: UnitedHealth-Group
-- Company code: 1991
-- 13233 reviews in 1325 urls
+### Marathon-Petroleum
+- Company name: Marathon-Petroleum
+- Company code: 7657
+- 1180 reviews in 119 urls
 
-### Anthem-Blue-Cross-and-Blue-Shield
-- Company name: Anthem-Blue-Cross-and-Blue-Shield
-- Company code: 333127
-- 817 reviews in 83 urls
+### Kinder-Morgan
+- Company name: Kinder-Morgan
+- Company code: 4156
+- 799 reviews in 81 urls
 
-### Express-Scripts
-- Company name: Express-Scripts
-- Company code: 2212
-- 3179 reviews in 319 urls
+### SLB
+- Company name: SLB
+- Company code: 588
+- 8904 reviews in 892 urls
 
-### Humana
-- Company name: Humana
-- Company code: 340
-- 5799 reviews in 581 urls
+### SLB
+- Company name: SLB
+- Company code: 588
+- 8905 reviews in 892 urls
 
-### CVS-Health
-- Company name: CVS-Health
-- Company code: 437
-- 31928 reviews in 3194 urls
+### Halliburton
+- Company name: Halliburton
+- Company code: 307
+- 5002 reviews in 502 urls
 
-### Aetna
-- Company name: Aetna
-- Company code: 16
-- 4141 reviews in 416 urls
+### NOV
+- Company name: NOV
+- Company code: 3306
+- 2594 reviews in 261 urls
 
-### The-Cigna-Group
-- Company name: The-Cigna-Group
-- Company code: 119
-- 4828 reviews in 484 urls
+### Transocean
+- Company name: Transocean
+- Company code: 33
+- 339 reviews in 35 urls
 
-### Gilead-Sciences
-- Company name: Gilead-Sciences
-- Company code: 2016
-- 1456 reviews in 147 urls
+### Baker-Hughes
+- Company name: Baker-Hughes
+- Company code: 1902699
+- 3208 reviews in 322 urls
 
-### Biogen
-- Company name: Biogen
-- Company code: 1336
-- 1536 reviews in 155 urls
+### Baker-Hughes
+- Company name: Baker-Hughes
+- Company code: 1902699
+- 3208 reviews in 322 urls
 
-### Regeneron
-- Company name: Regeneron
-- Company code: 981
-- 1267 reviews in 128 urls
+### Apache
+- Company name: Apache
+- Company code: 54
+- 332 reviews in 35 urls
 
-### Alexion-Pharmaceuticals
-- Company name: Alexion-Pharmaceuticals
-- Company code: 6092
-- 585 reviews in 60 urls
+### Devon-Energy
+- Company name: Devon-Energy
+- Company code: 839
+- 474 reviews in 49 urls
 
-### Vertex-Pharmaceuticals
-- Company name: Vertex-Pharmaceuticals
-- Company code: 2080
-- 791 reviews in 81 urls
+### Anadarko-Petroleum
+- Company name: Anadarko-Petroleum
+- Company code: 48
+- 360 reviews in 37 urls
 
-### Illumina
-- Company name: Illumina
-- Company code: 11671
-- 1760 reviews in 177 urls
+### Chesapeake-Energy
+- Company name: Chesapeake-Energy
+- Company code: 906
+- 525 reviews in 54 urls
+
+### Ovintiv
+- Company name: Ovintiv
+- Company code: 3282291
+- 352 reviews in 37 urls
+
+### Cenovus
+- Company name: Cenovus
+- Company code: 354451
+- 581 reviews in 60 urls
+
+### Husky-Energy
+- Company name: Husky-Energy
+- Company code: 7825
+- 634 reviews in 65 urls
+
+### Suncor
+- Company name: Suncor
+- Company code: 6818
+- 1284 reviews in 130 urls
+### Wells-Fargo
+- Company name: Wells-Fargo
+- Company code: 8876
+- 41269 reviews in 4128 urls
+
+### Citi
+- Company name: Citi
+- Company code: 8843
+- 26462 reviews in 2648 urls
+
+### Citi
+- Company name: Citi
+- Company code: 8843
+- 26462 reviews in 2648 urls
+
+### Wells-Fargo
+- Company name: Wells-Fargo
+- Company code: 8876
+- 41269 reviews in 4128 urls
+
+### Deutsche-Bank
+- Company name: Deutsche-Bank
+- Company code: 3150
+- 8966 reviews in 898 urls
+
+### Maybank
+- Company name: Maybank
+- Company code: 7664
+- 1263 reviews in 128 urls
+
+### United-Overseas-Bank
+- Company name: United-Overseas-Bank
+- Company code: 11462
+- 2104 reviews in 212 urls
+
+### HSBC
+- Company name: HSBC
+- Company code: 3482
+- 20300 reviews in 2031 urls
+
+### Barclays
+- Company name: Barclays
+- Company code: 3456
+- 15177 reviews in 1519 urls
+
+### Goldmans-Sachs
+- Company name: Goldmans-Sachs
+- Company code: 2800
+- 12988 reviews in 1300 urls
+### Nokia
+- Company name: Nokia
+- Company code: 3494
+- 14556 reviews in 1457 urls
+
+### Acer-Group
+- Company name: Acer-Group
+- Company code: 3802
+- 389 reviews in 40 urls
+
+### ASUS
+- Company name: ASUS
+- Company code: 40093
+- 1045 reviews in 106 urls
+
+### Intel-Corporation
+- Company name: Intel-Corporation
+- Company code: 1519
+- 22219 reviews in 2223 urls
+
+### Lenovo
+- Company name: Lenovo
+- Company code: 8034
+- 2537 reviews in 255 urls
+
+### Morgan Stanley
+- Company name: Morgan Stanley
+- Company code: 2282
+- 13569 reviews in 1358 urls
+
+### American Express
+- Company name: American Express
+- Company code: 35
+- 12944 reviews in 1296 urls
+
+### Blackrock
+- Company name: Blackrock
+- Company code: 9331
+- 4355 reviews in 437 urls
+
+### State-Street
+- Company name: State-Street
+- Company code: 1911
+- 7689 reviews in 770 urls
+
+### BB-and-T
+- Company name: BB-and-T
+- Company code: 1893
+- 2331 reviews in 235 urls
+
+### Capital-One
+- Company name: Capital-One
+- Company code: 3736
+- 13007 reviews in 1302 urls
+
+### Standard-Chartered
+- Company name: Standard-Chartered
+- Company code: 226853
+- 7239 reviews in 725 urls
+
+### OCBC
+- Company name: OCBC
+- Company code: 9773
+- 2271 reviews in 229 urls
+
+### Mastercard
+- Company name: Mastercard
+- Company code: 3677
+- 4405 reviews in 442 urls
+
+
+### BHP
+- Company name: BHP
+- Company code: 3459
+- 1882 reviews in 190 urls
+
+### Rio-Tinto
+- Company name: Rio-Tinto
+- Company code: 6685
+- 1616 reviews in 163 urls
+
+### Vale
+- Company name: Vale
+- Company code: 683893
+- 542 reviews in 56 urls
+
+### Freeport-McMoRan
+- Company name: Freeport-McMoRan
+- Company code: 266
+- 839 reviews in 85 urls
+
+### Newmont
+- Company name: Newmont
+- Company code: 479
+- 384 reviews in 40 urls
+
+### Freeport-McMoRan
+- Company name: Freeport-McMoRan
+- Company code: 266
+- 839 reviews in 85 urls
+
+### Newmont
+- Company name: Newmont
+- Company code: 479
+- 384 reviews in 40 urls
+
+### Barrick-Gold
+- Company name: Barrick-Gold
+- Company code: 5793
+- 315 reviews in 33 urls
+
+### Albemarle
+- Company name: Albemarle
+- Company code: 2561
+- 248 reviews in 26 urls
+
+### Mosaic
+- Company name: Mosaic
+- Company code: 23281
+- 605 reviews in 62 urls
+
+### DowDupont
+- Company name: DowDupont
+- Company code: 2123565
+- 23 reviews in 4 urls
+
+### BASF
+- Company name: BASF
+- Company code: 4231
+- 2769 reviews in 278 urls
+
+### Air-Liquide
+- Company name: Air-Liquide
+- Company code: 10332
+- 1400 reviews in 141 urls
+
+### Linde
+- Company name: Linde
+- Company code: 10436
+- 1330 reviews in 134 urls
+
+### Air-Products
+- Company name: Air-Products
+- Company code: 17
+- 972 reviews in 99 urls
+
+### PPG
+- Company name: PPG
+- Company code: 508
+- 1333 reviews in 135 urls
+
+### Eastman
+- Company name: Eastman
+- Company code: 2452
+- 2000 reviews in 201 urls
+
+### Sherwin-Williams
+- Company name: Sherwin-Williams
+- Company code: 599
+- 7069 reviews in 708 urls
+
+### Vulcan-Materials
+- Company name: Vulcan-Materials
+- Company code: 709
+- 355 reviews in 37 urls
+
+### Martin-Marietta
+- Company name: Martin-Marietta
+- Company code: 3568
+- 401 reviews in 42 urls
+
+### International-Paper
+- Company name: International-Paper
+- Company code: 356
+- 1727 reviews in 174 urls
+
+### PCA
+- Company name: PCA
+- Company code: 9610
+- 488 reviews in 50 urls
+
+### WestRock
+- Company name: WestRock
+- Company code: 1033056
+- 1802 reviews in 182 urls
+
+### Vulcan-Materials
+- Company name: Vulcan-Materials
+- Company code: 709
+- 356 reviews in 37 urls
+
+### Martin-Marietta
+- Company name: Martin-Marietta
+- Company code: 3568
+- 403 reviews in 42 urls
+
+### International-Paper
+- Company name: International-Paper
+- Company code: 356
+- 1727 reviews in 174 urls
+
+### PCA
+- Company name: PCA
+- Company code: 9610
+- 488 reviews in 50 urls
+
+### WestRock
+- Company name: WestRock
+- Company code: 1033056
+- 1802 reviews in 182 urls
+
+### Crown-Holdings
+- Company name: Crown-Holdings
+- Company code: 186
+- 248 reviews in 26 urls
+
+### O-I-Glass
+- Company name: O-I-Glass
+- Company code: 2129
+- 439 reviews in 45 urls
+
+### Ball-Corporation
+- Company name: Ball-Corporation
+- Company code: 74
+- 461 reviews in 48 urls
+
+### GE
+- Company name: GE
+- Company code: 277
+- 13143 reviews in 1316 urls
+
+### GE
+- Company name: GE
+- Company code: 277
+- 13144 reviews in 1316 urls
+
+### Honeywell
+- Company name: Honeywell
+- Company code: 28
+- 16690 reviews in 1670 urls
+
+### United-Technologies
+- Company name: United-Technologies
+- Company code: 697
+- 738 reviews in 75 urls
+
+### Caterpillar
+- Company name: Caterpillar
+- Company code: 137
+- 5559 reviews in 557 urls
+
+### 3M
+- Company name: 3M
+- Company code: 446
+- 4435 reviews in 445 urls
+
+### Boeing
+- Company name: Boeing
+- Company code: 102
+- 13004 reviews in 1302 urls
+
+### Lockheed-Martin
+- Company name: Lockheed-Martin
+- Company code: 404
+- 10622 reviews in 1064 urls
+
+### General-Dynamics
+- Company name: General-Dynamics
+- Company code: 276
+- 690 reviews in 70 urls
+
+### Raytheon-Technologies
+- Company name: Raytheon-Technologies
+- Company code: 561
+- 6738 reviews in 675 urls
+
+### Northrop-Grumman
+- Company name: Northrop-Grumman
+- Company code: 488
+- 8848 reviews in 886 urls
+
+### Union-Pacific
+- Company name: Union-Pacific
+- Company code: 691
+- 2558 reviews in 257 urls
+
+### CSX
+- Company name: CSX
+- Company code: 124
+- 1229 reviews in 124 urls
+
+### Norfolk-Southern
+- Company name: Norfolk-Southern
+- Company code: 483
+- 1545 reviews in 156 urls
+
+### Delta-Air-Lines
+- Company name: Delta-Air-Lines
+- Company code: 197
+- 5921 reviews in 594 urls
+
+### United-Airlines
+- Company name: United-Airlines
+- Company code: 683
+- 5365 reviews in 538 urls
+
+### FedEx
+- Company name: FedEx
+- Company code: 246
+- 8634 reviews in 865 urls
+
+### Honeywell
+- Company name: Honeywell
+- Company code: 28
+- 16705 reviews in 1672 urls
+
+### Boeing
+- Company name: Boeing
+- Company code: 102
+- 13016 reviews in 1303 urls
+
+### Raytheon-Technologies
+- Company name: Raytheon-Technologies
+- Company code: 561
+- 6742 reviews in 676 urls
+

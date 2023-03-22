@@ -1,103 +1,37 @@
 {
-    "ExxonMobil": {
-      "company_code": "",
-      "company_name": ""
-    },
-    "Chevron": {
-      "company_code": "",
-      "company_name": ""
-    },
-    "Royal Dutch Shell": {
-      "company_code": "",
-      "company_name": ""
-    },
-    "BP": {
-      "company_code": "",
-      "company_name": ""
-    },
-    "Total": {
-      "company_code": "",
-      "company_name": ""
-    },
-    "ConocoPhillips": {
-      "company_code": "",
-      "company_name": ""
-    },
-    "ENI": {
-      "company_code": "",
-      "company_name": ""
-    },
-    "EOG Resources": {
-      "company_code": "",
-      "company_name": ""
-    },
-    "Phillips 66": {
-      "company_code": "",
-      "company_name": ""
-    },
-    "Valero Energy": {
-      "company_code": "",
-      "company_name": ""
-    },
-    "Marathon Petroleum": {
-      "company_code": "",
-      "company_name": ""
-    },
-    "Kinder Morgan": {
-      "company_code": "",
-      "company_name": ""
-    },
-    "Schlumberger": {
-      "company_code": "",
-      "company_name": ""
-    },
-    "Halliburton": {
-      "company_code": "",
-      "company_name": ""
-    },
-    "National Oilwell Varco": {
-      "company_code": "",
-      "company_name": ""
-    },
-    "Transocean": {
-      "company_code": "",
-      "company_name": ""
-    },
-    "Baker Hughes": {
-      "company_code": "",
-      "company_name": ""
-    },
+   
+
     "Apache Corporation": {
-      "company_code": "",
-      "company_name": ""
+      "company_code": 54,
+      "company_name": "Apache"
     },
     "Devon Energy": {
-      "company_code": "",
-      "company_name": ""
+      "company_code": 839,
+      "company_name": "Devon-Energy"
     },
     "Anadarko Petroleum": {
-      "company_code": "",
-      "company_name": ""
+      "company_code": 48,
+      "company_name": "Anadarko-Petroleum"
     },
     "Chesapeake Energy": {
-      "company_code": "",
-      "company_name": ""
+      "company_code": 906,
+      "company_name": "Chesapeake-Energy"
     },
     "Encana": {
-      "company_code": "",
-      "company_name": ""
+      "company_code": 3282291,
+      "company_name": "Ovintiv"
     },
     "Cenovus Energy": {
-      "company_code": "",
-      "company_name": ""
+      "company_code": 354451,
+      "company_name": "Cenovus"
     },
     "Husky Energy": {
-      "company_code": "",
-      "company_name": ""
+      "company_code":7825,
+      "company_name": "Husky-Energy"
     },
     "Suncor Energy": {
-      "company_code": "",
-      "company_name": ""
+      "company_code": 6818,
+      "company_name": "Suncor"
     }
   }
   
