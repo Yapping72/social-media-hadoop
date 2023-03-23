@@ -1,0 +1,160 @@
+<!DOCTYPE html><html lang="en"><head> <meta charset="utf-8" />
+    <title>Data Visualization Demo in Flask, Leaflet and ChartJS</title>
+   <!-- import plugin script --> 
+       <link href="../static/css/bootstrap.min.css" rel="stylesheet">
+       <link href="../static/css/jumbotron-narrow.css" rel="stylesheet">
+       <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='css/home.css')}}">
+       <script src="../static/js/jquery-1.11.2.js"></script>
+       <script src="../static/js/Chart.min.js"></script>
+       
+       <meta charset="utf-8">
+       <meta name="viewport" content="width=device-width, initial-scale=1">
+       <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+       <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+       <script src="/static/js/hi.js"></script>
+       <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+       <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js" type="application/javascript"></script>
+      
+    </head>
+    <body> 
+  
+     
+      
+      <div class="container-fluid" style="margin-right: 500px;">
+        <div class="row content">
+         
+          <br>
+         <div class="col-sm-3">
+            <div class="well">
+                <h3>Total deaths to date(2022)</h3>
+              <p style="font-size: x-large; color:rgb(248, 115, 6);">{{totaldeaths[0]}}</p>
+
+            </div>
+            <div class="well">
+              <h3> Total number of people vaccinated in SEA countries to date</h3><br>
+
+              <span class="count" style="color:rgb(55, 202, 21); font-size: x-large;">{{vaccinatedSEA[0]}}</span><br><br>
+
+          </div>
+          <div class="well">
+            <h3> Total confirmed cases</h3><br>
+
+            <span class="count" style="color:rgb(154, 33, 33); font-size: x-large;">{{confirmedcases[0]}}</span><br><br>
+
+        </div>
+            </div>
+              
+          <div class="col-sm-9">
+            <div class="well" style="width: 900px;">
+              
+      <div class="container" style="width:900px;">
+      
+   
+        <h2>Total number of people vaccinated in each SEA country to date</h2>
+        <canvas id="myChart" width="600" height="250"  ></canvas>
+            
+  </div>
+      
+        </div> 
+        <div class="pagination">
+          <a href="{{ url_for('index')}}">1</a>
+          <a href="{{ url_for('secondpage')}}">2</a>
+          <a href="{{ url_for('thirdpage')}}">3</a>
+          <a href="{{ url_for('fourthpage')}}">4</a>
+          <a href="{{ url_for('fifthpage')}}">5</a>
+          <a href="{{ url_for('fourthpage')}}">&raquo;</a>
+          
+        </div>
+            
+            </div>
+            
+  </div>
+  
+  
+  
+  
+            
+          
+  
+      
+ 
+  
+  
+
+  <script>
+
+// population vaccinated for each SEA country to date
+
+var ctx = document.getElementById("myChart").getContext('2d');
+
+var myChart = new Chart(ctx, {
+    type: 'line',
+    data: {
+        labels: [{% for item in populationvaccinated %}
+      "{{item[0]}}",
+      {% endfor %}],
+        datasets: [{
+            label: 'Person fully vaccinated', // Name the series
+            data: [{% for item in populationvaccinated %}
+      "{{item[1]}}",
+      {% endfor %}], // Specify the data values array
+            fill: false,
+            borderColor: '#2196f3', // Add custom color border (Line)
+            backgroundColor: '#2196f3', // Add custom color background (Points and Fill)
+            borderWidth: 1 // Specify bar border width
+        },
+                  {
+            label: 'Population', // Name the series
+            data: [{% for item in populationvaccinated %}
+      "{{item[2]}}",
+      {% endfor %}], // Specify the data values array
+            fill: false,
+            borderColor: '#4CAF50', // Add custom color border (Line)
+            backgroundColor: '#4CAF50', // Add custom color background (Points and Fill)
+            borderWidth: 1 // Specify bar border width
+        }]
+    },
+    options: {
+      responsive: true, // Instruct chart js to respond nicely.
+      maintainAspectRatio: true, // Add to prevent default behaviour of full-width/height 
+    }
+});
+
+
+
+
+  //function for onload counter for <p> tag
+$(function() {
+    function count($this){
+        var current = parseInt($this.html());
+        $this.html(++current);
+        if(current !== $this.data('count')){
+            setTimeout(function(){count($this)});
+        }
+    }        
+  $("p").each(function() {
+      $(this).data('count', parseInt($(this).html(), 10));
+      $(this).html('357780');
+      count($(this));
+  });
+});
+
+//function for onload counter
+$('.count').each(function () {
+    $(this).prop('Counter',0).animate({
+        Counter: $(this).text()
+    }, {
+        duration: 1000,
+        easing: 'swing',
+        step: function (now) {
+            $(this).text(Math.ceil(now));
+        }
+    });
+});
+  
+  </script>
+  
+      
+  
+   </body>
+   </html>

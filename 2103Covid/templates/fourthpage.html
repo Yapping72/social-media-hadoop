@@ -1,0 +1,282 @@
+<!DOCTYPE html><html lang="en"><head> <meta charset="utf-8" />
+    <title>Data Visualization Demo in Flask, Leaflet and ChartJS</title>
+   <!-- import plugin script --> 
+       <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='css/home.css')}}">
+       <script src="../static/js/Chart.min.js"></script>
+       
+       <meta charset="utf-8">
+       <meta name="viewport" content="width=device-width, initial-scale=1">
+       <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+       <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+       <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+       <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js" type="application/javascript"></script>
+      
+    </head>
+    <body> 
+  
+     
+      
+      <div class="container-fluid" style="margin-right: 500px;">
+        <div class="row content">
+         
+          <br>
+         <div class="col-sm-3">
+            <div class="well">
+                <h3>Total deaths to date(2022)</h3>
+              <p style="font-size: x-large; color:rgb(248, 115, 6);">{{totaldeaths[0]}}</p>
+
+            </div>
+          
+            </div>
+              
+          <div class="col-sm-9">
+            <div class="well" style="width: 900px;">
+              
+      <div class="container" style="width:900px;">
+      
+        <div class="dropdown">
+          <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Select Country
+          <span class="caret"></span></button>
+          <ul class="dropdown-menu">
+            <li><a href="#" onclick="ChangeData('Singapore')">Singapore</a></li>
+            <li><a href="#" onclick="ChangeData('Brunei')">Brunei</a></li>
+            <li><a href="#" onclick="ChangeData('Myanmar')">Myanmar</a></li>
+            <li><a href="#" onclick="ChangeData('Malaysia')">Malaysia</a></li>
+            <li><a href="#" onclick="ChangeData('Cambodia')">Cambodia</a></li>
+            <li><a href="#" onclick="ChangeData('Phillipines')">Phillipines</a></li>
+            <li><a href="#" onclick="ChangeData('Vietnam')">Vietnam</a></li>
+            <li><a href="#" onclick="ChangeData('Timor')">Timor</a></li>
+            <li><a href="#" onclick="ChangeData('Thailand')">Thailand</a></li>
+            <li><a href="#" onclick="ChangeData('Laos')">Laos</a></li>
+            <li><a href="#" onclick="ChangeData('Indonesia')">Indonesia</a></li>
+            <li><a href="#" onclick="ChangeData('SEA')">SEA</a></li>
+          </ul>
+        </div>
+        <h2>Daily Confirmed COVID-19 Cases to date</h2>
+        <canvas id="myChart" width="600" height="250"  ></canvas>
+        <h2>Daily Confirmed COVID-19 Deaths to date</h2>
+        <canvas id="myChart2" width="600" height="250"  ></canvas>
+            
+  </div>
+      
+        </div> 
+        <div class="pagination">
+          <a href="{{ url_for('index')}}">1</a>
+          <a href="{{ url_for('secondpage')}}">2</a>
+          <a href="{{ url_for('thirdpage')}}">3</a>
+          <a href="{{ url_for('fourthpage')}}">4</a>
+          <a href="{{ url_for('fifthpage')}}">5</a>
+          <a href="{{ url_for('secondpage')}}">&raquo;</a>
+    
+        </div>
+            
+            </div>
+            
+  </div>
+  
+
+  <script>
+//various Date to Confirmed Cases keyvalue pairs
+var SingaporeDict = JSON.parse('{{SingaporeDict | tojson}}');
+var BruneiDict =  JSON.parse('{{BruneiDict | tojson}}');
+var MyanmarDict =  JSON.parse('{{MyanmarDict | tojson}}');
+var MalaysiaDict =  JSON.parse('{{MalaysiaDict | tojson}}');
+var CambodiaDict =  JSON.parse('{{CambodiaDict | tojson}}');
+var PhillipinesDict =  JSON.parse('{{PhillipinesDict | tojson}}');
+var VietnamDict =  JSON.parse('{{VietnamDict | tojson}}');
+var TimorDict =  JSON.parse('{{TimorDict | tojson}}');
+var ThailandDict =  JSON.parse('{{ThailandDict | tojson}}');
+var LaosDict =  JSON.parse('{{LaosDict | tojson}}');
+var IndonesiaDict =  JSON.parse('{{IndonesiaDict | tojson}}');
+var SEADict = JSON.parse('{{SEADict | tojson}}');
+var SingaporeDeaths = JSON.parse('{{SingaporeDeaths | tojson}}');
+var BruneiDeaths =  JSON.parse('{{BruneiDeaths | tojson}}');
+var MyanmarDeaths =  JSON.parse('{{MyanmarDeaths | tojson}}');
+var MalaysiaDeaths =  JSON.parse('{{MalaysiaDeaths | tojson}}');
+var CambodiaDeaths =  JSON.parse('{{CambodiaDeaths | tojson}}');
+var PhillipinesDeaths =  JSON.parse('{{PhillipinesDeaths | tojson}}');
+var VietnamDeaths =  JSON.parse('{{VietnamDeaths | tojson}}');
+var TimorDeaths =  JSON.parse('{{TimorDeaths | tojson}}');
+var ThailandDeaths =  JSON.parse('{{ThailandDeaths | tojson}}');
+var LaosDeaths =  JSON.parse('{{LaosDeaths | tojson}}');
+var IndonesiaDeaths =  JSON.parse('{{IndonesiaDeaths | tojson}}');
+var SEADeaths = JSON.parse('{{SEADeaths | tojson}}');
+
+var ctx = document.getElementById("myChart").getContext('2d');
+var ctx2 = document.getElementById("myChart2").getContext('2d');
+
+//Converting key-value pairs to arrays
+var xValues = Object.keys(SingaporeDict);
+var yValues = Object.values(SingaporeDict);
+
+//Drawing bar chart
+var chart = new Chart(ctx, {
+  type: "bar",
+  data: {
+    labels: xValues,
+    datasets: [{
+      backgroundColor: "black",
+      data: yValues
+    }]
+  },
+  options: {
+    legend: {display: false},
+    title: {
+      display: true,
+      text: "Singapore"
+    }
+  }
+});
+
+var xValues2 = Object.keys(SingaporeDeaths);
+var yValues2 = Object.values(SingaporeDeaths);
+
+var chart2 = new Chart(ctx2, {
+  type: "bar",
+  data: {
+    labels: xValues2,
+    datasets: [{
+      backgroundColor: "black",
+      data: yValues2
+    }]
+  },
+  options: {
+    legend: {display: false},
+    title: {
+      display: true,
+      text: "Singapore"
+    }
+  }
+});
+
+//Function to change bar chart based on data
+function ChangeData(Country) {
+    if(Country=="Singapore"){
+      xValues = Object.keys(SingaporeDict);
+      yValues = Object.values(SingaporeDict);
+      xValues2 = Object.keys(SingaporeDeaths);
+      yValues2 = Object.values(SingaporeDeaths);
+      chart.options.title.text = "Singapore"
+      chart2.options.title.text = "Singapore"
+    }else if(Country == "Brunei"){
+      xValues = Object.keys(BruneiDict);
+      yValues = Object.values(BruneiDict);
+      chart.options.title.text = "Brunei"
+      xValues2 = Object.keys(BruneiDeaths);
+      yValues2 = Object.values(BruneiDeaths);
+      chart2.options.title.text = "Brunei"
+    }else if(Country == "Myanmar"){
+      xValues = Object.keys(MyanmarDict);
+      yValues = Object.values(MyanmarDict);
+      chart.options.title.text = "Myanmar"
+      xValues2 = Object.keys(MyanmarDeaths);
+      yValues2 = Object.values(MyanmarDeaths);
+      chart2.options.title.text = "Myanmar"
+    }else if(Country == "Malaysia"){
+      xValues = Object.keys(MalaysiaDict);
+      yValues = Object.values(MalaysiaDict);
+      chart.options.title.text = "Malaysia"
+      xValues2 = Object.keys(MalaysiaDeaths);
+      yValues2 = Object.values(MalaysiaDeaths);
+      chart2.options.title.text = "Malaysia"
+    }else if(Country == "Cambodia"){
+      xValues = Object.keys(CambodiaDict);
+      yValues = Object.values(CambodiaDict);
+      chart.options.title.text = "Cambodia"
+      xValues2 = Object.keys(CambodiaDeaths);
+      yValues2 = Object.values(CambodiaDeaths);
+      chart2.options.title.text = "Cambodia"
+    }else if(Country == "Phillipines"){
+      xValues = Object.keys(PhillipinesDict);
+      yValues = Object.values(PhillipinesDict);
+      chart.options.title.text = "Phillipines"
+      xValues2 = Object.keys(PhillipinesDeaths);
+      yValues2 = Object.values(PhillipinesDeaths);
+      chart2.options.title.text = "Phillipines"
+    }else if(Country == "Vietnam"){
+      xValues = Object.keys(VietnamDict);
+      yValues = Object.values(VietnamDict);
+      chart.options.title.text = "Vietnam"
+      xValues2 = Object.keys(VietnamDeaths);
+      yValues2 = Object.values(VietnamDeaths);
+      chart2.options.title.text = "Vietnam"
+    }else if(Country == "Timor"){
+      xValues = Object.keys(TimorDict);
+      yValues = Object.values(TimorDict);
+      chart.options.title.text = "Timor"
+      xValues2 = Object.keys(TimorDeaths);
+      yValues2 = Object.values(TimorDeaths);
+      chart2.options.title.text = "Timor"
+    }else if(Country == "Thailand"){
+      xValues = Object.keys(ThailandDict);
+      yValues = Object.values(ThailandDict);
+      chart.options.title.text = "Thailand"
+      xValues2 = Object.keys(ThailandDeaths);
+      yValues2 = Object.values(ThailandDeaths);
+      chart2.options.title.text = "Thailand"
+    }else if(Country == "Laos"){
+      xValues = Object.keys(LaosDict);
+      yValues = Object.values(LaosDict);
+      chart.options.title.text = "Laos"
+      xValues2 = Object.keys(LaosDeaths);
+      yValues2 = Object.values(LaosDeaths);
+      chart2.options.title.text = "Laos"
+    }else if(Country == "Indonesia"){
+      xValues = Object.keys(IndonesiaDict);
+      yValues = Object.values(IndonesiaDict);
+      chart.options.title.text = "Indonesia"
+      xValues2 = Object.keys(IndonesiaDeaths);
+      yValues2 = Object.values(IndonesiaDeaths);
+      chart2.options.title.text = "Indonesia"
+    }else if(Country == "SEA"){
+      xValues = Object.keys(SEADict);
+      yValues = Object.values(SEADict);
+      chart.options.title.text = "SEA"
+      xValues2 = Object.keys(SEADeaths);
+      yValues2 = Object.values(SEADeaths);
+      chart2.options.title.text = "SEA"
+    }
+
+    //changing data labels and dataset
+    chart.data.labels = xValues;
+    chart.data.datasets[0].data=yValues;
+    chart.update();
+    chart2.data.labels = xValues2;
+    chart2.data.datasets[0].data=yValues2;
+    chart2.update();
+}
+  //function for onload counter for <p> tag
+$(function() {
+    function count($this){
+        var current = parseInt($this.html());
+        $this.html(++current);
+        if(current !== $this.data('count')){
+            setTimeout(function(){count($this)});
+        }
+    }        
+  $("p").each(function() {
+      $(this).data('count', parseInt($(this).html(), 10));
+      $(this).html('357780');
+      count($(this));
+  });
+});
+
+//function for onload counter
+$('.count').each(function () {
+    $(this).prop('Counter',0).animate({
+        Counter: $(this).text()
+    }, {
+        duration: 1000,
+        easing: 'swing',
+        step: function (now) {
+            $(this).text(Math.ceil(now));
+        }
+    });
+});
+  
+  </script>
+  
+      
+  
+   </body>
+   </html>
