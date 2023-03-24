@@ -997,8 +997,6 @@ List of companies scrapped.
 - Company code: 561
 - 6742 reviews in 676 urls
 
-
-
 ### FedEx
 - Company name: FedEx
 - Company code: 246
