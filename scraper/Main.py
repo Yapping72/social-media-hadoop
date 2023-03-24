@@ -120,20 +120,20 @@ def main():
     company_name = "Mastercard"
 
     # Will be resolved to Facebook_{account_number} in accounts.json. 
-    account_number = 2
+    account_number = 7
 
     # will scrape 100 urls (10 reviews per url) before dumping results to json
     batch_size = 100 
 
     """Uncomment if you intend to scrape only 1 company"""
-    start_one_scrape(company_code, company_name, account_number, batch_size) # Starts scraping company for reviews
+    #start_one_scrape(company_code, company_name, account_number, batch_size) # Starts scraping company for reviews
     
     """Uncomment if you intend to resume a scrape for a company"""
     #resume_scrape(company_code, company_name, account_number, batch_size) # Resumes a prematurely terminated scrape
     
     """Uncomment if you intend to Scrape multiple companies (listed in company_list_1.json)"""
-    #FILE_PATH = "Financials.json"
-    #start_multiple_scrapes(account_number, batch_size, FILE_PATH)
+    FILE_PATH = "Financials.json"
+    start_multiple_scrapes(account_number, batch_size, FILE_PATH)
 
 if __name__ == "__main__":
   main()

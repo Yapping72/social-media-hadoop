@@ -1,0 +1,285 @@
+<!DOCTYPE html><html lang="en"><head> <meta charset="utf-8" />
+    <title>Data Visualization Demo in Flask, Leaflet and ChartJS</title>
+   <!-- import plugin script --> 
+       <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='css/home.css')}}">
+       <script src="../static/js/Chart.min.js"></script>
+       
+       <meta charset="utf-8">
+       <meta name="viewport" content="width=device-width, initial-scale=1">
+       <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+       <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+       <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+       <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js" type="application/javascript"></script>
+       <link href="https://gitcdn.github.io/bootstrap-toggle/2.2.2/css/bootstrap-toggle.min.css" rel="stylesheet">
+       <script src="https://gitcdn.github.io/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js"></script>  
+      
+    </head>
+    <body> 
+  
+     
+      
+      <div class="container-fluid" style="margin-right: 500px;">
+        <div class="row content">
+         
+          <br>
+         <div class="col-sm-3">
+            <div class="well">
+                <h3>Total Deaths to date(2022)</h3>
+              <p style="font-size: x-large; color:rgb(248, 115, 6);">{{totaldeaths[0]}}</p>
+
+            </div>
+          
+            </div>
+              
+          <div class="col-sm-9">
+            <div class="well" style="width: 900px;">
+              
+      <div class="container" style="width:900px;">
+      
+        <div class="dropdown">
+          <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Select Country
+          <span class="caret"></span></button>
+          <ul class="dropdown-menu">
+            <li><a href="#" onclick="updateCountry('Singapore')">Singapore</a></li>
+            <li><a href="#" onclick="updateCountry('Brunei')">Brunei</a></li>
+            <li><a href="#" onclick="updateCountry('Myanmar')">Myanmar</a></li>
+            <li><a href="#" onclick="updateCountry('Malaysia')">Malaysia</a></li>
+            <li><a href="#" onclick="updateCountry('Cambodia')">Cambodia</a></li>
+            <li><a href="#" onclick="updateCountry('Phillipines')">Phillipines</a></li>
+            <li><a href="#" onclick="updateCountry('Vietnam')">Vietnam</a></li>
+            <li><a href="#" onclick="updateCountry('Timor')">Timor</a></li>
+            <li><a href="#" onclick="updateCountry('Thailand')">Thailand</a></li>
+            <li><a href="#" onclick="updateCountry('Laos')">Laos</a></li>
+            <li><a href="#" onclick="updateCountry('Indonesia')">Indonesia</a></li>
+            <li><a href="#" onclick="updateCountry('SEA')">SEA</a></li>
+          </ul>
+        </div>
+        <div  style="padding-top: 10px;">
+          <input id="toggle-event" type="checkbox" data-toggle="toggle" data-on="Weekly" data-off="Daily">
+        </div>
+        
+        <!-- <h2>Daily COVID-19 Hospitalisations</h2>
+        <canvas id="myChart" width="600" height="250"  ></canvas> -->
+        <h2>Daily COVID-19 ICU</h2>
+        <canvas id="myChart2" width="600" height="250"  ></canvas>
+            
+  </div>
+      
+        </div> 
+        <div class="pagination">
+          <a href="{{ url_for('index')}}">1</a>
+          <a href="{{ url_for('secondpage')}}">2</a>
+          <a href="{{ url_for('thirdpage')}}">3</a>
+          <a href="{{ url_for('fourthpage')}}">4</a>
+          <a href="{{ url_for('fifthpage')}}">5</a>
+          <a href="{{ url_for('index')}}">&raquo;</a>
+    
+        </div>
+            
+            </div>
+            
+  </div>
+  
+
+  <script>
+//various Date to ICU Cases keyvalue pairs
+var SingaporeICUDict = JSON.parse('{{SingaporeICUDict | tojson}}');
+var BruneiICUDict =  JSON.parse('{{BruneiICUDict | tojson}}');
+var MyanmarICUDict =  JSON.parse('{{MyanmarICUDict | tojson}}');
+var MalaysiaICUDict =  JSON.parse('{{MalaysiaICUDict | tojson}}');
+var CambodiaICUDict =  JSON.parse('{{CambodiaICUDict | tojson}}');
+var PhillipinesICUDict =  JSON.parse('{{PhillipinesICUDict | tojson}}');
+var VietnamICUDict =  JSON.parse('{{VietnamICUDict | tojson}}');
+var TimorICUDict =  JSON.parse('{{TimorICUDict | tojson}}');
+var ThailandICUDict =  JSON.parse('{{ThailandICUDict | tojson}}');
+var LaosICUDict =  JSON.parse('{{LaosICUDict | tojson}}');
+var IndonesiaICUDict =  JSON.parse('{{IndonesiaICUDict | tojson}}');
+var SEAICUDict = JSON.parse('{{SEAICUDict | tojson}}');
+var SEAWeeklyVal = JSON.parse('{{SEAWeeklyVal | tojson}}');
+var SingaporeWeeklyVal = JSON.parse('{{SingaporeWeeklyVal | tojson}}');
+var BruneiWeeklyVal =  JSON.parse('{{BruneiWeeklyVal | tojson}}');
+var MyanmarWeeklyVal =  JSON.parse('{{MyanmarWeeklyVal | tojson}}');
+var MalaysiaWeeklyVal =  JSON.parse('{{MalaysiaWeeklyVal | tojson}}');
+var CambodiaWeeklyVal =  JSON.parse('{{CambodiaWeeklyVal | tojson}}');
+var PhilippinesWeeklyVal =  JSON.parse('{{PhilippinesWeeklyVal | tojson}}');
+var VietnamWeeklyVal =  JSON.parse('{{VietnamWeeklyVal | tojson}}');
+var TimorWeeklyVal =  JSON.parse('{{TimorWeeklyVal | tojson}}');
+var ThailandWeeklyVal =  JSON.parse('{{ThailandWeeklyVal | tojson}}');
+var LaosWeeklyVal =  JSON.parse('{{LaosWeeklyVal | tojson}}');
+var IndonesiaWeeklyVal =  JSON.parse('{{IndonesiaWeeklyVal | tojson}}');
+var ctx2 = document.getElementById("myChart2").getContext('2d');
+var Country = "Singapore";
+var xValues2 = Object.keys(SingaporeICUDict);
+var yValues2 = Object.values(SingaporeICUDict);
+
+var chart2 = new Chart(ctx2, {
+  type: "bar",
+  data: {
+    labels: xValues2,
+    datasets: [{
+      backgroundColor: "black",
+      data: yValues2
+    }]
+  },
+  options: {
+    legend: {display: false},
+    title: {
+      display: true,
+      text: "Singapore"
+    }
+  }
+});
+$(function() {
+    $('#toggle-event').change(function() {
+      ChangeData();
+    })
+  })
+function updateCountry(CountrySelected) {
+  Country = CountrySelected;
+  ChangeData();
+}
+
+//Function to change bar chart based on data
+function ChangeData() {
+  if ($('#toggle-event').prop('checked')==false){
+    if(Country=="Singapore"){
+      xValues2 = Object.keys(SingaporeICUDict);
+      yValues2 = Object.values(SingaporeICUDict);
+      chart2.options.title.text = "Singapore"
+    }else if(Country == "Brunei"){
+      xValues2 = Object.keys(BruneiICUDict);
+      yValues2 = Object.values(BruneiICUDict);
+      chart2.options.title.text = "Brunei"
+    }else if(Country == "Myanmar"){
+      xValues2 = Object.keys(MyanmarICUDict);
+      yValues2 = Object.values(MyanmarICUDict);
+      chart2.options.title.text = "Myanmar"
+    }else if(Country == "Malaysia"){
+      xValues2 = Object.keys(MalaysiaICUDict);
+      yValues2 = Object.values(MalaysiaICUDict);
+      chart2.options.title.text = "Malaysia"
+    }else if(Country == "Cambodia"){
+      xValues2 = Object.keys(CambodiaICUDict);
+      yValues2 = Object.values(CambodiaICUDict);
+      chart2.options.title.text = "Cambodia"
+    }else if(Country == "Phillipines"){
+      xValues2 = Object.keys(PhillipinesICUDict);
+      yValues2 = Object.values(PhillipinesICUDict);
+      chart2.options.title.text = "Phillipines"
+    }else if(Country == "Vietnam"){
+      xValues2 = Object.keys(VietnamICUDict);
+      yValues2 = Object.values(VietnamICUDict);
+      chart2.options.title.text = "Vietnam"
+    }else if(Country == "Timor"){
+      xValues2 = Object.keys(TimorICUDict);
+      yValues2 = Object.values(TimorICUDict);
+      chart2.options.title.text = "Timor"
+    }else if(Country == "Thailand"){
+      xValues2 = Object.keys(ThailandICUDict);
+      yValues2 = Object.values(ThailandICUDict);
+      chart2.options.title.text = "Thailand"
+    }else if(Country == "Laos"){
+      xValues2 = Object.keys(LaosICUDict);
+      yValues2 = Object.values(LaosICUDict);
+      chart2.options.title.text = "Laos"
+    }else if(Country == "Indonesia"){
+      xValues2 = Object.keys(IndonesiaICUDict);
+      yValues2 = Object.values(IndonesiaICUDict);
+      chart2.options.title.text = "Indonesia"
+    }else if(Country == "SEA"){
+      xValues2 = Object.keys(SEAICUDict);
+      yValues2 = Object.values(SEAICUDict);
+      chart2.options.title.text = "SEA"
+    }
+  }else{
+    if(Country=="Singapore"){
+      xValues2 = Object.keys(SingaporeWeeklyVal);
+      yValues2 = Object.values(SingaporeWeeklyVal);
+      chart2.options.title.text = "Singapore"
+    }else if(Country == "Brunei"){
+      xValues2 = Object.keys(BruneiWeeklyVal);
+      yValues2 = Object.values(BruneiWeeklyVal);
+      chart2.options.title.text = "Brunei"
+    }else if(Country == "Myanmar"){
+      xValues2 = Object.keys(MyanmarWeeklyVal);
+      yValues2 = Object.values(MyanmarWeeklyVal);
+      chart2.options.title.text = "Myanmar"
+    }else if(Country == "Malaysia"){
+      xValues2 = Object.keys(MalaysiaWeeklyVal);
+      yValues2 = Object.values(MalaysiaWeeklyVal);
+      chart2.options.title.text = "Malaysia"
+    }else if(Country == "Cambodia"){
+      xValues2 = Object.keys(CambodiaWeeklyVal);
+      yValues2 = Object.values(CambodiaWeeklyVal);
+      chart2.options.title.text = "Cambodia"
+    }else if(Country == "Phillipines"){
+      xValues2 = Object.keys(PhillipinesWeeklyVal);
+      yValues2 = Object.values(PhillipinesWeeklyVal);
+      chart2.options.title.text = "Phillipines"
+    }else if(Country == "Vietnam"){
+      xValues2 = Object.keys(VietnamWeeklyVal);
+      yValues2 = Object.values(VietnamWeeklyVal);
+      chart2.options.title.text = "Vietnam"
+    }else if(Country == "Timor"){
+      xValues2 = Object.keys(TimorWeeklyVal);
+      yValues2 = Object.values(TimorWeeklyVal);
+      chart2.options.title.text = "Timor"
+    }else if(Country == "Thailand"){
+      xValues2 = Object.keys(ThailandWeeklyVal);
+      yValues2 = Object.values(ThailandWeeklyVal);
+      chart2.options.title.text = "Thailand"
+    }else if(Country == "Laos"){
+      xValues2 = Object.keys(LaosWeeklyVal);
+      yValues2 = Object.values(LaosWeeklyVal);
+      chart2.options.title.text = "Laos"
+    }else if(Country == "Indonesia"){
+      xValues2 = Object.keys(IndonesiaWeeklyVal);
+      yValues2 = Object.values(IndonesiaWeeklyVal);
+      chart2.options.title.text = "Indonesia"
+    }else if(Country == "SEA"){
+      xValues2 = Object.keys(SEAWeeklyVal);
+      yValues2 = Object.values(SEAWeeklyVal);
+      chart2.options.title.text = "SEA"
+    }
+  }
+
+    //changing data labels and dataset
+    chart2.data.labels = xValues2;
+    chart2.data.datasets[0].data=yValues2;
+    chart2.update();
+}
+  //function for onload counter for <p> tag
+$(function() {
+    function count($this){
+        var current = parseInt($this.html());
+        $this.html(++current);
+        if(current !== $this.data('count')){
+            setTimeout(function(){count($this)});
+        }
+    }        
+  $("p").each(function() {
+      $(this).data('count', parseInt($(this).html(), 10));
+      $(this).html('357780');
+      count($(this));
+  });
+});
+
+//function for onload counter
+$('.count').each(function () {
+    $(this).prop('Counter',0).animate({
+        Counter: $(this).text()
+    }, {
+        duration: 1000,
+        easing: 'swing',
+        step: function (now) {
+            $(this).text(Math.ceil(now));
+        }
+    });
+});
+  
+  </script>
+  
+      
+  
+   </body>
+   </html>
