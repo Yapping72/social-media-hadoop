@@ -597,3 +597,13 @@ List of companies scrapped.
 - Company name: Mastercard
 - Company code: 3677
 - 4405 reviews in 442 urls
+
+### ICBC
+- Company name: ICBC
+- Company code: 40639
+- 723 reviews in 74 urls
+
+### Credit-Suisse
+- Company name: Credit-Suisse
+- Company code: 3141
+- 8323 reviews in 834 urls
