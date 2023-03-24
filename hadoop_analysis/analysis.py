@@ -221,7 +221,7 @@ def dump_dictionary_to_json(INDUSTRY, company_dictionary):
 DATA_DIRECTORY = os.path.join("..", "data") # ..\data
 def main():
     """Iterates through all the ..\data\INDUSTRY directories to get company reviews."""
-    INDUSTRY = "Materials" # <-- Modify this 
+    INDUSTRY = "Healthcare" # <-- Modify this 
 
     industry_directory = os.path.join(DATA_DIRECTORY, INDUSTRY) 
     companies_in_industry = get_companies_from_industry(industry_directory)
