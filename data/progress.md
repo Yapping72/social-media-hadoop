@@ -987,3 +987,49 @@ List of companies scrapped.
 - Company code: 561
 - 6742 reviews in 676 urls
 
+
+
+### FedEx
+- Company name: FedEx
+- Company code: 246
+- 8675 reviews in 869 urls
+
+### FedEx
+- Company name: FedEx
+- Company code: 246
+- 8675 reviews in 869 urls
+
+### UPS
+- Company name: UPS
+- Company code: 3012
+- 28390 reviews in 2840 urls
+
+### Southwest-Airlines
+- Company name: Southwest-Airlines
+- Company code: 611
+- 3724 reviews in 374 urls
+
+### American-Airlines
+- Company name: American-Airlines
+- Company code: 8
+- 6370 reviews in 638 urls
+
+### WM
+- Company name: WM
+- Company code: 2094
+- 3119 reviews in 313 urls
+
+### Republic-Services
+- Company name: Republic-Services
+- Company code: 8328
+- 2713 reviews in 273 urls
+
+### Cintas
+- Company name: Cintas
+- Company code: 1256
+- 5144 reviews in 516 urls
+
+### United-Rentals
+- Company name: United-Rentals
+- Company code: 7395
+- 1554 reviews in 157 urls
