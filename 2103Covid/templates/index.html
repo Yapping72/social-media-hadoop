@@ -11,42 +11,40 @@
      <meta name="viewport" content="width=device-width, initial-scale=1">
      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-     <script src="/static/js/hi.js"></script>
      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
      <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js" type="application/javascript"></script>
     
   </head>
   <body> 
 
-  
-    
     <div class="container-fluid" style="margin-right: 500px;">
       <div class="row content" >
         <br>
        <div class="col-sm-3" >
               <div class="well">
                 <h3>Total deaths to date(2022)</h3>
-              <p style="font-size: x-large; color:rgb(248, 115, 6);">{{totaldeaths[0]}}</p>
+              <p style="font-size: x-large; color:rgb(248, 115, 6);"></p>
 
             </div>
             <div class="well">
               <h3> Total number of people vaccinated in SEA countries to date</h3><br>
 
-              <span class="count" style="color:rgb(55, 202, 21); font-size: x-large;">{{vaccinatedSEA[0]}}</span><br><br>
+              <span class="count" style="color:rgb(55, 202, 21); font-size: x-large;"></span><br><br>
 
           </div>
           <div class="well">
+            {{two_star_sum}}{{five_star_average}}{{test}}
             <h3> Total confirmed cases</h3><br>
-            
-            <span class="count" style="color:rgb(154, 33, 33); font-size: x-large;">{{confirmedcases[0]}}</span><br><br>
+        
+            <span class="count" style="color:rgb(154, 33, 33); font-size: x-large;"></span><br><br>
 
         </div>
             </div>
             
         <div class="col-sm-9" >
           <div class="well"style="width: 900px;">
-            <h2>Total confirmed cases to date for each country</h2> Hi Welcome ,{{username}}<br><a href="{{ url_for('updatepassword')}}">Update Password</a>
-            <a href="{{ url_for('deleteaccount')}}">Delete Account</a>
+            <h2>Total confirmed cases to date for each country</h2><br>
+          
             <div class="container" style="width:800px;">
     
       <canvas id="myChart" width="500" height="200"></canvas>
