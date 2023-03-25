@@ -255,7 +255,7 @@ def get_industry_overview(all_data_df: pd.DataFrame):
     print(f"Completed analysis on {INDUSTRY} reviews")
 
 DATA_DIRECTORY = os.path.join("..", "data") 
-INDUSTRY = "Materials" # <-- Modify this 
+INDUSTRY = "Information Technology" # <-- Modify this 
 
 def main():
     """Iterates through all the ..\data\INDUSTRY directories to get company reviews."""

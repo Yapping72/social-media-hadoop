@@ -2,8 +2,6 @@ import os
 import sys
 from flask import Flask,render_template, url_for,redirect, session, request
 from flask import request,jsonify
-from pymongo import MongoClient
-import mysql.connector
 from datetime import timedelta
 import datetime
 import json
@@ -90,7 +88,6 @@ def index():
     total_percent_three_star =0 
     total_percent_two_star = 0
     total_percent_one_star =0
-
 
     for name, company_data in Energydata.items():
         #total reviews for energy sector
