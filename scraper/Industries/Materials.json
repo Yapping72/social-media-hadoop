@@ -1,0 +1,99 @@
+{
+  "BHP Group": {
+    "company_code": "3459",
+    "company_name": "BHP"
+  },
+  "Rio Tinto": {
+    "company_code": "6685",
+    "company_name": "Rio-Tinto"
+  },
+  "Vale": {
+    "company_code": "683893",
+    "company_name": "Vale"
+  },
+  "Freeport-McMoRan": {
+    "company_code": "266",
+    "company_name": "Freeport-McMoRan"
+  },
+  "Newmont Mining": {
+    "company_code": "479",
+    "company_name": "Newmont"
+  },
+  "Barrick Gold": {
+    "company_code": "5793",
+    "company_name": "Barrick-Gold"
+  },
+  "Albemarle": {
+    "company_code": "2561",
+    "company_name": "Albemarle"
+  },
+  "Mosaic": {
+    "company_code": "23281",
+    "company_name": "Mosaic"
+  },
+  "DowDuPont": {
+    "company_code": "2123565",
+    "company_name": "DowDupont"
+  },
+  "BASF": {
+    "company_code": "4231",
+    "company_name": "BASF"
+  },
+  "Air Liquide": {
+    "company_code": "10332",
+    "company_name": "Air-Liquide"
+  },
+  "Linde": {
+    "company_code": "10436",
+    "company_name": "Linde"
+  },
+  "Air Products and Chemicals": {
+    "company_code": "17",
+    "company_name": "Air-Products"
+  },
+  "PPG Industries": {
+    "company_code": "508",
+    "company_name": "PPG"
+  },
+  "Eastman Chemical": {
+    "company_code": "2452",
+    "company_name": "Eastman"
+  },
+  "Sherwin-Williams": {
+    "company_code": "599",
+    "company_name": "Sherwin-Williams"
+  },
+  "Vulcan Materials": {
+    "company_code": "709",
+    "company_name": "Vulcan-Materials"
+  },
+  "Martin Marietta": {
+    "company_code": "3568",
+    "company_name": "Martin-Marietta"
+  },
+  "International Paper": {
+    "company_code": "356",
+    "company_name": "International-Paper"
+  },
+  "Packaging Corp of America": {
+    "company_code": "9610",
+    "company_name": "PCA"
+  },
+  "WestRock": {
+    "company_code": "1033056",
+    "company_name": "WestRock"
+  },
+  "Crown Holdings": {
+    "company_code": "186",
+    "company_name": "Crown-Holdings"
+  },
+  "Owens-Illinois": {
+    "company_code": "2129",
+    "company_name": "O-I-Glass"
+  },
+  "Ball Corporation": {
+    "company_code": "74",
+    "company_name": "Ball-Corporation"
+  }
+}
+  

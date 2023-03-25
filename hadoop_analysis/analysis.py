@@ -9,7 +9,8 @@ nltk.download('stopwords')
 from nltk.corpus import stopwords
 
 def get_industry_directories():
-    """Returns list of file paths to each industry i.e., data\Materials"""
+    """Returns list of file paths to each industry i.e., data\Materials
+        Use to easily re-run all analysis """
     industry_list = os.listdir(DATA_DIRECTORY)
     industry_directory = []
     for industry in industry_list:
@@ -55,13 +56,13 @@ def get_company_name(file_path):
         print("No match")
 
 def load_all_reviews_into_dataframe(json_review):
+    """Loads all reviews in json into 1 data frame"""
     with open(json_review, "r") as f:
         review_data = json.load(f)
         [company_reviews.append(review) for review in review_data]
 
 def log_invalid_jsons(error_message, industry):
-    """Some json cannot be parsed figure out why."""
-     # Saves invalid jsons to ./json_parse_errors
+    """Saves invalid jsons to ./json_parse_errors"""
     destination_directory = os.path.join(".", "json_parse_errors")
     if not os.path.exists(destination_directory):
         os.makedirs(destination_directory)
@@ -76,7 +77,7 @@ def process_company_reviews(company, all_data, industry):
     all_json_reviews_for_company = get_reviews_in_json(company)
 
     for num_json, json_review in enumerate(all_json_reviews_for_company):
-        """Read json data and add to pandas dataframe"""
+        # Read json data and add to pandas dataframe
         with open(json_review, "r") as f:
             try:
                 review_data = json.load(f)
@@ -84,7 +85,7 @@ def process_company_reviews(company, all_data, industry):
             except json.JSONDecodeError as e:
                 error_message = f"Error loading {json_review}, {e}"
                 print(error_message)
-                print("Check failed_json.txt to find problematic json files")
+                print("Check json_parse_folders directory to find problematic json files")
                 log_invalid_jsons(error_message, industry)
                 continue
 
@@ -254,7 +255,7 @@ def get_industry_overview(all_data_df: pd.DataFrame):
     print(f"Completed analysis on {INDUSTRY} reviews")
 
 DATA_DIRECTORY = os.path.join("..", "data") 
-INDUSTRY = "Information Technology" # <-- Modify this 
+INDUSTRY = "Institutions" # <-- Modify this 
 
 def main():
     """Iterates through all the ..\data\INDUSTRY directories to get company reviews."""

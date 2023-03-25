@@ -1,0 +1,35 @@
+{
+    "Apache Corporation": {
+      "company_code": 54,
+      "company_name": "Apache"
+    },
+    "Devon Energy": {
+      "company_code": 839,
+      "company_name": "Devon-Energy"
+    },
+    "Anadarko Petroleum": {
+      "company_code": 48,
+      "company_name": "Anadarko-Petroleum"
+    },
+    "Chesapeake Energy": {
+      "company_code": 906,
+      "company_name": "Chesapeake-Energy"
+    },
+    "Encana": {
+      "company_code": 3282291,
+      "company_name": "Ovintiv"
+    },
+    "Cenovus Energy": {
+      "company_code": 354451,
+      "company_name": "Cenovus"
+    },
+    "Husky Energy": {
+      "company_code":7825,
+      "company_name": "Husky-Energy"
+    },
+    "Suncor Energy": {
+      "company_code": 6818,
+      "company_name": "Suncor"
+    }
+  }
+  

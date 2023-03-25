@@ -1,0 +1,63 @@
+{
+    "Amgen": {
+      "company_code": 1130,
+      "company_name": "Amgen"
+    },
+    "Thermo Fisher Scientific": {
+      "company_code": 658,
+      "company_name": "Thermo-Fisher-Scientific"
+    },
+    "UnitedHealth Group": {
+      "company_code": 1991,
+      "company_name": "UnitedHealth-Group"
+    },
+    "Anthem": {
+      "company_code": 333127,
+      "company_name": "Anthem-Blue-Cross-and-Blue-Shield"
+    },
+    "Express Scripts": {
+      "company_code": 2212,
+      "company_name": "Express-Scripts"
+    },
+    "Humana": {
+      "company_code":340,
+      "company_name": "Humana"
+    },
+    "CVS Health": {
+      "company_code": 437,
+      "company_name": "CVS-Health"
+    },
+    "Aetna": {
+      "company_code": 16,
+      "company_name": "Aetna"
+    },
+    "Cigna": {
+      "company_code": 119,
+      "company_name": "The-Cigna-Group"
+    },
+    "Gilead Sciences": {
+      "company_code": 2016,
+      "company_name": "Gilead-Sciences"
+    },
+    "Biogen": {
+      "company_code": 1336,
+      "company_name": "Biogen"
+    },
+    "Regeneron Pharmaceuticals": {
+      "company_code": 981,
+      "company_name": "Regeneron"
+    },
+    "Alexion Pharmaceuticals": {
+      "company_code": 6092,
+      "company_name": "Alexion-Pharmaceuticals"
+    },
+    "Vertex Pharmaceuticals": {
+      "company_code": 2080,
+      "company_name": "Vertex-Pharmaceuticals"
+    },
+    "Illumina": {
+      "company_code": 11671,
+      "company_name": "Illumina"
+    }
+  }
+  

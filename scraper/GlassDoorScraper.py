@@ -18,6 +18,8 @@ import os
 import multiprocessing
 
 GLASSDOOR_WEBSITE = "https://www.glassdoor.sg/index.htm"
+MISCELLANOUS_DIRECTORY = os.path.join(".", "miscellanous")
+DATA_DIRECTORY = os.path.join("..", "data")
 
 class GlassDoorScraper:
     def __init__(self, driver, company_name, company_code):
@@ -31,7 +33,7 @@ class GlassDoorScraper:
         self.list_of_review_pages = []
         self.reviews_collected = []
         self.batch_counter = 0
-       
+            
     def login_using_facebook(self, account_type):
         self._set_credentials(account_type)
         self.identifier = account_type
@@ -59,7 +61,8 @@ class GlassDoorScraper:
         self.driver.switch_to_window(window_handles[0])
         self._is_login_successful()
     
-    def generate_urls(self):
+    def generate_reviews_urls(self):
+        """Generates the list of URLs containing reviews"""
         url = f"https://www.glassdoor.sg/Reviews/{self.company_name}-Reviews-E{self.company_code}.htm"
         self.driver.navigate_to(url)
         self._count_pages_to_scrape(self.driver.get_current_url())
@@ -170,7 +173,7 @@ class GlassDoorScraper:
 
     def dump_reviews_json(self, all_reviews):
         """Dump the reviews to a JSON file"""
-        folder_path = os.path.join("..", "data", self.company_name)
+        folder_path = os.path.join(DATA_DIRECTORY, self.company_name)
         if not os.path.exists(folder_path):
             os.makedirs(folder_path)
 
@@ -181,7 +184,7 @@ class GlassDoorScraper:
  
     def dump_scrape_error_log(self, failed_url):
         # Log failed URLs to a file - will create a error-logs folder if it doesnt exists
-        folder_path = os.path.join("..", "error_logs")
+        folder_path = os.path.join(MISCELLANOUS_DIRECTORY, "error_logs")
         if not os.path.exists(folder_path):
             os.makedirs(folder_path)
 
@@ -191,14 +194,18 @@ class GlassDoorScraper:
 
     def update_progress(self, log):
         """Progress.md will track what companies are being / have been scraped."""
-        file_path = os.path.join("..","data","progress.md")
+        file_path = os.path.join(MISCELLANOUS_DIRECTORY, "progress.md")
         markdown_content = f'''\n\n### {self.company_name}\n- Company name: {self.company_name}\n- Company code: {self.company_code}\n- {log}'''
 
         with open(file_path, 'a') as f:
             f.write(markdown_content)
     
-    def get_company_information(self, company_code, company_name):
-        url = f"https://www.glassdoor.sg/Overview/Working-at-{company_name}-EI_IE{company_code}.11,16.htm"
+    def _get_company_information(self):
+        """Scapes for company information and invokes _extracT_company_information to obtain dictionary
+            representing company information
+        """
+        url = f"https://www.glassdoor.sg/Overview/Working-at-{self.company_name}-EI_IE{self.company_code}.11,16.htm"
+
         self.driver.navigate_to(url)
         # Wait for the employer overview module to load
         employer_overview_module = WebDriverWait(self.driver, 30).until(EC.presence_of_element_located((By.XPATH, "//div[@data-test='employerOverviewModule']")))
@@ -209,45 +216,94 @@ class GlassDoorScraper:
         # Parse the HTML using BeautifulSoup
         soup = BeautifulSoup(employer_overview_html, "html.parser")
 
-        # Find the list of company details
+        # Extract the company information from soup
+        company_info = self._extract_company_information(soup)
+        print(f"Retrieved {self.company_code}, {self.company_name} information: {company_info}")
+        return company_info
+
+    def _extract_company_information(self, soup):
+        """Extracts company information from soup
+        returns company_info = {
+                "company_name": self.company_name,
+                "company_code": self.company_code,
+                "website": website,
+                "headquarters": headquarters,
+                "size": size,
+                "founded": founded,
+                "type": type,
+                "industry": industry,
+                "revenue": revenue,
+                "employer_description": employer_description,
+                "mission": mission }
+        """
         company_details = soup.find("ul", class_="row")
+        try:
+            # Extract the website
+            website_label = company_details.find("label", text="Website:")
+            website = website_label.find_next_sibling("a").text.strip()
+        except AttributeError:
+            website = "Not provided on Glassdoor"
+        try:
+            # Extract the headquarters
+            headquarters_label = company_details.find("label", text="Headquarters:")
+            headquarters = headquarters_label.find_next_sibling("div").text.strip()
+        except AttributeError:
+            headquarters = "Not provided on Glassdoor"
+        try:
+            # Extract the size
+            size_label = company_details.find("label", text="Size:")
+            size = size_label.find_next_sibling("div").text.strip()
+        except AttributeError:
+            size = "Not provided on Glassdoor"
+        try:
+            # Extract the founded year
+            founded_label = company_details.find("label", text="Founded:")
+            founded = founded_label.find_next_sibling("div").text.strip()
+        except AttributeError:
+            founded = "Not provided on Glassdoor"
+        try:
+            # Extract the type
+            type_label = company_details.find("label", text="Type:")
+            type = type_label.find_next_sibling("div").text.strip()
+        except AttributeError:
+            type = "Not provided on Glassdoor"
+        try:
+            # Extract the industry
+            industry_label = company_details.find("label", text="Industry:")
+            industry = industry_label.find_next_sibling("a").text.strip()
+        except AttributeError:
+            industry = "Not provided on Glassdoor"
+        try:
+            # Extract the revenue
+            revenue_label = company_details.find("label", text="Revenue:")
+            revenue = revenue_label.find_next_sibling("div").text.strip()
+        except AttributeError:
+            revenue = "Not provided on Glassdoor"
+        try:
+            # Find the employer description and mission elements
+            description_element = soup.find("span", {"data-test": "employerDescription"})
+            mission_element = soup.find("span", {"data-test": "employerMission"})
 
-        # Extract the website
-        website_label = company_details.find("label", text="Website:")
-        website = website_label.find_next_sibling("a").text.strip()
-
-        # Extract the headquarters
-        headquarters_label = company_details.find("label", text="Headquarters:")
-        headquarters = headquarters_label.find_next_sibling("div").text.strip()
-
-        # Extract the size
-        size_label = company_details.find("label", text="Size:")
-        size = size_label.find_next_sibling("div").text.strip()
-
-        # Extract the founded year
-        founded_label = company_details.find("label", text="Founded:")
-        founded = founded_label.find_next_sibling("div").text.strip()
-
-        # Extract the type
-        type_label = company_details.find("label", text="Type:")
-        type = type_label.find_next_sibling("div").text.strip()
-
-        # Extract the industry
-        industry_label = company_details.find("label", text="Industry:")
-        industry = industry_label.find_next_sibling("a").text.strip()
-
-        # Extract the revenue
-        revenue_label = company_details.find("label", text="Revenue:")
-        revenue = revenue_label.find_next_sibling("div").text.strip()
+            # Extract the text from the elements
+            employer_description = description_element.text.strip()
+            mission = mission_element.text.strip()
+        except AttributeError:
+            employer_description = "Not provided on Glassdoor"
+            mission = "Not provided on Glassdoor"
 
         # Return the company information as a dictionary
         company_info = {
-            "website": website,
-            "headquarters": headquarters,
-            "size": size,
-            "founded": founded,
-            "type": type,
-            "industry": industry,
-            "revenue": revenue
-        }
+                "company_name": self.company_name,
+                "company_code": self.company_code,
+                "website": website,
+                "headquarters": headquarters,
+                "size": size,
+                "founded": founded,
+                "type": type,
+                "industry": industry,
+                "revenue": revenue,
+                "employer_description": employer_description,
+                "mission": mission
+            }
+
         return company_info

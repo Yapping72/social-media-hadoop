@@ -41,5 +41,6 @@ To scrape multiple companies in parallel, run multiple instance of main.py. Each
 To resume a scrape from the last successful batch, invoke the resume_scrape() instead of start_one_scrape().
 
 # Sequential Scraping of a List of Companies
-Populate 'company_list_1' with company_codes and company_names, run the start_multiple_scrapes() instead of start_one_scrape(). You can also adopt the same approach to use multiple chrome sessions to scrape multiple companies in each session. Each instance of main.py will use a different company_list and facebook accounts. 
+Create a json file and populate it with company_codes and company_names (see '../scraper/Industry/Financials' for example). Run the start_multiple_scrapes() instead of start_one_scrape(). You can also adopt the same approach to use multiple chrome sessions to scrape multiple companies in each session. Each instance of main.py will use a different company_list and facebook accounts. 
 * Note that you may need to solve the captchas that appear on each login. Fresh glassdoor accounts less prone to Captcha verification on login.
+* Modify the FILE_PATH variable in main. 
