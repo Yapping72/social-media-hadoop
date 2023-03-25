@@ -3,29 +3,16 @@ import sys
 from flask import Flask,render_template, url_for,redirect, session, request
 from flask import request,jsonify
 from pymongo import MongoClient
-from flask_bcrypt import Bcrypt
 import mysql.connector
 from datetime import timedelta
 import datetime
-
-
+import json
+import os
 
 
 app = Flask(__name__)
-bcrypt = Bcrypt(app)
 
 
-#mongodb
-client = MongoClient("mongodb://127.0.0.1:27017")
-mydb = client['CovidSEA']
-mycol = mydb['Covid19SEAdata']
-app = Flask('2103proj')
-
-#mariadb
-mydb = mysql.connector.connect(host="localhost",
-                                   user="root",
-                                   password="0415",
-                                   database="covid_sea_proj")
 
 
 # displays fifth page
@@ -421,208 +408,38 @@ def secondpage():
        vaccinatedSEA=vaccinatedSEA, confirmedcases=confirmedcases)
 
 
-#create account
-@app.route("/createaccount" , methods=['POST', 'GET'])
-def createaccount():
-        msg=''
-        if request.method == 'POST' and 'username' in request.form and 'password'  in request.form:
-              # Create variables for easy access
-            username = request.form['username']
-            password = request.form['password']
-            pw_hash = bcrypt.generate_password_hash(password)
-            
-            cursor = mydb.cursor()
-
-            cursor.execute('INSERT INTO accounts VALUES (%s, %s)', (username, pw_hash))
-            mydb.commit()            
-            msg = 'You have successfully registered!'
-            return redirect("login")
-        return render_template("createaccount.html", msg=msg , )
-
-#update account password
-@app.route("/updatepassword" , methods=['POST', 'GET'])
-def updatepassword():
-        msg=''
-        if request.method == 'POST' and 'newpassword' in request.form:
-            username = session.get('username', None)
-            password = request.form['newpassword']
-            hashpass = bcrypt.generate_password_hash(password)
-            print(password)
-            cursor = mydb.cursor()
-            cursor.execute('UPDATE accounts set password = %s where username = %s', (hashpass, username))
-            mydb.commit()
-            msg = 'You have successfully updated password!'
-            return redirect("login")
-        return render_template("updatepassword.html", msg=msg)
-
-#delete account
-@app.route("/deleteaccount" , methods=['POST', 'GET'])
-def deleteaccount():
-        msg=''
-        if request.method == 'POST' and session.get('username'):
-            username = session.get('username', None)
-            print(username)
-            cursor = mydb.cursor()
-            cursor.execute('DELETE FROM accounts where username = "'+username+'"')
-            mydb.commit()
-            msg = 'You have successfully deleted account!'
-            return redirect("login")
-        return render_template("deleteaccount.html", msg=msg)
 
 
-#onload page
-@app.route("/")
-def default():
-
-
-    return render_template('login.html')
-
-#handles login form request 
-@app.route("/login" , methods=['POST', 'GET'])
-def login():
-    msg =''
-    #if form send request store form in username and password variable
-    if request.method == 'POST':
-
-        username = request.form['username']
-        password = request.form['password']
-        # cursor = mydb.cursor()
-        cursor1 = mydb.cursor()
-        
-        # cursor.execute('SELECT * FROM accounts where username=%s AND password =%s', (username, password))
-        cursor1.execute('SELECT password FROM accounts where username="'+username+'"')
-        record1 = cursor1.fetchone()
-        
-        # record = cursor.fetchone()
-        
-        #if record exists in database, direct to index page. 
-        if record1 and bcrypt.check_password_hash(record1[0],password): 
-
-            #if account exists in database go to index.html
-          return redirect( url_for('index' , username=username))
-        else:
-         msg = 'incorrect password/username'
-          
-
-    return render_template('login.html', msg=msg)
-
+# #onload page
+# @app.route("/")
+# def default():
+#
+#
+#     return render_template('index.html')
+#
 
 
 #display index.html 
 #created this so that when click on pagenation , it will link back to index.html
-@app.route("/index")
+@app.route("/")
 def index():
+    # Load the JSON data
+    with open('../hadoop_analysis/Results/Energy.json') as f:
+        data = json.load(f)
 
+    # Access the values for the two companies
+    anadarko_two_star = data['Anadarko-Petroleum']['two_star_reviews']
+    apache_two_star = data['Apache']['two_star_reviews']
+    anadarko_five_star_percent = data['Anadarko-Petroleum']['percent_five_star']
+    apache_five_star_percent = data['Apache']['percent_five_star']
 
- 
-    mycursor = mydb.cursor()
-    mycursor1 = mydb.cursor()
-    mycursor2 = mydb.cursor()
+    # Calculate the sum of two_star_reviews and the average of percent_five_star
+    two_star_sum = anadarko_two_star + apache_two_star
+    five_star_average = (anadarko_five_star_percent + apache_five_star_percent) / 2
+    print(two_star_sum)
 
-    mycursor5 = mydb.cursor()
-    mycursor6 = mydb.cursor()
+    return render_template("index.html", two_star_sum=two_star_sum, five_star_average=five_star_average)
 
-
-    
-    #SUM Total confirmed cases
-    mycursor6.execute("SELECT SUM(c.total_cases) FROM cases_and_death c, date d WHERE c.date_id = d.date_id and d.date IN (SELECT max(date) FROM date)")
-    result6 = mycursor6.fetchall()
-
-    #SUM of Total number of people vaccinated in each SEA country to date
-    mycursor5.execute("SELECT SUM(persons_fully_vaccinated), MAX(date) FROM vaccination, date")
-    result5 = mycursor5.fetchall()
-
-
-
-    #SUM total deaths to date. 
-    mycursor2.execute("SELECT SUM(c.total_deaths) FROM cases_and_death c, date d WHERE c.date_id = d.date_id and d.date IN (SELECT max(date) FROM date)")
-    result2 = mycursor2.fetchall()
-    
-
-    #total deaths to total case query 
-    mycursor1.execute("SELECT cc.country_name, c.total_cases, c.total_deaths FROM cases_and_death c, country cc, date d WHERE cc.country_id = c.country_id and c.date_id = d.date_id and d.date IN (SELECT max(date) FROM date)")
-    result1 = mycursor1.fetchall()
-
-    # # Fetching Data From mysql to my python progame
-    #total confirmed cases to date query 
-    mycursor.execute("SELECT c.total_cases,date FROM cases_and_death c, date d WHERE c.date_id = d.date_id and d.date IN (SELECT max(date) FROM date)")
-    result = mycursor.fetchall()
-
-    #Sum of total confirmed cases
-    confirmedcases = []
-    for row7 in result6:
-       confirmedcases.append(str(row7[0]))
-
-
-
-
-    #total vaccinated in SEA
-    vaccinatedSEA = []
-    for row6 in result5:
-        vaccinatedSEA.append(str(row6[0]))
-
-    #total deaths to date label
-    totaldeaths = []
-    for row2 in result2:
-        totaldeaths.append(str(row2[0]))
-
-    #labels for total death and total case
-    labelstotaldeathandtotalcase = list()
-    #for each row in the sql statement append it into label's list. 
-    for row1 in result1:
-      labelstotaldeathandtotalcase.append(row1)
- 
-
-
-   #declare the labels you want to display in the graph
-    labels = list()
-    #for each row in the sql statement append it into label's list. 
-    for row in result:
-      labels.append(row)
-
-    #declare the values you want to display in the graph 
-    values = list()
-    i = 0
-    
-    #for each row in sql statement , append it to value's list
-    for row in result:
-       values.append(row[i])
-    print(values)
-   
-
-    username = request.args.get('username', None)
-    session['username'] = username;
-    # Connecting to mysql database
-    return render_template("index.html", values=values , labels=labels, labelstotaldeathandtotalcase=labelstotaldeathandtotalcase, totaldeaths=totaldeaths, 
-       vaccinatedSEA=vaccinatedSEA, confirmedcases=confirmedcases, username = username
-   
-    )
-@app.route('/viewprofile')
-def viewprofile():
-
-    #username session
-    # username = request.args.get('username', None)
-    username = session.get('username', None)
-    return render_template("viewprofile.html", username = username)
-    
-
-
-#mongo db 
-@app.route('/showData')
-def showData():
-    showDataList = []
-    for i in mycol.find({},{"total_deaths":19265.0}):
-        showDataList.append(i)
-  
-    return jsonify(showDataList)
-
-
-# mongo db
-# @app.route('/showData', methods=['GET'])
-# def index():
-    # cur.execute("select t.total_cases from cases_and_death t, date d where d.date_id = t.date_id and date = '19/9/2022'")
-    # data = cur.fetchall()
-    # # return render_template('maria.html', values=data)
 
 if __name__ == '__main__':
     app.secret_key = 'super secret key'
