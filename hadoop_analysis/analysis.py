@@ -95,7 +95,7 @@ def process_company_reviews(company, all_data, industry):
             company_df["company"] = get_company_name(os.path.basename(json_review))
             # Append the company DataFrame to the list of all data
             all_data.append(company_df)
-            print(f"Loaded {num_json} JSON files for {get_company_name(os.path.basename(json_review))}.")
+            print(f"Loaded {num_json + 1} JSON files for {get_company_name(os.path.basename(json_review))}.")
 
     return all_data
 
@@ -110,8 +110,12 @@ def create_review_text(all_data_df):
     all_data_df['review_text'] = all_data_df['review_text'].apply(lambda x: x.lower())
     
 def obtain_median_reviews(company_reviews):
-    """Returns the median review rating for a given dataframe"""
-    median_rating = company_reviews['rating'].median()
+    """
+    Returns the median rating of the company_reviews DataFrame.
+    Skips rows with 'N/A' values in the 'rating' column.
+    """
+    filtered_reviews = company_reviews[company_reviews['rating'] != 'N/A']
+    median_rating = filtered_reviews['rating'].median()
     return median_rating
 
 def count_star_reviews(company_reviews, star_rating:str):
@@ -139,6 +143,7 @@ def create_company_dict(company_name):
     return company_dict
 
 def populate_company_dictionary(company_name:str, company_reviews:pd.DataFrame):
+    """Populates the company dictionary with number of reviews"""
     company_dictionary = create_company_dict(company_name)
     # Obtain total reviews 
     company_dictionary['total_reviews'] = company_reviews.shape[0]
@@ -225,16 +230,34 @@ def dump_dictionary_to_json(INDUSTRY, company_dictionary):
     with open(destination_file, "w") as f:
         json.dump(existing_data, f)
 
-def drop_duplicates(all_data_df):
-    """Removes duplicated records (if any) """
-    all_data_df.drop_duplicates()
-    return all_data_df
+def get_individual_companies(all_data_df: pd.DataFrame):
+    # Get list of companies successfully loaded from json into dataframe
+    companies = companies_in_dataframe(all_data_df)
+    # Iterate through each companies dataframe to obtain - median reviews, average reviews, num X-star and word-count
+    for company in companies:
+        # Slice the dataframe into manageable chunks
+        company_df = all_data_df.groupby('company')
+        company_reviews = company_df.get_group(company) 
+        # Populates dictionary with total, median, number of X-starred % of X-starred reviews
+        company_dictionary = populate_company_dictionary(company, company_reviews)
+        dump_dictionary_to_json(INDUSTRY, company_dictionary)
+        update_company_word_count_dictionary(company_dictionary, company_reviews)
+        dump_dictionary_to_json(INDUSTRY, company_dictionary)
+        print(f"Completed analysis on {company} reviews")
 
-DATA_DIRECTORY = os.path.join("..", "data") # ..\data
+def get_industry_overview(all_data_df: pd.DataFrame):
+    # Populates dictionary with total, median, number of X-starred % of X-starred reviews
+    industry_dictionary = populate_company_dictionary(INDUSTRY, all_data_df)
+    dump_dictionary_to_json(INDUSTRY, industry_dictionary)
+    update_company_word_count_dictionary(industry_dictionary, all_data_df)
+    dump_dictionary_to_json(INDUSTRY, industry_dictionary)
+    print(f"Completed analysis on {INDUSTRY} reviews")
+
+DATA_DIRECTORY = os.path.join("..", "data") 
+INDUSTRY = "Information Technology" # <-- Modify this 
+
 def main():
     """Iterates through all the ..\data\INDUSTRY directories to get company reviews."""
-    INDUSTRY = "Industrials" # <-- Modify this 
-
     industry_directory = os.path.join(DATA_DIRECTORY, INDUSTRY) 
     companies_in_industry = get_companies_from_industry(industry_directory)
     all_data = [] # stores all the json reviews for all countries in the specified industry
@@ -247,21 +270,8 @@ def main():
     all_data_df = pd.concat(all_data, ignore_index= True)
     create_review_text(all_data_df)
     all_data_df = all_data_df.drop_duplicates()
-
-    # Get list of companies successfully loaded from json into dataframe
-    companies = companies_in_dataframe(all_data_df)
-
-    # Iterate through each companies dataframe to obtain - median reviews, average reviews, num X-star and word-count
-    for company in companies:
-        # Slice the dataframe into manageable chunks
-        company_df = all_data_df.groupby('company')
-        company_reviews = company_df.get_group(company) 
-        # Populates dictionary with total, median, number of X-starred % of X-starred reviews
-        company_dictionary = populate_company_dictionary(company, company_reviews)
-        dump_dictionary_to_json(INDUSTRY, company_dictionary)
-        update_company_word_count_dictionary(company_dictionary, company_reviews)
-        dump_dictionary_to_json(INDUSTRY, company_dictionary)
-        print(f"Completed analysis on {company} reviews")
-        
+    get_industry_overview(all_data_df)
+    get_individual_companies(all_data_df)
+    
 if __name__ == "__main__":
   main()

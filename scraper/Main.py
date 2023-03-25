@@ -15,23 +15,6 @@ import numpy as np
 import os 
 import json 
 
-def create_workers(num_workers, company_code, company_name):
-    """Creates multiple clients, intended for async operations."""
-    workers = []
-    for i in range(num_workers):
-        account_type = f"Facebook_{i}"
-        worker = GlassDoorScraper(driver=ChromeWebDriver(), company_code=company_code, company_name=company_name)
-        try: 
-            worker.login_using_facebook(account_type=account_type)
-        except: 
-            print(f"worker#{i} failed to login")
-            continue
-        workers.append(worker)
-    if len(workers) == 0:
-        print(f"No workers logged in, please check accounts.json folder")
-        sys.exit(1)
-    return workers
-
 def create_worker(company_code, company_name, account_number):
     """Creates 1 worker, that will be used to scrape glassdoor"""
     account_type = f"Facebook_{account_number}"
@@ -61,6 +44,28 @@ def start_worker(worker, batch_size):
         except Exception as e:
             print(f"Failed to scrape: {url} view error_logs for list of failed urls.")
             worker.dump_scrape_error_log(url)
+
+def get_company_information(worker, batch_size):
+    start_time = time.time()
+    while(worker.list_of_review_pages):
+        url = worker.list_of_review_pages.pop(0)
+        try:
+            review_elements = worker._get_reviews_on_page(url)
+            reviews = worker._extract_reviews(review_elements)
+            worker.reviews_collected.append(reviews)
+            if (len(worker.reviews_collected) == batch_size) or (len(worker.list_of_review_pages) == 0):
+                worker.dump_reviews_json(worker.reviews_collected)
+                worker.reviews_collected.clear()
+                end_time = time.time()
+                elapsed_time = end_time - start_time # stop timer
+                print(f"Batch of {batch_size} urls scrapped. Time Elapsed: {elapsed_time}")
+                start_time = end_time # reset timer
+        except Exception as e:
+            print(f"Failed to scrape: {url} view error_logs for list of failed urls.")
+            worker.dump_scrape_error_log(url)
+
+
+
 
 def resume_work(worker):
     """For jobs that were prematurely terminated, can invoke this to resume scraping 
@@ -132,8 +137,10 @@ def main():
     #resume_scrape(company_code, company_name, account_number, batch_size) # Resumes a prematurely terminated scrape
     
     """Uncomment if you intend to Scrape multiple companies (listed in company_list_1.json)"""
-    FILE_PATH = "Financials.json"
-    start_multiple_scrapes(account_number, batch_size, FILE_PATH)
+    # PARENT_DIRECTORY = os.path.join(".", "Industry")
+    # FILE_PATH = "Financials.json" # Modify this
+    # FILE_PATH = os.path.join(PARENT_DIRECTORY, FILE_PATH)
+    # start_multiple_scrapes(account_number, batch_size, FILE_PATH)
 
 if __name__ == "__main__":
   main()

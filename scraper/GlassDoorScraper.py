@@ -196,3 +196,58 @@ class GlassDoorScraper:
 
         with open(file_path, 'a') as f:
             f.write(markdown_content)
+    
+    def get_company_information(self, company_code, company_name):
+        url = f"https://www.glassdoor.sg/Overview/Working-at-{company_name}-EI_IE{company_code}.11,16.htm"
+        self.driver.navigate_to(url)
+        # Wait for the employer overview module to load
+        employer_overview_module = WebDriverWait(self.driver, 30).until(EC.presence_of_element_located((By.XPATH, "//div[@data-test='employerOverviewModule']")))
+
+        # Get the HTML source of the employer overview module
+        employer_overview_html = employer_overview_module.get_attribute("innerHTML")
+
+        # Parse the HTML using BeautifulSoup
+        soup = BeautifulSoup(employer_overview_html, "html.parser")
+
+        # Find the list of company details
+        company_details = soup.find("ul", class_="row")
+
+        # Extract the website
+        website_label = company_details.find("label", text="Website:")
+        website = website_label.find_next_sibling("a").text.strip()
+
+        # Extract the headquarters
+        headquarters_label = company_details.find("label", text="Headquarters:")
+        headquarters = headquarters_label.find_next_sibling("div").text.strip()
+
+        # Extract the size
+        size_label = company_details.find("label", text="Size:")
+        size = size_label.find_next_sibling("div").text.strip()
+
+        # Extract the founded year
+        founded_label = company_details.find("label", text="Founded:")
+        founded = founded_label.find_next_sibling("div").text.strip()
+
+        # Extract the type
+        type_label = company_details.find("label", text="Type:")
+        type = type_label.find_next_sibling("div").text.strip()
+
+        # Extract the industry
+        industry_label = company_details.find("label", text="Industry:")
+        industry = industry_label.find_next_sibling("a").text.strip()
+
+        # Extract the revenue
+        revenue_label = company_details.find("label", text="Revenue:")
+        revenue = revenue_label.find_next_sibling("div").text.strip()
+
+        # Return the company information as a dictionary
+        company_info = {
+            "website": website,
+            "headquarters": headquarters,
+            "size": size,
+            "founded": founded,
+            "type": type,
+            "industry": industry,
+            "revenue": revenue
+        }
+        return company_info
