@@ -205,7 +205,7 @@ class GlassDoorScraper:
             representing company information
         """
         url = f"https://www.glassdoor.sg/Overview/Working-at-{self.company_name}-EI_IE{self.company_code}.11,16.htm"
-
+        print(f"Retrieving information for {self.company_name}")
         self.driver.navigate_to(url)
         # Wait for the employer overview module to load
         employer_overview_module = WebDriverWait(self.driver, 30).until(EC.presence_of_element_located((By.XPATH, "//div[@data-test='employerOverviewModule']")))
@@ -218,7 +218,6 @@ class GlassDoorScraper:
 
         # Extract the company information from soup
         company_info = self._extract_company_information(soup)
-        print(f"Retrieved {self.company_code}, {self.company_name} information: {company_info}")
         return company_info
 
     def _extract_company_information(self, soup):
