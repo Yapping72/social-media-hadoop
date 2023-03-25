@@ -3,7 +3,6 @@ import sys
 from flask import Flask,render_template, url_for,redirect, session, request
 from flask import request,jsonify
 from pymongo import MongoClient
-from flask_bcrypt import Bcrypt
 import mysql.connector
 from datetime import timedelta
 import datetime
@@ -411,21 +410,21 @@ def secondpage():
 
 
 
-#onload page
-@app.route("/")
-def default():
-
-
-    return render_template('index.html')
-
+# #onload page
+# @app.route("/")
+# def default():
+#
+#
+#     return render_template('index.html')
+#
 
 
 #display index.html 
 #created this so that when click on pagenation , it will link back to index.html
-@app.route("/index")
+@app.route("/")
 def index():
     # Load the JSON data
-    with open('./hadoop_analysis/Results/Energy.json') as f:
+    with open('../hadoop_analysis/Results/Energy.json') as f:
         data = json.load(f)
 
     # Access the values for the two companies
@@ -437,7 +436,8 @@ def index():
     # Calculate the sum of two_star_reviews and the average of percent_five_star
     two_star_sum = anadarko_two_star + apache_two_star
     five_star_average = (anadarko_five_star_percent + apache_five_star_percent) / 2
-  
+    print(two_star_sum)
+
     return render_template("index.html", two_star_sum=two_star_sum, five_star_average=five_star_average)
 
 
