@@ -10,6 +10,10 @@ import json
 import os
 from collections import Counter
 from wordcloud import WordCloud
+from io import BytesIO
+import base64
+import random
+
 
 app = Flask(__name__)
 
@@ -46,26 +50,78 @@ def thirdpage():
 @app.route("/energypage")
 def energypage():
   
-    
-    with open("../hadoop_analysis/Results/Energy.json") as f:
+    #populate companies to dropdown list.
+    with open("./hadoop_analysis/Results/Energy.json") as f:
         data = json.load(f)
+    
 
-    print(data)
+   
     companies = []
     for key in data:
         company_name = data[key]['name']
         companies.append(company_name)
 
-    return render_template("EnergyPage.html", companies= companies, data=data)
+    # Extract word frequencies
+    word_freq = data["Energy"]["word_count_dictionary"]
+
+    #----------used for plotting the word cloud---------------------------------
+    # Sort word frequencies by count and take top 5
+    top_words = sorted(word_freq.items(), key=lambda x: x[1], reverse=True)[:20]
+
+    # Sort top words by value in the JSON
+    top_words = sorted(top_words, key=lambda x: data["Energy"]["word_count_dictionary"][x[0]], reverse=True)
+
+    # Generate word cloud image
+    wordcloud = WordCloud(width=800, height=800, background_color="white").generate_from_frequencies(dict(top_words))
+    
+   
+    # Get the image as bytes and encode it as base64
+    img_bytes = BytesIO()
+    wordcloud.to_image().save(img_bytes, format='PNG')
+    img_data = base64.b64encode(img_bytes.getvalue()).decode('utf-8')
+    #----------used for plotting the word cloud---------------------------------
+
+
+
+    #---#this is used for plotting the bar graph for word count----------------------------------
+    # Create an empty list to store the key-value pairs this is used for plotting the bar graph 
+    word_count_list = []
+    # Iterate through the dictionary and append the key-value pairs to the list 
+    
+    for key, value in word_freq.items():
+        word_count_list.append((key, value))
+    #---#this is used for plotting the bar graph for word count ----------------------------------
+
+    #---#this is used for plotting the bar graph for one - five star review----------------------------------
+    # initialize empty list to store one-star reviews
+    one_star_reviews = []
+    two_star_reviews = []
+    three_star_reviews = []
+    four_star_reviews = []
+    five_star_reviews = []
+
+    # iterate through each company's data, excluding Energy
+    for company, company_data in data.items():
+        if company != 'Energy':
+            one_star_reviews.append((company, company_data['one_star_reviews']))
+            two_star_reviews.append((company, company_data['two_star_reviews']))
+            three_star_reviews.append((company, company_data['three_star_reviews']))
+            four_star_reviews.append((company, company_data['four_star_reviews']))
+            five_star_reviews.append((company, company_data['five_star_reviews']))
+     #---#this is used for plotting the bar graph for one- five star review----------------------------------
+
+  
+
+    return render_template("EnergyPage.html", companies= companies, data=data,  image_data=img_data, word_count_list = word_count_list, 
+                           one_star_reviews=one_star_reviews,
+                           two_star_reviews=two_star_reviews,
+                           three_star_reviews=three_star_reviews,
+                           four_star_reviews=four_star_reviews,
+                           five_star_reviews=five_star_reviews)
 
 
 
 
-
-# function to generate word cloud
-def generate_wordcloud(words):
-    wc = WordCloud(width=800, height=400, max_words=50, background_color='white').generate_from_frequencies(words)
-    return wc.to_image()
 
 
 
@@ -73,47 +129,28 @@ def generate_wordcloud(words):
 @app.route("/")
 def index():
     # Load the JSON data
-    with open('../hadoop_analysis/Results/Energy.json') as f:
+    with open('./hadoop_analysis/Results/Energy.json') as f:
         Energydata = json.load(f)
 
+    medianreviews = Energydata["Energy"]["median_reviews"]
+
+    totalreviews = Energydata["Energy"]["total_reviews"]
+
+    onestarreview = Energydata["Energy"]["one_star_reviews"]
     
-    # Loop over all the companies in the data and accumulate the data in json file
-    total_two_star_reviews = 0
-    total_energy_reviews= 0
-    total_median_reviews= 0
-    total_five_star_reviews= 0
-    total_four_star_reviews= 0
-    total_three_star_reviews= 0
-    total_one_star_reviews= 0
-    total_percent_five_star= 0
-    total_percent_four_star =0
-    total_percent_three_star =0 
-    total_percent_two_star = 0
-    total_percent_one_star =0
-
-
-    for name, company_data in Energydata.items():
-        #total reviews for energy sector
-        total_energy_reviews += company_data['total_reviews']
-        #total median reviews
-        total_median_reviews += company_data['median_reviews']
-        #total star reviews
-        total_two_star_reviews += company_data['two_star_reviews']
-        total_five_star_reviews += company_data['five_star_reviews']
-        total_four_star_reviews += company_data['four_star_reviews']
-        total_three_star_reviews += company_data['three_star_reviews']
-        total_one_star_reviews += company_data['one_star_reviews']
-        #percentage of fivestar-one star reviews
-        total_percent_five_star += company_data['percent_five_star']
-        total_percent_four_star += company_data['percent_four_star']
-        total_percent_three_star += company_data['percent_three_star']
-        total_percent_two_star += company_data['percent_two_star']
-        total_percent_one_star += company_data['percent_one_star']
+    twostarreview = Energydata["Energy"]["two_star_reviews"]
+    
+    threestarreview = Energydata["Energy"]["three_star_reviews"]
+    
+    fourstarreview = Energydata["Energy"]["four_star_reviews"]
+    
+    fivestarreview = Energydata["Energy"]["five_star_reviews"]
+  
 
 
 
-    return render_template("index.html", totalreviews = total_energy_reviews, totalmedianreviews = total_median_reviews, totalonestar = total_one_star_reviews, totaltwostar = total_two_star_reviews ,
-                            totalthreestar = total_three_star_reviews, totalfourstar =total_four_star_reviews, totalfivestar = total_five_star_reviews
+    return render_template("index.html", totalreviews = totalreviews, totalmedianreviews = medianreviews, totalonestar = onestarreview, totaltwostar = twostarreview ,
+                            totalthreestar = threestarreview, totalfourstar =fourstarreview, totalfivestar = fivestarreview
                             )
 
 

@@ -9,7 +9,6 @@
         <script src="../static/js/main.js"></script>
         <script>
             var data = {{data|tojson}};
-
         </script>
        <script src="https://cdn.anychart.com/releases/8.11.0/js/anychart-base.min.js"></script>
 	    <script src="https://cdn.anychart.com/releases/8.11.0/js/anychart-tag-cloud.min.js"></script>
@@ -21,37 +20,49 @@
        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js" type="application/javascript"></script>
        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+       <!-- Load the Chart.js library -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.0/chart.min.js"></script>
+
     </head>
     <body> 
         <div class="container-fluid text-center">
           <div class="row">
             <div class="col-sm-12 col-md-10 col-lg-8 mx-auto">
               <div class="container-fluid" style="margin-right: 500px;">
-    
-                <div class="col-sm-9">
-                  <div class="well" style="width: 2000px;">
+      <div class="col-sm-9">
+                  <div class="well" style="width: 2000px; ">
                     <h2>Energy Sector Companies</h2>
+                    </div>
+                    </div>
+                <div class="col-sm-9">
+                  <div class="well" style="width: 2000px; ">
                     
+                    <h3>One - Five Star Reviews for Each of the Company</h3>
                     <br>
                     <div class="row">
+                        <canvas id="myChart3" style="height:700px"></canvas>
                     </div>
                   </div>
                 </div>
-    
+                
                 <div class="col-sm-9">
                   <div class="well" style="width: 2000px;">
                     <h2>WordCloud</h2><br>
                     <div class="row">
                       <div class="col-sm-6">
-                       INSERT summarised wordcloud for the industry
+                        <h3>Top 20 words appearing in the Energy Industry</h3>
+                        <img src="data:image/png;base64,{{ image_data }}" style="width:300px" />
+                        
                       </div>
                       <div class="col-sm-6">
-                       
+                        <canvas id="myChart2"></canvas>
                       </div>
                     </div>
                   </div>
                 </div>
       
+              
+
                 <div class="col-sm-9">
                     <div class="well" style="width: 2000px;">
                       <h2>Choose Company to display statistics </h2>
@@ -61,23 +72,23 @@
                           <option value="{{ company }}">{{ company }}</option>
                         {% endfor %}
                       </select>
-                  
-                      <div id="company-div" style="display:none;">
+                    </div>
+                      <div id="company-div" style="display:none;margin-left: 500px; ">
                           <div class="col-sm-9">
                               <div class="well" style="width: 900px;">
-                                <h2 id="div-title">Total Star Reviews for Energy Sector</h2><br>
+                                <h2 id="div-title" >Total Star Reviews for Energy Sector</h2><br>
                                 <div class="row">
                                   <div class="col-sm-6">
                                     <h3>1 star Reviews</h3>
-                                    <p id="1-star" style="font-size: x-large; color:rgb(230, 31, 31);"data-start="2100">{{totalonestar}}</p>
+                                    <p id="1-star" style="font-size: x-large; color:rgb(230, 31, 31);">{{totalonestar}}</p>
                                     <h3>2 star reviews</h3>
-                                    <p id="2-star" style="font-size: x-large; color:rgb(228, 44, 44);"data-start="2800">{{totaltwostar}}</p>
+                                    <p id="2-star" style="font-size: x-large; color:rgb(228, 44, 44);">{{totaltwostar}}</p>
                                     <h3>3 star Reviews</h3>
-                                    <p id="3-star" style="font-size: x-large; color:rgb(54, 6, 248);"data-start="7080">{{totalthreestar}}</p>
+                                    <p id="3-star" style="font-size: x-large; color:rgb(54, 6, 248);">{{totalthreestar}}</p>
                                     <h3>4 star reviews</h3>
-                                    <p id="4-star" style="font-size: x-large; color:rgb(23, 166, 47);"data-start="10700">{{totalfourstar}}</p>
+                                    <p id="4-star" style="font-size: x-large; color:rgb(23, 166, 47);">{{totalfourstar}}</p>
                                     <h3>5 star reviews</h3>
-                                    <p id="5-star" style="font-size: x-large; color:rgb(42, 174, 81);"data-start="8500">{{totalfivestar}}</p>
+                                    <p id="5-star" style="font-size: x-large; color:rgb(42, 174, 81);">{{totalfivestar}}</p>
                                   </div>
                                   <div class="col-sm-6">
                                     One Star - Five Star Reviews in percentage
@@ -91,7 +102,7 @@
                       </div>
                   
                     </div>
-                  </div>
+               
                   
 
 
@@ -122,98 +133,123 @@
   
   
   
-      <script>
+<script>
 
+ 
+var ctx3 = document.getElementById("myChart3").getContext('2d');
+var myChart3 = new Chart(ctx3, {
+	type: 'bar',
+	data: {
+		labels: [  {% for company, value in one_star_reviews %}
+                        "{{ company}}",
+                    {% endfor %}],
+		datasets: [{
+			label: 'One Star Review',
+			backgroundColor: "#caf270",
+			data: [{% for company, value in one_star_reviews %}
+                        "{{ value }}",
+                    {% endfor %}],
+		}, {
+			label: 'Two Star Reviews',
+			backgroundColor: "#45c490",
+			data: [{% for company, value in two_star_reviews %}
+                        "{{ value }}",
+                    {% endfor %}],
+		}, {
+			label: 'Three Star Reviews',
+			backgroundColor: "#008d93",
+			data: [{% for company, value in three_star_reviews %}
+                        "{{ value }}",
+                    {% endfor %}],
+		}, 
+        
+        {
+			label: 'Four Star Reviews',
+			backgroundColor: "#2e5468",
+			data: [{% for company, value in four_star_reviews %}
+                        "{{ value }}",
+                    {% endfor %}],
+		},
+    
 
+        {
+			label: 'Five Star Reviews',
+			backgroundColor: "#2e5468",
+			data: [{% for company, value in five_star_reviews %}
+                        "{{ value }}",
+                    {% endfor %}],
+		}
 
-
-
-  var ctx = document.getElementById("myChart").getContext('2d');
-  var myChart = new Chart(ctx, {
-    type: 'pie',
-    data: {
-      labels: ["1 Star reviews", "2 Star reviews", "3 Star reviews", "4 Star reviews","5 Star reviews "],
-      datasets: [{
-        backgroundColor: [
-          "#2ecc71",
-          "#3498db",
-          "#95a5a6",
-          "#9b59b6",
-          "#f1c40f",
-          "#e74c3c",
-          "#34495e"
-        ],
-           data: [
-          ({{totalonestar}}/{{totalreviews}}*100).toFixed(2),
-          ({{totaltwostar}}/{{totalreviews}}*100).toFixed(2),
-          ({{totalthreestar}}/{{totalreviews}}*100).toFixed(2),
-          ({{totalfourstar}}/{{totalreviews}}*100).toFixed(2),
-          ({{totalfivestar}}/{{totalreviews}}*100).toFixed(2)
-        ]
+    ],
+	},
+options: {
+    tooltips: {
+      displayColors: true,
+      callbacks:{
+        mode: 'x',
+      },
+    },
+    scales: {
+      xAxes: [{
+        stacked: true,
+        gridLines: {
+          display: false,
+        }
+      }],
+      yAxes: [{
+        stacked: true,
+        ticks: {
+          beginAtZero: true,
+        },
+        type: 'horizontal',
       }]
-    }
-  });
-  
-  
-  $(document).ready(function() {
-    try {
-        $('#company-dropdown').on('change', function() {
-            console.log('Selected value:', $(this).val());
-            if ($(this).val() == 'Apache') {
-                $('#apache-div').show();
-            } else {
-                $('#apache-div').hide();
+    },
+		responsive: true,
+		maintainAspectRatio: false,
+		legend: { position: 'bottom' },
+	}
+});
+
+
+
+
+
+
+
+
+var ctx2 = document.getElementById('myChart2').getContext('2d');
+var myChart2 = new Chart(ctx2, {
+            type: 'bar',
+            data: {
+                labels: [
+                    {% for word, count in word_count_list %}
+                        "{{ word }}",
+                    {% endfor %}
+                ],
+                datasets: [{
+                    label: '# of Occurrences',
+                    data: [
+                        {% for word, count in word_count_list %}
+                            {{ count }},
+                        {% endfor %}
+                    ],
+                    backgroundColor: 'rgba(54, 162, 235, 0.2)',
+                    borderColor: 'rgba(54, 162, 235, 1)',
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    yAxes: [{
+                        ticks: {
+                            beginAtZero: true
+                        }
+                    }]
+                }
             }
         });
-    } catch (error) {
-        console.error('Error:', error);
-    }
-});
-  
-  
-  
-  
-  
-  $(function() {
-      function count($this){
-          var current = parseInt($this.html());
-          $this.html(++current);
-          if(current !== $this.data('count')){
-              setTimeout(function(){count($this)}, 1); // decrease timeout value to make it faster
-          }
-      }        
-      $("p").each(function() {
-          $(this).data('count', parseInt($(this).text(), 10));
-          $(this).html($(this).data('start'));
-          count($(this));
-      });
-  });
-  
-  $('.count').each(function () {
-      var start = $(this).data('start');
-      var end = $(this).text();
-      var duration = 500; // decrease duration value to make it faster
-      var range = end - start;
-      var step = Math.ceil(range / (duration / 16)); // 16 is the interval in milliseconds between each step, you can adjust it if needed
-      $(this).prop('Counter', start).animate({
-          Counter: end
-      }, {
-          duration: duration,
-          easing: 'swing',
-          step: function (now) {
-              $(this).text(Math.ceil(now));
-          }
-      });
-  });
-  
- 
 
 
-  
-  
-  
-  
-  
   </script>
   
       
