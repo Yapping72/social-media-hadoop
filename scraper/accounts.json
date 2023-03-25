@@ -1,22 +1,14 @@
 {
   "Facebook_1": {
-      "username": "aikochen123@gmail.com",
-      "password": "E8jK#g6hF"
-  },
-  "Facebook_2": {
-      "username": "emikogupta123@gmail.com",
-      "password": "S9pL@q3rW"
-  },
-  "Facebook_3": {
       "username": "hiritohuang123@gmail.com",
       "password": "B4sT#v7fN"
   },
-  "Facebook_4": {
-      "username": "jinkim12345y@gmail.com",
-      "password": "R6mD!k9tz"
-  },
-  "Facebook_5": {
+  "Facebook_2": {
     "username": "alexandra.nguyen1992@gmail.com",
     "password": "C@ndy123"
-    }
+    },
+  "Facebook_3": {
+    "username": "yappinghao@gmail.com",
+    "password": "Englihaocovid"
+  }
 }

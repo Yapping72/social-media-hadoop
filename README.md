@@ -30,8 +30,15 @@ A project for big data processing and analysis, focusing on social media data.
         <li>On login success terminal should display login successful, and will automatically retrieve the list of urls to scrape and will begin scraping.
         <li>You will see the chrome browser traversing through each page and storing reviews.
         <li>Once 100 pages (~300-800 seconds) have been crawled, json containing reviews will be saved to the 'data/company_name' folder. Each json file will contain 1000 reviews.
+        <li> /miscellanous/Progress.md is used to track companies that were scraped.
     </ul>
-</ul>
+<br>
+<li> Use GlassDoorCompanyInformationWorker.py to retrieve Company Information on previously scraped datasets.
+    <ol>
+    <li> Ensure company codes and names exists in progress.md.
+    <li> Run convertprogress.py to convert progress.md to progress.json.
+    <li> Run GlassDoorCompanyInformationWorker.py, company information will be outputted ../data/Company Information/company_information.json.
+    <li> Future work will integrate this part while scraping for companies.
 </ol>
 
 # Multiple Chrome Browsers
@@ -44,3 +51,6 @@ To resume a scrape from the last successful batch, invoke the resume_scrape() in
 Create a json file and populate it with company_codes and company_names (see '../scraper/Industry/Financials' for example). Run the start_multiple_scrapes() instead of start_one_scrape(). You can also adopt the same approach to use multiple chrome sessions to scrape multiple companies in each session. Each instance of main.py will use a different company_list and facebook accounts. 
 * Note that you may need to solve the captchas that appear on each login. Fresh glassdoor accounts less prone to Captcha verification on login.
 * Modify the FILE_PATH variable in main. 
+
+# Analysis 
+View README.md file in hadoop_analysis folder to see how data sets can be analyzed.
