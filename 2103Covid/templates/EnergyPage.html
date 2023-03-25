@@ -6,6 +6,11 @@
        <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='css/home.css')}}">
        <script src="../static/js/jquery-1.11.2.js"></script>
        <script src="../static/js/Chart.min.js"></script>
+        <script src="../static/js/main.js"></script>
+        <script>
+            var data = {{data|tojson}};
+
+        </script>
        <script src="https://cdn.anychart.com/releases/8.11.0/js/anychart-base.min.js"></script>
 	    <script src="https://cdn.anychart.com/releases/8.11.0/js/anychart-tag-cloud.min.js"></script>
         <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
@@ -57,8 +62,32 @@
                         {% endfor %}
                       </select>
                   
-                      <div id="apache-div" style="display:none;">
-                        This div will be shown if Apache is selected.
+                      <div id="company-div" style="display:none;">
+                          <div class="col-sm-9">
+                              <div class="well" style="width: 900px;">
+                                <h2 id="div-title">Total Star Reviews for Energy Sector</h2><br>
+                                <div class="row">
+                                  <div class="col-sm-6">
+                                    <h3>1 star Reviews</h3>
+                                    <p id="1-star" style="font-size: x-large; color:rgb(230, 31, 31);"data-start="2100">{{totalonestar}}</p>
+                                    <h3>2 star reviews</h3>
+                                    <p id="2-star" style="font-size: x-large; color:rgb(228, 44, 44);"data-start="2800">{{totaltwostar}}</p>
+                                    <h3>3 star Reviews</h3>
+                                    <p id="3-star" style="font-size: x-large; color:rgb(54, 6, 248);"data-start="7080">{{totalthreestar}}</p>
+                                    <h3>4 star reviews</h3>
+                                    <p id="4-star" style="font-size: x-large; color:rgb(23, 166, 47);"data-start="10700">{{totalfourstar}}</p>
+                                    <h3>5 star reviews</h3>
+                                    <p id="5-star" style="font-size: x-large; color:rgb(42, 174, 81);"data-start="8500">{{totalfivestar}}</p>
+                                  </div>
+                                  <div class="col-sm-6">
+                                    One Star - Five Star Reviews in percentage
+                                    <canvas id="myChart"></canvas>
+                                    <div style="margin-top: 90px;">
+                                  </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
                       </div>
                   
                     </div>
