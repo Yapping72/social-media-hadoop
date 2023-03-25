@@ -233,7 +233,7 @@ def drop_duplicates(all_data_df):
 DATA_DIRECTORY = os.path.join("..", "data") # ..\data
 def main():
     """Iterates through all the ..\data\INDUSTRY directories to get company reviews."""
-    INDUSTRY = "Materials" # <-- Modify this 
+    INDUSTRY = "Industrials" # <-- Modify this 
 
     industry_directory = os.path.join(DATA_DIRECTORY, INDUSTRY) 
     companies_in_industry = get_companies_from_industry(industry_directory)
