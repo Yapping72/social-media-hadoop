@@ -59,12 +59,18 @@ def load_all_reviews_into_dataframe(json_review):
         review_data = json.load(f)
         [company_reviews.append(review) for review in review_data]
 
-def log_invalid_jsons(error_message):
+def log_invalid_jsons(error_message, industry):
     """Some json cannot be parsed figure out why."""
-    with open('failed_json.txt', 'a') as f:
+     # Saves invalid jsons to ./json_parse_errors
+    destination_directory = os.path.join(".", "json_parse_errors")
+    if not os.path.exists(destination_directory):
+        os.makedirs(destination_directory)
+    
+    error_log_file = os.path.join(destination_directory, f"{industry}_json_parsing_errors.txt")
+    with open(error_log_file, 'a') as f:
         f.write(error_message + '\n')
 
-def process_company_reviews(company, all_data):
+def process_company_reviews(company, all_data, industry):
     """Loads all reviews for each industry into 1 pandas dataframe"""
     company_reviews = []
     all_json_reviews_for_company = get_reviews_in_json(company)
@@ -79,7 +85,7 @@ def process_company_reviews(company, all_data):
                 error_message = f"Error loading {json_review}, {e}"
                 print(error_message)
                 print("Check failed_json.txt to find problematic json files")
-                log_invalid_jsons(error_message)
+                log_invalid_jsons(error_message, industry)
                 continue
 
         if num_json == len(all_json_reviews_for_company) - 1:
@@ -205,6 +211,7 @@ def dump_dictionary_to_json(INDUSTRY, company_dictionary):
     # Pop off the 'company' key and add it as the new key
     company_key = company_dictionary["name"]
     new_company_dict = {company_key: company_dictionary}
+
     # Load existing JSON data if it exists
     destination_file = os.path.join(destination_directory, f"{INDUSTRY}.json")
     if os.path.exists(destination_file):
@@ -217,11 +224,16 @@ def dump_dictionary_to_json(INDUSTRY, company_dictionary):
     # Write new data to JSON file
     with open(destination_file, "w") as f:
         json.dump(existing_data, f)
-      
+
+def drop_duplicates(all_data_df):
+    """Removes duplicated records (if any) """
+    all_data_df.drop_duplicates()
+    return all_data_df
+
 DATA_DIRECTORY = os.path.join("..", "data") # ..\data
 def main():
     """Iterates through all the ..\data\INDUSTRY directories to get company reviews."""
-    INDUSTRY = "Healthcare" # <-- Modify this 
+    INDUSTRY = "Materials" # <-- Modify this 
 
     industry_directory = os.path.join(DATA_DIRECTORY, INDUSTRY) 
     companies_in_industry = get_companies_from_industry(industry_directory)
@@ -229,11 +241,12 @@ def main():
     
     for company in companies_in_industry:
         # Extract and store all json reviews for a company into one dataframe
-        all_data = process_company_reviews(company, all_data)
+        all_data = process_company_reviews(company, all_data, INDUSTRY)
 
     # Merge the dataframe, and create a new column that combines review title, pros and cons
     all_data_df = pd.concat(all_data, ignore_index= True)
     create_review_text(all_data_df)
+    all_data_df = all_data_df.drop_duplicates()
 
     # Get list of companies successfully loaded from json into dataframe
     companies = companies_in_dataframe(all_data_df)
@@ -243,7 +256,6 @@ def main():
         # Slice the dataframe into manageable chunks
         company_df = all_data_df.groupby('company')
         company_reviews = company_df.get_group(company) 
-
         # Populates dictionary with total, median, number of X-starred % of X-starred reviews
         company_dictionary = populate_company_dictionary(company, company_reviews)
         dump_dictionary_to_json(INDUSTRY, company_dictionary)
