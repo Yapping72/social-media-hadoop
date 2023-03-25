@@ -47,15 +47,16 @@ def thirdpage():
 def energypage():
   
     
-    with open("./hadoop_analysis/Results/Energy.json") as f:
+    with open("../hadoop_analysis/Results/Energy.json") as f:
         data = json.load(f)
 
+    print(data)
     companies = []
     for key in data:
         company_name = data[key]['name']
         companies.append(company_name)
 
-    return render_template("EnergyPage.html", companies= companies)
+    return render_template("EnergyPage.html", companies= companies, data=data)
 
 
 
@@ -72,7 +73,7 @@ def generate_wordcloud(words):
 @app.route("/")
 def index():
     # Load the JSON data
-    with open('./hadoop_analysis/Results/Energy.json') as f:
+    with open('../hadoop_analysis/Results/Energy.json') as f:
         Energydata = json.load(f)
 
     
