@@ -7,7 +7,7 @@ data = {}
 companies = []
 
 # open progress.md file in read mode
-with open('data/progress.md', 'r') as f:
+with open('progress.md', 'r') as f:
     
     # loop through each line in the file
     for line in f.readlines():

@@ -44,6 +44,14 @@ class GlassDoorCompanyInformationWorker:
         self.company_name = self.worker.company_name = company_name
         return self.worker._get_company_information()
 
+    def scrape_multiple_companies(self, file_path): 
+        """Scrapes company information provided in file_path"""
+        company_list = self.get_company_codes_and_names(file_path)
+        for index, (company_name, company_code) in enumerate(company_list):
+            print(f"Company {index} of {len(company_list)}: ", end="")
+            company_information_dictionary = self.scrape_company_information(company_code = company_code, company_name = company_name)
+            self.dump_dictionary_to_json(company_information_dictionary)
+
     def get_company_codes_and_names(self, file):
         """ Obtain the list of company_codes and names from a .json file"""
         source = os.path.join(MISCELLANOUS_DIRECTORY, file)
@@ -59,7 +67,6 @@ class GlassDoorCompanyInformationWorker:
 
     def dump_dictionary_to_json(self, company_dictionary):    
         """Dumps dictionary to json file ..\data\Company Information\Company_information"""
-
         # Saves dictionary to ..\data\Company Information\Company_information
         if not os.path.exists(DESTINATION_DIRECTORY):
             os.makedirs(DESTINATION_DIRECTORY)
@@ -72,34 +79,36 @@ class GlassDoorCompanyInformationWorker:
         # Load existing JSON data if it exists
         destination_file = os.path.join(DESTINATION_DIRECTORY, f"Company_Information.json")
         if os.path.exists(destination_file):
-            with open(destination_file) as f:
+            with open(destination_file, "r", encoding = "utf-8") as f:
                 existing_data = json.load(f)
             existing_data.update(new_company_dict)
         else:
             existing_data = new_company_dict
         
         # Write new data to JSON file
-        with open(destination_file, "w") as f:
+        with open(destination_file, "w", encoding = "utf-8") as f:
             json.dump(existing_data, f)
-
-        print(f"Saved company information to: {destination_file}")
-        
     
 def main():
-    # TODO: Change GlassDoorScraper() such that it can be instantiated without code and name
+    # TODO: Modify GlassDoorScraper() such that it can be instantiated without code and name
     company_code = 158708
     company_name = "Nanyang-Technological-University"
 
     # Will be resolved to Facebook_{account_number} in accounts.json. 
-    account_number = 7
+    account_number = 2
 
-    # Create worker object and start scraping
+    # Create worker object and start scraping for company information
     worker = GlassDoorCompanyInformationWorker(company_code, company_name, account_number)
+    worker.scrape_multiple_companies("progress.json")
+
+    """
     company_list = worker.get_company_codes_and_names(file = "progress.json")
 
-    for company_name, company_code in company_list:
+    # Iterates through progress.json for the list of company codes and names for previously scraped companies.
+    for index, (company_name, company_code) in enumerate(company_list):
+        print(f"Company {index} of {len(company_list)}: ", end="")
         company_information_dictionary = worker.scrape_company_information(company_code = company_code, company_name = company_name)
         worker.dump_dictionary_to_json(company_information_dictionary)
-
+    """
 if __name__ == "__main__":
         main()

@@ -1142,11 +1142,6 @@ List of companies scrapped.
 - Company code: 197
 - 5964 reviews in 598 urls
 
-### Delta-Air-Lines
-- Company name: Delta-Air-Lines
-- Company code: 197
-- 5964 reviews in 598 urls
-
 ### Alaska-Airlines
 - Company name: Alaska-Airlines
 - Company code: 19

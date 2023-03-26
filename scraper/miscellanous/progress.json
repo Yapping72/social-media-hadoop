@@ -1378,8 +1378,8 @@
     "Delta-Air-Lines": {
         "company_name": "Delta-Air-Lines",
         "company_code": 197,
-        "reviews_url": 594,
-        "reviews_on_glassdoor": 5921,
+        "reviews_url": 598,
+        "reviews_on_glassdoor": 5964,
         "actual_reviews_collected": "",
         "coverage": ""
     },
@@ -1452,6 +1452,166 @@
         "company_code": 7395,
         "reviews_url": 157,
         "reviews_on_glassdoor": 1554,
+        "actual_reviews_collected": "",
+        "coverage": ""
+    },
+    "Duke-NUS": {
+        "company_name": "Duke-NUS",
+        "company_code": 422270,
+        "reviews_url": 22,
+        "reviews_on_glassdoor": 201,
+        "actual_reviews_collected": "",
+        "coverage": ""
+    },
+    "National-University-of-Singapore": {
+        "company_name": "National-University-of-Singapore",
+        "company_code": 222778,
+        "reviews_url": 322,
+        "reviews_on_glassdoor": 3201,
+        "actual_reviews_collected": "",
+        "coverage": ""
+    },
+    "Nanyang-Technological-University": {
+        "company_name": "Nanyang-Technological-University",
+        "company_code": 158708,
+        "reviews_url": 248,
+        "reviews_on_glassdoor": 2467,
+        "actual_reviews_collected": "",
+        "coverage": ""
+    },
+    "Singapore-Management-University": {
+        "company_name": "Singapore-Management-University",
+        "company_code": 342146,
+        "reviews_url": 50,
+        "reviews_on_glassdoor": 490,
+        "actual_reviews_collected": "",
+        "coverage": ""
+    },
+    "Yale-NUS-College": {
+        "company_name": "Yale-NUS-College",
+        "company_code": 581172,
+        "reviews_url": 10,
+        "reviews_on_glassdoor": 85,
+        "actual_reviews_collected": "",
+        "coverage": ""
+    },
+    "Temasek-Polytechnic": {
+        "company_name": "Temasek-Polytechnic",
+        "company_code": 581628,
+        "reviews_url": 18,
+        "reviews_on_glassdoor": 166,
+        "actual_reviews_collected": "",
+        "coverage": ""
+    },
+    "Republic-Polytechnic": {
+        "company_name": "Republic-Polytechnic",
+        "company_code": 309085,
+        "reviews_url": 22,
+        "reviews_on_glassdoor": 206,
+        "actual_reviews_collected": "",
+        "coverage": ""
+    },
+    "Singapore-Polytechnic": {
+        "company_name": "Singapore-Polytechnic",
+        "company_code": 254756,
+        "reviews_url": 19,
+        "reviews_on_glassdoor": 179,
+        "actual_reviews_collected": "",
+        "coverage": ""
+    },
+    "Nanyang-Polytechnic": {
+        "company_name": "Nanyang-Polytechnic",
+        "company_code": 299931,
+        "reviews_url": 20,
+        "reviews_on_glassdoor": 182,
+        "actual_reviews_collected": "",
+        "coverage": ""
+    },
+    "Ngee-Ann-Polytechnic": {
+        "company_name": "Ngee-Ann-Polytechnic",
+        "company_code": 300471,
+        "reviews_url": 19,
+        "reviews_on_glassdoor": 178,
+        "actual_reviews_collected": "",
+        "coverage": ""
+    },
+    "Singapore-Airlines": {
+        "company_name": "Singapore-Airlines",
+        "company_code": 3379,
+        "reviews_url": 179,
+        "reviews_on_glassdoor": 1772,
+        "actual_reviews_collected": "",
+        "coverage": ""
+    },
+    "Thai-Airways": {
+        "company_name": "Thai-Airways",
+        "company_code": 7528,
+        "reviews_url": 11,
+        "reviews_on_glassdoor": 93,
+        "actual_reviews_collected": "",
+        "coverage": ""
+    },
+    "Scoot": {
+        "company_name": "Scoot",
+        "company_code": 537894,
+        "reviews_url": 32,
+        "reviews_on_glassdoor": 305,
+        "actual_reviews_collected": "",
+        "coverage": ""
+    },
+    "Cathay-Pacific": {
+        "company_name": "Cathay-Pacific",
+        "company_code": 7531,
+        "reviews_url": 165,
+        "reviews_on_glassdoor": 1636,
+        "actual_reviews_collected": "",
+        "coverage": ""
+    },
+    "AirAsia": {
+        "company_name": "AirAsia",
+        "company_code": 318753,
+        "reviews_url": 95,
+        "reviews_on_glassdoor": 937,
+        "actual_reviews_collected": "",
+        "coverage": ""
+    },
+    "Qantas": {
+        "company_name": "Qantas",
+        "company_code": 3342,
+        "reviews_url": 97,
+        "reviews_on_glassdoor": 959,
+        "actual_reviews_collected": "",
+        "coverage": ""
+    },
+    "Jetstar-Airways": {
+        "company_name": "Jetstar-Airways",
+        "company_code": 405259,
+        "reviews_url": 29,
+        "reviews_on_glassdoor": 279,
+        "actual_reviews_collected": "",
+        "coverage": ""
+    },
+    "Southwest-Airlines-Reviews": {
+        "company_name": "Southwest-Airlines-Reviews",
+        "company_code": 611,
+        "reviews_url": 374,
+        "reviews_on_glassdoor": 3727,
+        "actual_reviews_collected": "",
+        "coverage": ""
+    },
+    "Alaska-Airlines": {
+        "company_name": "Alaska-Airlines",
+        "company_code": 19,
+        "reviews_url": 122,
+        "reviews_on_glassdoor": 1206,
+        "actual_reviews_collected": "",
+        "coverage": ""
+    },
+    "Virgin-America": {
+        "company_name": "Virgin-America",
+        "company_code": 35336,
+        "reviews_url": 35,
+        "reviews_on_glassdoor": 336,
         "actual_reviews_collected": "",
         "coverage": ""
     }
