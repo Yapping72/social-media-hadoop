@@ -1151,3 +1151,118 @@ List of companies scrapped.
 - Company name: Virgin-America
 - Company code: 35336
 - 336 reviews in 35 urls
+
+### Johnson-and-Johnson
+- Company name: Johnson-and-Johnson
+- Company code: 364
+- 9423 reviews in 944 urls
+
+### Pfizer
+- Company name: Pfizer
+- Company code: 525
+- 6004 reviews in 602 urls
+
+### Novartis
+- Company name: Novartis
+- Company code: 6667
+- 6556 reviews in 657 urls
+
+### Merck
+- Company name: Merck
+- Company code: 438
+- 4720 reviews in 473 urls
+
+### Roche
+- Company name: Roche
+- Company code: 3480
+- 4410 reviews in 442 urls
+
+### Bristol-Myers-Squibb
+- Company name: Bristol-Myers-Squibb
+- Company code: 107
+- 3139 reviews in 315 urls
+
+### Abbott
+- Company name: Abbott
+- Company code: 12
+- 6476 reviews in 649 urls
+
+### Medtronic
+- Company name: Medtronic
+- Company code: 436
+- 6805 reviews in 682 urls
+
+### Amgen
+- Company name: Amgen
+- Company code: 1130
+- 3151 reviews in 317 urls
+
+### Thermo-Fisher-Scientific
+- Company name: Thermo-Fisher-Scientific
+- Company code: 658
+- 4195 reviews in 421 urls
+
+### UnitedHealth-Group
+- Company name: UnitedHealth-Group
+- Company code: 1991
+- 13233 reviews in 1325 urls
+
+### Anthem-Blue-Cross-and-Blue-Shield
+- Company name: Anthem-Blue-Cross-and-Blue-Shield
+- Company code: 333127
+- 817 reviews in 83 urls
+
+### Express-Scripts
+- Company name: Express-Scripts
+- Company code: 2212
+- 3179 reviews in 319 urls
+
+### Humana
+- Company name: Humana
+- Company code: 340
+- 5799 reviews in 581 urls
+
+### CVS-Health
+- Company name: CVS-Health
+- Company code: 437
+- 31928 reviews in 3194 urls
+
+### Aetna
+- Company name: Aetna
+- Company code: 16
+- 4141 reviews in 416 urls
+
+### The-Cigna-Group
+- Company name: The-Cigna-Group
+- Company code: 119
+- 4828 reviews in 484 urls
+
+### Gilead-Sciences
+- Company name: Gilead-Sciences
+- Company code: 2016
+- 1456 reviews in 147 urls
+
+### Biogen
+- Company name: Biogen
+- Company code: 1336
+- 1536 reviews in 155 urls
+
+### Regeneron
+- Company name: Regeneron
+- Company code: 981
+- 1267 reviews in 128 urls
+
+### Alexion-Pharmaceuticals
+- Company name: Alexion-Pharmaceuticals
+- Company code: 6092
+- 585 reviews in 60 urls
+
+### Vertex-Pharmaceuticals
+- Company name: Vertex-Pharmaceuticals
+- Company code: 2080
+- 791 reviews in 81 urls
+
+### Illumina
+- Company name: Illumina
+- Company code: 11671
+- 1760 reviews in 177 urls

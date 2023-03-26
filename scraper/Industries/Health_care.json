@@ -1,63 +1,186 @@
 {
-    "Amgen": {
-      "company_code": 1130,
-      "company_name": "Amgen"
-    },
-    "Thermo Fisher Scientific": {
-      "company_code": 658,
-      "company_name": "Thermo-Fisher-Scientific"
-    },
-    "UnitedHealth Group": {
-      "company_code": 1991,
-      "company_name": "UnitedHealth-Group"
-    },
-    "Anthem": {
-      "company_code": 333127,
-      "company_name": "Anthem-Blue-Cross-and-Blue-Shield"
-    },
-    "Express Scripts": {
-      "company_code": 2212,
-      "company_name": "Express-Scripts"
-    },
-    "Humana": {
-      "company_code":340,
-      "company_name": "Humana"
-    },
-    "CVS Health": {
-      "company_code": 437,
-      "company_name": "CVS-Health"
-    },
-    "Aetna": {
-      "company_code": 16,
-      "company_name": "Aetna"
-    },
-    "Cigna": {
-      "company_code": 119,
-      "company_name": "The-Cigna-Group"
-    },
-    "Gilead Sciences": {
-      "company_code": 2016,
-      "company_name": "Gilead-Sciences"
-    },
-    "Biogen": {
-      "company_code": 1336,
-      "company_name": "Biogen"
-    },
-    "Regeneron Pharmaceuticals": {
-      "company_code": 981,
-      "company_name": "Regeneron"
-    },
-    "Alexion Pharmaceuticals": {
-      "company_code": 6092,
-      "company_name": "Alexion-Pharmaceuticals"
-    },
-    "Vertex Pharmaceuticals": {
-      "company_code": 2080,
-      "company_name": "Vertex-Pharmaceuticals"
-    },
-    "Illumina": {
-      "company_code": 11671,
-      "company_name": "Illumina"
-    }
-  }
-  
+	"Johnson-and-Johnson": {
+		"company_name": "Johnson-and-Johnson",
+		"company_code": 364,
+		"reviews_url": 944,
+		"reviews_on_glassdoor": 9423,
+		"actual_reviews_collected": "",
+		"coverage": ""
+	},
+	"Pfizer": {
+		"company_name": "Pfizer",
+		"company_code": 525,
+		"reviews_url": 602,
+		"reviews_on_glassdoor": 6004,
+		"actual_reviews_collected": "",
+		"coverage": ""
+	},
+	"Novartis": {
+		"company_name": "Novartis",
+		"company_code": 6667,
+		"reviews_url": 657,
+		"reviews_on_glassdoor": 6556,
+		"actual_reviews_collected": "",
+		"coverage": ""
+	},
+	"Merck": {
+		"company_name": "Merck",
+		"company_code": 438,
+		"reviews_url": 473,
+		"reviews_on_glassdoor": 4720,
+		"actual_reviews_collected": "",
+		"coverage": ""
+	},
+	"Roche": {
+		"company_name": "Roche",
+		"company_code": 3480,
+		"reviews_url": 442,
+		"reviews_on_glassdoor": 4410,
+		"actual_reviews_collected": "",
+		"coverage": ""
+	},
+	"Bristol-Myers-Squibb": {
+		"company_name": "Bristol-Myers-Squibb",
+		"company_code": 107,
+		"reviews_url": 315,
+		"reviews_on_glassdoor": 3139,
+		"actual_reviews_collected": "",
+		"coverage": ""
+	},
+	"Abbott": {
+		"company_name": "Abbott",
+		"company_code": 12,
+		"reviews_url": 649,
+		"reviews_on_glassdoor": 6476,
+		"actual_reviews_collected": "",
+		"coverage": ""
+	},
+	"Medtronic": {
+		"company_name": "Medtronic",
+		"company_code": 436,
+		"reviews_url": 682,
+		"reviews_on_glassdoor": 6805,
+		"actual_reviews_collected": "",
+		"coverage": ""
+	},
+	"Amgen": {
+		"company_name": "Amgen",
+		"company_code": 1130,
+		"reviews_url": 317,
+		"reviews_on_glassdoor": 3151,
+		"actual_reviews_collected": "",
+		"coverage": ""
+	},
+	"Thermo-Fisher-Scientific": {
+		"company_name": "Thermo-Fisher-Scientific",
+		"company_code": 658,
+		"reviews_url": 421,
+		"reviews_on_glassdoor": 4195,
+		"actual_reviews_collected": "",
+		"coverage": ""
+	},
+	"UnitedHealth-Group": {
+		"company_name": "UnitedHealth-Group",
+		"company_code": 1991,
+		"reviews_url": 1325,
+		"reviews_on_glassdoor": 13233,
+		"actual_reviews_collected": "",
+		"coverage": ""
+	},
+	"Anthem-Blue-Cross-and-Blue-Shield": {
+		"company_name": "Anthem-Blue-Cross-and-Blue-Shield",
+		"company_code": 333127,
+		"reviews_url": 83,
+		"reviews_on_glassdoor": 817,
+		"actual_reviews_collected": "",
+		"coverage": ""
+	},
+	"Express-Scripts": {
+		"company_name": "Express-Scripts",
+		"company_code": 2212,
+		"reviews_url": 319,
+		"reviews_on_glassdoor": 3179,
+		"actual_reviews_collected": "",
+		"coverage": ""
+	},
+	"Humana": {
+		"company_name": "Humana",
+		"company_code": 340,
+		"reviews_url": 581,
+		"reviews_on_glassdoor": 5799,
+		"actual_reviews_collected": "",
+		"coverage": ""
+	},
+	"CVS-Health": {
+		"company_name": "CVS-Health",
+		"company_code": 437,
+		"reviews_url": 3194,
+		"reviews_on_glassdoor": 31928,
+		"actual_reviews_collected": "",
+		"coverage": ""
+	},
+	"Aetna": {
+		"company_name": "Aetna",
+		"company_code": 16,
+		"reviews_url": 416,
+		"reviews_on_glassdoor": 4141,
+		"actual_reviews_collected": "",
+		"coverage": ""
+	},
+	"The-Cigna-Group": {
+		"company_name": "The-Cigna-Group",
+		"company_code": 119,
+		"reviews_url": 484,
+		"reviews_on_glassdoor": 4828,
+		"actual_reviews_collected": "",
+		"coverage": ""
+	},
+	"Gilead-Sciences": {
+		"company_name": "Gilead-Sciences",
+		"company_code": 2016,
+		"reviews_url": 147,
+		"reviews_on_glassdoor": 1456,
+		"actual_reviews_collected": "",
+		"coverage": ""
+	},
+	"Biogen": {
+		"company_name": "Biogen",
+		"company_code": 1336,
+		"reviews_url": 155,
+		"reviews_on_glassdoor": 1536,
+		"actual_reviews_collected": "",
+		"coverage": ""
+	},
+	"Regeneron": {
+		"company_name": "Regeneron",
+		"company_code": 981,
+		"reviews_url": 128,
+		"reviews_on_glassdoor": 1267,
+		"actual_reviews_collected": "",
+		"coverage": ""
+	},
+	"Alexion-Pharmaceuticals": {
+		"company_name": "Alexion-Pharmaceuticals",
+		"company_code": 6092,
+		"reviews_url": 60,
+		"reviews_on_glassdoor": 585,
+		"actual_reviews_collected": "",
+		"coverage": ""
+	},
+	"Vertex-Pharmaceuticals": {
+		"company_name": "Vertex-Pharmaceuticals",
+		"company_code": 2080,
+		"reviews_url": 81,
+		"reviews_on_glassdoor": 791,
+		"actual_reviews_collected": "",
+		"coverage": ""
+	},
+	"Illumina": {
+		"company_name": "Illumina",
+		"company_code": 11671,
+		"reviews_url": 177,
+		"reviews_on_glassdoor": 1760,
+		"actual_reviews_collected": "",
+		"coverage": ""
+	}
+}

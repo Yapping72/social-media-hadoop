@@ -100,7 +100,7 @@ def main():
 
     # Create worker object and start scraping for company information
     worker = GlassDoorCompanyInformationWorker(company_code, company_name, account_number)
-    worker.scrape_multiple_companies("./Industries/Consumer_Staples.json") 
+    worker.scrape_multiple_companies("./Industries/Health_care.json") 
 
 if __name__ == "__main__":
         main()
