@@ -27,6 +27,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         }
     }
+    
     populate(data)
     companyDropdown.addEventListener('change', (event) => {
       var selectedOption = companyDropdown.selectedIndex

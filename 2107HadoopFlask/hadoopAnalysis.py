@@ -13,6 +13,7 @@ import base64
 import random
 
 
+
 app = Flask(__name__)
 
 
@@ -53,6 +54,9 @@ def energypage():
         data = json.load(f)
     
 
+    with open("./data/Company Information/Company_Information.json", encoding='utf-8') as d:
+        coydata = json.load(d)
+        print(coydata)
    
     companies = []
     for key in data:
@@ -108,17 +112,18 @@ def energypage():
             five_star_reviews.append((company, company_data['five_star_reviews']))
      #---#this is used for plotting the bar graph for one- five star review----------------------------------
 
-  
+  # Extract the company names from the JSON data and store them in a list
+    coyinfo = [coy for coy in coydata.keys()]
+    print(coyinfo)
 
     return render_template("EnergyPage.html", companies= companies, data=data,  image_data=img_data, word_count_list = word_count_list, 
                            one_star_reviews=one_star_reviews,
                            two_star_reviews=two_star_reviews,
                            three_star_reviews=three_star_reviews,
                            four_star_reviews=four_star_reviews,
-                           five_star_reviews=five_star_reviews)
-
-
-
+                           five_star_reviews=five_star_reviews,
+                      
+                           )
 
 
 
