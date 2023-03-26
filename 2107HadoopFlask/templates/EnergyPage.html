@@ -9,6 +9,7 @@
         <script src="../static/js/main.js"></script>
         <script>
             var data = {{data|tojson}};
+           
         </script>
        <script src="https://cdn.anychart.com/releases/8.11.0/js/anychart-base.min.js"></script>
 	    <script src="https://cdn.anychart.com/releases/8.11.0/js/anychart-tag-cloud.min.js"></script>
@@ -76,19 +77,19 @@
                       <div id="company-div" style="display:none;margin-left: 500px; ">
                           <div class="col-sm-9">
                               <div class="well" style="width: 900px;">
-                                <h2 id="div-title" >Total Star Reviews for Energy Sector</h2><br>
+                                <h2 id="div-title" ></h2>
                                 <div class="row">
                                   <div class="col-sm-6">
                                     <h3>1 star Reviews</h3>
-                                    <p id="1-star" style="font-size: x-large; color:rgb(230, 31, 31);">{{totalonestar}}</p>
+                                    <p id="1-star" style="font-size: x-large; color:rgb(230, 31, 31);"></p>
                                     <h3>2 star reviews</h3>
-                                    <p id="2-star" style="font-size: x-large; color:rgb(228, 44, 44);">{{totaltwostar}}</p>
+                                    <p id="2-star" style="font-size: x-large; color:rgb(228, 44, 44);"></p>
                                     <h3>3 star Reviews</h3>
-                                    <p id="3-star" style="font-size: x-large; color:rgb(54, 6, 248);">{{totalthreestar}}</p>
+                                    <p id="3-star" style="font-size: x-large; color:rgb(54, 6, 248);"></p>
                                     <h3>4 star reviews</h3>
-                                    <p id="4-star" style="font-size: x-large; color:rgb(23, 166, 47);">{{totalfourstar}}</p>
+                                    <p id="4-star" style="font-size: x-large; color:rgb(23, 166, 47);"></p>
                                     <h3>5 star reviews</h3>
-                                    <p id="5-star" style="font-size: x-large; color:rgb(42, 174, 81);">{{totalfivestar}}</p>
+                                    <p id="5-star" style="font-size: x-large; color:rgb(42, 174, 81);"></p>
                                   </div>
                                   <div class="col-sm-6">
                                     One Star - Five Star Reviews in percentage
@@ -99,6 +100,23 @@
                                 </div>
                               </div>
                             </div>
+
+                            <div class="col-sm-9">
+                              <div class="well" style="width: 1100px;margin-left: 920px;margin-top: -603px;height: 560px;">
+                                <h2 id="div-coy"></h2>
+                                <div class="row">
+                                  <div class="col-sm-6">
+                                    <h3 id="company-name"></h3>
+                                    <p id="company-description"></p>
+                                    <p id="company-contact"></p>
+                                  </div>
+                                  <div class="col-sm-6">
+                                    One Star - Five Star Reviews in percentage
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+
                       </div>
                   
                     </div>
