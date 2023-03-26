@@ -52,9 +52,9 @@ class GlassDoorCompanyInformationWorker:
             company_information_dictionary = self.scrape_company_information(company_code = company_code, company_name = company_name)
             self.dump_dictionary_to_json(company_information_dictionary)
 
-    def get_company_codes_and_names(self, file):
+    def get_company_codes_and_names(self, file_path):
         """ Obtain the list of company_codes and names from a .json file"""
-        source = os.path.join(MISCELLANOUS_DIRECTORY, file)
+        source = file_path
         company_code_and_name_list = []
         try:
             with open(source) as f:
@@ -63,6 +63,7 @@ class GlassDoorCompanyInformationWorker:
         except FileNotFoundError:
             print(f"Error opening {source}, please check if it exists.")
             print("Please ensure you are in social-media-hadoop\scraper directory.")
+
         return company_code_and_name_list
 
     def dump_dictionary_to_json(self, company_dictionary):    
@@ -99,16 +100,7 @@ def main():
 
     # Create worker object and start scraping for company information
     worker = GlassDoorCompanyInformationWorker(company_code, company_name, account_number)
-    worker.scrape_multiple_companies("progress.json")
+    worker.scrape_multiple_companies("./Industries/Consumer_Staples.json") 
 
-    """
-    company_list = worker.get_company_codes_and_names(file = "progress.json")
-
-    # Iterates through progress.json for the list of company codes and names for previously scraped companies.
-    for index, (company_name, company_code) in enumerate(company_list):
-        print(f"Company {index} of {len(company_list)}: ", end="")
-        company_information_dictionary = worker.scrape_company_information(company_code = company_code, company_name = company_name)
-        worker.dump_dictionary_to_json(company_information_dictionary)
-    """
 if __name__ == "__main__":
         main()

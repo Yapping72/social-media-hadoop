@@ -16,6 +16,7 @@ import asyncio
 from concurrent.futures import ThreadPoolExecutor
 import os
 import multiprocessing
+import sys 
 
 GLASSDOOR_WEBSITE = "https://www.glassdoor.sg/index.htm"
 MISCELLANOUS_DIRECTORY = os.path.join(".", "miscellanous")
@@ -85,7 +86,7 @@ class GlassDoorScraper:
     def _is_login_successful(self): 
         try:
             # Wait for the email address of the user to appear
-            email_address_element = WebDriverWait(self.driver, 20).until(EC.visibility_of_element_located((By.XPATH, "//h3[contains(@class, 'css-17vthrg') and contains(@class, 'e11rhuha1')]")))
+            email_address_element = WebDriverWait(self.driver, 60).until(EC.visibility_of_element_located((By.XPATH, "//h3[contains(@class, 'css-17vthrg') and contains(@class, 'e11rhuha1')]")))
             # If the email address element is found, login was successful
             print("Login successful!")
             return True
@@ -93,6 +94,7 @@ class GlassDoorScraper:
             # If the email address element is not found, login failed
             print("Login failed!")
             self.driver.driver.close()
+            self.driver.clear_cookies()
             return False
 
     def _count_pages_to_scrape(self, url):
@@ -208,16 +210,26 @@ class GlassDoorScraper:
         print(f"Retrieving information for {self.company_name}")
         self.driver.navigate_to(url)
         # Wait for the employer overview module to load
-        employer_overview_module = WebDriverWait(self.driver, 30).until(EC.presence_of_element_located((By.XPATH, "//div[@data-test='employerOverviewModule']")))
+        # Use WebDriverWait to wait for the "Read more" button to appear, if it exists
+        try:
+            wait = WebDriverWait(self.driver, 5)
+            read_more_button = wait.until(EC.element_to_be_clickable((By.XPATH, "//button[contains(text(), 'Read more')]")))
+            read_more_button.click()
+            # Wait for the description to expand
+            wait.until(EC.visibility_of_element_located((By.CSS_SELECTOR, "span[data-test='employerDescription']")))
+        except:
+            # If the "Read more" button is not found, do nothing
+            pass 
 
+        employer_overview_module = wait.until(EC.presence_of_element_located((By.XPATH, "//div[@data-test='employerOverviewModule']")))
         # Get the HTML source of the employer overview module
         employer_overview_html = employer_overview_module.get_attribute("innerHTML")
-
         # Parse the HTML using BeautifulSoup
         soup = BeautifulSoup(employer_overview_html, "html.parser")
-
+        
         # Extract the company information from soup
         company_info = self._extract_company_information(soup)
+        
         return company_info
 
     def _extract_company_information(self, soup):
@@ -281,15 +293,16 @@ class GlassDoorScraper:
         try:
             # Find the employer description and mission elements
             description_element = soup.find("span", {"data-test": "employerDescription"})
-            mission_element = soup.find("span", {"data-test": "employerMission"})
-
             # Extract the text from the elements
             employer_description = description_element.text.strip()
-            mission = mission_element.text.strip()
         except AttributeError:
             employer_description = "Not provided on Glassdoor"
+          
+        try:
+            mission_element = soup.find("span", {"data-test": "employerMission"})
+            mission = mission_element.text.strip()
+        except AttributeError:
             mission = "Not provided on Glassdoor"
-
         # Return the company information as a dictionary
         company_info = {
                 "company_name": self.company_name,

@@ -2,7 +2,6 @@ from GenericDriver import FireFoxWebDriver
 from GenericDriver import ChromeWebDriver
 from GlassDoorScraper import GlassDoorScraper
 from GlassDoorReviewWorker import GlassDoorReviewWorker
-from GlassDoorCompanyInformationWorker import GlassDoorCompanyInformationWorker
 
 from selenium.webdriver.common.keys import Keys
 from selenium.common.exceptions import NoSuchElementException
@@ -26,27 +25,23 @@ def main():
     company_name = "Delta-Air-Lines"
 
     # Will be resolved to Facebook_{account_number} in accounts.json. 
-    account_number = 5
+    account_number = 1
 
     # will scrape 100 urls (1000 reviews) before dumping results to json
     batch_size = 100 
-
-    # Create a company information worker to start scraping for company information
-    company_information_worker = GlassDoorCompanyInformationWorker(company_code, company_name, account_number)
 
     # Create review worker object to start scraping for reviews
     review_worker = GlassDoorReviewWorker(company_code, company_name, account_number, batch_size)
     
     """Uncomment to scrape one company: i.e., scrape the company_code and company_name provided above"""
     review_worker.start_one_scrape()
-    company_information_worker.scrape_company_information(company_code, company_name)
-    
+
     """Uncomment if you want to resume a scrape that terminated prematurely"""
-    # worker.resume_scrape()
+    # review_worker.resume_scrape()
 
     """Uncomment if you want to scrape multiple companies. (Provide this json file in FILE_PATH)"""
-    FILE_PATH = os.path.join(".", "Industries", "Airlines.json") # Modify this
-    review_worker.start_multiple_scrapes(FILE_PATH) 
+    # FILE_PATH = os.path.join(".", "Industries", "Airlines.json") # Modify this
+    # review_worker.start_multiple_scrapes(FILE_PATH) 
 
 if __name__ == "__main__":
   main()
