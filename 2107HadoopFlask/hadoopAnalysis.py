@@ -39,9 +39,49 @@ def fourthpage():
 @app.route("/secondpage")
 
 def secondpage():
-   
+   #populate companies to dropdown list.
+    with open("./hadoop_analysis/Results/Communication Services.json") as f:
+        commsdata = json.load(f)
 
-   return render_template("secondpage.html" )
+    #populate companies to dropdown list.
+    with open("./hadoop_analysis/Results/Financials.json") as f:
+        financedata = json.load(f)
+
+    commsmedianreviews = commsdata["Communication Services"]["median_reviews"]
+    commstotalreviews = commsdata["Communication Services"]["total_reviews"]
+    commsonestarreview = commsdata["Communication Services"]["one_star_reviews"]
+    commstwostarreview = commsdata["Communication Services"]["two_star_reviews"]
+    commsthreestarreview = commsdata["Communication Services"]["three_star_reviews"]
+    commsfourstarreview = commsdata["Communication Services"]["four_star_reviews"]
+    commsfivestarreview = commsdata["Communication Services"]["five_star_reviews"]
+
+    financemedianreviews = financedata["Financials"]["median_reviews"]
+    financetotalreviews = financedata["Financials"]["total_reviews"]
+    financeonestarreview = financedata["Financials"]["one_star_reviews"]
+    financetwostarreview = financedata["Financials"]["two_star_reviews"]
+    financethreestarreview = financedata["Financials"]["three_star_reviews"]
+    financefourstarreview = financedata["Financials"]["four_star_reviews"]
+    financefivestarreview = financedata["Financials"]["five_star_reviews"]
+
+ 
+
+
+    return render_template("secondpage.html", commsmedianreviews = commsmedianreviews,
+    commstotalreviews=commstotalreviews,
+    commsonestarreview =commsonestarreview, 
+    commstwostarreview =  commstwostarreview,
+    commsthreestarreview = commsthreestarreview,
+    commsfourstarreview =  commsfourstarreview, 
+    commsfivestarreview = commsfivestarreview,
+
+    financemedianreviews =  financemedianreviews,
+    financetotalreviews =  financetotalreviews,
+    financeonestarreview =  financeonestarreview,
+    financetwostarreview = financetwostarreview,
+    financethreestarreview =  financethreestarreview,
+    financefourstarreview = financefourstarreview,
+    financefivestarreview =  financefivestarreview
+        )
 
 
 
