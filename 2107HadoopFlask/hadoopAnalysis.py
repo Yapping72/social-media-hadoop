@@ -50,14 +50,13 @@ def thirdpage():
 def energypage():
   
     #populate companies to dropdown list.
-    with open("./hadoop_analysis/Results/Energy.json") as f:
+    with open("../hadoop_analysis/Results/Energy.json") as f:
         data = json.load(f)
     
 
-    with open("./data/Company Information/Company_Information.json", encoding='utf-8') as d:
+    with open("../data/Company Information/Company_Information.json", encoding='utf-8') as d:
         coydata = json.load(d)
-        print(coydata)
-   
+        print(coydata['PepsiCo'])
     companies = []
     for key in data:
         company_name = data[key]['name']
@@ -114,7 +113,21 @@ def energypage():
 
   # Extract the company names from the JSON data and store them in a list
     coyinfo = [coy for coy in coydata.keys()]
-    print(coyinfo)
+    i = 0;
+    while i<len(coyinfo):
+        if coyinfo[i] in companies:
+            data[coyinfo[i]]['information'] = coydata[coyinfo[i]]['employer_description']
+            data[coyinfo[i]]['contact'] = coydata[coyinfo[i]]['website']
+            data[coyinfo[i]]['founded'] = coydata[coyinfo[i]]['founded']
+            data[coyinfo[i]]['hq'] = coydata[coyinfo[i]]['headquarters']
+            data[coyinfo[i]]['size'] = coydata[coyinfo[i]]['size']
+            data[coyinfo[i]]['type'] = coydata[coyinfo[i]]['type']
+            data[coyinfo[i]]['industry'] = coydata[coyinfo[i]]['industry']
+            data[coyinfo[i]]['revenue'] = coydata[coyinfo[i]]['revenue']
+            data[coyinfo[i]]['mission'] = coydata[coyinfo[i]]['mission']
+
+        i = i + 1;
+
 
     return render_template("EnergyPage.html", companies= companies, data=data,  image_data=img_data, word_count_list = word_count_list, 
                            one_star_reviews=one_star_reviews,
@@ -132,7 +145,7 @@ def energypage():
 @app.route("/")
 def index():
     # Load the JSON data
-    with open('./hadoop_analysis/Results/Energy.json') as f:
+    with open('../hadoop_analysis/Results/Energy.json') as f:
         Energydata = json.load(f)
 
     medianreviews = Energydata["Energy"]["median_reviews"]

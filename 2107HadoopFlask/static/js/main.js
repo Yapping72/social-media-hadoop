@@ -8,6 +8,18 @@ document.addEventListener('DOMContentLoaded', () => {
     var fourstarReviews = document.getElementById('4-star')
     var fivestarReviews = document.getElementById('5-star')
     var title = document.getElementById('div-title')
+    var informationDiv = document.getElementById('div-coy')
+    var companyName = document.getElementById('company-name')
+    var companyContact = document.getElementById('company-contact')
+    var companyDesc = document.getElementById('company-description')
+    var companyFounded = document.getElementById('company-founded')
+    var companyHQ = document.getElementById('company-headquarters')
+    var companySize = document.getElementById('company-size')
+    var companyType = document.getElementById('company-type')
+    var companyIndustry = document.getElementById('company-industry')
+    var companyRevenue = document.getElementById('company-revenue')
+    var companyMission = document.getElementById('company-mission')
+
     var ctx = document.getElementById("myChart").getContext('2d');
     var myChart;
 
@@ -38,6 +50,24 @@ document.addEventListener('DOMContentLoaded', () => {
       threestarReviews.innerText = dataset['three']
       fourstarReviews.innerText = dataset['four']
       fivestarReviews.innerText = dataset['five']
+      if(event.target.value == options[0].value){
+          informationDiv.style.display = 'none';
+          console.log("YAPPING BLACK COCK")
+      }else{
+          informationDiv.style.display = 'block';
+          companyName.innerText = "Name: "+data[event.target.value]['name']
+          companyContact.innerText = "Website: "+data[event.target.value]['contact']
+          companyDesc.innerText = "Description: "+data[event.target.value]['information']
+          companyFounded.innerText = "Founded: "+data[event.target.value]['founded']
+          companyHQ.innerText = "Headquarters: " +data[event.target.value]['hq']
+          companySize.innerText = "Size: "+data[event.target.value]['size']
+          companyType.innerText = "Type "+data[event.target.value]['type']
+          companyIndustry.innerText = "Industry: "+data[event.target.value]['industry']
+          companyRevenue.innerText = "Revenue: "+data[event.target.value]['revenue']
+          companyMission.innerText = "Mission: " +data[event.target.value]['mission']
+      }
+
+
 
       title.innerText = "Total Star Reviews for " + event.target.value
       // Destroy the old chart
