@@ -15,8 +15,10 @@ import random
 
 
 app = Flask(__name__)
+RESULTS_DIRECTORY = os.path.join(".", "hadoop_analysis", "Results")
+COMPANY_DIRECTORY = os.path.join(".", "data","Company Information" ,"Company_Information.json")
 
-
+companypath = os.path.join(COMPANY_DIRECTORY)
 
 
 # displays fifth page
@@ -29,10 +31,49 @@ def fifthpage():
 
 
 #displays fourth page
-@app.route("/fourthpage")
-def fourthpage():
- 
-    return render_template("fourthpage.html")
+@app.route("/thirdpage")
+def thirdpage():
+     #populate companies to dropdown list.
+    with open("./hadoop_analysis/Results/Materials.json") as f:
+        data = json.load(f)
+
+    #populate companies to dropdown list.
+    with open("./hadoop_analysis/Results/Institution.json") as f:
+        data1 = json.load(f)
+    materialsmedianreviews = data["Materials"]["median_reviews"]
+    materialstotalreviews = data["Materials"]["total_reviews"]
+    materialsonestarreview = data["Materials"]["one_star_reviews"]
+    materialstwostarreview = data["Materials"]["two_star_reviews"]
+    materialsthreestarreview = data["Materials"]["three_star_reviews"]
+    materialsfourstarreview = data["Materials"]["four_star_reviews"]
+    materialsfivestarreview = data["Materials"]["five_star_reviews"]
+
+    instituttionmedianreviews = data1["Institution"]["median_reviews"]
+    instituttiontotalreviews = data1["Institution"]["total_reviews"]
+    instituttiononestarreview = data1["Institution"]["one_star_reviews"]
+    instituttiontwostarreview = data1["Institution"]["two_star_reviews"]
+    instituttionthreestarreview = data1["Institution"]["three_star_reviews"]
+    instituttionfourstarreview = data1["Institution"]["four_star_reviews"]
+    instituttionfivestarreview = data1["Institution"]["five_star_reviews"]
+
+    return render_template("thirdpage.html", materialsmedianreviews = materialsmedianreviews,
+    materialstotalreviews=materialstotalreviews,
+    materialsonestarreview =materialsonestarreview, 
+    materialstwostarreview =  materialstwostarreview,
+    materialsthreestarreview = materialsthreestarreview,
+    materialsfourstarreview =  materialsfourstarreview, 
+    materialsfivestarreview = materialsfivestarreview,
+
+    instituttionmedianreviews =  instituttionmedianreviews,
+    instituttiontotalreviews =   instituttiontotalreviews,
+     instituttiononestarreview =   instituttiononestarreview,
+    instituttiontwostarreview =  instituttiontwostarreview,
+     instituttionthreestarreview =   instituttionthreestarreview,
+     instituttionfourstarreview =  instituttionfourstarreview,
+     instituttionivestarreview =    instituttionfivestarreview
+       
+        )
+
 
 
 #displays second page
@@ -40,11 +81,13 @@ def fourthpage():
 
 def secondpage():
    #populate companies to dropdown list.
-    with open("./hadoop_analysis/Results/Communication Services.json") as f:
+    path = os.path.join(RESULTS_DIRECTORY, "Communication Services.json")
+    with open(path) as f:
         commsdata = json.load(f)
 
-    #populate companies to dropdown list.
-    with open("./hadoop_analysis/Results/Financials.json") as f:
+    
+    financepath = os.path.join(RESULTS_DIRECTORY, "Financials.json")
+    with open(financepath) as f:
         financedata = json.load(f)
 
     commsmedianreviews = commsdata["Communication Services"]["median_reviews"]
@@ -89,15 +132,15 @@ def secondpage():
 @app.route("/energypage")
 def energypage():
 
+    path = os.path.join(RESULTS_DIRECTORY, "Energy.json")
     #populate companies to dropdown list.
-    with open("../hadoop_analysis/Results/Energy.json") as f:
+    with open(path) as f:
         data = json.load(f)
     
 
-
-    with open("../data/Company Information/Company_Information.json", encoding="utf-8") as d:
+    
+    with open(companypath, encoding="utf-8") as d:
         coydata = json.load(d)
-        print(coydata)
 
 
 
@@ -185,14 +228,15 @@ def energypage():
 
 @app.route("/airlinespage")
 def airlinespage():
+
+    path = os.path.join(RESULTS_DIRECTORY, "Airlines.json")
     # populate companies to dropdown list.
-    with open("../hadoop_analysis/Results/Airlines.json") as f:
+    with open(path) as f:
         data = json.load(f)
 
-    with open("../data/Company Information/Company_Information.json", encoding="utf-8") as d:
+    with open(companypath, encoding="utf-8") as d:
         coydata = json.load(d)
-        print(coydata)
-
+        
     companies = []
     for key in data:
         company_name = data[key]['name']
@@ -271,15 +315,22 @@ def airlinespage():
 
                            )
 
+
+
+
+
+
 @app.route("/communicationservicespage")
 def communicationservicespage():
+
+    path = os.path.join(RESULTS_DIRECTORY, "Communication Services.json")
     # populate companies to dropdown list.
-    with open("../hadoop_analysis/Results/Communication Services.json") as f:
+    with open(path) as f:
         data = json.load(f)
 
-    with open("../data/Company Information/Company_Information.json", encoding="utf-8") as d:
+    with open(companypath, encoding="utf-8") as d:
         coydata = json.load(d)
-        print(coydata)
+   
 
     companies = []
     for key in data:
@@ -359,16 +410,22 @@ def communicationservicespage():
 
                            )
 
+
+
+
+
+
 @app.route("/financialspage")
 def financialsPage():
+
+    path = os.path.join(RESULTS_DIRECTORY, "Financials.json")
     # populate companies to dropdown list.
-    with open("../hadoop_analysis/Results/Financials.json") as f:
+    with open(path) as f:
         data = json.load(f)
 
-    with open("../data/Company Information/Company_Information.json", encoding="utf-8") as d:
+    with open(companypath, encoding="utf-8") as d:
         coydata = json.load(d)
-        print(coydata)
-
+       
     companies = []
     for key in data:
         company_name = data[key]['name']
@@ -447,15 +504,22 @@ def financialsPage():
 
                            )
 
+
+
+
+
+
 @app.route("/healthcarepage")
 def healthcarepage():
+    
+    path = os.path.join(RESULTS_DIRECTORY, "Healthcare.json")
     # populate companies to dropdown list.
-    with open("../hadoop_analysis/Results/Healthcare.json") as f:
+    with open(path) as f:
         data = json.load(f)
 
-    with open("../data/Company Information/Company_Information.json", encoding="utf-8") as d:
+    with open(companypath, encoding="utf-8") as d:
         coydata = json.load(d)
-        print(coydata)
+   
 
     companies = []
     for key in data:
@@ -538,13 +602,15 @@ def healthcarepage():
 
 @app.route("/industrialspage")
 def industrialspage():
+    
+    path = os.path.join(RESULTS_DIRECTORY, "Industrials.json")
     # populate companies to dropdown list.
-    with open("../hadoop_analysis/Results/Industrials.json") as f:
+    with open(path) as f:
         data = json.load(f)
 
-    with open("../data/Company Information/Company_Information.json", encoding="utf-8") as d:
+    with open(companypath, encoding="utf-8") as d:
         coydata = json.load(d)
-        print(coydata)
+        
 
     companies = []
     for key in data:
@@ -624,15 +690,19 @@ def industrialspage():
 
                            )
 
+
+
 @app.route("/informationtechnologypage")
 def informationtechnologypage():
+
+    path = os.path.join(RESULTS_DIRECTORY, "Information Technology.json")
     # populate companies to dropdown list.
-    with open("../hadoop_analysis/Results/Information Technology.json") as f:
+    with open(path) as f:
         data = json.load(f)
 
-    with open("../data/Company Information/Company_Information.json", encoding="utf-8") as d:
+    with open(companypath, encoding="utf-8") as d:
         coydata = json.load(d)
-        print(coydata)
+        
 
     companies = []
     for key in data:
@@ -715,13 +785,14 @@ def informationtechnologypage():
 
 @app.route("/institutionspage")
 def institutionspage():
+    path = os.path.join(RESULTS_DIRECTORY, "Institutions.json")
     # populate companies to dropdown list.
-    with open("../hadoop_analysis/Results/Institutions.json") as f:
+    with open(path) as f:
         data = json.load(f)
 
-    with open("../data/Company Information/Company_Information.json", encoding="utf-8") as d:
+    with open(companypath, encoding="utf-8") as d:
         coydata = json.load(d)
-        print(coydata)
+       
 
     companies = []
     for key in data:
@@ -801,15 +872,18 @@ def institutionspage():
 
                            )
 
+
+
 @app.route("/materialspage")
 def materialspage():
+    path = os.path.join(RESULTS_DIRECTORY, "Materials.json")
     # populate companies to dropdown list.
-    with open("../hadoop_analysis/Results/Materials.json") as f:
+    with open(path) as f:
         data = json.load(f)
 
-    with open("../data/Company Information/Company_Information.json", encoding="utf-8") as d:
+    with open(companypath, encoding="utf-8") as d:
         coydata = json.load(d)
-        print(coydata)
+        
 
     companies = []
     for key in data:
@@ -1074,9 +1148,9 @@ def materialspage():
 @app.route("/")
 def index():
     # Load the JSON data
-    with open('../hadoop_analysis/Results/Energy.json') as f:
+    with open('./hadoop_analysis/Results/Energy.json') as f:
         Energydata = json.load(f)
-    with open('../hadoop_analysis/Results/Airlines.json') as f:
+    with open('./hadoop_analysis/Results/Airlines.json') as f:
         Airlinesdata = json.load(f)
 
     medianreviews = Energydata["Energy"]["median_reviews"]
