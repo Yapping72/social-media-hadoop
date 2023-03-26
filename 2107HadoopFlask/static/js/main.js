@@ -8,6 +8,18 @@ document.addEventListener('DOMContentLoaded', () => {
     var fourstarReviews = document.getElementById('4-star')
     var fivestarReviews = document.getElementById('5-star')
     var title = document.getElementById('div-title')
+    var informationDiv = document.getElementById('div-coy')
+    var companyName = document.getElementById('company-name')
+    var companyContact = document.getElementById('company-contact')
+    var companyDesc = document.getElementById('company-description')
+    var companyFounded = document.getElementById('company-founded')
+    var companyHQ = document.getElementById('company-headquarters')
+    var companySize = document.getElementById('company-size')
+    var companyType = document.getElementById('company-type')
+    var companyIndustry = document.getElementById('company-industry')
+    var companyRevenue = document.getElementById('company-revenue')
+    var companyMission = document.getElementById('company-mission')
+
     var ctx = document.getElementById("myChart").getContext('2d');
     var myChart;
 
@@ -38,6 +50,23 @@ document.addEventListener('DOMContentLoaded', () => {
       threestarReviews.innerText = dataset['three']
       fourstarReviews.innerText = dataset['four']
       fivestarReviews.innerText = dataset['five']
+      if(event.target.value == options[0].value){
+          informationDiv.style.display = 'none';
+      }else{
+          informationDiv.style.display = 'block';
+          companyName.innerHTML = "<b>Name:</b> "+data[event.target.value]['name']
+          companyContact.innerHTML = "<b>Website:</b> "+data[event.target.value]['contact']
+          companyDesc.innerHTML = "<b>Description:</b> "+data[event.target.value]['information']
+          companyFounded.innerHTML = "<b>Founded:</b> "+data[event.target.value]['founded']
+          companyHQ.innerHTML = "<b>Headquarters:</b> " +data[event.target.value]['hq']
+          companySize.innerHTML = "<b>Size:</b> "+data[event.target.value]['size']
+          companyType.innerHTML = "<b>Type</b> "+data[event.target.value]['type']
+          companyIndustry.innerHTML = "<b>Industry:</b> "+data[event.target.value]['industry']
+          companyRevenue.innerHTML = "<b>Revenue:</b> "+data[event.target.value]['revenue']
+          companyMission.innerHTML = "<b>Mission:</b> " +data[event.target.value]['mission']
+      }
+
+
 
       title.innerText = "Total Star Reviews for " + event.target.value
       // Destroy the old chart
