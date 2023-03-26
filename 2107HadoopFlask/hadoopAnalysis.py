@@ -35,28 +35,32 @@ def fourthpage():
     return render_template("fourthpage.html")
 
 
-#displays third page
-@app.route("/thirdpage")
+#displays second page
+@app.route("/secondpage")
 
-def thirdpage():
+def secondpage():
    
 
-   return render_template("thirdpage.html" )
+   return render_template("secondpage.html" )
 
 
 
 
 @app.route("/energypage")
 def energypage():
-  
+
     #populate companies to dropdown list.
-    with open("../hadoop_analysis/Results/Energy.json") as f:
+    with open("./hadoop_analysis/Results/Energy.json") as f:
         data = json.load(f)
     
 
-    with open("../data/Company Information/Company_Information.json", encoding='utf-8') as d:
+
+    with open("./data/Company Information/Company_Information.json", encoding="utf-8") as d:
         coydata = json.load(d)
-        print(coydata['PepsiCo'])
+        print(coydata)
+
+
+
     companies = []
     for key in data:
         company_name = data[key]['name']
@@ -145,28 +149,43 @@ def energypage():
 @app.route("/")
 def index():
     # Load the JSON data
-    with open('../hadoop_analysis/Results/Energy.json') as f:
+    with open('./hadoop_analysis/Results/Energy.json') as f:
         Energydata = json.load(f)
+    with open('./hadoop_analysis/Results/Airlines.json') as f:
+        Airlinesdata = json.load(f)
 
     medianreviews = Energydata["Energy"]["median_reviews"]
-
     totalreviews = Energydata["Energy"]["total_reviews"]
-
     onestarreview = Energydata["Energy"]["one_star_reviews"]
-    
     twostarreview = Energydata["Energy"]["two_star_reviews"]
-    
     threestarreview = Energydata["Energy"]["three_star_reviews"]
-    
     fourstarreview = Energydata["Energy"]["four_star_reviews"]
-    
     fivestarreview = Energydata["Energy"]["five_star_reviews"]
   
+    airlinemedianreviews = Airlinesdata["Airlines"]["median_reviews"]
+    airlinetotalreviews = Airlinesdata["Airlines"]["total_reviews"]
+    airlineonestarreview = Airlinesdata["Airlines"]["one_star_reviews"]
+    airlinetwostarreview = Airlinesdata["Airlines"]["two_star_reviews"]
+    airlinethreestarreview = Airlinesdata["Airlines"]["three_star_reviews"]
+    airlinefourstarreview = Airlinesdata["Airlines"]["four_star_reviews"]
+    airlinefivestarreview = Airlinesdata["Airlines"]["five_star_reviews"]
 
+                          
 
 
     return render_template("index.html", totalreviews = totalreviews, totalmedianreviews = medianreviews, totalonestar = onestarreview, totaltwostar = twostarreview ,
-                            totalthreestar = threestarreview, totalfourstar =fourstarreview, totalfivestar = fivestarreview
+                            totalthreestar = threestarreview, totalfourstar =fourstarreview, totalfivestar = fivestarreview,
+                            airlinemedianreviews =  airlinemedianreviews,
+                            airlinetotalreviews = airlinetotalreviews,
+                            airlineonestarreview = airlineonestarreview,
+                            airlinetwostarreview  = airlinetwostarreview,
+                            airlinethreestarreview =airlinethreestarreview, 
+                            airlinefourstarreview =  airlinefourstarreview,
+                            airlinefivestarreview =airlinefivestarreview 
+
+
+
+
                             )
 
 
