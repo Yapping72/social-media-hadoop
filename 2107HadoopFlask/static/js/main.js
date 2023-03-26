@@ -52,19 +52,18 @@ document.addEventListener('DOMContentLoaded', () => {
       fivestarReviews.innerText = dataset['five']
       if(event.target.value == options[0].value){
           informationDiv.style.display = 'none';
-          console.log("YAPPING BLACK COCK")
       }else{
           informationDiv.style.display = 'block';
-          companyName.innerText = "Name: "+data[event.target.value]['name']
-          companyContact.innerText = "Website: "+data[event.target.value]['contact']
-          companyDesc.innerText = "Description: "+data[event.target.value]['information']
-          companyFounded.innerText = "Founded: "+data[event.target.value]['founded']
-          companyHQ.innerText = "Headquarters: " +data[event.target.value]['hq']
-          companySize.innerText = "Size: "+data[event.target.value]['size']
-          companyType.innerText = "Type "+data[event.target.value]['type']
-          companyIndustry.innerText = "Industry: "+data[event.target.value]['industry']
-          companyRevenue.innerText = "Revenue: "+data[event.target.value]['revenue']
-          companyMission.innerText = "Mission: " +data[event.target.value]['mission']
+          companyName.innerHTML = "<b>Name:</b> "+data[event.target.value]['name']
+          companyContact.innerHTML = "<b>Website:</b> "+data[event.target.value]['contact']
+          companyDesc.innerHTML = "<b>Description:</b> "+data[event.target.value]['information']
+          companyFounded.innerHTML = "<b>Founded:</b> "+data[event.target.value]['founded']
+          companyHQ.innerHTML = "<b>Headquarters:</b> " +data[event.target.value]['hq']
+          companySize.innerHTML = "<b>Size:</b> "+data[event.target.value]['size']
+          companyType.innerHTML = "<b>Type</b> "+data[event.target.value]['type']
+          companyIndustry.innerHTML = "<b>Industry:</b> "+data[event.target.value]['industry']
+          companyRevenue.innerHTML = "<b>Revenue:</b> "+data[event.target.value]['revenue']
+          companyMission.innerHTML = "<b>Mission:</b> " +data[event.target.value]['mission']
       }
 
 
