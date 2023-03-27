@@ -1,282 +1,267 @@
 <!DOCTYPE html><html lang="en"><head> <meta charset="utf-8" />
-    <title>Data Visualization Demo in Flask, Leaflet and ChartJS</title>
-   <!-- import plugin script --> 
-       <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='css/home.css')}}">
-       <script src="../static/js/Chart.min.js"></script>
-       
-       <meta charset="utf-8">
-       <meta name="viewport" content="width=device-width, initial-scale=1">
-       <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-       <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-       <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-       <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js" type="application/javascript"></script>
-      
-    </head>
-    <body> 
-  
+  <title>Data Visualization Demo in Flask, Leaflet and ChartJS</title>
+ <!-- import plugin script --> 
+     <link href="../static/css/bootstrap.min.css" rel="stylesheet">
+     <link href="../static/css/jumbotron-narrow.css" rel="stylesheet">
+     <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='css/home.css')}}">
+     <script src="../static/js/jquery-1.11.2.js"></script>
+     <script src="../static/js/Chart.min.js"></script>
      
-      
-      <div class="container-fluid" style="margin-right: 500px;">
-        <div class="row content">
-         
-          <br>
-         <div class="col-sm-3">
-            <div class="well">
-                <h3>Total deaths to date(2022)</h3>
-              <p style="font-size: x-large; color:rgb(248, 115, 6);">{{totaldeaths[0]}}</p>
+     <meta charset="utf-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1">
+     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js" type="application/javascript"></script>
+    
+  </head>
+  <body> 
+    <div class="container-fluid text-center">
+      <div class="row">
+        <div class="col-sm-12 col-md-10 col-lg-8 mx-auto">
+          <div class="container-fluid" style="margin-right: 500px;">
 
+            <div class="col-sm-9">
+              <div class="well" style="width: 1800px;">
+                <h2>Glassdoor Reviews</h2>
+                
+                <br>
+                <div class="row">
+                </div>
+              </div>
+            </div>
+
+            <div class="col-sm-9">
+              <div class="well" style="width: 900px;">
+                <h2>Information Technology Sector Analysis</h2><br>
+                <div class="row">
+                  <div class="col-sm-6">
+                    <h3>Total Reviews</h3>
+                    <p style="font-size: x-large; color:rgb(54, 6, 248);"data-start="449800">{{IT_data["total_reviews"]}}</p>
+                  </div>
+                  <div class="col-sm-6">
+                    <h3>Total Median Reviews</h3>
+                    <p style="font-size: x-large; color:rgb(54, 6, 248);"data-start="1">{{IT_data["median_reviews"]}}</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+  
+            <div class="col-sm-9">
+              <div class="well" style="width: 900px;">
+                <h2>Total Star Reviews for IT Sector</h2><br>
+                <div class="row">
+                  <div class="col-sm-6">
+                    <h3>1 star Reviews</h3>
+                    <p style="font-size: x-large; color:rgb(230, 31, 31);"data-start="22800">{{IT_data["one_star_reviews"]}}</p>
+                    <h3>2 star reviews</h3>
+                    <p style="font-size: x-large; color:rgb(228, 44, 44);"data-start="31400">{{IT_data["two_star_reviews"]}}</p>
+                    <h3>3 star Reviews</h3>
+                    <p style="font-size: x-large; color:rgb(54, 6, 248);"data-start="88100">{{IT_data["three_star_reviews"]}}</p>
+                    <h3>4 star reviews</h3>
+                    <p style="font-size: x-large; color:rgb(23, 166, 47);"data-start="145500">{{IT_data["four_star_reviews"]}}</p>
+                    <h3>5 star reviews</h3>
+                    <p style="font-size: x-large; color:rgb(42, 174, 81);"data-start="161800">{{IT_data["five_star_reviews"]}}</p>
+                  </div>
+                  <div class="col-sm-6">
+                    One Star - Five Star Reviews in percentage
+                    <canvas id="myChart"></canvas>
+                    <div style="margin-top: 90px;">
+                    <a href="{{ url_for('informationtechnologypage')}}">View Companies</a>
+                  </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+           
+            <div class="col-sm-9" style=" margin-left: 908px;margin-top: -849px;">
+              <div class="well" style="width: 900px;">
+                <h2>Industrials Sector Analysis</h2><br>
+                <div class="row">
+                  <div class="col-sm-6">
+                    <h3>Total Reviews</h3>
+                    <p style="font-size: x-large; color:rgb(54, 6, 248);"data-start="153400">{{industrials_data["total_reviews"]}}</p>
+                  </div>
+                  <div class="col-sm-6">
+                    <h3>Total Median Reviews</h3>
+                    <p style="font-size: x-large; color:rgb(54, 6, 248);"data-start="1">{{industrials_data["median_reviews"]}}</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <div class="col-sm-9" style=" margin-left: 908px;margin-top: -605px;">
+              <div class="well" style="width: 900px;">
+                <h2>Total Star Reviews for Industrials Sector</h2><br>
+                <div class="row">
+                  <div class="col-sm-6">
+                    <h3>1 star Reviews</h3>
+                    <p style="font-size: x-large; color:rgb(230, 31, 31);"data-start="12500">{{industrials_data["one_star_reviews"]}}</p>
+                    <h3>2 star reviews</h3>
+                    <p style="font-size: x-large; color:rgb(228, 44, 44);"data-start="15000">{{industrials_data["two_star_reviews"]}}</p>
+                    <h3>3 star Reviews</h3>
+                    <p style="font-size: x-large; color:rgb(54, 6, 248);"data-start="35600">{{industrials_data["three_star_reviews"]}}</p>
+                    <h3>4 star reviews</h3>
+                    <p style="font-size: x-large; color:rgb(23, 166, 47);"data-start="48200">{{industrials_data["four_star_reviews"]}}</p>
+                    <h3>5 star reviews</h3>
+                    <p style="font-size: x-large; color:rgb(42, 174, 81);"data-start="41900">{{industrials_data["five_star_reviews"]}}</p>
+                  </div>
+                  <div class="col-sm-6">
+                    One Star - Five Star Reviews in percentage
+                    <canvas id="myChart1"></canvas>
+                    <div style="margin-top: 90px;">
+                    <a href="{{ url_for( 'industrialspage')}}">View Companies</a>
+                  </div>
+                  </div>
+                </div>
+              </div>
             </div>
           
-            </div>
-              
-          <div class="col-sm-9">
-            <div class="well" style="width: 900px;">
-              
-      <div class="container" style="width:900px;">
-      
-        <div class="dropdown">
-          <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Select Country
-          <span class="caret"></span></button>
-          <ul class="dropdown-menu">
-            <li><a href="#" onclick="ChangeData('Singapore')">Singapore</a></li>
-            <li><a href="#" onclick="ChangeData('Brunei')">Brunei</a></li>
-            <li><a href="#" onclick="ChangeData('Myanmar')">Myanmar</a></li>
-            <li><a href="#" onclick="ChangeData('Malaysia')">Malaysia</a></li>
-            <li><a href="#" onclick="ChangeData('Cambodia')">Cambodia</a></li>
-            <li><a href="#" onclick="ChangeData('Phillipines')">Phillipines</a></li>
-            <li><a href="#" onclick="ChangeData('Vietnam')">Vietnam</a></li>
-            <li><a href="#" onclick="ChangeData('Timor')">Timor</a></li>
-            <li><a href="#" onclick="ChangeData('Thailand')">Thailand</a></li>
-            <li><a href="#" onclick="ChangeData('Laos')">Laos</a></li>
-            <li><a href="#" onclick="ChangeData('Indonesia')">Indonesia</a></li>
-            <li><a href="#" onclick="ChangeData('SEA')">SEA</a></li>
-          </ul>
+          
+
+
+
+          </div>
         </div>
-        <h2>Daily Confirmed COVID-19 Cases to date</h2>
-        <canvas id="myChart" width="600" height="250"  ></canvas>
-        <h2>Daily Confirmed COVID-19 Deaths to date</h2>
-        <canvas id="myChart2" width="600" height="250"  ></canvas>
-            
-  </div>
-      
-        </div> 
-        <div class="pagination">
-          <a href="{{ url_for('index')}}">1</a>
-          <a href="{{ url_for('secondpage')}}">2</a>
-          <a href="{{ url_for('thirdpage')}}">3</a>
-          <a href="{{ url_for('fourthpage')}}">4</a>
-          <a href="{{ url_for('fifthpage')}}">5</a>
-          <a href="{{ url_for('secondpage')}}">&raquo;</a>
-    
-        </div>
-            
-            </div>
-            
-  </div>
+      </div>
+    </div>
+  </body>
   
 
-  <script>
-//various Date to Confirmed Cases keyvalue pairs
-var SingaporeDict = JSON.parse('{{SingaporeDict | tojson}}');
-var BruneiDict =  JSON.parse('{{BruneiDict | tojson}}');
-var MyanmarDict =  JSON.parse('{{MyanmarDict | tojson}}');
-var MalaysiaDict =  JSON.parse('{{MalaysiaDict | tojson}}');
-var CambodiaDict =  JSON.parse('{{CambodiaDict | tojson}}');
-var PhillipinesDict =  JSON.parse('{{PhillipinesDict | tojson}}');
-var VietnamDict =  JSON.parse('{{VietnamDict | tojson}}');
-var TimorDict =  JSON.parse('{{TimorDict | tojson}}');
-var ThailandDict =  JSON.parse('{{ThailandDict | tojson}}');
-var LaosDict =  JSON.parse('{{LaosDict | tojson}}');
-var IndonesiaDict =  JSON.parse('{{IndonesiaDict | tojson}}');
-var SEADict = JSON.parse('{{SEADict | tojson}}');
-var SingaporeDeaths = JSON.parse('{{SingaporeDeaths | tojson}}');
-var BruneiDeaths =  JSON.parse('{{BruneiDeaths | tojson}}');
-var MyanmarDeaths =  JSON.parse('{{MyanmarDeaths | tojson}}');
-var MalaysiaDeaths =  JSON.parse('{{MalaysiaDeaths | tojson}}');
-var CambodiaDeaths =  JSON.parse('{{CambodiaDeaths | tojson}}');
-var PhillipinesDeaths =  JSON.parse('{{PhillipinesDeaths | tojson}}');
-var VietnamDeaths =  JSON.parse('{{VietnamDeaths | tojson}}');
-var TimorDeaths =  JSON.parse('{{TimorDeaths | tojson}}');
-var ThailandDeaths =  JSON.parse('{{ThailandDeaths | tojson}}');
-var LaosDeaths =  JSON.parse('{{LaosDeaths | tojson}}');
-var IndonesiaDeaths =  JSON.parse('{{IndonesiaDeaths | tojson}}');
-var SEADeaths = JSON.parse('{{SEADeaths | tojson}}');
+<div class="pagination">
+  
+  <a href="{{ url_for('index')}}">1</a>
+  <a href="{{ url_for('secondpage')}}">2</a>
+  <a href="{{ url_for('thirdpage')}}">3</a>
+  <a href="{{ url_for('fifthpage')}}">5</a>
+
+</div>
+    
+    
+</div>
+
+      </div>
+          </div>
+</div>
+
+
+
+
+    <script>
+
 
 var ctx = document.getElementById("myChart").getContext('2d');
-var ctx2 = document.getElementById("myChart2").getContext('2d');
-
-//Converting key-value pairs to arrays
-var xValues = Object.keys(SingaporeDict);
-var yValues = Object.values(SingaporeDict);
-
-//Drawing bar chart
-var chart = new Chart(ctx, {
-  type: "bar",
+var myChart = new Chart(ctx, {
+  type: 'pie',
   data: {
-    labels: xValues,
+    labels: ["1 Star reviews", "2 Star reviews", "3 Star reviews", "4 Star reviews","5 Star reviews "],
     datasets: [{
-      backgroundColor: "black",
-      data: yValues
+      backgroundColor: [
+        "#2ecc71",
+        "#3498db",
+        "#95a5a6",
+        "#9b59b6",
+        "#f1c40f",
+        "#e74c3c",
+        "#34495e"
+      ],
+         data: [
+         ({{IT_data["one_star_reviews"] }}/{{IT_data["total_reviews"]}}*100).toFixed(2),
+            ({{IT_data["two_star_reviews"] }}/{{IT_data["total_reviews"]}}*100).toFixed(2),
+        ({{IT_data["three_star_reviews"] }}/{{IT_data["total_reviews"]}}*100).toFixed(2),
+        ({{IT_data["four_star_reviews"] }}/{{IT_data["total_reviews"]}}*100).toFixed(2),
+        ({{IT_data["five_star_reviews"] }}/{{IT_data["total_reviews"]}}*100).toFixed(2)
+      ]
     }]
-  },
-  options: {
-    legend: {display: false},
-    title: {
-      display: true,
-      text: "Singapore"
-    }
   }
 });
 
-var xValues2 = Object.keys(SingaporeDeaths);
-var yValues2 = Object.values(SingaporeDeaths);
 
-var chart2 = new Chart(ctx2, {
-  type: "bar",
+
+
+
+
+var ctx1 = document.getElementById("myChart1").getContext('2d');
+var myChart1 = new Chart(ctx1, {
+  type: 'pie',
   data: {
-    labels: xValues2,
+    labels: ["1 Star reviews", "2 Star reviews", "3 Star reviews", "4 Star reviews","5 Star reviews "],
     datasets: [{
-      backgroundColor: "black",
-      data: yValues2
+      backgroundColor: [
+        "#2ecc71",
+        "#3498db",
+        "#95a5a6",
+        "#9b59b6",
+        "#f1c40f",
+        "#e74c3c",
+        "#34495e"
+      ],
+         data: [
+         ({{industrials_data["one_star_reviews"]}}/{{industrials_data["total_reviews"]}}*100).toFixed(2),
+            ({{industrials_data["two_star_reviews"]}}/{{industrials_data["total_reviews"]}}*100).toFixed(2),
+        ({{industrials_data["three_star_reviews"]}}/{{industrials_data["total_reviews"]}}*100).toFixed(2),
+        ({{industrials_data["four_star_reviews"]}}/{{industrials_data["total_reviews"]}}*100).toFixed(2),
+        ({{industrials_data["five_star_reviews"]}}/{{industrials_data["total_reviews"]}}*100).toFixed(2)
+      ]
     }]
-  },
-  options: {
-    legend: {display: false},
-    title: {
-      display: true,
-      text: "Singapore"
-    }
   }
 });
 
-//Function to change bar chart based on data
-function ChangeData(Country) {
-    if(Country=="Singapore"){
-      xValues = Object.keys(SingaporeDict);
-      yValues = Object.values(SingaporeDict);
-      xValues2 = Object.keys(SingaporeDeaths);
-      yValues2 = Object.values(SingaporeDeaths);
-      chart.options.title.text = "Singapore"
-      chart2.options.title.text = "Singapore"
-    }else if(Country == "Brunei"){
-      xValues = Object.keys(BruneiDict);
-      yValues = Object.values(BruneiDict);
-      chart.options.title.text = "Brunei"
-      xValues2 = Object.keys(BruneiDeaths);
-      yValues2 = Object.values(BruneiDeaths);
-      chart2.options.title.text = "Brunei"
-    }else if(Country == "Myanmar"){
-      xValues = Object.keys(MyanmarDict);
-      yValues = Object.values(MyanmarDict);
-      chart.options.title.text = "Myanmar"
-      xValues2 = Object.keys(MyanmarDeaths);
-      yValues2 = Object.values(MyanmarDeaths);
-      chart2.options.title.text = "Myanmar"
-    }else if(Country == "Malaysia"){
-      xValues = Object.keys(MalaysiaDict);
-      yValues = Object.values(MalaysiaDict);
-      chart.options.title.text = "Malaysia"
-      xValues2 = Object.keys(MalaysiaDeaths);
-      yValues2 = Object.values(MalaysiaDeaths);
-      chart2.options.title.text = "Malaysia"
-    }else if(Country == "Cambodia"){
-      xValues = Object.keys(CambodiaDict);
-      yValues = Object.values(CambodiaDict);
-      chart.options.title.text = "Cambodia"
-      xValues2 = Object.keys(CambodiaDeaths);
-      yValues2 = Object.values(CambodiaDeaths);
-      chart2.options.title.text = "Cambodia"
-    }else if(Country == "Phillipines"){
-      xValues = Object.keys(PhillipinesDict);
-      yValues = Object.values(PhillipinesDict);
-      chart.options.title.text = "Phillipines"
-      xValues2 = Object.keys(PhillipinesDeaths);
-      yValues2 = Object.values(PhillipinesDeaths);
-      chart2.options.title.text = "Phillipines"
-    }else if(Country == "Vietnam"){
-      xValues = Object.keys(VietnamDict);
-      yValues = Object.values(VietnamDict);
-      chart.options.title.text = "Vietnam"
-      xValues2 = Object.keys(VietnamDeaths);
-      yValues2 = Object.values(VietnamDeaths);
-      chart2.options.title.text = "Vietnam"
-    }else if(Country == "Timor"){
-      xValues = Object.keys(TimorDict);
-      yValues = Object.values(TimorDict);
-      chart.options.title.text = "Timor"
-      xValues2 = Object.keys(TimorDeaths);
-      yValues2 = Object.values(TimorDeaths);
-      chart2.options.title.text = "Timor"
-    }else if(Country == "Thailand"){
-      xValues = Object.keys(ThailandDict);
-      yValues = Object.values(ThailandDict);
-      chart.options.title.text = "Thailand"
-      xValues2 = Object.keys(ThailandDeaths);
-      yValues2 = Object.values(ThailandDeaths);
-      chart2.options.title.text = "Thailand"
-    }else if(Country == "Laos"){
-      xValues = Object.keys(LaosDict);
-      yValues = Object.values(LaosDict);
-      chart.options.title.text = "Laos"
-      xValues2 = Object.keys(LaosDeaths);
-      yValues2 = Object.values(LaosDeaths);
-      chart2.options.title.text = "Laos"
-    }else if(Country == "Indonesia"){
-      xValues = Object.keys(IndonesiaDict);
-      yValues = Object.values(IndonesiaDict);
-      chart.options.title.text = "Indonesia"
-      xValues2 = Object.keys(IndonesiaDeaths);
-      yValues2 = Object.values(IndonesiaDeaths);
-      chart2.options.title.text = "Indonesia"
-    }else if(Country == "SEA"){
-      xValues = Object.keys(SEADict);
-      yValues = Object.values(SEADict);
-      chart.options.title.text = "SEA"
-      xValues2 = Object.keys(SEADeaths);
-      yValues2 = Object.values(SEADeaths);
-      chart2.options.title.text = "SEA"
-    }
 
-    //changing data labels and dataset
-    chart.data.labels = xValues;
-    chart.data.datasets[0].data=yValues;
-    chart.update();
-    chart2.data.labels = xValues2;
-    chart2.data.datasets[0].data=yValues2;
-    chart2.update();
-}
-  //function for onload counter for <p> tag
+
+
+
+
+
+
+
+
+
+
+
+
 $(function() {
     function count($this){
         var current = parseInt($this.html());
         $this.html(++current);
         if(current !== $this.data('count')){
-            setTimeout(function(){count($this)});
+            setTimeout(function(){count($this)}, 1); // decrease timeout value to make it faster
         }
     }        
-  $("p").each(function() {
-      $(this).data('count', parseInt($(this).html(), 10));
-      $(this).html('357780');
-      count($(this));
-  });
+    $("p").each(function() {
+        $(this).data('count', parseInt($(this).text(), 10));
+        $(this).html($(this).data('start'));
+        count($(this));
+    });
 });
 
-//function for onload counter
 $('.count').each(function () {
-    $(this).prop('Counter',0).animate({
-        Counter: $(this).text()
+    var start = $(this).data('start');
+    var end = $(this).text();
+    var duration = 500; // decrease duration value to make it faster
+    var range = end - start;
+    var step = Math.ceil(range / (duration / 16)); // 16 is the interval in milliseconds between each step, you can adjust it if needed
+    $(this).prop('Counter', start).animate({
+        Counter: end
     }, {
-        duration: 1000,
+        duration: duration,
         easing: 'swing',
         step: function (now) {
             $(this).text(Math.ceil(now));
         }
     });
 });
-  
-  </script>
-  
-      
-  
-   </body>
-   </html>
+
+
+
+
+
+
+
+</script>
+
+    
+
+ </body>
+ </html>

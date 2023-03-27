@@ -33,15 +33,15 @@
 
             <div class="col-sm-9">
               <div class="well" style="width: 900px;">
-                <h2>Communication Service Sector Analysis</h2><br>
+                <h2>Materials Sector Analysis</h2><br>
                 <div class="row">
                   <div class="col-sm-6">
                     <h3>Total Reviews</h3>
-                    <p style="font-size: x-large; color:rgb(54, 6, 248);"data-start="2900">{{commstotalreviews}}</p>
+                    <p style="font-size: x-large; color:rgb(54, 6, 248);"data-start="29000">{{materials_data["total_reviews"]}}</p>
                   </div>
                   <div class="col-sm-6">
                     <h3>Total Median Reviews</h3>
-                    <p style="font-size: x-large; color:rgb(54, 6, 248);"data-start="1">{{commsmedianreviews}}</p>
+                    <p style="font-size: x-large; color:rgb(54, 6, 248);"data-start="1">{{materials_data["median_reviews"]}}</p>
                   </div>
                 </div>
               </div>
@@ -49,25 +49,25 @@
   
             <div class="col-sm-9">
               <div class="well" style="width: 900px;">
-                <h2>Total Star Reviews for Communication Service Sector</h2><br>
+                <h2>Total Star Reviews for Materials Sector</h2><br>
                 <div class="row">
                   <div class="col-sm-6">
                     <h3>1 star Reviews</h3>
-                    <p style="font-size: x-large; color:rgb(230, 31, 31);"data-start="300">{{commsonestarreview}}</p>
+                    <p style="font-size: x-large; color:rgb(230, 31, 31);"data-start="2400">{{materials_data["one_star_reviews"]}}</p>
                     <h3>2 star reviews</h3>
-                    <p style="font-size: x-large; color:rgb(228, 44, 44);"data-start="200">{{commstwostarreview}}</p>
+                    <p style="font-size: x-large; color:rgb(228, 44, 44);"data-start="2900">{{materials_data["two_star_reviews"]}}</p>
                     <h3>3 star Reviews</h3>
-                    <p style="font-size: x-large; color:rgb(54, 6, 248);"data-start="880">{{commsthreestarreview}}</p>
+                    <p style="font-size: x-large; color:rgb(54, 6, 248);"data-start="6600">{{materials_data["three_star_reviews"]}}</p>
                     <h3>4 star reviews</h3>
-                    <p style="font-size: x-large; color:rgb(23, 166, 47);"data-start="800">{{commsfourstarreview}}</p>
+                    <p style="font-size: x-large; color:rgb(23, 166, 47);"data-start="9000">{{materials_data["four_star_reviews"]}}</p>
                     <h3>5 star reviews</h3>
-                    <p style="font-size: x-large; color:rgb(42, 174, 81);"data-start="500">{{commsfivestarreview}}</p>
+                    <p style="font-size: x-large; color:rgb(42, 174, 81);"data-start="7802">{{materials_data["five_star_reviews"]}}</p>
                   </div>
                   <div class="col-sm-6">
                     One Star - Five Star Reviews in percentage
                     <canvas id="myChart"></canvas>
                     <div style="margin-top: 90px;">
-                    <a href="{{ url_for('communicationservicespage')}}">View Companies</a>
+                    <a href="{{ url_for('materialspage')}}">View Companies</a>
                   </div>
                   </div>
                 </div>
@@ -79,15 +79,15 @@
                
             <div class="col-sm-9" style=" margin-left: 908px;margin-top: -849px;">
               <div class="well" style="width: 900px;">
-                <h2>Financial Sector Analysis</h2><br>
+                <h2>Institutions Sector Analysis</h2><br>
                 <div class="row">
                   <div class="col-sm-6">
                     <h3>Total Reviews</h3>
-                    <p style="font-size: x-large; color:rgb(54, 6, 248);"data-start="270300">{{financetotalreviews}}</p>
+                    <p style="font-size: x-large; color:rgb(54, 6, 248);"data-start="8800">{{institution_data["total_reviews"]}}</p>
                   </div>
                   <div class="col-sm-6">
                     <h3>Total Median Reviews</h3>
-                    <p style="font-size: x-large; color:rgb(54, 6, 248);"data-start="1">{{financemedianreviews}}</p>
+                    <p style="font-size: x-large; color:rgb(54, 6, 248);"data-start="1">{{institution_data["median_reviews"]}}</p>
                   </div>
                 </div>
               </div>
@@ -95,25 +95,25 @@
             
             <div class="col-sm-9" style=" margin-left: 908px;margin-top: -605px;">
               <div class="well" style="width: 900px;">
-                <h2>Total Star Reviews for Financial Sector</h2><br>
+                <h2>Total Star Reviews for Institutions Sector</h2><br>
                 <div class="row">
                   <div class="col-sm-6">
                     <h3>1 star Reviews</h3>
-                    <p style="font-size: x-large; color:rgb(230, 31, 31);"data-start="17900">{{financeonestarreview}}</p>
+                    <p style="font-size: x-large; color:rgb(230, 31, 31);"data-start="300">{{institution_data["one_star_reviews"]}}</p>
                     <h3>2 star reviews</h3>
-                    <p style="font-size: x-large; color:rgb(228, 44, 44);"data-start="24400">{{financetwostarreview}}</p>
+                    <p style="font-size: x-large; color:rgb(228, 44, 44);"data-start="500">{{institution_data["two_star_reviews"]}}</p>
                     <h3>3 star Reviews</h3>
-                    <p style="font-size: x-large; color:rgb(54, 6, 248);"data-start="64500">{{financethreestarreview}}</p>
+                    <p style="font-size: x-large; color:rgb(54, 6, 248);"data-start="1895">{{institution_data["three_star_reviews"]}}</p>
                     <h3>4 star reviews</h3>
-                    <p style="font-size: x-large; color:rgb(23, 166, 47);"data-start="91200">{{financefourstarreview}}</p>
+                    <p style="font-size: x-large; color:rgb(23, 166, 47);"data-start="3200">{{institution_data["four_star_reviews"]}}</p>
                     <h3>5 star reviews</h3>
-                    <p style="font-size: x-large; color:rgb(42, 174, 81);"data-start="72100">{{financefivestarreview}}</p>
+                    <p style="font-size: x-large; color:rgb(42, 174, 81);"data-start="2799">{{institution_data["five_star_reviews"]}}</p>
                   </div>
                   <div class="col-sm-6">
                     One Star - Five Star Reviews in percentage
                     <canvas id="myChart1"></canvas>
                     <div style="margin-top: 90px;">
-                    <a href="{{ url_for('financialspage')}}">View Companies</a>
+                    <a href="{{ url_for('institutionspage')}}">View Companies</a>
                   </div>
                   </div>
                 </div>
@@ -138,6 +138,7 @@
   <a href="{{ url_for('fourthpage')}}">4</a>
   <a href="{{ url_for('fifthpage')}}">5</a>
 
+
 </div>
     
     
@@ -151,36 +152,6 @@
 
 
     <script>
-
-
-var ctx1 = document.getElementById("myChart1").getContext('2d');
-var myChart1 = new Chart(ctx1, {
-  type: 'pie',
-  data: {
-    labels: ["1 Star reviews", "2 Star reviews", "3 Star reviews", "4 Star reviews","5 Star reviews "],
-    datasets: [{
-      backgroundColor: [
-        "#2ecc71",
-        "#3498db",
-        "#95a5a6",
-        "#9b59b6",
-        "#f1c40f",
-        "#e74c3c",
-        "#34495e"
-      ],
-         data: [
-         ({{commsonestarreview}}/{{commstotalreviews}}*100).toFixed(2),
-            ({{commstwostarreview}}/{{commstotalreviews}}*100).toFixed(2),
-        ({{commsthreestarreview}}/{{commstotalreviews}}*100).toFixed(2),
-        ({{commsfourstarreview}}/{{commstotalreviews}}*100).toFixed(2),
-        ({{commsfivestarreview}}/{{commstotalreviews}}*100).toFixed(2)
-      ]
-    }]
-  }
-});
-
-
-
 
 
 var ctx = document.getElementById("myChart").getContext('2d');
@@ -199,11 +170,41 @@ var myChart = new Chart(ctx, {
         "#34495e"
       ],
          data: [
-         ({{financeonestarreview}}/{{financetotalreviews}}*100).toFixed(2),
-            ({{financetwostarreview}}/{{financetotalreviews}}*100).toFixed(2),
-        ({{financethreestarreview}}/{{financetotalreviews}}*100).toFixed(2),
-        ({{financefourstarreview}}/{{financetotalreviews}}*100).toFixed(2),
-        ({{financefivestarreview}}/{{financetotalreviews}}*100).toFixed(2)
+         ({{materials_data["one_star_reviews"]}}/{{materials_data["total_reviews"]}}*100).toFixed(2),
+            ({{materials_data["two_star_reviews"]}}/{{materials_data["total_reviews"]}}*100).toFixed(2),
+        ({{materials_data["three_star_reviews"]}}/{{materials_data["total_reviews"]}}*100).toFixed(2),
+        ({{materials_data["four_star_reviews"]}}/{{materials_data["total_reviews"]}}*100).toFixed(2),
+        ({{materials_data["five_star_reviews"]}}/{{materials_data["total_reviews"]}}*100).toFixed(2)
+      ]
+    }]
+  }
+});
+
+
+
+
+
+var ctx1 = document.getElementById("myChart1").getContext('2d');
+var myChart1 = new Chart(ctx1, {
+  type: 'pie',
+  data: {
+    labels: ["1 Star reviews", "2 Star reviews", "3 Star reviews", "4 Star reviews","5 Star reviews "],
+    datasets: [{
+      backgroundColor: [
+        "#2ecc71",
+        "#3498db",
+        "#95a5a6",
+        "#9b59b6",
+        "#f1c40f",
+        "#e74c3c",
+        "#34495e"
+      ],
+         data: [
+         ({{institution_data["one_star_reviews"]}}/{{institution_data["total_reviews"]}}*100).toFixed(2),
+            ({{institution_data["two_star_reviews"]}}/{{institution_data["total_reviews"]}}*100).toFixed(2),
+        ({{institution_data["three_star_reviews"]}}/{{institution_data["total_reviews"]}}*100).toFixed(2),
+        ({{institution_data["four_star_reviews"]}}/{{institution_data["total_reviews"]}}*100).toFixed(2),
+        ({{institution_data["five_star_reviews"]}}/{{institution_data["total_reviews"]}}*100).toFixed(2)
       ]
     }]
   }
