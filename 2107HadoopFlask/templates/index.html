@@ -24,7 +24,8 @@
             <div class="col-sm-9">
               <div class="well" style="width: 1800px;">
                 <h2>Glassdoor Reviews</h2>
-                
+                <h3 style="max-height: 500px; max-width: 900px;">Reviews Collated Among Industries</h3>
+                <canvas id="myChart3" style="max-height: 500px; max-width: 900px;"></canvas>
                 <br>
                 <div class="row">
                 </div>
@@ -145,11 +146,69 @@
           </div>
 </div>
 
-
-
-
     <script>
+var data1 = {
+  labels: ["Airlines", "Energy", "Communication Services", "Financials", "Materials", "Institutions", "Information Technology", "Industrials", "Consumer Discretionary", "Consumer Staples", "Healthcare"],
+  datasets: [
+    {
+      label: '1 star',
+      data: [{{airline_data['one_star_reviews']}}, {{energy_data['one_star_reviews']}}, {{comms_data['one_star_reviews']}}, {{finance_data['one_star_reviews']}}, {{materials_data['one_star_reviews']}}, {{institution_data['one_star_reviews']}}, {{IT_data['one_star_reviews']}}, {{industrials_data['one_star_reviews']}}, {{consumerdiscretionary_data['one_star_reviews']}}, {{consumerstaples_data['one_star_reviews']}}, {{healthcare_data['one_star_reviews']}}],
+      backgroundColor: 'rgba(255, 99, 132, 0.5)',
+    },
+    {
+      label: "2 Star",
+      data: [{{airline_data['two_star_reviews']}}, {{energy_data['two_star_reviews']}}, {{comms_data['two_star_reviews']}}, {{finance_data['two_star_reviews']}}, {{materials_data['two_star_reviews']}}, {{institution_data['two_star_reviews']}}, {{IT_data['two_star_reviews']}}, {{industrials_data['two_star_reviews']}}, {{consumerdiscretionary_data['two_star_reviews']}}, {{consumerstaples_data['two_star_reviews']}}, {{healthcare_data['two_star_reviews']}}],
+      backgroundColor: "#46BFBD"
+    },
+    {
+      label: "3 Star",
+      data: [{{airline_data['three_star_reviews']}}, {{energy_data['three_star_reviews']}}, {{comms_data['three_star_reviews']}}, {{finance_data['three_star_reviews']}}, {{materials_data['three_star_reviews']}}, {{institution_data['three_star_reviews']}}, {{IT_data['three_star_reviews']}}, {{industrials_data['three_star_reviews']}}, {{consumerdiscretionary_data['three_star_reviews']}}, {{consumerstaples_data['three_star_reviews']}}, {{healthcare_data['three_star_reviews']}}],
+      backgroundColor: "#FDB45C"
+    },
+    {
+      label: "4 Star",
+      data: [{{airline_data['four_star_reviews']}}, {{energy_data['four_star_reviews']}}, {{comms_data['four_star_reviews']}}, {{finance_data['four_star_reviews']}}, {{materials_data['four_star_reviews']}}, {{institution_data['four_star_reviews']}}, {{IT_data['four_star_reviews']}}, {{industrials_data['four_star_reviews']}}, {{consumerdiscretionary_data['four_star_reviews']}}, {{consumerstaples_data['four_star_reviews']}}, {{healthcare_data['four_star_reviews']}}],
+      backgroundColor: "#949FB1"
+    },
+        {
+          label: "5 Star",
+data: [
+  {{airline_data['five_star_reviews']}}, 
+  {{energy_data['five_star_reviews']}}, 
+  {{comms_data['five_star_reviews']}}, 
+  {{finance_data['five_star_reviews']}}, 
+  {{materials_data['five_star_reviews']}}, 
+  {{institution_data['five_star_reviews']}}, 
+  {{IT_data['five_star_reviews']}}, 
+  {{industrials_data['five_star_reviews']}}, 
+  {{consumerdiscretionary_data['five_star_reviews']}}, 
+  {{consumerstaples_data['five_star_reviews']}}, 
+  {{healthcare_data['five_star_reviews']}}
+],
+backgroundColor: "#4D5360"
+        }
+    ]
+};
 
+var ctx3 = document.getElementById('myChart3').getContext('2d');
+var myChart3 = new Chart(ctx3, {
+    type: 'bar',
+    data: data1,
+    options: {
+        responsive: true,
+        scales: {
+            xAxes: [{
+                stacked: true,
+            }],
+            yAxes: [{
+                stacked: true,
+                ticks: {
+                    beginAtZero: true
+                }
+            }]
+        }
+    }
+});
 
 var ctx1 = document.getElementById("myChart1").getContext('2d');
 var myChart1 = new Chart(ctx1, {
@@ -209,17 +268,6 @@ var myChart = new Chart(ctx, {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
 $(function() {
     function count($this){
         var current = parseInt($this.html());
@@ -251,9 +299,6 @@ $('.count').each(function () {
         }
     });
 });
-
-
-
 
 
 

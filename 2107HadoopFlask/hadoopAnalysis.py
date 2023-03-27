@@ -137,7 +137,48 @@ def index():
     energypath = os.path.join(RESULTS_DIRECTORY, "Energy.json")
     energy_data = get_reviews_data(energypath, "Energy")
 
-    return render_template("index.html", airline_data = airline_data , energy_data = energy_data  )
+    commspath = os.path.join(RESULTS_DIRECTORY, "Communication Services.json")
+    comms_data = get_reviews_data(commspath, "Communication Services")
+
+
+    financepath = os.path.join(RESULTS_DIRECTORY, "Financials.json")
+    finance_data = get_reviews_data(financepath, "Financials")
+
+
+    materialspath = os.path.join(RESULTS_DIRECTORY, "Materials.json")
+    materials_data = get_reviews_data(materialspath, "Materials")
+
+
+    institutionpath = os.path.join(RESULTS_DIRECTORY, "Institutions.json")
+    institution_data = get_reviews_data(institutionpath, "Institutions")
+
+
+    ITpath = os.path.join(RESULTS_DIRECTORY, "Information Technology.json")
+    IT_data = get_reviews_data(ITpath, "Information Technology")
+
+
+    industrialspath = os.path.join(RESULTS_DIRECTORY, "Industrials.json")
+    industrials_data = get_reviews_data(industrialspath, "Industrials")
+
+
+    consumerdiscretionarypath = os.path.join(RESULTS_DIRECTORY, "Consumer Discretionary.json")
+    consumerdiscretionary_data = get_reviews_data(consumerdiscretionarypath, "Consumer Discretionary")
+
+
+    consumerstaplespath = os.path.join(RESULTS_DIRECTORY, "Consumer Staples.json")
+    consumerstaples_data = get_reviews_data(consumerstaplespath, "Consumer Staples")
+
+    
+    healthcarepath = os.path.join(RESULTS_DIRECTORY, "Healthcare.json")
+    healthcare_data = get_reviews_data(healthcarepath, "Healthcare")
+
+    return render_template("index.html", airline_data = airline_data , energy_data = energy_data,
+                            comms_data = comms_data, finance_data= finance_data, materials_data= materials_data,
+                             institution_data= institution_data,IT_data=IT_data,industrials_data =industrials_data,
+                             consumerdiscretionary_data= consumerdiscretionary_data, consumerstaples_data= consumerstaples_data,
+                             healthcare_data=  healthcare_data
+                           
+                             )
 
 
 
