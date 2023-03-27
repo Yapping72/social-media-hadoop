@@ -42,8 +42,8 @@
     "Netflix": {
         "company_name": "Netflix",
         "company_code": 11891,
-        "reviews_url": "",
-        "reviews_on_glassdoor": "",
+        "reviews_url": 178,
+        "reviews_on_glassdoor": 1769,
         "actual_reviews_collected": "",
         "coverage": ""
     },
@@ -1612,6 +1612,174 @@
         "company_code": 35336,
         "reviews_url": 35,
         "reviews_on_glassdoor": 336,
+        "actual_reviews_collected": "",
+        "coverage": ""
+    },
+    "The-Home-Depot": {
+        "company_name": "The-Home-Depot",
+        "company_code": 655,
+        "reviews_url": 4258,
+        "reviews_on_glassdoor": 42569,
+        "actual_reviews_collected": "",
+        "coverage": ""
+    },
+    "NIKE": {
+        "company_name": "NIKE",
+        "company_code": 1699,
+        "reviews_url": 1029,
+        "reviews_on_glassdoor": 10278,
+        "actual_reviews_collected": "",
+        "coverage": ""
+    },
+    "Walt-Disney-Company": {
+        "company_name": "Walt-Disney-Company",
+        "company_code": 717,
+        "reviews_url": 960,
+        "reviews_on_glassdoor": 9587,
+        "actual_reviews_collected": "",
+        "coverage": ""
+    },
+    "Comcast": {
+        "company_name": "Comcast",
+        "company_code": 1280,
+        "reviews_url": 1413,
+        "reviews_on_glassdoor": 14111,
+        "actual_reviews_collected": "",
+        "coverage": ""
+    },
+    "LVMH": {
+        "company_name": "LVMH",
+        "company_code": 3489,
+        "reviews_url": 76,
+        "reviews_on_glassdoor": 750,
+        "actual_reviews_collected": "",
+        "coverage": ""
+    },
+    "Booking-Holdings": {
+        "company_name": "Booking-Holdings",
+        "company_code": 1398057,
+        "reviews_url": 3,
+        "reviews_on_glassdoor": 19,
+        "actual_reviews_collected": "",
+        "coverage": ""
+    },
+    "eBay": {
+        "company_name": "eBay",
+        "company_code": 7853,
+        "reviews_url": 437,
+        "reviews_on_glassdoor": 4358,
+        "actual_reviews_collected": "",
+        "coverage": ""
+    },
+    "Charter-Communications-MA": {
+        "company_name": "Charter-Communications-MA",
+        "company_code": 6462452,
+        "reviews_url": 44,
+        "reviews_on_glassdoor": 427,
+        "actual_reviews_collected": "",
+        "coverage": ""
+    },
+    "Starbucks": {
+        "company_name": "Starbucks",
+        "company_code": 2202,
+        "reviews_url": 5721,
+        "reviews_on_glassdoor": 57193,
+        "actual_reviews_collected": "",
+        "coverage": ""
+    },
+    "Ford-Motor-Company": {
+        "company_name": "Ford-Motor-Company",
+        "company_code": 263,
+        "reviews_url": 807,
+        "reviews_on_glassdoor": 8057,
+        "actual_reviews_collected": "",
+        "coverage": ""
+    },
+    "General-Motors-GM": {
+        "company_name": "General-Motors-GM",
+        "company_code": 279,
+        "reviews_url": 803,
+        "reviews_on_glassdoor": 8020,
+        "actual_reviews_collected": "",
+        "coverage": ""
+    },
+    "FCA-Fiat-Chrysler-Automobiles": {
+        "company_name": "FCA-Fiat-Chrysler-Automobiles",
+        "company_code": 149,
+        "reviews_url": 338,
+        "reviews_on_glassdoor": 3367,
+        "actual_reviews_collected": "",
+        "coverage": ""
+    },
+    "Harley-Davidson-Inc": {
+        "company_name": "Harley-Davidson-Inc",
+        "company_code": 314,
+        "reviews_url": 114,
+        "reviews_on_glassdoor": 1130,
+        "actual_reviews_collected": "",
+        "coverage": ""
+    },
+    "Tiffany-and-Co": {
+        "company_name": "Tiffany-and-Co",
+        "company_code": 663,
+        "reviews_url": 178,
+        "reviews_on_glassdoor": 1768,
+        "actual_reviews_collected": "",
+        "coverage": ""
+    },
+    "Ralph-Lauren": {
+        "company_name": "Ralph-Lauren",
+        "company_code": 2937,
+        "reviews_url": 339,
+        "reviews_on_glassdoor": 3372,
+        "actual_reviews_collected": "",
+        "coverage": ""
+    },
+    "Under-Armour": {
+        "company_name": "Under-Armour",
+        "company_code": 15422,
+        "reviews_url": 239,
+        "reviews_on_glassdoor": 2376,
+        "actual_reviews_collected": "",
+        "coverage": ""
+    },
+    "Hilton": {
+        "company_name": "Hilton",
+        "company_code": 330,
+        "reviews_url": 868,
+        "reviews_on_glassdoor": 8663,
+        "actual_reviews_collected": "",
+        "coverage": ""
+    },
+    "Marriott-International": {
+        "company_name": "Marriott-International",
+        "company_code": 7790,
+        "reviews_url": 1449,
+        "reviews_on_glassdoor": 14476,
+        "actual_reviews_collected": "",
+        "coverage": ""
+    },
+    "Las-Vegas-Sands": {
+        "company_name": "Las-Vegas-Sands",
+        "company_code": 12171,
+        "reviews_url": 17,
+        "reviews_on_glassdoor": 156,
+        "actual_reviews_collected": "",
+        "coverage": ""
+    },
+    "MGM-Resorts-International": {
+        "company_name": "MGM-Resorts-International",
+        "company_code": 1260,
+        "reviews_url": 186,
+        "reviews_on_glassdoor": 1848,
+        "actual_reviews_collected": "",
+        "coverage": ""
+    },
+    "McDonald-s": {
+        "company_name": "McDonald-s",
+        "company_code": 432,
+        "reviews_url": 9082,
+        "reviews_on_glassdoor": 90808,
         "actual_reviews_collected": "",
         "coverage": ""
     },
