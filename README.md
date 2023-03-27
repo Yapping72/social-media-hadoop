@@ -35,10 +35,9 @@ A project for big data processing and analysis, focusing on social media data.
 <br>
 <li> Use GlassDoorCompanyInformationWorker.py to retrieve Company Information on previously scraped datasets.
     <ol>
-    <li> Ensure company codes and names exists in progress.md.
-    <li> Run convertprogress.py to convert progress.md to progress.json.
+    <li> Specify a json file that company code and company names, follow the same format used for multiple scrapes. (You can use the JSON files used for start_multiple_scrapes). 
     <li> Run GlassDoorCompanyInformationWorker.py, company information will be outputted ../data/Company Information/company_information.json.
-    <li> Future work will integrate this part while scraping for companies.
+    <li> Future work will integrate this part while scraping for companies reviews.
 </ol>
 
 # Multiple Chrome Browsers

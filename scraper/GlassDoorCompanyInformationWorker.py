@@ -96,11 +96,11 @@ def main():
     company_name = "Nanyang-Technological-University"
 
     # Will be resolved to Facebook_{account_number} in accounts.json. 
-    account_number = 2
+    account_number = 1
 
     # Create worker object and start scraping for company information
     worker = GlassDoorCompanyInformationWorker(company_code, company_name, account_number)
-    worker.scrape_multiple_companies("./Industries/Health_care.json") 
+    worker.scrape_multiple_companies("./Industries/CompanyInfoScrape.json") # Modify this
 
 if __name__ == "__main__":
         main()
