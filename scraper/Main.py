@@ -25,7 +25,7 @@ def main():
     company_name = "Delta-Air-Lines"
 
     # Will be resolved to Facebook_{account_number} in accounts.json. 
-    account_number = 1
+    account_number = 4
 
     # will scrape 100 urls (1000 reviews) before dumping results to json
     batch_size = 100 
@@ -40,8 +40,8 @@ def main():
     # review_worker.resume_scrape()
 
     """Uncomment if you want to scrape multiple companies. (Provide this json file in FILE_PATH)"""
-    # FILE_PATH = os.path.join(".", "Industries", "Airlines.json") # Modify this
-    # review_worker.start_multiple_scrapes(FILE_PATH) 
+    FILE_PATH = os.path.join(".", "Industries", "Consumer_Discretionary.json") # Modify this
+    worker.start_multiple_scrapes(FILE_PATH) 
 
 if __name__ == "__main__":
   main()

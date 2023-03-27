@@ -1,0 +1,91 @@
+{
+    "Home Depot": {
+      "company_code": 655,
+      "company_name": "The-Home-Depot"
+    },
+    "Nike": {
+      "company_code": 1699,
+      "company_name": "NIKE"
+    },
+    "Walt Disney": {
+      "company_code": 717,
+      "company_name": "Walt-Disney-Company"
+    },
+    "Comcast": {
+      "company_code": 1280,
+      "company_name": "Comcast"
+    },
+    "LVMH": {
+      "company_code": 3489,
+      "company_name": "LVMH"
+    },
+    "Booking Holdings": {
+      "company_code": 1398057,
+      "company_name": "Booking-Holdings"
+    },
+    "eBay": {
+      "company_code": 7853,
+      "company_name": "eBay"
+    },
+    "Netflix": {
+      "company_code": 11891,
+      "company_name": "Netflix"
+    },
+    "Charter Communications": {
+      "company_code": 6462452,
+      "company_name": "Charter-Communications-MA"
+    },
+    "Starbucks": {
+      "company_code": 2202,
+      "company_name": "Starbucks"
+    },
+    "Ford Motor": {
+      "company_code": 263,
+      "company_name": "Ford-Motor-Company"
+    },
+    "General Motors": {
+      "company_code": 279,
+      "company_name": "General-Motors-GM"
+    },
+    "Fiat Chrysler Automobiles": {
+      "company_code": 149,
+      "company_name": "FCA-Fiat-Chrysler-Automobiles"
+    },
+    "Harley-Davidson": {
+      "company_code": 314,
+      "company_name": "Harley-Davidson-Inc"
+    },
+    "Tiffany & Co.": {
+      "company_code": 663,
+      "company_name": "Tiffany-and-Co"
+    },
+    "Ralph Lauren": {
+      "company_code": 2937,
+      "company_name": "Ralph-Lauren"
+    },
+    "Under Armour": {
+      "company_code": 15422,
+      "company_name": "Under-Armour"
+    },
+    "Hilton Worldwide Holdings": {
+      "company_code": 330,
+      "company_name": "Hilton"
+    },
+    "Marriott International": {
+      "company_code": 7790,
+      "company_name": "Marriott-International"
+    },
+    "Las Vegas Sands": {
+      "company_code": 12171,
+      "company_name": "Las-Vegas-Sands"
+    },
+    "MGM Resorts International": {
+      "company_code": 1260,
+      "company_name": "MGM-Resorts-International"
+    },
+    "McDonald's": {
+      "company_code": "432",
+      "company_name": "McDonald-s"
+    }
+  }
+  

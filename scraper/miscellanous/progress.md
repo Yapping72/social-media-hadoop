@@ -1152,6 +1152,141 @@ List of companies scrapped.
 - Company code: 35336
 - 336 reviews in 35 urls
 
+### The-Home-Depot
+- Company name: The-Home-Depot
+- Company code: 655
+- 42569 reviews in 4258 urls
+
+### The-Home-Depot
+- Company name: The-Home-Depot
+- Company code: 655
+- 42569 reviews in 4258 urls
+
+### NIKE
+- Company name: NIKE
+- Company code: 1699
+- 10278 reviews in 1029 urls
+
+### Walt-Disney-Company
+- Company name: Walt-Disney-Company
+- Company code: 717
+- 9587 reviews in 960 urls
+
+### Comcast
+- Company name: Comcast
+- Company code: 1280
+- 14111 reviews in 1413 urls
+
+### LVMH
+- Company name: LVMH
+- Company code: 3489
+- 750 reviews in 76 urls
+
+### Booking-Holdings
+- Company name: Booking-Holdings
+- Company code: 1398057
+- 19 reviews in 3 urls
+
+### eBay
+- Company name: eBay
+- Company code: 7853
+- 4358 reviews in 437 urls
+
+### Netflix
+- Company name: Netflix
+- Company code: 11891
+- 1769 reviews in 178 urls
+
+### Charter-Communications-MA
+- Company name: Charter-Communications-MA
+- Company code: 6462452
+- 427 reviews in 44 urls
+
+### Starbucks
+- Company name: Starbucks
+- Company code: 2202
+- 57193 reviews in 5721 urls
+
+### Ford-Motor-Company
+- Company name: Ford-Motor-Company
+- Company code: 263
+- 8055 reviews in 807 urls
+
+### General-Motors-GM
+- Company name: General-Motors-GM
+- Company code: 279
+- 8020 reviews in 803 urls
+
+### FCA-Fiat-Chrysler-Automobiles
+- Company name: FCA-Fiat-Chrysler-Automobiles
+- Company code: 149
+- 3367 reviews in 338 urls
+
+### Harley-Davidson-Inc
+- Company name: Harley-Davidson-Inc
+- Company code: 314
+- 1130 reviews in 114 urls
+
+### Tiffany-and-Co
+- Company name: Tiffany-and-Co
+- Company code: 663
+- 1768 reviews in 178 urls
+
+### Ralph-Lauren
+- Company name: Ralph-Lauren
+- Company code: 2937
+- 3372 reviews in 339 urls
+
+### Under-Armour
+- Company name: Under-Armour
+- Company code: 15422
+- 2376 reviews in 239 urls
+
+### Hilton
+- Company name: Hilton
+- Company code: 330
+- 8663 reviews in 868 urls
+
+### Marriott-International
+- Company name: Marriott-International
+- Company code: 7790
+- 14476 reviews in 1449 urls
+
+### Ford-Motor-Company
+- Company name: Ford-Motor-Company
+- Company code: 263
+- 8057 reviews in 807 urls
+
+### Marriott-International
+- Company name: Marriott-International
+- Company code: 7790
+- 14476 reviews in 1449 urls
+
+### Marriott-International
+- Company name: Marriott-International
+- Company code: 7790
+- 14476 reviews in 1449 urls
+
+### Las-Vegas-Sands
+- Company name: Las-Vegas-Sands
+- Company code: 12171
+- 156 reviews in 17 urls
+
+### MGM-Resorts-International
+- Company name: MGM-Resorts-International
+- Company code: 1260
+- 1848 reviews in 186 urls
+
+### McDonald-s
+- Company name: McDonald-s
+- Company code: 432
+- 90781 reviews in 9080 urls
+
+### McDonald-s
+- Company name: McDonald-s
+- Company code: 432
+- 90808 reviews in 9082 urls
+
 ### Johnson-and-Johnson
 - Company name: Johnson-and-Johnson
 - Company code: 364
