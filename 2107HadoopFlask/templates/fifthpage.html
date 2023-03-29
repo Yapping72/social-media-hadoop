@@ -33,8 +33,11 @@
 
 
 
+
+
+
             <div class="col-sm-9">
-              <div class="well" style="width: 1800px;">
+              <div class="well" style="width: 900px;">
                 <h2>Healthcare Sector Analysis</h2><br>
                 <div class="row">
                   <div class="col-sm-6">
@@ -50,7 +53,7 @@
             </div>
   
             <div class="col-sm-9">
-              <div class="well" style="width: 1800px;">
+              <div class="well" style="width: 900px;">
                 <h2>Total Star Reviews for Healthcare Sector</h2><br>
                 <div class="row">
                   <div class="col-sm-6">
@@ -76,54 +79,6 @@
               </div>
             </div>
 
-
-
-
-
-
-            <div class="col-sm-9">
-              <div class="well" style="width: 900px;">
-                <h2>Consumer Staples Sector Analysis</h2><br>
-                <div class="row">
-                  <div class="col-sm-6">
-                    <h3>Total Reviews</h3>
-                    <p style="font-size: x-large; color:rgb(54, 6, 248);"data-start="449800">{{consumerstaples_data["total_reviews"]}}</p>
-                  </div>
-                  <div class="col-sm-6">
-                    <h3>Total Median Reviews</h3>
-                    <p style="font-size: x-large; color:rgb(54, 6, 248);"data-start="1">{{consumerstaples_data["median_reviews"]}}</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-  
-            <div class="col-sm-9">
-              <div class="well" style="width: 900px;">
-                <h2>Total Star Reviews for Consumer Staples Sector</h2><br>
-                <div class="row">
-                  <div class="col-sm-6">
-                    <h3>1 star Reviews</h3>
-                    <p style="font-size: x-large; color:rgb(230, 31, 31);"data-start="22800">{{consumerstaples_data["one_star_reviews"]}}</p>
-                    <h3>2 star reviews</h3>
-                    <p style="font-size: x-large; color:rgb(228, 44, 44);"data-start="31400">{{consumerstaples_data["two_star_reviews"]}}</p>
-                    <h3>3 star Reviews</h3>
-                    <p style="font-size: x-large; color:rgb(54, 6, 248);"data-start="88100">{{consumerstaples_data["three_star_reviews"]}}</p>
-                    <h3>4 star reviews</h3>
-                    <p style="font-size: x-large; color:rgb(23, 166, 47);"data-start="145500">{{consumerstaples_data["four_star_reviews"]}}</p>
-                    <h3>5 star reviews</h3>
-                    <p style="font-size: x-large; color:rgb(42, 174, 81);"data-start="161800">{{consumerstaples_data["five_star_reviews"]}}</p>
-                  </div>
-                  <div class="col-sm-6">
-                    One Star - Five Star Reviews in percentage
-                    <canvas id="myChart"></canvas>
-                    <div style="margin-top: 90px;">
-                    <a href="{{ url_for('consumerstaplespage')}}">View Companies</a>
-                  </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
            
             <div class="col-sm-9" style=" margin-left: 908px;margin-top: -849px;">
               <div class="well" style="width: 900px;">
@@ -131,7 +86,7 @@
                 <div class="row">
                   <div class="col-sm-6">
                     <h3>Total Reviews</h3>
-                    <p style="font-size: x-large; color:rgb(54, 6, 248);"data-start="153400">{{consumerdiscretionary_data["total_reviews"]}}</p>
+                    <p style="font-size: x-large; color:rgb(54, 6, 248);"data-start="161200">{{consumerdiscretionary_data["total_reviews"]}}</p>
                   </div>
                   <div class="col-sm-6">
                     <h3>Total Median Reviews</h3>
@@ -147,15 +102,15 @@
                 <div class="row">
                   <div class="col-sm-6">
                     <h3>1 star Reviews</h3>
-                    <p style="font-size: x-large; color:rgb(230, 31, 31);"data-start="12500">{{consumerdiscretionary_data["one_star_reviews"]}}</p>
+                    <p style="font-size: x-large; color:rgb(230, 31, 31);"data-start="10500">{{consumerdiscretionary_data["one_star_reviews"]}}</p>
                     <h3>2 star reviews</h3>
-                    <p style="font-size: x-large; color:rgb(228, 44, 44);"data-start="15000">{{consumerdiscretionary_data["two_star_reviews"]}}</p>
+                    <p style="font-size: x-large; color:rgb(228, 44, 44);"data-start="13200">{{consumerdiscretionary_data["two_star_reviews"]}}</p>
                     <h3>3 star Reviews</h3>
-                    <p style="font-size: x-large; color:rgb(54, 6, 248);"data-start="35600">{{consumerdiscretionary_data["three_star_reviews"]}}</p>
+                    <p style="font-size: x-large; color:rgb(54, 6, 248);"data-start="35000">{{consumerdiscretionary_data["three_star_reviews"]}}</p>
                     <h3>4 star reviews</h3>
-                    <p style="font-size: x-large; color:rgb(23, 166, 47);"data-start="48200">{{consumerdiscretionary_data["four_star_reviews"]}}</p>
+                    <p style="font-size: x-large; color:rgb(23, 166, 47);"data-start="50500">{{consumerdiscretionary_data["four_star_reviews"]}}</p>
                     <h3>5 star reviews</h3>
-                    <p style="font-size: x-large; color:rgb(42, 174, 81);"data-start="41900">{{consumerdiscretionary_data["five_star_reviews"]}}</p>
+                    <p style="font-size: x-large; color:rgb(42, 174, 81);"data-start="51800">{{consumerdiscretionary_data["five_star_reviews"]}}</p>
                   </div>
                   <div class="col-sm-6">
                     One Star - Five Star Reviews in percentage
@@ -201,31 +156,6 @@
     <script>
 
 
-var ctx = document.getElementById("myChart").getContext('2d');
-var myChart = new Chart(ctx, {
-  type: 'pie',
-  data: {
-    labels: ["1 Star reviews", "2 Star reviews", "3 Star reviews", "4 Star reviews","5 Star reviews "],
-    datasets: [{
-      backgroundColor: [
-        "#2ecc71",
-        "#3498db",
-        "#95a5a6",
-        "#9b59b6",
-        "#f1c40f",
-        "#e74c3c",
-        "#34495e"
-      ],
-         data: [
-         ({{consumerstaples_data["one_star_reviews"] }}/{{consumerstaples_data["total_reviews"]}}*100).toFixed(2),
-            ({{consumerstaples_data["two_star_reviews"] }}/{{consumerstaples_data["total_reviews"]}}*100).toFixed(2),
-        ({{consumerstaples_data["three_star_reviews"] }}/{{consumerstaples_data["total_reviews"]}}*100).toFixed(2),
-        ({{consumerstaples_data["four_star_reviews"] }}/{{consumerstaples_data["total_reviews"]}}*100).toFixed(2),
-        ({{consumerstaples_data["five_star_reviews"] }}/{{consumerstaples_data["total_reviews"]}}*100).toFixed(2)
-      ]
-    }]
-  }
-});
 
 
 

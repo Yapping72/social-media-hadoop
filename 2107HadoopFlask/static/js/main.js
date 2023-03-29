@@ -57,6 +57,7 @@ document.addEventListener('DOMContentLoaded', () => {
           companyName.innerHTML = "<b>Name:</b> "+data[event.target.value]['name']
           companyContact.innerHTML = "<b>Website:</b> "+data[event.target.value]['contact']
           companyDesc.innerHTML = "<b>Description:</b> "+data[event.target.value]['information']
+          companyDesc.style.textAlign = "justify";
           companyFounded.innerHTML = "<b>Founded:</b> "+data[event.target.value]['founded']
           companyHQ.innerHTML = "<b>Headquarters:</b> " +data[event.target.value]['hq']
           companySize.innerHTML = "<b>Size:</b> "+data[event.target.value]['size']
@@ -74,7 +75,7 @@ document.addEventListener('DOMContentLoaded', () => {
         myChart.destroy();
       }
       myChart = new Chart(ctx, {
-        type: 'pie',
+        type: 'doughnut',
         data: {
           labels: ["1 Star reviews", "2 Star reviews", "3 Star reviews", "4 Star reviews","5 Star reviews "],
           datasets: [{
