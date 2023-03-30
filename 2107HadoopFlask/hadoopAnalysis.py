@@ -49,7 +49,7 @@ def get_reviews_data(path, category):
     four_star_reviews = data[category]["percent_four_star"]
     five_star_reviews = data[category]["percent_five_star"]
 
-    
+
 
     onestar_reviews = data[category]["one_star_reviews"]
     twostar_reviews = data[category]["two_star_reviews"]
@@ -81,19 +81,15 @@ def get_reviews_data(path, category):
 #displays fourth page
 @app.route("/fifthpage")
 def fifthpage():
-     #populate companies to dropdown list.
-    path = os.path.join(RESULTS_DIRECTORY, "Consumer Discretionary.json")
-    consumerdiscretionary_data = get_reviews_data(path, "Consumer Discretionary")
+ #populate companies to dropdown list.
+    path = os.path.join(RESULTS_DIRECTORY, "Communication Services.json")
+    comms_data = get_reviews_data(path, "Communication Services")
+    financepath = os.path.join(RESULTS_DIRECTORY, "Financials.json")
+    finance_data = get_reviews_data(financepath, "Financials")
 
-    consumerstaplespath = os.path.join(RESULTS_DIRECTORY, "Consumer Staples.json")
-    consumerstaples_data = get_reviews_data(consumerstaplespath, "Consumer Staples")
+    return render_template("fifthpage.html", comms_data = comms_data, finance_data=finance_data
+        )
 
-    healthcarepath = os.path.join(RESULTS_DIRECTORY, "Healthcare.json")
-    healthcare_data = get_reviews_data(healthcarepath, "Healthcare")
-
-    return render_template("fifthpage.html", consumerdiscretionary_data = consumerdiscretionary_data, consumerstaples_data = consumerstaples_data,
-                           healthcare_data=healthcare_data
-                           )
 
 #displays fourth page
 @app.route("/fourthpage")
@@ -120,15 +116,19 @@ def thirdpage():
 #displays second page
 @app.route("/secondpage")
 def secondpage():
-   #populate companies to dropdown list.
-    path = os.path.join(RESULTS_DIRECTORY, "Communication Services.json")
-    comms_data = get_reviews_data(path, "Communication Services")
-    financepath = os.path.join(RESULTS_DIRECTORY, "Financials.json")
-    finance_data = get_reviews_data(financepath, "Financials")
+    #populate companies to dropdown list.
+    path = os.path.join(RESULTS_DIRECTORY, "Consumer Discretionary.json")
+    consumerdiscretionary_data = get_reviews_data(path, "Consumer Discretionary")
 
-    return render_template("secondpage.html", comms_data = comms_data, finance_data=finance_data
-        )
+    consumerstaplespath = os.path.join(RESULTS_DIRECTORY, "Consumer Staples.json")
+    consumerstaples_data = get_reviews_data(consumerstaplespath, "Consumer Staples")
 
+    healthcarepath = os.path.join(RESULTS_DIRECTORY, "Healthcare.json")
+    healthcare_data = get_reviews_data(healthcarepath, "Healthcare")
+
+    return render_template("secondpage.html", consumerdiscretionary_data = consumerdiscretionary_data, consumerstaples_data = consumerstaples_data,
+                           healthcare_data=healthcare_data
+                           )
 @app.route("/")
 def index():
     path = os.path.join(RESULTS_DIRECTORY, "Airlines.json")

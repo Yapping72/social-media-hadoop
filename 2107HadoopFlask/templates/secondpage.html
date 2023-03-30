@@ -31,17 +31,22 @@
               </div>
             </div>
 
+
+
+
+
+
             <div class="col-sm-9">
               <div class="well" style="width: 900px;">
-                <h2>Communication Service Sector Analysis</h2><br>
+                <h2>Healthcare Sector Analysis</h2><br>
                 <div class="row">
                   <div class="col-sm-6">
                     <h3>Total Reviews</h3>
-                    <p style="font-size: x-large; color:rgb(54, 6, 248);"data-start="2900"> {{ comms_data["total_reviews"] }}</p>
+                    <p style="font-size: x-large; color:rgb(54, 6, 248);"data-start="91899">{{healthcare_data["total_reviews"]}}</p>
                   </div>
                   <div class="col-sm-6">
                     <h3>Average Review Rating</h3>
-                    <span style="font-size: x-large; color:rgb(54, 6, 248);"data-start="1">{{ comms_data["median_reviews"] }}</span>
+                    <span style="font-size: x-large; color:rgb(54, 6, 248);"data-start="1">{{healthcare_data["median_reviews"]}}</span>
                   </div>
                 </div>
               </div>
@@ -49,25 +54,25 @@
   
             <div class="col-sm-9">
               <div class="well" style="width: 900px;">
-                <h2>Total Star Reviews for Communication Service Sector</h2><br>
+                <h2>Total Star Reviews for Healthcare Sector</h2><br>
                 <div class="row">
                   <div class="col-sm-6">
                     <h3>1 star Reviews</h3>
-                    <p style="font-size: x-large; color:rgb(230, 31, 31);"data-start="300">{{ comms_data["onestar_reviews"] }}</p>
+                    <p style="font-size: x-large; color:rgb(230, 31, 31);"data-start="7600">{{healthcare_data["onestar_reviews"]}}</p>
                     <h3>2 star reviews</h3>
-                    <p style="font-size: x-large; color:rgb(228, 44, 44);"data-start="200">{{comms_data["twostar_reviews"]}}</p>
+                    <p style="font-size: x-large; color:rgb(228, 44, 44);"data-start="9300">{{healthcare_data["twostar_reviews"]}}</p>
                     <h3>3 star Reviews</h3>
-                    <p style="font-size: x-large; color:rgb(54, 6, 248);"data-start="880">{{comms_data["threestar_reviews"]}}</p>
+                    <p style="font-size: x-large; color:rgb(54, 6, 248);"data-start="19700">{{healthcare_data["threestar_reviews"]}}</p>
                     <h3>4 star reviews</h3>
-                    <p style="font-size: x-large; color:rgb(23, 166, 47);"data-start="800">{{comms_data["fourstar_reviews"]}}</p>
+                    <p style="font-size: x-large; color:rgb(23, 166, 47);"data-start="29000">{{healthcare_data["fourstar_reviews"]}}</p>
                     <h3>5 star reviews</h3>
-                    <p style="font-size: x-large; color:rgb(42, 174, 81);"data-start="500">{{comms_data["fivestar_reviews"]}}</p>
+                    <p style="font-size: x-large; color:rgb(42, 174, 81);"data-start="26000">{{healthcare_data["fivestar_reviews"]}}</p>
                   </div>
                   <div class="col-sm-6">
                     One Star - Five Star Reviews in percentage
-                    <canvas id="myChart"></canvas>
+                    <canvas id="myChart2"></canvas>
                     <div style="margin-top: 90px;">
-                    <a href="{{ url_for('communicationservicespage')}}">View Companies</a>
+                    <a href="{{ url_for('healthcarepage')}}">View Companies</a>
                   </div>
                   </div>
                 </div>
@@ -75,19 +80,17 @@
             </div>
 
            
-           
-               
             <div class="col-sm-9" style=" margin-left: 908px;margin-top: -849px;">
               <div class="well" style="width: 900px;">
-                <h2>Financial Sector Analysis</h2><br>
+                <h2>Consumer Discretionary Sector Analysis</h2><br>
                 <div class="row">
                   <div class="col-sm-6">
                     <h3>Total Reviews</h3>
-                    <p style="font-size: x-large; color:rgb(54, 6, 248);"data-start="270300">{{ finance_data["total_reviews"] }}</p>
+                    <p style="font-size: x-large; color:rgb(54, 6, 248);"data-start="161200">{{consumerdiscretionary_data["total_reviews"]}}</p>
                   </div>
                   <div class="col-sm-6">
                     <h3>Average Review Rating</h3>
-                    <span style="font-size: x-large; color:rgb(54, 6, 248);"data-start="1">{{ finance_data["median_reviews"] }}</span>
+                    <span style="font-size: x-large; color:rgb(54, 6, 248);"data-start="1">{{consumerdiscretionary_data["median_reviews"]}}</span>
                   </div>
                 </div>
               </div>
@@ -95,25 +98,25 @@
             
             <div class="col-sm-9" style=" margin-left: 908px;margin-top: -605px;">
               <div class="well" style="width: 900px;">
-                <h2>Total Star Reviews for Financial Sector</h2><br>
+                <h2>Total Star Reviews for Consumer Discretionary Sector</h2><br>
                 <div class="row">
                   <div class="col-sm-6">
                     <h3>1 star Reviews</h3>
-                    <p style="font-size: x-large; color:rgb(230, 31, 31);"data-start="17900">{{finance_data["onestar_reviews"]}}</p>
+                    <p style="font-size: x-large; color:rgb(230, 31, 31);"data-start="10500">{{consumerdiscretionary_data["onestar_reviews"]}}</p>
                     <h3>2 star reviews</h3>
-                    <p style="font-size: x-large; color:rgb(228, 44, 44);"data-start="24400">{{finance_data["twostar_reviews"]}}</p>
+                    <p style="font-size: x-large; color:rgb(228, 44, 44);"data-start="13200">{{consumerdiscretionary_data["twostar_reviews"]}}</p>
                     <h3>3 star Reviews</h3>
-                    <p style="font-size: x-large; color:rgb(54, 6, 248);"data-start="64500">{{finance_data["threestar_reviews"]}}</p>
+                    <p style="font-size: x-large; color:rgb(54, 6, 248);"data-start="35000">{{consumerdiscretionary_data["threestar_reviews"]}}</p>
                     <h3>4 star reviews</h3>
-                    <p style="font-size: x-large; color:rgb(23, 166, 47);"data-start="91200">{{finance_data["fourstar_reviews"]}}</p>
+                    <p style="font-size: x-large; color:rgb(23, 166, 47);"data-start="50500">{{consumerdiscretionary_data["fourstar_reviews"]}}</p>
                     <h3>5 star reviews</h3>
-                    <p style="font-size: x-large; color:rgb(42, 174, 81);"data-start="72100">{{finance_data["fivestar_reviews"]}}</p>
+                    <p style="font-size: x-large; color:rgb(42, 174, 81);"data-start="51800">{{consumerdiscretionary_data["fivestar_reviews"]}}</p>
                   </div>
                   <div class="col-sm-6">
                     One Star - Five Star Reviews in percentage
                     <canvas id="myChart1"></canvas>
                     <div style="margin-top: 90px;">
-                    <a href="{{ url_for('financialsPage')}}">View Companies</a>
+                    <a href="{{ url_for( 'consumerdiscretionarypage')}}">View Companies</a>
                   </div>
                   </div>
                 </div>
@@ -121,6 +124,9 @@
             </div>
           
           
+
+
+
           </div>
         </div>
       </div>
@@ -131,9 +137,9 @@
 <div class="pagination">
   
   <a href="{{ url_for('index')}}">1</a>
+  <a href="{{ url_for('secondpage')}}">2</a>
   <a href="{{ url_for('thirdpage')}}">3</a>
   <a href="{{ url_for('fourthpage')}}">4</a>
-  <a href="{{ url_for('fifthpage')}}">5</a>
 
 </div>
     
@@ -150,8 +156,11 @@
     <script>
 
 
-var ctx = document.getElementById("myChart").getContext('2d');
-var myChart = new Chart(ctx, {
+
+
+
+var ctx2= document.getElementById("myChart2").getContext('2d');
+var myChart2 = new Chart(ctx2, {
   type: 'pie',
   data: {
     labels: ["1 Star reviews", "2 Star reviews", "3 Star reviews", "4 Star reviews","5 Star reviews "],
@@ -166,15 +175,16 @@ var myChart = new Chart(ctx, {
         "#34495e"
       ],
          data: [
-         ({{comms_data["one_star_reviews"] }}/{{comms_data["total_reviews"]}}*100).toFixed(2),
-            ({{comms_data["two_star_reviews"] }}/{{comms_data["total_reviews"]}}*100).toFixed(2),
-        ({{comms_data["three_star_reviews"] }}/{{comms_data["total_reviews"]}}*100).toFixed(2),
-        ({{comms_data["four_star_reviews"] }}/{{comms_data["total_reviews"]}}*100).toFixed(2),
-        ({{comms_data["five_star_reviews"] }}/{{comms_data["total_reviews"]}}*100).toFixed(2)
+         ({{healthcare_data["one_star_reviews"] }}/{{healthcare_data["total_reviews"]}}*100).toFixed(2),
+            ({{healthcare_data["two_star_reviews"] }}/{{healthcare_data["total_reviews"]}}*100).toFixed(2),
+        ({{healthcare_data["three_star_reviews"] }}/{{healthcare_data["total_reviews"]}}*100).toFixed(2),
+        ({{healthcare_data["four_star_reviews"] }}/{{healthcare_data["total_reviews"]}}*100).toFixed(2),
+        ({{healthcare_data["five_star_reviews"] }}/{{healthcare_data["total_reviews"]}}*100).toFixed(2)
       ]
     }]
   }
 });
+
 
 
 
@@ -196,11 +206,11 @@ var myChart1 = new Chart(ctx1, {
         "#34495e"
       ],
          data: [
-         ({{ finance_data["one_star_reviews"]}}/{{ finance_data["total_reviews"]}}*100).toFixed(2),
-            ({{finance_data["two_star_reviews"]}}/{{ finance_data["total_reviews"]}}*100).toFixed(2),
-        ({{finance_data["three_star_reviews"]}}/{{ finance_data["total_reviews"]}}*100).toFixed(2),
-        ({{finance_data["four_star_reviews"]}}/{{ finance_data["total_reviews"]}}*100).toFixed(2),
-        ({{finance_data["five_star_reviews"]}}/{{ finance_data["total_reviews"]}}*100).toFixed(2)
+         ({{consumerdiscretionary_data["one_star_reviews"]}}/{{consumerdiscretionary_data["total_reviews"]}}*100).toFixed(2),
+            ({{consumerdiscretionary_data["two_star_reviews"]}}/{{consumerdiscretionary_data["total_reviews"]}}*100).toFixed(2),
+        ({{consumerdiscretionary_data["three_star_reviews"]}}/{{consumerdiscretionary_data["total_reviews"]}}*100).toFixed(2),
+        ({{consumerdiscretionary_data["four_star_reviews"]}}/{{consumerdiscretionary_data["total_reviews"]}}*100).toFixed(2),
+        ({{consumerdiscretionary_data["five_star_reviews"]}}/{{consumerdiscretionary_data["total_reviews"]}}*100).toFixed(2)
       ]
     }]
   }
@@ -246,7 +256,7 @@ $('.count').each(function () {
         duration: duration,
         easing: 'swing',
         step: function (now) {
-            $(this).text(Math.ceil(now));
+            $(this).text(parseFloat(now.toFixed(4)));
         }
     });
 });
