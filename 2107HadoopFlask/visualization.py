@@ -11,8 +11,8 @@ import base64
 
 
 app = Flask(__name__)
-RESULTS_DIRECTORY = os.path.join(".", "hadoop_analysis", "Results")
-COMPANY_DIRECTORY = os.path.join(".", "data","Company Information" ,"Company_Information.json")
+RESULTS_DIRECTORY = os.path.join("..", "hadoop_analysis", "Results")
+COMPANY_DIRECTORY = os.path.join("..", "data","Company Information" ,"Company_Information.json")
 
 companypath = os.path.join(COMPANY_DIRECTORY)
 
@@ -30,6 +30,13 @@ def append_company_info(data, coyinfo,coydata,companies):
             data[coyinfo[i]]['industry'] = coydata[coyinfo[i]]['industry']
             data[coyinfo[i]]['revenue'] = coydata[coyinfo[i]]['revenue']
             data[coyinfo[i]]['mission'] = coydata[coyinfo[i]]['mission']
+            if coydata[coyinfo[i]].get('Fear') is not None:
+                data[coyinfo[i]]['Fear'] = coydata[coyinfo[i]]['Fear']
+                data[coyinfo[i]]['Happy'] = coydata[coyinfo[i]]['Happy']
+                data[coyinfo[i]]['Sad'] = coydata[coyinfo[i]]['Sad']
+                data[coyinfo[i]]['Surprise'] = coydata[coyinfo[i]]['Surprise']
+                data[coyinfo[i]]['Angry'] = coydata[coyinfo[i]]['Angry']
+
         i = i + 1;
 
 
