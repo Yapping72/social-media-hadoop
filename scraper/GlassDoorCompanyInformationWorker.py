@@ -48,7 +48,7 @@ class GlassDoorCompanyInformationWorker:
         """Scrapes company information provided in file_path"""
         company_list = self.get_company_codes_and_names(file_path)
         for index, (company_name, company_code) in enumerate(company_list):
-            print(f"Company {index} of {len(company_list)}: ", end="")
+            print(f"Company {index+1} of {len(company_list)}: ", end="")
             company_information_dictionary = self.scrape_company_information(company_code = company_code, company_name = company_name)
             self.dump_dictionary_to_json(company_information_dictionary)
 
@@ -92,15 +92,15 @@ class GlassDoorCompanyInformationWorker:
     
 def main():
     # TODO: Modify GlassDoorScraper() such that it can be instantiated without code and name
-    company_code = 158708
-    company_name = "Nanyang-Technological-University"
-
+    company_code = 1
+    company_name = "Demo"
+    
     # Will be resolved to Facebook_{account_number} in accounts.json. 
     account_number = 1
 
     # Create worker object and start scraping for company information
     worker = GlassDoorCompanyInformationWorker(company_code, company_name, account_number)
-    worker.scrape_multiple_companies("./Industries/Consumer_Discretionary.json") # Modify this
+    worker.scrape_multiple_companies("./Industries/Demo.json") # Modify this
 
 if __name__ == "__main__":
         main()

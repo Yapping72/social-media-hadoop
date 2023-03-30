@@ -1,5 +1,8 @@
 # social-media-hadoop
-A project for big data processing and analysis, focusing on social media data. 
+A project for big data processing and analysis, focusing on Glassdoor reviews. Extracts reviews and company branding information from www.glassdoor.com. Performs analysis using Python and/or MapReduce. 
+* Analysis was done in python to compare performance differences between Python and MapReduce.
+* All analysis performed used MapReduce. Results from Hadoop analysis, was then processed in Python.
+* Data visualized using Python-Flask Framework.
 
 # Dependencies
 <ol>
@@ -8,7 +11,7 @@ A project for big data processing and analysis, focusing on social media data.
 <li> pip install numpy
 </ol>
 
-# General Guide
+# General Guide for Scraping & Analysis Using Python
 <ol>
 <li> Ensure facebook accounts in accounts.json file is not banned and has completed glassdoor account setup. </li>
     <ul><li> Current implementation uses facebook login as it is not blocked for scraping </li> 
@@ -34,13 +37,14 @@ A project for big data processing and analysis, focusing on social media data.
     </ul>
 <br>
 <li> Use GlassDoorCompanyInformationWorker.py to retrieve Company Information on previously scraped datasets.
-    <ol>
+    <ul>
     <li> Specify a json file that company code and company names, follow the same format used for multiple scrapes. (You can use the JSON files used for start_multiple_scrapes). 
     <li> Run GlassDoorCompanyInformationWorker.py, company information will be outputted ../data/Company Information/company_information.json.
     <li> Future work will integrate this part while scraping for companies reviews.
+    </ul>
 </ol>
 
-# Multiple Chrome Browsers
+# Scraping with Multiple Chrome Browsers
 To scrape multiple companies in parallel, run multiple instance of main.py. Each instance should use a different facebook account. Scraping with multiple chrome browsers increases likelihood of captcha and Invalid session. Can safely run 3-4 chrome browswers without captcha occurinng frequently (depends on facebook account used).
 
 # Scrapes that prematurely terminate before completion
@@ -53,3 +57,6 @@ Create a json file and populate it with company_codes and company_names (see '..
 
 # Analysis 
 View README.md file in hadoop_analysis folder to see how data sets can be analyzed.
+
+# MapReduce
+View README.md file in Hadoop folder to see setup instructions and types of Hadoop Analysis
