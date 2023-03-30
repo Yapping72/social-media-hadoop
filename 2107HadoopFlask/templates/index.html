@@ -24,12 +24,10 @@
             <div class="col-sm-9">
               <div class="well" style="width: 1800px;">
                 <h2>Glassdoor Reviews</h2>
-                <h3 style="max-height: 500px; max-width: 900px;">Reviews Collated Among Industries</h3>
-                <canvas id="myChart3" style="max-height: 500px; max-width: 900px;"></canvas> 
+                <h3 style="max-height: 500px; max-width: 1800px;">Reviews Collated Among Industries In Percentage</h3>
+                <canvas id="myChart3" style="max-height: 500px; max-width: 1200px;"></canvas> 
                 <br>
                 <div class="row">
-                  <h3 style="max-height: 500px; max-width: 900px;">Airline Sector 1-5 Star Reviews</h3>
-                <canvas id="myChart4" style="max-height: 500px; max-width: 900px; "></canvas>
                 </div>
               </div>
             </div>
@@ -40,11 +38,11 @@
                 <div class="row">
                   <div class="col-sm-6">
                     <h3>Total Reviews</h3>
-                    <p style="font-size: x-large; color:rgb(54, 6, 248);"data-start="42555">{{ energy_data["total_reviews"] }}</p>
+                    <p style="font-size: x-large; color:rgb(54, 6, 248);"data-start="43000">{{ energy_data["total_reviews"] }}</p>
                   </div>
                   <div class="col-sm-6">
-                    <h3>Total Median Reviews</h3>
-                    <p style="font-size: x-large; color:rgb(54, 6, 248);"data-start="1">{{energy_data["median_reviews"] }}</p>
+                    <h3>Average Review Rating</h3>
+                    <span style="font-size: x-large; color:rgb(54, 6, 248);"data-start="1">{{energy_data["median_reviews"] }}</span>
                   </div>
                 </div>
               </div>
@@ -56,15 +54,15 @@
                 <div class="row">
                   <div class="col-sm-6">
                     <h3>1 star Reviews</h3>
-                    <p style="font-size: x-large; color:rgb(230, 31, 31);"data-start="2500">{{energy_data["one_star_reviews"] }}</p>
+                    <p style="font-size: x-large; color:rgb(230, 31, 31);"data-start="2600">{{energy_data["onestar_reviews"] }}</p>
                     <h3>2 star reviews</h3>
-                    <p style="font-size: x-large; color:rgb(228, 44, 44);"data-start="3300">{{energy_data["two_star_reviews"]}}</p>
+                    <p style="font-size: x-large; color:rgb(228, 44, 44);"data-start="3300">{{energy_data["twostar_reviews"]}}</p>
                     <h3>3 star Reviews</h3>
-                    <p style="font-size: x-large; color:rgb(54, 6, 248);"data-start="9000">{{energy_data["three_star_reviews"]}}</p>
+                    <p style="font-size: x-large; color:rgb(54, 6, 248);"data-start="9000">{{energy_data["threestar_reviews"]}}</p>
                     <h3>4 star reviews</h3>
-                    <p style="font-size: x-large; color:rgb(23, 166, 47);"data-start="14800">{{energy_data["four_star_reviews"]}}</p>
+                    <p style="font-size: x-large; color:rgb(23, 166, 47);"data-start="14800">{{energy_data["fourstar_reviews"]}}</p>
                     <h3>5 star reviews</h3>
-                    <p style="font-size: x-large; color:rgb(42, 174, 81);"data-start="12600">{{energy_data["five_star_reviews"]}}</p>
+                    <p style="font-size: x-large; color:rgb(42, 174, 81);"data-start="12700">{{energy_data["fivestar_reviews"]}}</p>
                   </div>
                   <div class="col-sm-6">
                     One Star - Five Star Reviews in percentage
@@ -87,8 +85,8 @@
                     <p style="font-size: x-large; color:rgb(54, 6, 248);"data-start="22500">{{airline_data["total_reviews"]}}</p>
                   </div>
                   <div class="col-sm-6">
-                    <h3>Total Median Reviews</h3>
-                    <p style="font-size: x-large; color:rgb(54, 6, 248);"data-start="1">{{airline_data["median_reviews"] }}</p>
+                    <h3>Average Review Rating</h3>
+                    <span style="font-size: x-large; color:rgb(54, 6, 248);"data-start="1">{{airline_data["median_reviews"] }}</span>
                   </div>
                 </div>
               </div>
@@ -100,15 +98,15 @@
                 <div class="row">
                   <div class="col-sm-6">
                     <h3>1 star Reviews</h3>
-                    <p style="font-size: x-large; color:rgb(230, 31, 31);"data-start="1300">{{airline_data["one_star_reviews"]}}</p>
+                    <p style="font-size: x-large; color:rgb(230, 31, 31);"data-start="1300">{{airline_data["onestar_reviews"]}}</p>
                     <h3>2 star reviews</h3>
-                    <p style="font-size: x-large; color:rgb(228, 44, 44);"data-start="1500">{{airline_data["two_star_reviews"]}}</p>
+                    <p style="font-size: x-large; color:rgb(228, 44, 44);"data-start="1500">{{airline_data["twostar_reviews"]}}</p>
                     <h3>3 star Reviews</h3>
-                    <p style="font-size: x-large; color:rgb(54, 6, 248);"data-start="3800">{{airline_data["three_star_reviews"]}}</p>
+                    <p style="font-size: x-large; color:rgb(54, 6, 248);"data-start="3800">{{airline_data["threestar_reviews"]}}</p>
                     <h3>4 star reviews</h3>
-                    <p style="font-size: x-large; color:rgb(23, 166, 47);"data-start="6280">{{airline_data["four_star_reviews"]}}</p>
+                    <p style="font-size: x-large; color:rgb(23, 166, 47);"data-start="6280">{{airline_data["fourstar_reviews"]}}</p>
                     <h3>5 star reviews</h3>
-                    <p style="font-size: x-large; color:rgb(42, 174, 81);"data-start="9400">{{airline_data["five_star_reviews"]}}</p>
+                    <p style="font-size: x-large; color:rgb(42, 174, 81);"data-start="9400">{{airline_data["fivestar_reviews"]}}</p>
                   </div>
                   <div class="col-sm-6">
                     One Star - Five Star Reviews in percentage
@@ -149,39 +147,6 @@
 </div>
 
     <script>
-      var ctx4 = document.getElementById('myChart4').getContext('2d');
-    var myChart4 = new Chart(ctx4, {
-      type: 'doughnut',
-      data: {
-        labels: ["One Star Reviews", "Two Star Reviews","Three Star Reviews","Four Star Reviews","Five Star Reviews"],
-        datasets: [{
-          label: '',
-          data: [{{airline_data['one_star_reviews']}},{{airline_data['two_star_reviews']}},{{airline_data['three_star_reviews']}},{{airline_data['four_star_reviews']}},{{airline_data['five_star_reviews']}}],
-          backgroundColor: [
-          'rgba(255, 99, 132, 0.8)',
-          'rgba(54, 162, 235, 0.8)',
-          'rgba(255, 206, 86, 0.8)',
-          'rgba(75, 192, 192, 0.8)',
-          'rgba(153, 102, 255, 0.8)'
-         
-          ],
-          borderColor: [
-            'rgba(255, 99, 132, 1)',
-            'rgba(54, 162, 235, 1)',
-            'rgba(255, 206, 86, 1)'
-          ],
-          borderWidth: 1
-        }]
-      },
-      options: {
-        cutoutPercentage: 50
-      }
-    });
-
-
-
-
-
 
 
 var data1 = {
@@ -247,7 +212,7 @@ var myChart3 = new Chart(ctx3, {
 
 var ctx1 = document.getElementById("myChart1").getContext('2d');
 var myChart1 = new Chart(ctx1, {
-  type: 'pie',
+  type: 'doughnut',
   data: {
     labels: ["1 Star reviews", "2 Star reviews", "3 Star reviews", "4 Star reviews","5 Star reviews "],
     datasets: [{
@@ -261,11 +226,11 @@ var myChart1 = new Chart(ctx1, {
         "#34495e"
       ],
          data: [
-        ({{airline_data["one_star_reviews"]}}/{{airline_data["total_reviews"]}}*100).toFixed(2),
-        ({{airline_data["two_star_reviews"]}}/{{airline_data["total_reviews"]}}*100).toFixed(2),
-        ({{airline_data["three_star_reviews"]}}/{{airline_data["total_reviews"]}}*100).toFixed(2),
-        ({{airline_data["four_star_reviews"]}}/{{airline_data["total_reviews"]}}*100).toFixed(2),
-        ({{airline_data["five_star_reviews"]}}/{{airline_data["total_reviews"]}}*100).toFixed(2)
+        ({{airline_data["onestar_reviews"]}}/{{airline_data["total_reviews"]}}*100).toFixed(2),
+        ({{airline_data["twostar_reviews"]}}/{{airline_data["total_reviews"]}}*100).toFixed(2),
+        ({{airline_data["threestar_reviews"]}}/{{airline_data["total_reviews"]}}*100).toFixed(2),
+        ({{airline_data["fourstar_reviews"]}}/{{airline_data["total_reviews"]}}*100).toFixed(2),
+        ({{airline_data["fivestar_reviews"]}}/{{airline_data["total_reviews"]}}*100).toFixed(2)
       ]
     }]
   }
@@ -277,7 +242,7 @@ var myChart1 = new Chart(ctx1, {
 
 var ctx = document.getElementById("myChart").getContext('2d');
 var myChart = new Chart(ctx, {
-  type: 'pie',
+  type: 'doughnut',
   data: {
     labels: ["1 Star reviews", "2 Star reviews", "3 Star reviews", "4 Star reviews","5 Star reviews "],
     datasets: [{
@@ -291,11 +256,11 @@ var myChart = new Chart(ctx, {
         "#34495e"
       ],
          data: [
-        ({{energy_data["one_star_reviews"]}}/{{energy_data["total_reviews"] }}*100).toFixed(2),
-        ({{energy_data["two_star_reviews"]}}/{{energy_data["total_reviews"] }}*100).toFixed(2),
-        ({{energy_data["three_star_reviews"]}}/{{energy_data["total_reviews"] }}*100).toFixed(2),
-        ({{energy_data["four_star_reviews"]}}/{{energy_data["total_reviews"] }}*100).toFixed(2),
-        ({{energy_data["five_star_reviews"]}}/{{energy_data["total_reviews"] }}*100).toFixed(2)
+        ({{energy_data["onestar_reviews"]}}/{{energy_data["total_reviews"] }}*100).toFixed(2),
+        ({{energy_data["twostar_reviews"]}}/{{energy_data["total_reviews"] }}*100).toFixed(2),
+        ({{energy_data["threestar_reviews"]}}/{{energy_data["total_reviews"] }}*100).toFixed(2),
+        ({{energy_data["fourstar_reviews"]}}/{{energy_data["total_reviews"] }}*100).toFixed(2),
+        ({{energy_data["fivestar_reviews"]}}/{{energy_data["total_reviews"] }}*100).toFixed(2)
       ]
     }]
   }

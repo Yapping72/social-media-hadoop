@@ -19,6 +19,12 @@ document.addEventListener('DOMContentLoaded', () => {
     var companyIndustry = document.getElementById('company-industry')
     var companyRevenue = document.getElementById('company-revenue')
     var companyMission = document.getElementById('company-mission')
+    var companyHappy = document.getElementById('company-happy')
+    var companyFear = document.getElementById('company-fear')
+    var companySad = document.getElementById('company-sad')
+    var companySurprised = document.getElementById('company-surprised')
+    var companyAngry = document.getElementById('company-angry')
+
 
     var ctx = document.getElementById("myChart").getContext('2d');
     var myChart;
@@ -65,6 +71,20 @@ document.addEventListener('DOMContentLoaded', () => {
           companyIndustry.innerHTML = "<b>Industry:</b> "+data[event.target.value]['industry']
           companyRevenue.innerHTML = "<b>Revenue:</b> "+data[event.target.value]['revenue']
           companyMission.innerHTML = "<b>Mission:</b> " +data[event.target.value]['mission']
+          if(data[event.target.value]['Happy']){
+              companyHappy.innerHTML = "<b>Happiness Word Count:</b> " +data[event.target.value]['Happy']
+              companySad.innerHTML = "<b>Sadness Word Count:</b> " +data[event.target.value]['Sad']
+              companyAngry.innerHTML = "<b>Anger Word Count:</b> " +data[event.target.value]['Angry']
+              companySurprised.innerHTML = "<b>Surprised Word Count:</b> " +data[event.target.value]['Surprise']
+              companyFear.innerHTML = "<b>Fear Word Count:</b> " +data[event.target.value]['Fear']
+          }else{
+              companyHappy.innerHTML = ""
+              companySad.innerHTML = ""
+              companyAngry.innerHTML = ""
+              companySurprised.innerHTML = ""
+              companyFear.innerHTML = ""
+          }
+
       }
 
 
