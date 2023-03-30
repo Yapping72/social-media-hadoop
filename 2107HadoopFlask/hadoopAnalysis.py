@@ -15,12 +15,26 @@ import random
 
 
 app = Flask(__name__)
-RESULTS_DIRECTORY = os.path.join(".", "hadoop_analysis", "Results")
-COMPANY_DIRECTORY = os.path.join(".", "data","Company Information" ,"Company_Information.json")
+RESULTS_DIRECTORY = os.path.join("..", "hadoop_analysis", "Results")
+COMPANY_DIRECTORY = os.path.join("..", "data","Company Information" ,"Company_Information.json")
 
 companypath = os.path.join(COMPANY_DIRECTORY)
 
-
+# appends companies information to data object, using list of companies in an industry
+def append_company_info(data, coyinfo,coydata,companies):
+    i = 0;
+    while i<len(coyinfo):
+        if coyinfo[i] in companies:
+            data[coyinfo[i]]['information'] = coydata[coyinfo[i]]['employer_description']
+            data[coyinfo[i]]['contact'] = coydata[coyinfo[i]]['website']
+            data[coyinfo[i]]['founded'] = coydata[coyinfo[i]]['founded']
+            data[coyinfo[i]]['hq'] = coydata[coyinfo[i]]['headquarters']
+            data[coyinfo[i]]['size'] = coydata[coyinfo[i]]['size']
+            data[coyinfo[i]]['type'] = coydata[coyinfo[i]]['type']
+            data[coyinfo[i]]['industry'] = coydata[coyinfo[i]]['industry']
+            data[coyinfo[i]]['revenue'] = coydata[coyinfo[i]]['revenue']
+            data[coyinfo[i]]['mission'] = coydata[coyinfo[i]]['mission']
+        i = i + 1;
 
 
 # global function for home page. 
@@ -29,11 +43,11 @@ def get_reviews_data(path, category):
         data = json.load(f)
     median_reviews = data[category]["median_reviews"]
     total_reviews = data[category]["total_reviews"]
-    one_star_reviews = data[category]["one_star_reviews"]
-    two_star_reviews = data[category]["two_star_reviews"]
-    three_star_reviews = data[category]["three_star_reviews"]
-    four_star_reviews = data[category]["four_star_reviews"]
-    five_star_reviews = data[category]["five_star_reviews"]
+    one_star_reviews = data[category]["percent_one_star"]
+    two_star_reviews = data[category]["percent_two_star"]
+    three_star_reviews = data[category]["percent_three_star"]
+    four_star_reviews = data[category]["percent_four_star"]
+    five_star_reviews = data[category]["percent_five_star"]
     return {"median_reviews": median_reviews,
             "total_reviews": total_reviews,
             "one_star_reviews": one_star_reviews,
@@ -42,24 +56,6 @@ def get_reviews_data(path, category):
             "four_star_reviews": four_star_reviews,
             "five_star_reviews": five_star_reviews}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 #displays fourth page
 @app.route("/fifthpage")
 def fifthpage():
@@ -67,19 +63,15 @@ def fifthpage():
     path = os.path.join(RESULTS_DIRECTORY, "Consumer Discretionary.json")
     consumerdiscretionary_data = get_reviews_data(path, "Consumer Discretionary")
 
-
     consumerstaplespath = os.path.join(RESULTS_DIRECTORY, "Consumer Staples.json")
     consumerstaples_data = get_reviews_data(consumerstaplespath, "Consumer Staples")
 
-    
     healthcarepath = os.path.join(RESULTS_DIRECTORY, "Healthcare.json")
     healthcare_data = get_reviews_data(healthcarepath, "Healthcare")
 
     return render_template("fifthpage.html", consumerdiscretionary_data = consumerdiscretionary_data, consumerstaples_data = consumerstaples_data,
                            healthcare_data=healthcare_data
-                           
                            )
-
 
 #displays fourth page
 @app.route("/fourthpage")
@@ -87,11 +79,8 @@ def fourthpage():
      #populate companies to dropdown list.
     path = os.path.join(RESULTS_DIRECTORY, "Information Technology.json")
     IT_data = get_reviews_data(path, "Information Technology")
-
-
     industrialspath = os.path.join(RESULTS_DIRECTORY, "Industrials.json")
     industrials_data = get_reviews_data(industrialspath, "Industrials")
-
 
     return render_template("fourthpage.html", IT_data = IT_data, industrials_data = industrials_data)
 
@@ -101,36 +90,25 @@ def thirdpage():
      #populate companies to dropdown list.
     path = os.path.join(RESULTS_DIRECTORY, "Materials.json")
     materials_data = get_reviews_data(path, "Materials")
-
-
     institutionpath = os.path.join(RESULTS_DIRECTORY, "Institutions.json")
     institution_data = get_reviews_data(institutionpath, "Institutions")
 
-
     return render_template("thirdpage.html", materials_data=materials_data, institution_data = institution_data)
-
-
 
 #displays second page
 @app.route("/secondpage")
-
 def secondpage():
    #populate companies to dropdown list.
     path = os.path.join(RESULTS_DIRECTORY, "Communication Services.json")
     comms_data = get_reviews_data(path, "Communication Services")
-
-
     financepath = os.path.join(RESULTS_DIRECTORY, "Financials.json")
     finance_data = get_reviews_data(financepath, "Financials")
-
 
     return render_template("secondpage.html", comms_data = comms_data, finance_data=finance_data
         )
 
-
 @app.route("/")
 def index():
-  
     path = os.path.join(RESULTS_DIRECTORY, "Airlines.json")
     airline_data = get_reviews_data(path, "Airlines")
 
@@ -187,17 +165,14 @@ def index():
 def energypage():
 
     path = os.path.join(RESULTS_DIRECTORY, "Energy.json")
-    #populate companies to dropdown list.
+    #get energy json data
     with open(path) as f:
         data = json.load(f)
-    
-
-    
+    #get company data
     with open(companypath, encoding="utf-8") as d:
         coydata = json.load(d)
 
-
-
+    #List of company names
     companies = []
     for key in data:
         company_name = data[key]['name']
@@ -215,15 +190,11 @@ def energypage():
 
     # Generate word cloud image
     wordcloud = WordCloud(width=800, height=800, background_color="white").generate_from_frequencies(dict(top_words))
-    
-   
+
     # Get the image as bytes and encode it as base64
     img_bytes = BytesIO()
     wordcloud.to_image().save(img_bytes, format='PNG')
     img_data = base64.b64encode(img_bytes.getvalue()).decode('utf-8')
-    #----------used for plotting the word cloud---------------------------------
-
-
 
     #---#this is used for plotting the bar graph for word count----------------------------------
     # Create an empty list to store the key-value pairs this is used for plotting the bar graph 
@@ -232,7 +203,6 @@ def energypage():
     
     for key, value in word_freq.items():
         word_count_list.append((key, value))
-    #---#this is used for plotting the bar graph for word count ----------------------------------
 
     #---#this is used for plotting the bar graph for one - five star review----------------------------------
     # initialize empty list to store one-star reviews
@@ -254,20 +224,7 @@ def energypage():
 
   # Extract the company names from the JSON data and store them in a list
     coyinfo = [coy for coy in coydata.keys()]
-    i = 0;
-    while i<len(coyinfo):
-        if coyinfo[i] in companies:
-            data[coyinfo[i]]['information'] = coydata[coyinfo[i]]['employer_description']
-            data[coyinfo[i]]['contact'] = coydata[coyinfo[i]]['website']
-            data[coyinfo[i]]['founded'] = coydata[coyinfo[i]]['founded']
-            data[coyinfo[i]]['hq'] = coydata[coyinfo[i]]['headquarters']
-            data[coyinfo[i]]['size'] = coydata[coyinfo[i]]['size']
-            data[coyinfo[i]]['type'] = coydata[coyinfo[i]]['type']
-            data[coyinfo[i]]['industry'] = coydata[coyinfo[i]]['industry']
-            data[coyinfo[i]]['revenue'] = coydata[coyinfo[i]]['revenue']
-            data[coyinfo[i]]['mission'] = coydata[coyinfo[i]]['mission']
-
-        i = i + 1;
+    append_company_info(data, coyinfo,coydata,companies)
 
 
     return render_template("EnergyPage.html", companies= companies, data=data,  image_data=img_data, word_count_list = word_count_list, 
@@ -313,16 +270,13 @@ def airlinespage():
     img_bytes = BytesIO()
     wordcloud.to_image().save(img_bytes, format='PNG')
     img_data = base64.b64encode(img_bytes.getvalue()).decode('utf-8')
-    # ----------used for plotting the word cloud---------------------------------
 
     # ---#this is used for plotting the bar graph for word count----------------------------------
     # Create an empty list to store the key-value pairs this is used for plotting the bar graph
     word_count_list = []
     # Iterate through the dictionary and append the key-value pairs to the list
-
     for key, value in word_freq.items():
         word_count_list.append((key, value))
-    # ---#this is used for plotting the bar graph for word count ----------------------------------
 
     # ---#this is used for plotting the bar graph for one - five star review----------------------------------
     # initialize empty list to store one-star reviews
@@ -344,20 +298,8 @@ def airlinespage():
 
     # Extract the company names from the JSON data and store them in a list
     coyinfo = [coy for coy in coydata.keys()]
-    i = 0;
-    while i < len(coyinfo):
-        if coyinfo[i] in companies:
-            data[coyinfo[i]]['information'] = coydata[coyinfo[i]]['employer_description']
-            data[coyinfo[i]]['contact'] = coydata[coyinfo[i]]['website']
-            data[coyinfo[i]]['founded'] = coydata[coyinfo[i]]['founded']
-            data[coyinfo[i]]['hq'] = coydata[coyinfo[i]]['headquarters']
-            data[coyinfo[i]]['size'] = coydata[coyinfo[i]]['size']
-            data[coyinfo[i]]['type'] = coydata[coyinfo[i]]['type']
-            data[coyinfo[i]]['industry'] = coydata[coyinfo[i]]['industry']
-            data[coyinfo[i]]['revenue'] = coydata[coyinfo[i]]['revenue']
-            data[coyinfo[i]]['mission'] = coydata[coyinfo[i]]['mission']
 
-        i = i + 1;
+    append_company_info(data, coyinfo,coydata,companies)
 
     return render_template("AirlinesPage.html", companies=companies, data=data, image_data=img_data,
                            word_count_list=word_count_list,
@@ -439,20 +381,7 @@ def communicationservicespage():
 
     # Extract the company names from the JSON data and store them in a list
     coyinfo = [coy for coy in coydata.keys()]
-    i = 0;
-    while i < len(coyinfo):
-        if coyinfo[i] in companies:
-            data[coyinfo[i]]['information'] = coydata[coyinfo[i]]['employer_description']
-            data[coyinfo[i]]['contact'] = coydata[coyinfo[i]]['website']
-            data[coyinfo[i]]['founded'] = coydata[coyinfo[i]]['founded']
-            data[coyinfo[i]]['hq'] = coydata[coyinfo[i]]['headquarters']
-            data[coyinfo[i]]['size'] = coydata[coyinfo[i]]['size']
-            data[coyinfo[i]]['type'] = coydata[coyinfo[i]]['type']
-            data[coyinfo[i]]['industry'] = coydata[coyinfo[i]]['industry']
-            data[coyinfo[i]]['revenue'] = coydata[coyinfo[i]]['revenue']
-            data[coyinfo[i]]['mission'] = coydata[coyinfo[i]]['mission']
-
-        i = i + 1;
+    append_company_info(data, coyinfo,coydata,companies)
 
     return render_template("CommunicationsPage.html", companies=companies, data=data, image_data=img_data,
                            word_count_list=word_count_list,
@@ -533,20 +462,7 @@ def financialsPage():
 
     # Extract the company names from the JSON data and store them in a list
     coyinfo = [coy for coy in coydata.keys()]
-    i = 0;
-    while i < len(coyinfo):
-        if coyinfo[i] in companies:
-            data[coyinfo[i]]['information'] = coydata[coyinfo[i]]['employer_description']
-            data[coyinfo[i]]['contact'] = coydata[coyinfo[i]]['website']
-            data[coyinfo[i]]['founded'] = coydata[coyinfo[i]]['founded']
-            data[coyinfo[i]]['hq'] = coydata[coyinfo[i]]['headquarters']
-            data[coyinfo[i]]['size'] = coydata[coyinfo[i]]['size']
-            data[coyinfo[i]]['type'] = coydata[coyinfo[i]]['type']
-            data[coyinfo[i]]['industry'] = coydata[coyinfo[i]]['industry']
-            data[coyinfo[i]]['revenue'] = coydata[coyinfo[i]]['revenue']
-            data[coyinfo[i]]['mission'] = coydata[coyinfo[i]]['mission']
-
-        i = i + 1;
+    append_company_info(data, coyinfo,coydata,companies)
 
     return render_template("FinancialsPage.html", companies=companies, data=data, image_data=img_data,
                            word_count_list=word_count_list,
@@ -628,20 +544,7 @@ def healthcarepage():
 
     # Extract the company names from the JSON data and store them in a list
     coyinfo = [coy for coy in coydata.keys()]
-    i = 0;
-    while i < len(coyinfo):
-        if coyinfo[i] in companies:
-            data[coyinfo[i]]['information'] = coydata[coyinfo[i]]['employer_description']
-            data[coyinfo[i]]['contact'] = coydata[coyinfo[i]]['website']
-            data[coyinfo[i]]['founded'] = coydata[coyinfo[i]]['founded']
-            data[coyinfo[i]]['hq'] = coydata[coyinfo[i]]['headquarters']
-            data[coyinfo[i]]['size'] = coydata[coyinfo[i]]['size']
-            data[coyinfo[i]]['type'] = coydata[coyinfo[i]]['type']
-            data[coyinfo[i]]['industry'] = coydata[coyinfo[i]]['industry']
-            data[coyinfo[i]]['revenue'] = coydata[coyinfo[i]]['revenue']
-            data[coyinfo[i]]['mission'] = coydata[coyinfo[i]]['mission']
-
-        i = i + 1;
+    append_company_info(data, coyinfo,coydata,companies)
 
     return render_template("HealthcarePage.html", companies=companies, data=data, image_data=img_data,
                            word_count_list=word_count_list,
@@ -720,19 +623,7 @@ def industrialspage():
     # Extract the company names from the JSON data and store them in a list
     coyinfo = [coy for coy in coydata.keys()]
     i = 0;
-    while i < len(coyinfo):
-        if coyinfo[i] in companies:
-            data[coyinfo[i]]['information'] = coydata[coyinfo[i]]['employer_description']
-            data[coyinfo[i]]['contact'] = coydata[coyinfo[i]]['website']
-            data[coyinfo[i]]['founded'] = coydata[coyinfo[i]]['founded']
-            data[coyinfo[i]]['hq'] = coydata[coyinfo[i]]['headquarters']
-            data[coyinfo[i]]['size'] = coydata[coyinfo[i]]['size']
-            data[coyinfo[i]]['type'] = coydata[coyinfo[i]]['type']
-            data[coyinfo[i]]['industry'] = coydata[coyinfo[i]]['industry']
-            data[coyinfo[i]]['revenue'] = coydata[coyinfo[i]]['revenue']
-            data[coyinfo[i]]['mission'] = coydata[coyinfo[i]]['mission']
-
-        i = i + 1;
+    append_company_info(data, coyinfo,coydata,companies)
 
     return render_template("IndustrialsPage.html", companies=companies, data=data, image_data=img_data,
                            word_count_list=word_count_list,
@@ -811,20 +702,7 @@ def informationtechnologypage():
 
     # Extract the company names from the JSON data and store them in a list
     coyinfo = [coy for coy in coydata.keys()]
-    i = 0;
-    while i < len(coyinfo):
-        if coyinfo[i] in companies:
-            data[coyinfo[i]]['information'] = coydata[coyinfo[i]]['employer_description']
-            data[coyinfo[i]]['contact'] = coydata[coyinfo[i]]['website']
-            data[coyinfo[i]]['founded'] = coydata[coyinfo[i]]['founded']
-            data[coyinfo[i]]['hq'] = coydata[coyinfo[i]]['headquarters']
-            data[coyinfo[i]]['size'] = coydata[coyinfo[i]]['size']
-            data[coyinfo[i]]['type'] = coydata[coyinfo[i]]['type']
-            data[coyinfo[i]]['industry'] = coydata[coyinfo[i]]['industry']
-            data[coyinfo[i]]['revenue'] = coydata[coyinfo[i]]['revenue']
-            data[coyinfo[i]]['mission'] = coydata[coyinfo[i]]['mission']
-
-        i = i + 1;
+    append_company_info(data, coyinfo,coydata,companies)
 
     return render_template("ITPage.html", companies=companies, data=data, image_data=img_data,
                            word_count_list=word_count_list,
@@ -901,20 +779,7 @@ def institutionspage():
 
     # Extract the company names from the JSON data and store them in a list
     coyinfo = [coy for coy in coydata.keys()]
-    i = 0;
-    while i < len(coyinfo):
-        if coyinfo[i] in companies:
-            data[coyinfo[i]]['information'] = coydata[coyinfo[i]]['employer_description']
-            data[coyinfo[i]]['contact'] = coydata[coyinfo[i]]['website']
-            data[coyinfo[i]]['founded'] = coydata[coyinfo[i]]['founded']
-            data[coyinfo[i]]['hq'] = coydata[coyinfo[i]]['headquarters']
-            data[coyinfo[i]]['size'] = coydata[coyinfo[i]]['size']
-            data[coyinfo[i]]['type'] = coydata[coyinfo[i]]['type']
-            data[coyinfo[i]]['industry'] = coydata[coyinfo[i]]['industry']
-            data[coyinfo[i]]['revenue'] = coydata[coyinfo[i]]['revenue']
-            data[coyinfo[i]]['mission'] = coydata[coyinfo[i]]['mission']
-
-        i = i + 1;
+    append_company_info(data, coyinfo,coydata,companies)
 
     return render_template("InstitutionsPage.html", companies=companies, data=data, image_data=img_data,
                            word_count_list=word_count_list,
@@ -992,20 +857,7 @@ def materialspage():
 
     # Extract the company names from the JSON data and store them in a list
     coyinfo = [coy for coy in coydata.keys()]
-    i = 0;
-    while i < len(coyinfo):
-        if coyinfo[i] in companies:
-            data[coyinfo[i]]['information'] = coydata[coyinfo[i]]['employer_description']
-            data[coyinfo[i]]['contact'] = coydata[coyinfo[i]]['website']
-            data[coyinfo[i]]['founded'] = coydata[coyinfo[i]]['founded']
-            data[coyinfo[i]]['hq'] = coydata[coyinfo[i]]['headquarters']
-            data[coyinfo[i]]['size'] = coydata[coyinfo[i]]['size']
-            data[coyinfo[i]]['type'] = coydata[coyinfo[i]]['type']
-            data[coyinfo[i]]['industry'] = coydata[coyinfo[i]]['industry']
-            data[coyinfo[i]]['revenue'] = coydata[coyinfo[i]]['revenue']
-            data[coyinfo[i]]['mission'] = coydata[coyinfo[i]]['mission']
-
-        i = i + 1;
+    append_company_info(data, coyinfo,coydata,companies)
 
     return render_template("MaterialsPage.html", companies=companies, data=data, image_data=img_data,
                            word_count_list=word_count_list,
@@ -1084,20 +936,7 @@ def consumerdiscretionarypage():
 
     # Extract the company names from the JSON data and store them in a list
     coyinfo = [coy for coy in coydata.keys()]
-    i = 0;
-    while i < len(coyinfo):
-        if coyinfo[i] in companies:
-            data[coyinfo[i]]['information'] = coydata[coyinfo[i]]['employer_description']
-            data[coyinfo[i]]['contact'] = coydata[coyinfo[i]]['website']
-            data[coyinfo[i]]['founded'] = coydata[coyinfo[i]]['founded']
-            data[coyinfo[i]]['hq'] = coydata[coyinfo[i]]['headquarters']
-            data[coyinfo[i]]['size'] = coydata[coyinfo[i]]['size']
-            data[coyinfo[i]]['type'] = coydata[coyinfo[i]]['type']
-            data[coyinfo[i]]['industry'] = coydata[coyinfo[i]]['industry']
-            data[coyinfo[i]]['revenue'] = coydata[coyinfo[i]]['revenue']
-            data[coyinfo[i]]['mission'] = coydata[coyinfo[i]]['mission']
-
-        i = i + 1;
+    append_company_info(data, coyinfo,coydata,companies)
 
     return render_template("ConsumerDiscretionaryPage.html", companies=companies, data=data, image_data=img_data,
                            word_count_list=word_count_list,
@@ -1175,20 +1014,7 @@ def consumerstaplespage():
 
     # Extract the company names from the JSON data and store them in a list
     coyinfo = [coy for coy in coydata.keys()]
-    i = 0;
-    while i < len(coyinfo):
-        if coyinfo[i] in companies:
-            data[coyinfo[i]]['information'] = coydata[coyinfo[i]]['employer_description']
-            data[coyinfo[i]]['contact'] = coydata[coyinfo[i]]['website']
-            data[coyinfo[i]]['founded'] = coydata[coyinfo[i]]['founded']
-            data[coyinfo[i]]['hq'] = coydata[coyinfo[i]]['headquarters']
-            data[coyinfo[i]]['size'] = coydata[coyinfo[i]]['size']
-            data[coyinfo[i]]['type'] = coydata[coyinfo[i]]['type']
-            data[coyinfo[i]]['industry'] = coydata[coyinfo[i]]['industry']
-            data[coyinfo[i]]['revenue'] = coydata[coyinfo[i]]['revenue']
-            data[coyinfo[i]]['mission'] = coydata[coyinfo[i]]['mission']
-
-        i = i + 1;
+    append_company_info(data, coyinfo,coydata,companies)
 
     return render_template("ConsumerStaplesPage.html", companies=companies, data=data, image_data=img_data,
                            word_count_list=word_count_list,
