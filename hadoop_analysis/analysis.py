@@ -7,6 +7,8 @@ import string
 import nltk
 nltk.download('stopwords')
 from nltk.corpus import stopwords
+import time
+import datetime
 
 def get_industry_directories():
     """Returns list of file paths to each industry i.e., data\Materials
@@ -28,7 +30,7 @@ def get_companies_from_industry(one_industry_directory_path:str):
             company_path_list.append(company_folder)
     except FileNotFoundError:
         print(f"Error: Directory '{one_industry_directory_path}' does not exists. Exiting.")
-        print("Check that you specified the correct INDUSTRY in main.py and you are in the correct directory (social-media-hadoop\hadoop_analysis)")
+        print("Check that you specified the correct INDUSTRY in main.py and you are in the correct directory (social-media-hadoop\analysis)")
         sys.exit(1)
 
     return company_path_list
@@ -46,6 +48,7 @@ def get_reviews_in_json(a_company_path:str):
 
 def get_company_name(file_path):
     """Regex expression to obtain company name from file"""
+    # TODO:  Replace with os.path.basename(file_path)[0] instead
     pattern = r"^[^-]+-(.+?)-\d+\.json$"
     match = re.match(pattern, file_path)
 
@@ -119,12 +122,24 @@ def obtain_median_reviews(company_reviews):
     median_rating = filtered_reviews['rating'].median()
     return median_rating
 
+def obtain_average_reviews(company_reviews):
+    """
+    Returns the average rating of the company_reviews DataFrame.
+    Skips rows with 'N/A' values in the 'rating' column.
+    Converts the 'rating' column to a numeric data type before computing the average.
+    """
+    filtered_reviews = company_reviews[company_reviews['rating'] != 'N/A']
+    numeric_ratings = pd.to_numeric(filtered_reviews['rating'], errors='coerce')
+    average_rating = numeric_ratings.mean()
+    return round(average_rating, 3)
+
 def count_star_reviews(company_reviews, star_rating:str):
     """Returns the number of reviews with a given star rating"""
     count = len(company_reviews[company_reviews['rating'] == star_rating])
     return count
 
 def create_company_dict(company_name):
+    """Data structure used to represent company information"""
     company_dict = {
         "name": company_name,
         "total_reviews": 0,
@@ -149,7 +164,7 @@ def populate_company_dictionary(company_name:str, company_reviews:pd.DataFrame):
     # Obtain total reviews 
     company_dictionary['total_reviews'] = company_reviews.shape[0]
     # Obtain Median Reviews
-    company_dictionary['median_reviews'] = obtain_median_reviews(company_reviews)
+    company_dictionary['median_reviews'] = obtain_average_reviews(company_reviews)
     # Obtain Number of 1-star to 5-star reviews
     company_dictionary['five_star_reviews'] = count_star_reviews(company_reviews, "5.0")
     company_dictionary['four_star_reviews'] = count_star_reviews(company_reviews, "4.0")
@@ -208,6 +223,7 @@ def update_company_word_count_dictionary(company_dictionary, company_reviews: pd
     company_dictionary["word_count_dictionary"] = keep_first_n_keys(company_dictionary["word_count_dictionary"], 20)
 
 def dump_dictionary_to_json(INDUSTRY, company_dictionary):
+    """Stores company information"""
     # Saves dictionary to Results folder 
     destination_directory = os.path.join(".", "Results")
     if not os.path.exists(destination_directory):
@@ -237,6 +253,7 @@ def get_individual_companies(all_data_df: pd.DataFrame):
     # Iterate through each companies dataframe to obtain - median reviews, average reviews, num X-star and word-count
     for company in companies:
         # Slice the dataframe into manageable chunks
+        start_time = time.time() # Start tracking time
         company_df = all_data_df.groupby('company')
         company_reviews = company_df.get_group(company) 
         # Populates dictionary with total, median, number of X-starred % of X-starred reviews
@@ -244,7 +261,10 @@ def get_individual_companies(all_data_df: pd.DataFrame):
         dump_dictionary_to_json(INDUSTRY, company_dictionary)
         update_company_word_count_dictionary(company_dictionary, company_reviews)
         dump_dictionary_to_json(INDUSTRY, company_dictionary)
-        print(f"Completed analysis on {company} reviews")
+        end_time = time.time() # Stop tracking time
+        elapsed_time = end_time - start_time
+        elapsed_time = "{:.3f}".format(elapsed_time)
+        print(f"Completed analysis on {company}. Time elapsed: {elapsed_time} seconds")
 
 def get_industry_overview(all_data_df: pd.DataFrame):
     # Populates dictionary with total, median, number of X-starred % of X-starred reviews
@@ -255,7 +275,7 @@ def get_industry_overview(all_data_df: pd.DataFrame):
     print(f"Completed analysis on {INDUSTRY} reviews")
 
 DATA_DIRECTORY = os.path.join("..", "data") 
-INDUSTRY = "Consumer Discretionary" # <-- Modify this 
+INDUSTRY = "Materials" # <-- Modify this 
 
 def main():
     """Iterates through all the ..\data\INDUSTRY directories to get company reviews."""
