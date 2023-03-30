@@ -161,7 +161,7 @@
 
 var ctx2= document.getElementById("myChart2").getContext('2d');
 var myChart2 = new Chart(ctx2, {
-  type: 'pie',
+  type: 'doughnut',
   data: {
     labels: ["1 Star reviews", "2 Star reviews", "3 Star reviews", "4 Star reviews","5 Star reviews "],
     datasets: [{
@@ -175,11 +175,11 @@ var myChart2 = new Chart(ctx2, {
         "#34495e"
       ],
          data: [
-         ({{healthcare_data["one_star_reviews"] }}/{{healthcare_data["total_reviews"]}}*100).toFixed(2),
-            ({{healthcare_data["two_star_reviews"] }}/{{healthcare_data["total_reviews"]}}*100).toFixed(2),
-        ({{healthcare_data["three_star_reviews"] }}/{{healthcare_data["total_reviews"]}}*100).toFixed(2),
-        ({{healthcare_data["four_star_reviews"] }}/{{healthcare_data["total_reviews"]}}*100).toFixed(2),
-        ({{healthcare_data["five_star_reviews"] }}/{{healthcare_data["total_reviews"]}}*100).toFixed(2)
+         ({{healthcare_data["onestar_reviews"] }}/{{healthcare_data["total_reviews"]}}*100).toFixed(2),
+            ({{healthcare_data["twostar_reviews"] }}/{{healthcare_data["total_reviews"]}}*100).toFixed(2),
+        ({{healthcare_data["threestar_reviews"] }}/{{healthcare_data["total_reviews"]}}*100).toFixed(2),
+        ({{healthcare_data["fourstar_reviews"] }}/{{healthcare_data["total_reviews"]}}*100).toFixed(2),
+        ({{healthcare_data["fivestar_reviews"] }}/{{healthcare_data["total_reviews"]}}*100).toFixed(2)
       ]
     }]
   }
@@ -192,7 +192,7 @@ var myChart2 = new Chart(ctx2, {
 
 var ctx1 = document.getElementById("myChart1").getContext('2d');
 var myChart1 = new Chart(ctx1, {
-  type: 'pie',
+  type: 'doughnut',
   data: {
     labels: ["1 Star reviews", "2 Star reviews", "3 Star reviews", "4 Star reviews","5 Star reviews "],
     datasets: [{
@@ -206,11 +206,11 @@ var myChart1 = new Chart(ctx1, {
         "#34495e"
       ],
          data: [
-         ({{consumerdiscretionary_data["one_star_reviews"]}}/{{consumerdiscretionary_data["total_reviews"]}}*100).toFixed(2),
-            ({{consumerdiscretionary_data["two_star_reviews"]}}/{{consumerdiscretionary_data["total_reviews"]}}*100).toFixed(2),
-        ({{consumerdiscretionary_data["three_star_reviews"]}}/{{consumerdiscretionary_data["total_reviews"]}}*100).toFixed(2),
-        ({{consumerdiscretionary_data["four_star_reviews"]}}/{{consumerdiscretionary_data["total_reviews"]}}*100).toFixed(2),
-        ({{consumerdiscretionary_data["five_star_reviews"]}}/{{consumerdiscretionary_data["total_reviews"]}}*100).toFixed(2)
+         ({{consumerdiscretionary_data["onestar_reviews"]}}/{{consumerdiscretionary_data["total_reviews"]}}*100).toFixed(2),
+            ({{consumerdiscretionary_data["twostar_reviews"]}}/{{consumerdiscretionary_data["total_reviews"]}}*100).toFixed(2),
+        ({{consumerdiscretionary_data["threestar_reviews"]}}/{{consumerdiscretionary_data["total_reviews"]}}*100).toFixed(2),
+        ({{consumerdiscretionary_data["fourstar_reviews"]}}/{{consumerdiscretionary_data["total_reviews"]}}*100).toFixed(2),
+        ({{consumerdiscretionary_data["fivestar_reviews"]}}/{{consumerdiscretionary_data["total_reviews"]}}*100).toFixed(2)
       ]
     }]
   }
