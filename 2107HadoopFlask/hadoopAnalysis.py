@@ -15,8 +15,8 @@ import random
 
 
 app = Flask(__name__)
-RESULTS_DIRECTORY = os.path.join("..", "hadoop_analysis", "Results")
-COMPANY_DIRECTORY = os.path.join("..", "data","Company Information" ,"Company_Information.json")
+RESULTS_DIRECTORY = os.path.join(".", "hadoop_analysis", "Results")
+COMPANY_DIRECTORY = os.path.join(".", "data","Company Information" ,"Company_Information.json")
 
 companypath = os.path.join(COMPANY_DIRECTORY)
 
@@ -48,13 +48,35 @@ def get_reviews_data(path, category):
     three_star_reviews = data[category]["percent_three_star"]
     four_star_reviews = data[category]["percent_four_star"]
     five_star_reviews = data[category]["percent_five_star"]
+
+    
+
+    onestar_reviews = data[category]["one_star_reviews"]
+    twostar_reviews = data[category]["two_star_reviews"]
+    threestar_reviews = data[category]["three_star_reviews"]
+    fourstar_reviews = data[category]["four_star_reviews"]
+    fivestar_reviews = data[category]["five_star_reviews"]
     return {"median_reviews": median_reviews,
             "total_reviews": total_reviews,
             "one_star_reviews": one_star_reviews,
             "two_star_reviews": two_star_reviews,
             "three_star_reviews": three_star_reviews,
             "four_star_reviews": four_star_reviews,
-            "five_star_reviews": five_star_reviews}
+            "five_star_reviews": five_star_reviews,
+
+            "onestar_reviews":  onestar_reviews,
+            "twostar_reviews": twostar_reviews,
+            "threestar_reviews": threestar_reviews,
+            "fourstar_reviews":  fourstar_reviews,
+            "fivestar_reviews":  fivestar_reviews
+            
+            
+            
+            }
+
+
+
+
 
 #displays fourth page
 @app.route("/fifthpage")

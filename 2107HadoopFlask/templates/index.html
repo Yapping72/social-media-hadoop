@@ -24,12 +24,10 @@
             <div class="col-sm-9">
               <div class="well" style="width: 1800px;">
                 <h2>Glassdoor Reviews</h2>
-                <h3 style="max-height: 500px; max-width: 900px;">Reviews Collated Among Industries</h3>
-                <canvas id="myChart3" style="max-height: 500px; max-width: 900px;"></canvas> 
+                <h3 style="max-height: 500px; max-width: 1800px;">Reviews Collated Among Industries In Percentage</h3>
+                <canvas id="myChart3" style="max-height: 500px; max-width: 1600px;"></canvas> 
                 <br>
                 <div class="row">
-                  <h3 style="max-height: 500px; max-width: 900px;">Airline Sector 1-5 Star Reviews</h3>
-                <canvas id="myChart4" style="max-height: 500px; max-width: 900px; "></canvas>
                 </div>
               </div>
             </div>
@@ -40,11 +38,11 @@
                 <div class="row">
                   <div class="col-sm-6">
                     <h3>Total Reviews</h3>
-                    <p style="font-size: x-large; color:rgb(54, 6, 248);"data-start="42555">{{ energy_data["total_reviews"] }}</p>
+                    <p style="font-size: x-large; color:rgb(54, 6, 248);"data-start="43000">{{ energy_data["total_reviews"] }}</p>
                   </div>
                   <div class="col-sm-6">
-                    <h3>Total Median Reviews</h3>
-                    <p style="font-size: x-large; color:rgb(54, 6, 248);"data-start="1">{{energy_data["median_reviews"] }}</p>
+                    <h3>Average Review Rating</h3>
+                    <span style="font-size: x-large; color:rgb(54, 6, 248);"data-start="1">{{energy_data["median_reviews"] }}</span>
                   </div>
                 </div>
               </div>
@@ -56,15 +54,15 @@
                 <div class="row">
                   <div class="col-sm-6">
                     <h3>1 star Reviews</h3>
-                    <p style="font-size: x-large; color:rgb(230, 31, 31);"data-start="2500">{{energy_data["one_star_reviews"] }}</p>
+                    <p style="font-size: x-large; color:rgb(230, 31, 31);"data-start="2600">{{energy_data["onestar_reviews"] }}</p>
                     <h3>2 star reviews</h3>
-                    <p style="font-size: x-large; color:rgb(228, 44, 44);"data-start="3300">{{energy_data["two_star_reviews"]}}</p>
+                    <p style="font-size: x-large; color:rgb(228, 44, 44);"data-start="3300">{{energy_data["twostar_reviews"]}}</p>
                     <h3>3 star Reviews</h3>
-                    <p style="font-size: x-large; color:rgb(54, 6, 248);"data-start="9000">{{energy_data["three_star_reviews"]}}</p>
+                    <p style="font-size: x-large; color:rgb(54, 6, 248);"data-start="9000">{{energy_data["threestar_reviews"]}}</p>
                     <h3>4 star reviews</h3>
-                    <p style="font-size: x-large; color:rgb(23, 166, 47);"data-start="14800">{{energy_data["four_star_reviews"]}}</p>
+                    <p style="font-size: x-large; color:rgb(23, 166, 47);"data-start="14800">{{energy_data["fourstar_reviews"]}}</p>
                     <h3>5 star reviews</h3>
-                    <p style="font-size: x-large; color:rgb(42, 174, 81);"data-start="12600">{{energy_data["five_star_reviews"]}}</p>
+                    <p style="font-size: x-large; color:rgb(42, 174, 81);"data-start="12700">{{energy_data["fivestar_reviews"]}}</p>
                   </div>
                   <div class="col-sm-6">
                     One Star - Five Star Reviews in percentage
@@ -87,8 +85,8 @@
                     <p style="font-size: x-large; color:rgb(54, 6, 248);"data-start="22500">{{airline_data["total_reviews"]}}</p>
                   </div>
                   <div class="col-sm-6">
-                    <h3>Total Median Reviews</h3>
-                    <p style="font-size: x-large; color:rgb(54, 6, 248);"data-start="1">{{airline_data["median_reviews"] }}</p>
+                    <h3>Average Review Rating</h3>
+                    <span style="font-size: x-large; color:rgb(54, 6, 248);"data-start="1">{{airline_data["median_reviews"] }}</span>
                   </div>
                 </div>
               </div>
@@ -100,15 +98,15 @@
                 <div class="row">
                   <div class="col-sm-6">
                     <h3>1 star Reviews</h3>
-                    <p style="font-size: x-large; color:rgb(230, 31, 31);"data-start="1300">{{airline_data["one_star_reviews"]}}</p>
+                    <p style="font-size: x-large; color:rgb(230, 31, 31);"data-start="1300">{{airline_data["onestar_reviews"]}}</p>
                     <h3>2 star reviews</h3>
-                    <p style="font-size: x-large; color:rgb(228, 44, 44);"data-start="1500">{{airline_data["two_star_reviews"]}}</p>
+                    <p style="font-size: x-large; color:rgb(228, 44, 44);"data-start="1500">{{airline_data["twostar_reviews"]}}</p>
                     <h3>3 star Reviews</h3>
-                    <p style="font-size: x-large; color:rgb(54, 6, 248);"data-start="3800">{{airline_data["three_star_reviews"]}}</p>
+                    <p style="font-size: x-large; color:rgb(54, 6, 248);"data-start="3800">{{airline_data["threestar_reviews"]}}</p>
                     <h3>4 star reviews</h3>
-                    <p style="font-size: x-large; color:rgb(23, 166, 47);"data-start="6280">{{airline_data["four_star_reviews"]}}</p>
+                    <p style="font-size: x-large; color:rgb(23, 166, 47);"data-start="6280">{{airline_data["fourstar_reviews"]}}</p>
                     <h3>5 star reviews</h3>
-                    <p style="font-size: x-large; color:rgb(42, 174, 81);"data-start="9400">{{airline_data["five_star_reviews"]}}</p>
+                    <p style="font-size: x-large; color:rgb(42, 174, 81);"data-start="9400">{{airline_data["fivestar_reviews"]}}</p>
                   </div>
                   <div class="col-sm-6">
                     One Star - Five Star Reviews in percentage
