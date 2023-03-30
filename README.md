@@ -60,3 +60,8 @@ View README.md file in hadoop_analysis folder to see how data sets can be analyz
 
 # MapReduce
 View README.md file in Hadoop folder to see setup instructions and types of Hadoop Analysis
+
+# Visualization in Flask
+pip install flask , pip install wordcloud
+
+To run the website run visualization.py under 2107Hadoopflask folder. 

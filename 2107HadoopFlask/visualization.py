@@ -1,16 +1,12 @@
 import os
-import sys
 from flask import Flask,render_template, url_for,redirect, session, request
 from flask import request,jsonify
-from datetime import timedelta
-import datetime
 import json
 import os
-from collections import Counter
 from wordcloud import WordCloud
 from io import BytesIO
 import base64
-import random
+
 
 
 
