@@ -20,7 +20,7 @@ public class SentimentCountAnalysis {
         // Create a new Configuration object
         Configuration conf = new Configuration();
         // Create a new Job instance
-        Job job = Job.getInstance(conf, "WordCount");
+        Job job = Job.getInstance(conf, "SentimentCount");
         // Set the Jar file for the job
         job.setJarByClass(SentimentCountAnalysis.class);
 
@@ -34,7 +34,7 @@ public class SentimentCountAnalysis {
 
         // Set the input and output paths for the job
         Path inputPath = new Path("hdfs://hadoop-master:9000/user/ict2102060/Materials/");
-        Path outputPath = new Path("hdfs://hadoop-master:9000/user/ict2102060/wordcount/output/");
+        Path outputPath = new Path("hdfs://hadoop-master:9000/user/ict2102060/sentimentcount/output/");
         FileSystem fs = FileSystem.get(conf);
         FileStatus[] status = fs.listStatus(inputPath);
 
