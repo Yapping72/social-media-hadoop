@@ -72,11 +72,11 @@ document.addEventListener('DOMContentLoaded', () => {
           companyRevenue.innerHTML = "<b>Revenue:</b> "+data[event.target.value]['revenue']
           companyMission.innerHTML = "<b>Mission:</b> " +data[event.target.value]['mission']
           if(data[event.target.value]['Happy']){
-              companyHappy.innerHTML = "<b>Happiness Word Count:</b> " +data[event.target.value]['Happy']
-              companySad.innerHTML = "<b>Sadness Word Count:</b> " +data[event.target.value]['Sad']
-              companyAngry.innerHTML = "<b>Anger Word Count:</b> " +data[event.target.value]['Angry']
-              companySurprised.innerHTML = "<b>Surprised Word Count:</b> " +data[event.target.value]['Surprise']
-              companyFear.innerHTML = "<b>Fear Word Count:</b> " +data[event.target.value]['Fear']
+              companyHappy.innerHTML = "<b>Happiness Word Count:</b> " + "<b style= 'color: green'>"+ data[event.target.value]['Happy'] +"</b>"
+              companySad.innerHTML ="<b>Sadness Word Count: </b>" +"<b style= 'color: red'>" + data[event.target.value]['Sad'] + "</b>";
+              companyAngry.innerHTML = "<b>Anger Word Count:</b> "+ "<b style= 'color: red'>"  +data[event.target.value]['Angry'] + "</b>"
+              companySurprised.innerHTML = "<b>Surprised Word Count:</b> " + "<b style= 'color: orange'>" + data[event.target.value]['Surprise']+"</b>"
+              companyFear.innerHTML = "<b>Fear Word Count:</b> " + "<b style= 'color: purple'>"+data[event.target.value]['Fear'] + "</b>"
           }else{
               companyHappy.innerHTML = ""
               companySad.innerHTML = ""

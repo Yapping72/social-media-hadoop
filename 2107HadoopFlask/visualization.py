@@ -11,8 +11,8 @@ import base64
 
 
 app = Flask(__name__)
-RESULTS_DIRECTORY = os.path.join("..", "hadoop_analysis", "Results")
-COMPANY_DIRECTORY = os.path.join("..", "data","Company Information" ,"Company_Information.json")
+RESULTS_DIRECTORY = os.path.join(".", "hadoop_analysis", "Results")
+COMPANY_DIRECTORY = os.path.join(".", "data","Company Information" ,"Company_Information.json")
 
 companypath = os.path.join(COMPANY_DIRECTORY)
 
