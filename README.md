@@ -58,8 +58,62 @@ Create a json file and populate it with company_codes and company_names (see '..
 # Analysis 
 View README.md file in hadoop_analysis folder to see how data sets can be analyzed.
 
-# MapReduce
-View README.md file in Hadoop folder to see setup instructions and types of Hadoop Analysis
+# MapReduce - Compile MapReduce codes to .Jar
+Copy the entire folder in eclipse in the VM. Before you export, ensure that the input and output folders are correct. Chanage the path according to your own needs. Otherwise, leave it as it is and export as a .Jar file. Once the jar file has been compiled. Scp the jar file to the big hadoop cluster. 
+* Command: scp -r <Filename> <user@IPaddress:/home/user/>
+
+# MapReduce - Use existing Jar files.
+There are 3 .jar files inside the JAR folder. To use them, use the command specified above to send them to the big hadoop cluster
+
+# MapReduce - Set Up 
+Ensure that the company that you want to analyze is in a folder called "Materials". Note that the analysis can only be done 1 company at a time so ensure there is only 1 company folder inside the "Materials" folder.
+Here is the command to scp your codes from your main machine to the big hadoop cluster.
+* Command: scp -r <path to Materials folder> <user@IPaddress:/home/user/>
+
+Next, Put the folder into the hadoop file system.
+* Command: hadoop fs -put Materials /user/username/
+
+Check the codes for the input and output file path. Below are the 3 different sets of directories you will need.
+To run word count analysis
+* hadoop fs -mkdir /user/username/wordcount/
+* hadoop fs -mkdir /user/username/wordcount/output
+
+To run rating count analysis
+* hadoop fs -mkdir /user/username/ratingcount/
+* hadoop fs -mkdir /user/username/ratingcount/output
+
+To run sentiment count analysis
+* hadoop fs -mkdir /user/username/sentimentcount/
+* hadoop fs -mkdir /user/username/sentimentcount/output
+
+# MapReduce - Running the Mapreduce on Hadoop
+Once all the set up above has been done, use the commands below to run the jar files.
+
+To run Word count .jar
+* hadoop jar WordCountAnalysis.jar WordCountAnalysis
+
+To run rating count .jar
+* hadoop jar RatingCountAnalysis.jar RatingCountAnalysis
+
+To run sentiment count .jar
+* hadoop jar SentimentCountAnalysis.jar SentimentCountAnalysis
+
+# MapReduce - View results
+Once the Mapreduce process is finished. Write one of the 3 commands to view the output
+
+Word Count output
+* command: hadoop fs -cat /user/username/wordcount/output/part-r-00000
+
+Rating Count output
+* command: hadoop fs -cat /user/username/ratingcount/output/part-r-00000
+
+Sentiment Count output
+* command: hadoop fs -cat /user/username/sentimentcount/output/part-r-00000
+
+# MapReduce - Summary
+Follow all ths steps above to carry out the different processes on a single company file.
+* Note: If you want to run MapReduce for other companies, insert the company folder into the Materials folder into the Materials folder and scp the folder into the big hadoop cluster and run the entire process again.
+
 
 # Visualization in Flask
 pip install flask , pip install wordcloud
